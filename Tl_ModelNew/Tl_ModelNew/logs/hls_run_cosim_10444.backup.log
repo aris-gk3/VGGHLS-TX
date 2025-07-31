@@ -1,0 +1,145 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/Tl_ModelNew 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/Tl_ModelNew/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/Tl_ModelNew'.
+INFO: [HLS 200-1611] Setting target device to 'xcvu3p-ffvc1517-3-e'
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/src_files/Main_Code.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(7)
+INFO: [HLS 200-10] Adding design file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/Auxiliary_Calculations.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/main_tb.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_Buf2Pe.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_Dfl_ControlLogic.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_fcLayer.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_gap.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_loadbin.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_maxPool.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_Mem2Buf.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_parameters.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_Top.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=tlModelTop' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(8)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu3p-ffvc1517-3-e' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(1)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/Tl_ModelNew/vitis-comp.json
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "C:/Xilinx/2025.1/Vitis/win64/tools/vcxx/libexec/clang++"
+   Compiling tb_loadbin.cpp_pre.cpp.tb.cpp
+   Compiling tb_Mem2Buf.cpp_pre.cpp.tb.cpp
+   Compiling tb_gap.cpp_pre.cpp.tb.cpp
+   Compiling Main_Code.cpp_pre.cpp.tb.cpp
+   Compiling tb_parameters.cpp_pre.cpp.tb.cpp
+   Compiling Auxiliary_Calculations.cpp_pre.cpp.tb.cpp
+   Compiling tb_fcLayer.cpp_pre.cpp.tb.cpp
+   Compiling tb_Buf2Pe.cpp_pre.cpp.tb.cpp
+   Compiling main_tb.cpp_pre.cpp.tb.cpp
+   Compiling apatb_tlModelTop.cpp
+   Compiling tb_maxPool.cpp_pre.cpp.tb.cpp
+   Compiling tb_Top.cpp_pre.cpp.tb.cpp
+   Compiling tb_Dfl_ControlLogic.cpp_pre.cpp.tb.cpp
+   Compiling apatb_tlModelTop_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+*********************************************************************************  Starting Verification. ************************************************************************************
+Found hardcoded RM path.
+C:/Users/arisi/Documents/VitisWorkspace/VggHLS/src_files/
+Loaded block1_conv1 as wt_data_t array of size 1728
+Length of binary files per layer verified!0
+Loaded block1_conv2 as wt_data_t array of size 36864
+Length of binary files per layer verified!1
+Loaded block2_conv1 as wt_data_t array of size 73728
+Length of binary files per layer verified!2
+Loaded block2_conv2 as wt_data_t array of size 147456
+Length of binary files per layer verified!3
+Loaded block3_conv1 as wt_data_t array of size 294912
+Length of binary files per layer verified!4
+Loaded block3_conv2 as wt_data_t array of size 589824
+Length of binary files per layer verified!5
+Loaded block3_conv3 as wt_data_t array of size 589824
+Length of binary files per layer verified!6
+Loaded block4_conv1 as wt_data_t array of size 1179648
+Length of binary files per layer verified!7
+Loaded block4_conv2 as wt_data_t array of size 2359296
+Length of binary files per layer verified!8
+Loaded block4_conv3 as wt_data_t array of size 2359296
+Length of binary files per layer verified!9
+Loaded block5_conv1 as wt_data_t array of size 2359296
+Length of binary files per layer verified!10
+Loaded block5_conv2 as wt_data_t array of size 2359296
+Length of binary files per layer verified!11
+Loaded block5_conv3 as wt_data_t array of size 2359296
+Length of binary files per layer verified!12
+Loaded dense as wt_data_t array of size 131072
+Length of binary files per layer verified!13
+Loaded dense_1 as wt_data_t array of size 4352
+Length of binary files per layer verified!14
+Input Range : min=-118 ,max=127
+Weights: min=-101, max=91
+01) After block1_conv1: min=0, max=102
+Weights: min=-52, max=70
+02) After block1_conv2: min=0, max=90
+03) After maxpool1: min=0, max=90
+Weights: min=-85, max=105
+04) After block2_conv1: min=0, max=84
+Weights: min=-64, max=97
+05) After block2_conv2: min=0, max=95
+06) After maxpool2: min=0, max=95
+Weights: min=-40, max=118
+07) After block3_conv1: min=0, max=98
+Weights: min=-40, max=104
+08) After block3_conv2: min=0, max=73
+Weights: min=-43, max=95
+09) After block3_conv3: min=0, max=66
+10) After maxpool3: min=0, max=66
+Weights: min=-43, max=109
+11) After block4_conv1: min=0, max=58
+Weights: min=-23, max=73
+12) After block4_conv2: min=0, max=58
+Weights: min=-55, max=112
+13) After block4_conv3: min=0, max=42
+14) After maxpool4: min=0, max=42
+Weights: min=-45, max=75
+15) After block5_conv1: min=0, max=49
+Weights: min=-60, max=89
+16) After block5_conv2: min=0, max=20
+Weights: min=-28, max=87
+17) After block5_conv3: min=0, max=16
+18) After maxpool5: min=0, max=16
+19) After gap: min=0, max=3
+Weights: min=-62, max=68
+20) After fc1: min=0, max=9
+Weights: min=-97, max=84
+21) After fc2: min=0, max=12
+Computed SW C sim of Oxford Flowers Model
+ERROR: System received a signal named SIGSEGV and the program has to stop immediately!
+This signal was generated when a program tries to read or write outside the memory that is allocated for it, or to write memory that can only be read.
+Possible cause of this problem may be:
+  1) Missing depth information for one or more pointers to arrays in the interface;
+  2) Insufficient depth setting for array argument(s);
+  3) Excessive depth setting for array argument(s), that exceeds the maximum virtual memory size for the process;
+  4) Null pointer etc.
+Current execution stopped during CodeState = ENTER_WRAPC.
+You can search CodeState variable name in apatb*.cpp file under ./sim/wrapc dir to locate the position.
+
+ERROR: [COSIM 212-360] Aborting co-simulation: C TB simulation failed.
+ERROR: [COSIM 212-320] C TB testing failed, stop generating test vectors. Please check C TB or re-run cosim.
+ERROR: [COSIM 212-5] *** C/RTL co-simulation file generation failed. ***
+ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***
+ERROR: 
+INFO: [HLS 200-112] Total CPU user time: 9 seconds. Total CPU system time: 7 seconds. Total elapsed time: 429.274 seconds; peak allocated memory: 432.004 MB.

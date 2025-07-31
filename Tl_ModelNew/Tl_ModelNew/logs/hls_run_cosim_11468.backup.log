@@ -1,0 +1,674 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/Tl_ModelNew 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/Tl_ModelNew/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/Tl_ModelNew'.
+INFO: [HLS 200-1611] Setting target device to 'xcvu3p-ffvc1517-3-e'
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/src_files/Main_Code.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(7)
+INFO: [HLS 200-10] Adding design file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/Auxiliary_Calculations.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/main_tb.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_Buf2Pe.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_Dfl_ControlLogic.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_fcLayer.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_gap.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_loadbin.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_maxPool.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_Mem2Buf.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_parameters.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/src_files/tb_Top.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/src_files/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=tlModelTop' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(8)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu3p-ffvc1517-3-e' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(1)
+INFO: [HLS 200-1465] Applying config ini 'csim.code_analyzer=1' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(20)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VggHLS_new/Tl_ModelNew/Tl_ModelNew/vitis-comp.json
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "C:/Xilinx/2025.1/Vitis/win64/tools/vcxx/libexec/clang++"
+   Compiling tb_loadbin.cpp_pre.cpp.tb.cpp
+   Compiling tb_Mem2Buf.cpp_pre.cpp.tb.cpp
+   Compiling tb_gap.cpp_pre.cpp.tb.cpp
+   Compiling Main_Code.cpp_pre.cpp.tb.cpp
+   Compiling tb_parameters.cpp_pre.cpp.tb.cpp
+   Compiling Auxiliary_Calculations.cpp_pre.cpp.tb.cpp
+   Compiling tb_fcLayer.cpp_pre.cpp.tb.cpp
+   Compiling tb_Buf2Pe.cpp_pre.cpp.tb.cpp
+   Compiling main_tb.cpp_pre.cpp.tb.cpp
+   Compiling apatb_tlModelTop.cpp
+   Compiling tb_maxPool.cpp_pre.cpp.tb.cpp
+   Compiling tb_Top.cpp_pre.cpp.tb.cpp
+   Compiling tb_Dfl_ControlLogic.cpp_pre.cpp.tb.cpp
+   Compiling apatb_tlModelTop_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+*********************************************************************************  Starting Verification. ************************************************************************************
+*****  Layer 1  *****
+Found hardcoded RM path.
+C:/Users/arisi/Documents/VitisWorkspace/VggHLS/src_files/
+Loaded parameters in mem2Buf, layer:0
+Loaded parameters in loadBiasTile, layer:0
+Loaded parameters in tileClc, layer:0
+Loaded parameters, layer:0
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 10
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 10
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 10
+Finished tileClc tile:2
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 10
+Finished tileClc tile:3
+Finished tile:3
+Finished mem2Buf tile:4
+Finished loadBiasTile tile:4
+For this tile, bit shift is 10
+Finished tileClc tile:4
+Finished tile:4
+Finished mem2Buf tile:5
+Finished loadBiasTile tile:5
+For this tile, bit shift is 10
+Finished tileClc tile:5
+Finished tile:5
+Finished mem2Buf tile:6
+Finished loadBiasTile tile:6
+For this tile, bit shift is 10
+Finished tileClc tile:6
+Finished tile:6
+Finished mem2Buf tile:7
+Finished loadBiasTile tile:7
+For this tile, bit shift is 10
+Finished tileClc tile:7
+Finished tile:7
+*****  Layer 2  *****
+Loaded parameters in mem2Buf, layer:1
+Loaded parameters in loadBiasTile, layer:1
+Loaded parameters in tileClc, layer:1
+Loaded parameters, layer:1
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 10
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 10
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 10
+Finished tileClc tile:2
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 10
+Finished tileClc tile:3
+Finished tile:3
+Finished mem2Buf tile:4
+Finished loadBiasTile tile:4
+For this tile, bit shift is 10
+Finished tileClc tile:4
+Finished tile:4
+Finished mem2Buf tile:5
+Finished loadBiasTile tile:5
+For this tile, bit shift is 10
+Finished tileClc tile:5
+Finished tile:5
+Finished mem2Buf tile:6
+Finished loadBiasTile tile:6
+For this tile, bit shift is 10
+Finished tileClc tile:6
+Finished tile:6
+Finished mem2Buf tile:7
+Finished loadBiasTile tile:7
+For this tile, bit shift is 10
+Finished tileClc tile:7
+Finished tile:7
+*****  Layer 3  *****
+Loaded parameters in mem2Buf, layer:2
+Loaded parameters in loadBiasTile, layer:2
+Loaded parameters in tileClc, layer:2
+Loaded parameters, layer:2
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 9
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 9
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 9
+Finished tileClc tile:2
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 9
+Finished tileClc tile:3
+Finished tile:3
+*****  Layer 4  *****
+Loaded parameters in mem2Buf, layer:3
+Loaded parameters in loadBiasTile, layer:3
+Loaded parameters in tileClc, layer:3
+Loaded parameters, layer:3
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 9
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 9
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 9
+Finished tileClc tile:2
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 9
+Finished tileClc tile:3
+Finished tile:3
+Number of out of range synth values are:103
+
+Positions of out of range values (first 20) for synth module are:
+890519   890520   890521   890531   890532   890533   890534   890544   890545   890546   890547   890548   890554   890555   890556   890563   890578   890579   890602   890603   
+Values out of range (first 20) for synth module are:
+131   128   128   131   134   136   128   133   132   133   131   128   131   128   133   129   132   134   130   133   Number of out of range tb values are:103
+
+Positions of out of range values (first 20) for TB are:
+890519   890520   890521   890531   890532   890533   890534   890544   890545   890546   890547   890548   890554   890555   890556   890563   890578   890579   890602   890603   
+Values out of range (first 20) for TB are:
+131   128   128   131   134   136   128   133   132   133   131   128   131   128   133   129   132   134   130   133   *****  Layer 5  *****
+Loaded parameters in mem2Buf, layer:4
+Loaded parameters in loadBiasTile, layer:4
+Loaded parameters in tileClc, layer:4
+Loaded parameters, layer:4
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 8
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 8
+Finished tileClc tile:1
+Finished tile:1
+*****  Layer 6  *****
+Loaded parameters in mem2Buf, layer:5
+Loaded parameters in loadBiasTile, layer:5
+Loaded parameters in tileClc, layer:5
+Loaded parameters, layer:5
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 8
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 8
+Finished tileClc tile:1
+Finished tile:1
+Number of out of range synth values are:56
+
+Positions of out of range values (first 20) for synth module are:
+313600   313656   313712   313768   313824   313880   313936   313992   314048   314104   314160   314216   314272   314328   314384   314440   314496   314552   314608   314664   
+Values out of range (first 20) for synth module are:
+159   151   141   132   136   143   137   141   148   155   153   136   137   137   142   144   145   142   141   131   Number of out of range tb values are:56
+
+Positions of out of range values (first 20) for TB are:
+313600   313656   313712   313768   313824   313880   313936   313992   314048   314104   314160   314216   314272   314328   314384   314440   314496   314552   314608   314664   
+Values out of range (first 20) for TB are:
+159   151   141   132   136   143   137   141   148   155   153   136   137   137   142   144   145   142   141   131   *****  Layer 7  *****
+Loaded parameters in mem2Buf, layer:6
+Loaded parameters in loadBiasTile, layer:6
+Loaded parameters in tileClc, layer:6
+Loaded parameters, layer:6
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 8
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 8
+Finished tileClc tile:1
+Finished tile:1
+Number of out of range synth values are:6
+
+Positions of out of range values (first 20) for synth module are:
+169904   170016   170072   170184   171080   172424   
+Values out of range (first 20) for synth module are:
+129   128   130   129   133   180   Number of out of range tb values are:6
+
+Positions of out of range values (first 20) for TB are:
+169904   170016   170072   170184   171080   172424   
+Values out of range (first 20) for TB are:
+129   128   130   129   133   180   *****  Layer 8  *****
+Loaded parameters in mem2Buf, layer:7
+Loaded parameters in loadBiasTile, layer:7
+Loaded parameters in tileClc, layer:7
+Loaded parameters, layer:7
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 8
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 8
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 8
+Finished tileClc tile:2
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 8
+Finished tileClc tile:3
+Finished tile:3
+Number of out of range synth values are:12
+
+Positions of out of range values (first 20) for synth module are:
+347395   347535   347591   347619   347647   347675   347703   347731   347815   347843   347871   348067   
+Values out of range (first 20) for synth module are:
+134   134   139   147   149   132   134   131   130   131   132   128   Number of out of range tb values are:12
+
+Positions of out of range values (first 20) for TB are:
+347395   347535   347591   347619   347647   347675   347703   347731   347815   347843   347871   348067   
+Values out of range (first 20) for TB are:
+134   134   139   147   149   132   134   131   130   131   132   128   *****  Layer 9  *****
+Loaded parameters in mem2Buf, layer:8
+Loaded parameters in loadBiasTile, layer:8
+Loaded parameters in tileClc, layer:8
+Loaded parameters, layer:8
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 7
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 7
+Finished tileClc tile:1
+Value out of range found in 226 Map, 0 Row, 27 Column
+Value is 440
+Value out of range found in 226 Map, 1 Row, 27 Column
+Value is 394
+Value out of range found in 226 Map, 2 Row, 27 Column
+Value is 377
+Value out of range found in 226 Map, 3 Row, 27 Column
+Value is 403
+Value out of range found in 226 Map, 4 Row, 27 Column
+Value is 418
+Value out of range found in 226 Map, 5 Row, 27 Column
+Value is 396
+Value out of range found in 226 Map, 6 Row, 27 Column
+Value is 392
+Value out of range found in 226 Map, 7 Row, 27 Column
+Value is 393
+Value out of range found in 226 Map, 8 Row, 27 Column
+Value is 384
+Value out of range found in 226 Map, 9 Row, 27 Column
+Value is 403
+Value out of range found in 226 Map, 10 Row, 27 Column
+Value is 420
+Value out of range found in 226 Map, 11 Row, 27 Column
+Value is 404
+Value out of range found in 226 Map, 12 Row, 27 Column
+Value is 408
+Value out of range found in 226 Map, 13 Row, 27 Column
+Value is 397
+Value out of range found in 226 Map, 14 Row, 27 Column
+Value is 409
+Value out of range found in 226 Map, 15 Row, 27 Column
+Value is 382
+Value out of range found in 226 Map, 16 Row, 27 Column
+Value is 401
+Value out of range found in 226 Map, 17 Row, 27 Column
+Value is 409
+Value out of range found in 226 Map, 18 Row, 27 Column
+Value is 400
+Value out of range found in 226 Map, 19 Row, 27 Column
+Value is 400
+Value out of range found in 226 Map, 20 Row, 27 Column
+Value is 397
+Value out of range found in 226 Map, 21 Row, 27 Column
+Value is 407
+Value out of range found in 226 Map, 22 Row, 27 Column
+Value is 408
+Value out of range found in 226 Map, 23 Row, 27 Column
+Value is 402
+Value out of range found in 226 Map, 24 Row, 27 Column
+Value is 404
+Value out of range found in 226 Map, 25 Row, 27 Column
+Value is 395
+Value out of range found in 226 Map, 26 Row, 27 Column
+Value is 388
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 7
+Finished tileClc tile:2
+Value out of range found in 350 Map, 0 Row, 0 Column
+Value is 393
+Value out of range found in 350 Map, 0 Row, 1 Column
+Value is 295
+Value out of range found in 350 Map, 0 Row, 2 Column
+Value is 302
+Value out of range found in 350 Map, 0 Row, 3 Column
+Value is 293
+Value out of range found in 350 Map, 0 Row, 4 Column
+Value is 285
+Value out of range found in 350 Map, 0 Row, 5 Column
+Value is 293
+Value out of range found in 350 Map, 0 Row, 6 Column
+Value is 288
+Value out of range found in 350 Map, 0 Row, 7 Column
+Value is 309
+Value out of range found in 350 Map, 0 Row, 8 Column
+Value is 307
+Value out of range found in 350 Map, 0 Row, 9 Column
+Value is 280
+Value out of range found in 350 Map, 0 Row, 10 Column
+Value is 298
+Value out of range found in 350 Map, 0 Row, 11 Column
+Value is 294
+Value out of range found in 350 Map, 0 Row, 12 Column
+Value is 284
+Value out of range found in 350 Map, 0 Row, 13 Column
+Value is 295
+Value out of range found in 350 Map, 0 Row, 14 Column
+Value is 279
+Value out of range found in 350 Map, 0 Row, 15 Column
+Value is 288
+Value out of range found in 350 Map, 0 Row, 16 Column
+Value is 303
+Value out of range found in 350 Map, 0 Row, 17 Column
+Value is 301
+Value out of range found in 350 Map, 0 Row, 18 Column
+Value is 268
+Value out of range found in 350 Map, 0 Row, 19 Column
+Value is 268
+Value out of range found in 350 Map, 0 Row, 20 Column
+Value is 265
+Value out of range found in 350 Map, 0 Row, 21 Column
+Value is 299
+Value out of range found in 350 Map, 0 Row, 22 Column
+Value is 295
+Value out of range found in 350 Map, 0 Row, 23 Column
+Value is 292
+Value out of range found in 350 Map, 0 Row, 24 Column
+Value is 279
+Value out of range found in 350 Map, 0 Row, 25 Column
+Value is 303
+Value out of range found in 350 Map, 0 Row, 26 Column
+Value is 326
+Value out of range found in 350 Map, 8 Row, 0 Column
+Value is 257
+Value out of range found in 350 Map, 18 Row, 0 Column
+Value is 256
+Value out of range found in 350 Map, 22 Row, 0 Column
+Value is 270
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 7
+Finished tileClc tile:3
+Value out of range found in 406 Map, 1 Row, 0 Column
+Value is 354
+Value out of range found in 406 Map, 2 Row, 0 Column
+Value is 376
+Value out of range found in 406 Map, 3 Row, 0 Column
+Value is 388
+Value out of range found in 406 Map, 4 Row, 0 Column
+Value is 364
+Value out of range found in 406 Map, 5 Row, 0 Column
+Value is 389
+Value out of range found in 406 Map, 6 Row, 0 Column
+Value is 373
+Value out of range found in 406 Map, 7 Row, 0 Column
+Value is 373
+Value out of range found in 406 Map, 8 Row, 0 Column
+Value is 373
+Value out of range found in 406 Map, 9 Row, 0 Column
+Value is 381
+Value out of range found in 406 Map, 10 Row, 0 Column
+Value is 389
+Value out of range found in 406 Map, 11 Row, 0 Column
+Value is 369
+Value out of range found in 406 Map, 12 Row, 0 Column
+Value is 363
+Value out of range found in 406 Map, 13 Row, 0 Column
+Value is 369
+Value out of range found in 406 Map, 14 Row, 0 Column
+Value is 367
+Value out of range found in 406 Map, 15 Row, 0 Column
+Value is 376
+Value out of range found in 406 Map, 16 Row, 0 Column
+Value is 397
+Value out of range found in 406 Map, 17 Row, 0 Column
+Value is 391
+Value out of range found in 406 Map, 18 Row, 0 Column
+Value is 383
+Value out of range found in 406 Map, 19 Row, 0 Column
+Value is 376
+Value out of range found in 406 Map, 20 Row, 0 Column
+Value is 397
+Value out of range found in 406 Map, 21 Row, 0 Column
+Value is 385
+Value out of range found in 406 Map, 22 Row, 0 Column
+Value is 360
+Value out of range found in 406 Map, 23 Row, 0 Column
+Value is 373
+Value out of range found in 406 Map, 24 Row, 0 Column
+Value is 397
+Value out of range found in 406 Map, 25 Row, 0 Column
+Value is 384
+Value out of range found in 406 Map, 26 Row, 0 Column
+Value is 361
+Value out of range found in 406 Map, 27 Row, 0 Column
+Value is 411
+Value out of range found in 471 Map, 27 Row, 1 Column
+Value is 258
+Value out of range found in 471 Map, 27 Row, 13 Column
+Value is 260
+Value out of range found in 471 Map, 27 Row, 27 Column
+Value is 261
+Finished tile:3
+Number of out of range synth values are:320
+
+Positions of out of range values (first 20) for synth module are:
+19572   19573   19574   19575   19576   19577   19578   19579   19580   19581   19582   19583   19584   19585   19586   19587   19588   19589   19590   19591   
+Values out of range (first 20) for synth module are:
+170   205   220   228   239   216   208   209   230   238   227   224   214   199   209   198   222   214   216   216   Number of out of range tb values are:320
+
+Positions of out of range values (first 20) for TB are:
+19572   19573   19574   19575   19576   19577   19578   19579   19580   19581   19582   19583   19584   19585   19586   19587   19588   19589   19590   19591   
+Values out of range (first 20) for TB are:
+170   205   220   228   239   216   208   209   230   238   227   224   214   199   209   198   222   214   216   216   *****  Layer 10  *****
+Loaded parameters in mem2Buf, layer:9
+Loaded parameters in loadBiasTile, layer:9
+Loaded parameters in tileClc, layer:9
+Loaded parameters, layer:9
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 8
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 8
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 8
+Finished tileClc tile:2
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 8
+Finished tileClc tile:3
+Finished tile:3
+Number of out of range synth values are:29
+
+Positions of out of range values (first 20) for synth module are:
+45499   92511   201461   201462   201463   201464   201465   201466   201467   201468   201469   201470   201471   201472   201473   201474   201475   201476   201477   201478   
+Values out of range (first 20) for synth module are:
+154   143   171   175   155   160   157   159   138   138   141   144   148   143   150   149   165   149   159   153   Number of out of range tb values are:29
+
+Positions of out of range values (first 20) for TB are:
+45499   92511   201461   201462   201463   201464   201465   201466   201467   201468   201469   201470   201471   201472   201473   201474   201475   201476   201477   201478   
+Values out of range (first 20) for TB are:
+154   143   171   175   155   160   157   159   138   138   141   144   148   143   150   149   165   149   159   153   *****  Layer 11  *****
+Loaded parameters in mem2Buf, layer:10
+Loaded parameters in loadBiasTile, layer:10
+Loaded parameters in tileClc, layer:10
+Loaded parameters, layer:10
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 8
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 8
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 8
+Finished tileClc tile:2
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 8
+Finished tileClc tile:3
+Finished tile:3
+*****  Layer 12  *****
+Loaded parameters in mem2Buf, layer:11
+Loaded parameters in loadBiasTile, layer:11
+Loaded parameters in tileClc, layer:11
+Loaded parameters, layer:11
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 8
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 8
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 8
+Finished tileClc tile:2
+Value out of range found in 355 Map, 1 Row, 13 Column
+Value is 270
+Value out of range found in 355 Map, 2 Row, 13 Column
+Value is 270
+Value out of range found in 355 Map, 3 Row, 13 Column
+Value is 279
+Value out of range found in 355 Map, 4 Row, 13 Column
+Value is 266
+Value out of range found in 355 Map, 5 Row, 13 Column
+Value is 266
+Value out of range found in 355 Map, 6 Row, 13 Column
+Value is 284
+Value out of range found in 355 Map, 7 Row, 13 Column
+Value is 292
+Value out of range found in 355 Map, 8 Row, 13 Column
+Value is 294
+Value out of range found in 355 Map, 9 Row, 13 Column
+Value is 269
+Value out of range found in 355 Map, 10 Row, 13 Column
+Value is 281
+Value out of range found in 355 Map, 11 Row, 13 Column
+Value is 287
+Value out of range found in 355 Map, 13 Row, 13 Column
+Value is 380
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 8
+Finished tileClc tile:3
+Finished tile:3
+Number of out of range synth values are:49
+
+Positions of out of range values (first 20) for synth module are:
+3332   3346   3360   3374   3402   3416   3430   3458   3472   3486   3500   56841   56842   56843   56844   56845   56846   56847   56848   56849   
+Values out of range (first 20) for synth module are:
+143   145   139   136   136   140   143   137   141   138   142   156   158   152   150   144   149   148   150   146   Number of out of range tb values are:49
+
+Positions of out of range values (first 20) for TB are:
+3332   3346   3360   3374   3402   3416   3430   3458   3472   3486   3500   56841   56842   56843   56844   56845   56846   56847   56848   56849   
+Values out of range (first 20) for TB are:
+143   145   139   136   136   140   143   137   141   138   142   156   158   152   150   144   149   148   150   146   *****  Layer 13  *****
+Loaded parameters in mem2Buf, layer:12
+Loaded parameters in loadBiasTile, layer:12
+Loaded parameters in tileClc, layer:12
+Loaded parameters, layer:12
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 7
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 7
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 7
+Finished tileClc tile:2
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 7
+Finished tileClc tile:3
+Finished tile:3
+*****  ConvLayer Test with bias + ReLu Passed!  ******
+
+*********************************************************************************  Verification Complete. ************************************************************************************
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
+ERROR: [COSIM 212-330] Aborting co-simulation: top function 'tlModelTop' is not invoked in the test bench.
+ERROR: [COSIM 212-5] *** C/RTL co-simulation file generation failed. ***
+ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***
+ERROR: 
+INFO: [HLS 200-112] Total CPU user time: 10 seconds. Total CPU system time: 8 seconds. Total elapsed time: 5118.52 seconds; peak allocated memory: 449.801 MB.
