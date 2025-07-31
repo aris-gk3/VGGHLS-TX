@@ -92,11 +92,11 @@ void loadBiasTile(data_bool layerCnfg,
 void loadIfMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ data_bool northTile, data_bool southTile,
-		Niy_dt yBase_in, px_data_t IfMap[IFMAP_MEMSIZE],//[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
+		Niy_dt yBase_in, const px_data_t IfMap[IFMAP_MEMSIZE],//[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
 		/* Output */ px_data_t InBuf[POY][WRD_INBUF][POX]);
 void loadWtMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ Nofy_step_dt ofBase, wt_data_t WtMap[WTMAP_MEMSIZE],
+		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t WtMap[WTMAP_MEMSIZE],
 		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]);
 void storeMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
@@ -104,8 +104,8 @@ void storeMap(
 		/* Output */ px_data_t OfMap[OFMAP_MEMSIZE]);
 void mem2Buf(
 		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ px_data_t IfMap[IFMAP_MEMSIZE],
-		wt_data_t WtMap[WTMAP_MEMSIZE],
+		/* Inputs */ const px_data_t IfMap[IFMAP_MEMSIZE],
+		const wt_data_t WtMap[WTMAP_MEMSIZE],
 		/* Outputs */ px_data_t InBuf[POY][WRD_INBUF][POX],
 		wt_data_t WtBuf[WRD_WTBUF][POF]);
 void ConvLayer_Dfl(
@@ -119,8 +119,8 @@ void ConvLayer_Dfl(
 		wt_data_t WtMap[WTMAP_MEMSIZE],
 		/* Output */ px_data_t OfMap[OFMAP_MEMSIZE]);
 void ConvLayer(
-		/*Inputs*/ px_data_t IfMap[IFMAP_MEMSIZE], // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
-		wt_data_t WtMap[WTMAP_MEMSIZE], // [NOF][NIF][NKY][NKX]
+		/*Inputs*/ const px_data_t IfMap[IFMAP_MEMSIZE], // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
+		const wt_data_t WtMap[WTMAP_MEMSIZE], // [NOF][NIF][NKY][NKX]
 		/*Output*/ px_data_t OfMap[OFMAP_MEMSIZE]);
 void ConvLayer_module(data_bool layerCnfg, int test, int loop_limit_1, int loop_limit_2,
 		px_data_t *IfMap,  // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
@@ -149,6 +149,7 @@ void printWtStream(wt_data_t WtStream[POF]);
 void printPeResults(px_data_t px_stream[POF][POY][POX]);
 
 // ** Testbench for Modules Function
+void minimalRunSynth(int layerNo);
 int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue);
 int vgg16_test(int verbose, int minPrint, int biasReLuTrue);
 int fcLayer_test(int verbose);
@@ -245,9 +246,7 @@ void initWtBuf_undef(wt_data_t WtBuf[WRD_WTBUF][POF]);
 void initOutBuf_undef(px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]);
 void initOfMap_undef(int layerNo, px_data_t *OfMap, int value);
 px_data_t* initIfMap(int layerNo, int binInput);
-void initIfMap_static(px_data_t (&IfMap)[MAP_SIZE], int layerNo, int binInput);
 wt_data_t* initWtMap(int layerNo, int binInput);
-void initWtMap_static(wt_data_t (&WtMap)[MAP_SIZE], int layerNo, int binInput);
 void MemInit(wt_data_t*& WtMapCNN,  wt_data_t**& WtMapConv, wt_data_t**& WtMapFC,
     px_data_t*& IfMap, px_data_t*& Map2);
 

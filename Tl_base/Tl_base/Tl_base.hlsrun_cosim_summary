@@ -1,0 +1,226 @@
+<ENTRY>
+{
+ "thisFile": "C:/Programming_Files\\VGGHLS-TX\\Tl_base\\Tl_base\\Tl_base.hlsrun_cosim_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "07/31/25 18:01:50",
+ "timestampMillis": "1753974110611",
+ "buildStep": {
+  "cmdId": "63c172f6-fe89-482e-b59c-00ff32a7155a",
+  "name": "vitis-run",
+  "logFile": "C:/Programming_Files\\VGGHLS-TX\\Tl_base\\Tl_base\\logs\\Tl_base.steps.log",
+  "commandLine": "C:/Xilinx/2025.1/Vitis/bin/unwrapped/win64.o/vitis-run.exe  --mode hls --cosim --config C:\\Programming_Files\\VGGHLS-TX\\Tl_base\\hls_config.cfg --work_dir Tl_base ",
+  "args": [
+   "--mode",
+   "hls",
+   "--cosim",
+   "--config",
+   "C:\\Programming_Files\\VGGHLS-TX\\Tl_base\\hls_config.cfg",
+   "--work_dir",
+   "Tl_base"
+  ],
+  "iniFiles": [],
+  "cwd": "C:\\Programming_Files\\VGGHLS-TX\\Tl_base"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "07/31/25 18:01:50",
+ "timestampMillis": "1753974110611",
+ "status": {
+  "cmdId": "63c172f6-fe89-482e-b59c-00ff32a7155a",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "07/31/25 18:01:56",
+ "timestampMillis": "1753974116123",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_RTL_COSIM",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "ConvLayer",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "C:/Programming_Files\\VGGHLS-TX\\src_files\\Main_Code.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2025.1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "07/31/25 18:01:56",
+ "timestampMillis": "1753974116124",
+ "buildStep": {
+  "cmdId": "adf609fe-c314-4e40-9697-cd0df2284db3",
+  "name": "",
+  "logFile": "C:/Programming_Files\\VGGHLS-TX\\Tl_base\\Tl_base\\hls\\hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "C:\\Programming_Files\\VGGHLS-TX\\Tl_base"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "07/31/25 18:01:56",
+ "timestampMillis": "1753974116125",
+ "status": {
+  "cmdId": "adf609fe-c314-4e40-9697-cd0df2284db3",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "07/31/25 18:01:56",
+ "timestampMillis": "1753974116125",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\Tl_base\\Tl_base\\hls\\sim\\report\\ConvLayer_cosim.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_COSIMULATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "07/31/25 18:01:56",
+ "timestampMillis": "1753974116125",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\Tl_base\\Tl_base\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "07/31/25 18:01:56",
+ "timestampMillis": "1753974116126",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\Tl_base\\Tl_base\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH_COSIM",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "07/31/25 18:01:56",
+ "timestampMillis": "1753974116126",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\Tl_base\\Tl_base\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_TIMELINE_TRACE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "07/31/25 18:01:56",
+ "timestampMillis": "1753974116127",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\Tl_base\\Tl_base\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_WAVE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "07/31/25 18:26:09",
+ "timestampMillis": "1753975569970",
+ "status": {
+  "cmdId": "adf609fe-c314-4e40-9697-cd0df2284db3",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "07/31/25 18:26:10",
+ "timestampMillis": "1753975570719",
+ "status": {
+  "cmdId": "63c172f6-fe89-482e-b59c-00ff32a7155a",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "07/31/25 18:26:10",
+ "timestampMillis": "1753975570728",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "07/31/25 18:26:10",
+ "timestampMillis": "1753975570729",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

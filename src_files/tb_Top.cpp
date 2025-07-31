@@ -187,6 +187,15 @@ int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
 }
 
 
+void minimalRunSynth(int layerNo){
+	static px_data_t IfMap[MAP_SIZE] = {0};
+	static px_data_t WtMap[WTMAP_MEMSIZE] = {0};
+	static px_data_t OfMap[MAP_SIZE] = {0};
+
+	ConvLayer(IfMap, WtMap, OfMap);
+}
+
+
 // *****  Software Functions  *****
 
 void vgg16_software(px_data_t* IfMap,

@@ -462,7 +462,7 @@ void wndClc_Dfl(
 
 	Region1: for(int counter=0;counter<wndclc_loop_limit;counter++){
 	#pragma HLS PIPELINE
-	#pragma HLS loop_tripcount min=576 max=576
+	#pragma HLS loop_tripcount min=27 max=27
 		Pox_i_dt col;                  		// InBuf2Pe_ctrl output variables (2)
 		Poy_i_dt bank;                 		// InBuf2Pe_ctrl output variables (3)
 		data_bool dct_ld, fl_ld, wr_fifo; 	// InBuf2Pe_ctrl output variables (4)
@@ -655,7 +655,6 @@ void Pe2Buf(
 			#pragma HLS UNROLL
 				loop_Pe2Buf_Pox_Load: for(int Pox_i=0;Pox_i<POX;Pox_i++){
 				#pragma HLS UNROLL
-					//OutBuf[Poy_i][row][Pox_i] = px_stream[OUTBUF_NUM][Poy_i][Pox_i];
 					pxSerial[OUTBUF_NUM_i][Pox_i] =
 							px_stream[OUTBUF_NUM_i + POFBANK_STEP_i*OUTBUF_NUM][Poy_i][Pox_i];
 				}
@@ -669,15 +668,9 @@ void Pe2Buf(
 			#pragma HLS UNROLL
 				loop_Pe2Buf_Pox_Store: for(int Pox_i=0;Pox_i<POX;Pox_i++){
 				#pragma HLS UNROLL
-					// if(POFBANK_STEP_i*OUTBUF_NUM+OUTBUF_NUM_i<POF){
-					// 	OutBuf[OUTBUF_NUM_i][row /*+ POFBANK_STEP_i*Toy*Tox_step*/ + Poy_i*Tox_step][Pox_i] = ReLuOut[OUTBUF_NUM_i][Pox_i];
-					// }
 					OutBuf[OUTBUF_NUM_i][row /*+ POFBANK_STEP_i*Toy*Tox_step*/ + Poy_i*Tox_step][Pox_i] = ReLuOut[OUTBUF_NUM_i][Pox_i];
 				}
 			}
-				// if(Poy_i == POY-1){
-				// 	row += Toy*Tox_step;
-				// }
 		}
 		row += Toy*Tox_step; // Add rows to move to next set of Maps
 		// instead of adding POFBANK_STEP_i*Toy*Tox_step in rows of OutBuf1
@@ -887,7 +880,7 @@ void loadIfMap(
 		data_bool layerCnfg,
 		// Inputs
 		data_bool northTile_in, data_bool southTile_in,
-		Niy_dt yBase_in, px_data_t IfMap[IFMAP_MEMSIZE], //[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
+		Niy_dt yBase_in, const px_data_t IfMap[IFMAP_MEMSIZE], //[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
 		// Output
 		px_data_t InBuf[POY][WRD_INBUF][POX]
 	){
@@ -934,9 +927,9 @@ void loadIfMap(
 		yTile = Tiy - northTile - southTile; xTile = Tix - 2;
 		wrdMap = 0;
 		If_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=64 max=64
+		#pragma HLS LOOP_TRIPCOUNT min=3 max=3
 			Poy_i = northTile; wrdY = 0;
-			If_Niy: for(int yTile_i=0;yTile_i<yTile;yTile_i++){
+			If_Tiy: for(int yTile_i=0;yTile_i<yTile;yTile_i++){
 			#pragma HLS LOOP_TRIPCOUNT min=30 max=30
 				Pox_i = 1; wrdX = 0;
 				If_Nix: for(int xTile_i=0;xTile_i<xTile;xTile_i++){
@@ -965,8 +958,9 @@ void loadIfMap(
 		// North Zero Padding
 		if(northTile){
 			NorthPad_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=3 max=3
 				NorthPad_wrd: for(int wrd_1row_i=0;wrd_1row_i<wrd_1row;wrd_1row_i++){
-				//#pragma HLS PIPELINE
+				#pragma HLS LOOP_TRIPCOUNT min=33 max=33
 					NorthPad_Pox: for(int Pox_i=0;Pox_i<POX;Pox_i++){
 					#pragma HLS UNROLL
 						InBuf[0][Nif_i*row_1map*wrd_1row + wrd_1row_i][Pox_i] = 0;
@@ -977,8 +971,11 @@ void loadIfMap(
 		// South Zero Padding
 		if(southTile){
 			SouthPad_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=3 max=3
 				SouthPad_wrd: for(int wrd_1row_i=0;wrd_1row_i<wrd_1row;wrd_1row_i++){
+				#pragma HLS LOOP_TRIPCOUNT min=33 max=33
 					SouthPad_Pox: for(int Pox_i=0;Pox_i<POX;Pox_i++){
+					#pragma HLS UNROLL
 						InBuf[TiyRem][Nif_i*row_1map*wrd_1row + (row_1map-1)*wrd_1row+ wrd_1row_i][Pox_i] = 0;
 					}
 				}
@@ -986,7 +983,7 @@ void loadIfMap(
 		}
 		// West Zero Padding
 		WestPad_Line: for(int nxtLine_i=0;nxtLine_i<Nif*row_1map;nxtLine_i++){
-		//#pragma HLS PIPELINE
+		#pragma HLS LOOP_TRIPCOUNT min=15 max=15
 			WestPad_Poy: for(int Poy_i=0;Poy_i<POY;Poy_i++){
 			#pragma HLS UNROLL
 				InBuf[Poy_i][nxtLine_i*wrd_1row][0] = 0;
@@ -994,7 +991,7 @@ void loadIfMap(
 		}
 		// East Zero Padding
 		EastPad_Line: for(int nxtLine_i=0;nxtLine_i<Nif*row_1map;nxtLine_i++){
-		//#pragma HLS PIPELINE
+		#pragma HLS LOOP_TRIPCOUNT min=15 max=15
 			EastPad_Poy: for(int Poy_i=0;Poy_i<POY;Poy_i++){
 			#pragma HLS UNROLL
 				InBuf[Poy_i][nxtLine_i*wrd_1row + wrd_1row-1][TixRem] = 0;
@@ -1006,7 +1003,7 @@ void loadIfMap(
 
 void loadWtMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ Nofy_step_dt ofBase, wt_data_t WtMap[WTMAP_MEMSIZE],
+		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t WtMap[WTMAP_MEMSIZE],
 		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]
 	){
 	#pragma HLS INLINE off
@@ -1031,7 +1028,7 @@ void loadWtMap(
 		WtLoop_Tof: for(int Tof_i=0;Tof_i<Tof;Tof_i++){
 		#pragma HLS LOOP_TRIPCOUNT min=64 max=64
 			WtLoop_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=64 max=64
+			#pragma HLS LOOP_TRIPCOUNT min=3 max=3
 				WtLoop_Nky: for(int Nky_i=0;Nky_i<NKY;Nky_i++){
 				#pragma HLS LOOP_TRIPCOUNT min=3 max=3
 					WtLoop_Nkx: for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
@@ -1145,8 +1142,8 @@ void mem2Buf(
 		// Parameter Loading State
 		data_bool layerCnfg,
 		// Inputs
-		px_data_t IfMap[IFMAP_MEMSIZE],
-		wt_data_t WtMap[WTMAP_MEMSIZE],
+		const px_data_t IfMap[IFMAP_MEMSIZE],
+		const wt_data_t WtMap[WTMAP_MEMSIZE],
 		// Outputs
 		px_data_t InBuf[POY][WRD_INBUF][POX],
 		wt_data_t WtBuf[WRD_WTBUF][POF]
@@ -1248,13 +1245,13 @@ void ConvLayer_Dfl(
 
 void ConvLayer(
 		//Inputs
-		px_data_t *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
-		wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
+		const px_data_t *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
+		const wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		//Output
 		px_data_t *OfMap 	// [NOF][NOY][NOX]
 	){
 	#pragma HLS INTERFACE m_axi port=IfMap depth=MAP_SIZE
-	#pragma HLS INTERFACE m_axi port=WtMap depth=MAP_SIZE
+	#pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE
 	#pragma HLS INTERFACE m_axi port=OfMap depth=MAP_SIZE
 	static layerNo_dt layerNo = 0; 				// State of number of convolutional layer
 

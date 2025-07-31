@@ -668,6 +668,29 @@ void convLayer_software(int layerNo,
 
 // *****  Auxiliary Functions  *****
 
+// void initIfMap(px_data_t (&IfMap)[MAP_SIZE], int layerNo, int binInput){
+// 	if(binInput==1){
+// 		if(layerNo==0){
+// 			px_data_t* imgMem = nullptr;
+// 			imgMem = imgLoadFromBin_wrapper();
+// 			for(int i=0;i<IFMAP_MEMSIZE;i++){
+// 				if(i < Nif_rom[layerNo]*niy_rom[layerNo]*(tix_rom[layerNo]-2) ){
+// 					IfMap[i] = imgMem[i];
+// 				}
+// 				else{
+// 					IfMap[i] = 0;
+// 				}
+// 			}
+// 		}
+// 		else{
+// 			for(int i=0;i<IFMAP_MEMSIZE;i++){
+// 				IfMap[i] = rand()%50;
+// 			}
+// 		}
+// 	}
+// }
+
+
 px_data_t* initIfMap(int layerNo, int binInput){
 	px_data_t* imgMem = nullptr;
 	if(binInput==1){
@@ -691,29 +714,6 @@ px_data_t* initIfMap(int layerNo, int binInput){
 }
 
 
-void initIfMap_static(px_data_t (&IfMap)[MAP_SIZE], int layerNo, int binInput){
-	if(binInput==1){
-		if(layerNo==0){
-			px_data_t* imgMem = nullptr;
-			imgMem = imgLoadFromBin_wrapper();
-			for(int i=0;i<IFMAP_MEMSIZE;i++){
-				if(i < Nif_rom[layerNo]*niy_rom[layerNo]*(tix_rom[layerNo]-2) ){
-					IfMap[i] = imgMem[i];
-				}
-				else{
-					IfMap[i] = 0;
-				}
-			}
-		}
-		else{
-			for(int i=0;i<IFMAP_MEMSIZE;i++){
-				IfMap[i] = rand()%50;
-			}
-		}
-	}
-}
-
-
 wt_data_t* initWtMap(int layerNo, int binInput){
 	wt_data_t* WtMap = nullptr;
 	if(binInput==1){
@@ -726,25 +726,4 @@ wt_data_t* initWtMap(int layerNo, int binInput){
 		}
 	}
 	return WtMap;
-}
-
-
-void initWtMap_static(wt_data_t (&WtMap)[MAP_SIZE], int layerNo, int binInput){
-	wt_data_t* WtMem = nullptr;
-	if(binInput==1){
-		WtMem = wtLoadFromBin_wrapper(layerNo);
-		for(int i=0;i<WTMAP_MEMSIZE;i++){
-			if(i< Nof_step_rom[layerNo]*Tof_rom[layerNo]*Nif_rom[layerNo]*NKY*NKX){
-				WtMap[i] = WtMem[i];
-			}
-			else{
-				WtMap[i] = 0;
-			}
-		}
-	}
-	else{
-		for(int i=0;i<WTMAP_MEMSIZE;i++){
-			WtMap[i] = (rand()%(SYMM_RANGE*2+1)-SYMM_RANGE);
-		}
-	}
 }
