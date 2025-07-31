@@ -3407,7 +3407,7 @@ window.onload = function () { addSorting(); }
 <center><h1>Design Guidance Report</h1></center><center><table class="header" border="0">
 <tr><td><b>Copyright</b></td><td>Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.</td></tr>
 <tr><td><b>Tool Version</b></td><td>xcd v.2025.1 (win64) Build 0 </td></tr>
-<tr><td><b>Date</b></td><td>Thu Jul 31 17:37:05 2025</td></tr>
+<tr><td><b>Date</b></td><td>Thu Jul 31 20:03:20 2025</td></tr>
 <tr><td><b>Host</b></td><td>LAPTOP-RCA6VS0S running 64-bit major release  (build 9200)</td></tr>
 <tr><td><b>Command</b></td><td>C:/Xilinx/2025.1/Vitis/bin/unwrapped/win64.o/v++.exe  -c --mode hls --config C:\Programming_Files\VGGHLS-TX\Tl_base\hls_config.cfg --work_dir Tl_base </td></tr>
 </table></center><br>
@@ -3416,7 +3416,7 @@ window.onload = function () { addSorting(); }
 <tr><td><a href="#VIOLATION DETAILS">2 VIOLATION DETAILS</a></tr></td>
 </table>
 <a name="REPORT SUMMARY"></a><h1>1 REPORT SUMMARY</h1>
-<pre>Violations found: 17
+<pre>Violations found: 16
 </pre>
 <pre>Rule Specs Violated: 3
 </pre>
@@ -3434,46 +3434,13 @@ window.onload = function () { addSorting(); }
 <th align="left" width="380">Resolution</th>
 </tr>
 <tr>
-<td align="left">6</td>
+<td align="left">12</td>
 <td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
 <td align="left">Accelerator.ConvLayer.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'NorthPad_Nif_NorthPad_wrd'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">9</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.ConvLayer.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'EastPad_Line'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">17</td>
-<td align="left">Kernel</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.ConvLayer.Kernel</td>
-<td align="left">**** Estimated Fmax: 136.99 MHz
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">3</td>
-<td align="left">Interface</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.ConvLayer.Interface</td>
-<td align="left">Multiple burst writes of variable length and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///C:/Programming_Files/VGGHLS-TX/Tl_base\../src_files/Main_Code.cpp#line=1105">Main_Code.cpp</a>)
+<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy'
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
@@ -3484,40 +3451,7 @@ window.onload = function () { addSorting(); }
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
 <td align="left">Accelerator.ConvLayer.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'Region1'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">1</td>
-<td align="left">Interface</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.ConvLayer.Interface</td>
-<td align="left">Multiple burst reads of variable length and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///C:/Programming_Files/VGGHLS-TX/Tl_base\../src_files/Main_Code.cpp#line=932">Main_Code.cpp</a>)
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">7</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.ConvLayer.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'SouthPad_Nif_SouthPad_wrd'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">4</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.ConvLayer.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx'
+<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 6, loop 'Region1'
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
@@ -3533,13 +3467,13 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">13</td>
-<td align="left">Throughput</td>
+<td align="left">3</td>
+<td align="left">Interface</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.ConvLayer.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy'
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.ConvLayer.Interface</td>
+<td align="left">Multiple burst writes of variable length and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///C:/Programming_Files/VGGHLS-TX/Tl_base\../src_files/Main_Code.cpp#line=1107">Main_Code.cpp</a>)
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
@@ -3555,57 +3489,13 @@ window.onload = function () { addSorting(); }
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
 <tr>
-<td align="left">16</td>
-<td align="left">Kernel</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Kernel Related</td>
-<td align="left">Accelerator.ConvLayer.Kernel</td>
-<td align="left">**** Loop Constraint Status: All loop constraints were satisfied.
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">2</td>
-<td align="left">Interface</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.ConvLayer.Interface</td>
-<td align="left">Multiple burst reads of variable length and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///C:/Programming_Files/VGGHLS-TX/Tl_base\../src_files/Main_Code.cpp#line=1028">Main_Code.cpp</a>)
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">12</td>
+<td align="left">4</td>
 <td align="left">Throughput</td>
 <td align="left">ADVISORY</td>
 <td align="left"><undefined></td>
 <td align="left">HLS Throughput Related</td>
 <td align="left">Accelerator.ConvLayer.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 1, function 'bias_ReLu'
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">15</td>
-<td align="left">Interface</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Interface Related</td>
-<td align="left">Accelerator.ConvLayer.Interface</td>
-<td align="left">Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
-</td>
-<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
-</tr>
-<tr>
-<td align="left">14</td>
-<td align="left">Throughput</td>
-<td align="left">ADVISORY</td>
-<td align="left"><undefined></td>
-<td align="left">HLS Throughput Related</td>
-<td align="left">Accelerator.ConvLayer.Throughput</td>
-<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'Loop_Tof_Loop_Toy_Loop_Tox'
+<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx'
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>
@@ -3617,6 +3507,105 @@ window.onload = function () { addSorting(); }
 <td align="left">HLS Throughput Related</td>
 <td align="left">Accelerator.ConvLayer.Throughput</td>
 <td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'WestPad_Line'
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left">Kernel</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Kernel Related</td>
+<td align="left">Accelerator.ConvLayer.Kernel</td>
+<td align="left">**** Estimated Fmax: 136.99 MHz
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">Interface</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.ConvLayer.Interface</td>
+<td align="left">Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left">Kernel</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Kernel Related</td>
+<td align="left">Accelerator.ConvLayer.Kernel</td>
+<td align="left">**** Loop Constraint Status: All loop constraints were satisfied.
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.ConvLayer.Throughput</td>
+<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 9, loop 'Loop_Tof_Loop_Toy_Loop_Tox'
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.ConvLayer.Throughput</td>
+<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'EastPad_Line'
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Interface</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.ConvLayer.Interface</td>
+<td align="left">Multiple burst reads of variable length and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///C:/Programming_Files/VGGHLS-TX/Tl_base\../src_files/Main_Code.cpp#line=1030">Main_Code.cpp</a>)
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">Interface</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Interface Related</td>
+<td align="left">Accelerator.ConvLayer.Interface</td>
+<td align="left">Multiple burst reads of variable length and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (<a href="file:///C:/Programming_Files/VGGHLS-TX/Tl_base\../src_files/Main_Code.cpp#line=934">Main_Code.cpp</a>)
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.ConvLayer.Throughput</td>
+<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'NorthPad_Nif_NorthPad_wrd'
+</td>
+<td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">Throughput</td>
+<td align="left">ADVISORY</td>
+<td align="left"><undefined></td>
+<td align="left">HLS Throughput Related</td>
+<td align="left">Accelerator.ConvLayer.Throughput</td>
+<td align="left">Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'SouthPad_Nif_SouthPad_wrd'
 </td>
 <td align="left"><a href="http:///docs.xilinx.com/access/sources/dita/map?Doc_Version=2025.1%20English&url=ug1399-vitis-hls">Vitis HLS User Guide (UG1399)</a></td>
 </tr>

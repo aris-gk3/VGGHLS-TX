@@ -10,7 +10,7 @@
 #define NUM_BITS 8
 #define SYMM_RANGE 127
 
-#define MODEL 9
+#define MODEL 4
 // 0 -> Toy Example 1
 // 1 -> Toy Example 2
 // 2 -> Toy Example 3
@@ -1375,6 +1375,11 @@
 	const int HEAD_IN_SIZE[2] = {512, 256};
 	const int HEAD_OUT_SIZE[2] = {256, 17};
 	const int bit_shift_fc_rom[2] = {5, 9};
+#else
+	#define CLASSES 2
+	const int HEAD_IN_SIZE[2] = {0};
+	const int HEAD_OUT_SIZE[2] = {0};
+	const int bit_shift_fc_rom[2] = {0};
 #endif
 
 #endif // PARAMETERS_H

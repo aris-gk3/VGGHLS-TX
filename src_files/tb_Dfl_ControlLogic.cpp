@@ -325,12 +325,6 @@ int convLayer_test(int verbose, int debug, int minPrint,
 		// Initialize Memories
 		px_data_t* IfMap = initIfMap(layerNo, binInput);
 		wt_data_t* WtMap = initWtMap(layerNo, binInput);
-		// Initialize output memory as zero (is done before)
-		// // initOfMap_undef(layerNo, OfMap, 0); initOfMap_undef(layerNo, OfMap_golden, 0);
-		// for(int i=0;i<MAP_SIZE;i++){
-		// 	OfMap[i] = 0;
-		// 	OfMap_golden[i] = 0;
-		// }
 		convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
 		ConvLayer(IfMap, WtMap, OfMap);
 
@@ -438,6 +432,11 @@ int convLayer_test(int verbose, int debug, int minPrint,
 		std::cout << " bias + ReLu test failed!  ******\n" << std::endl;
 	}
 	else{
+		std::cout << "Printing first 20 elements of last output layer" << std::endl;
+		for(int i=0;i<20;i++){
+			std::cout << std::setw(8) << OfMap[i];
+		}
+		std::cout << "\n";
 		std::cout << "*****  ConvLayer Test ";
 		if(biasReLuTrue){
 			std::cout << "with ";

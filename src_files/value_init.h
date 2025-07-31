@@ -11,11 +11,15 @@
 // Memory offset for each layer from the first element of memory (refers only to VGG base Net)
 #if ( MODEL == 7 || MODEL == 9 )
 	const int WtMapOffsetConv[13] = {1728,    36864,    73728,   147456,   294912,   589824,   589824,  1179648,  2359296,  2359296,  2359296,  2359296,  2359296};
+#else // For compiler to pass
+	const int WtMapOffsetConv[13] = {0};
 #endif
 #if ( MODEL == 7 )
 	const int WtMapOffsetFC[3] = {25088*4096, 4096*4096, 4096*1000};
 #elif ( MODEL == 9 )
 	const int WtMapOffsetFC[2] = {512*256, 256*17};
+#else // For compiler to pass
+	const int WtMapOffsetFC[2] = {0, 0};
 #endif
 
 // Βias values for Convolutional Layers of VGG-16
@@ -1563,6 +1567,8 @@
 		-5,  -2,    1,    3,   -2,   -3,   -4,    1,
 		1}
 	};
+#else
+	const bfc_data_t biasFC[2][256] = {0};
 #endif // For Model choice
 
 #endif // For header file redefinition VALUE_INIT_H

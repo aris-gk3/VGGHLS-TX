@@ -38,9 +38,11 @@ void bias_ReLu(
 		#pragma HLS UNROLL
 			pxSerialShift[i][Pox_i] = pxSerial[i][Pox_i] >> bit_shift;
 			pxSerialShift[i][Pox_i] += BiasBuf[Tof_step_i*POF + POFBANK_STEP_i*OUTBUF_NUM + i];
-			// if(Tof_step_i*POF + POFBANK_STEP_i*OUTBUF_NUM + i >= 256){
-			// 	std::cout << "Out of bounds bias buffer access!";
-			// }
+			#ifdef DEBUG_MODE
+				if(Tof_step_i*POF + POFBANK_STEP_i*OUTBUF_NUM + i >= 256){
+					std::cout << "Out of bounds bias buffer access!";
+				}
+			#endif
 			ReLu(pxSerialShift[i][Pox_i], &(ReLuOut[i][Pox_i]));
 			Out[i][Pox_i] = ReLuOut[i][Pox_i];
 			
@@ -1110,9 +1112,11 @@ void storeMap(
 					*(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) =
 							OutBuf[OutBufNum_i][wrdMap + wrdY + wrdX][Pox_i];
 					if( *(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) >= (1 << NUM_BITS)){
-						std::cout << "Value out of range found in " << (Tof_i+ofBase*Tof) << " Map, "
-							<< (Toy_i+yBase*Toy) << " Row, " << Tox_i << " Column\n";
-						std::cout << "Value is " << *(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) << "\n";
+						#ifdef DEBUG_MODE
+							std::cout << "Value out of range found in " << (Tof_i+ofBase*Tof) << " Map, "
+								<< (Toy_i+yBase*Toy) << " Row, " << Tox_i << " Column\n";
+							std::cout << "Value is " << *(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) << "\n";
+						#endif
 					}
 					if(Pox_i == POX-1){
 						Pox_i = 0;
