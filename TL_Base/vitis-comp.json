@@ -1,0 +1,13 @@
+{
+  "name": "TL_Base",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "hls_config.cfg"
+    ],
+    "work_dir": "ConvLayer"
+  },
+  "useSysrootToolchain": false,
+  "template": "empty_hls_component"
+}
