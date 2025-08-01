@@ -23,8 +23,6 @@ _ide/
 
 **/.cache
 **/hls
-**/vitis-comp.json
-**/compile_commands.json
 **/dfx_runtime.txt
 **/xcd.log
 **/.db
