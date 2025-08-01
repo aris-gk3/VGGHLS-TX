@@ -19,7 +19,8 @@
 
 _ide/logs
 _ide/.wsdata
-_ide/
+_ide/*
+!_ide/workspace_journal.py
 
 **/.cache
 **/hls
