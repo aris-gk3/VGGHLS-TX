@@ -464,7 +464,7 @@ void wndClc_Dfl(
 
 	Region1: for(int counter=0;counter<wndclc_loop_limit;counter++){
 	#pragma HLS PIPELINE
-	#pragma HLS loop_tripcount min=27 max=27
+	#pragma HLS loop_tripcount min=WNDCLC_TRIPCOUNT max=WNDCLC_TRIPCOUNT
 		Pox_i_dt col;                  		// InBuf2Pe_ctrl output variables (2)
 		Poy_i_dt bank;                 		// InBuf2Pe_ctrl output variables (3)
 		data_bool dct_ld, fl_ld, wr_fifo; 	// InBuf2Pe_ctrl output variables (4)
@@ -804,7 +804,8 @@ void tileClc_Dfl(
 	#endif
 
 	Region2: for(int counter=0;counter<tileclc_loop_limit;counter++){
-	#pragma HLS loop_tripcount min=1024 max=1024
+	#pragma HLS PIPELINE off
+	#pragma HLS loop_tripcount min=TILECLC_TRIPCOUNT max=TILECLC_TRIPCOUNT
 		acc_data_t px_toBuf[POF][POY][POX]; 		// Channel for calculated output pixels between wndClc and Pe2Buf
 		#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf
 		#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf
@@ -863,7 +864,7 @@ void loadBiasTile(
 	}
 	else{
 		BiasLoop_Tof: for(int Tof_i=0;Tof_i<Tof;Tof_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=64 max=64
+		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
 			BiasBuf[Tof_i] = bias[addressBase + Nof_step_i*Tof + Tof_i];
 		}
 		if(Nof_step_i == Nof_step-1){
@@ -929,13 +930,13 @@ void loadIfMap(
 		yTile = Tiy - northTile - southTile; xTile = Tix - 2;
 		wrdMap = 0;
 		If_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=3 max=3
+		#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
 			Poy_i = northTile; wrdY = 0;
 			If_Tiy: for(int yTile_i=0;yTile_i<yTile;yTile_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=30 max=30
+			#pragma HLS LOOP_TRIPCOUNT min=TIY_TRIPCOUNT max=TIY_TRIPCOUNT
 				Pox_i = 1; wrdX = 0;
 				If_Nix: for(int xTile_i=0;xTile_i<xTile;xTile_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=224 max=224
+				#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
 					wrd_i = wrdMap + wrdY + wrdX;
 					InBuf[Poy_i][wrd_i][Pox_i] = *(IfMap + Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i);
 					if(Pox_i == POX-1){
@@ -960,9 +961,9 @@ void loadIfMap(
 		// North Zero Padding
 		if(northTile){
 			NorthPad_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=3 max=3
+			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
 				NorthPad_wrd: for(int wrd_1row_i=0;wrd_1row_i<wrd_1row;wrd_1row_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=33 max=33
+				#pragma HLS LOOP_TRIPCOUNT min=WRD1ROW_TRIPCOUNT max=WRD1ROW_TRIPCOUNT
 					NorthPad_Pox: for(int Pox_i=0;Pox_i<POX;Pox_i++){
 					#pragma HLS UNROLL
 						InBuf[0][Nif_i*row_1map*wrd_1row + wrd_1row_i][Pox_i] = 0;
@@ -973,9 +974,9 @@ void loadIfMap(
 		// South Zero Padding
 		if(southTile){
 			SouthPad_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=3 max=3
+			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
 				SouthPad_wrd: for(int wrd_1row_i=0;wrd_1row_i<wrd_1row;wrd_1row_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=33 max=33
+				#pragma HLS LOOP_TRIPCOUNT min=WRD1ROW_TRIPCOUNT max=WRD1ROW_TRIPCOUNT
 					SouthPad_Pox: for(int Pox_i=0;Pox_i<POX;Pox_i++){
 					#pragma HLS UNROLL
 						InBuf[TiyRem][Nif_i*row_1map*wrd_1row + (row_1map-1)*wrd_1row+ wrd_1row_i][Pox_i] = 0;
@@ -985,7 +986,7 @@ void loadIfMap(
 		}
 		// West Zero Padding
 		WestPad_Line: for(int nxtLine_i=0;nxtLine_i<Nif*row_1map;nxtLine_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=15 max=15
+		#pragma HLS LOOP_TRIPCOUNT min=ROW1MAPNIF_TRIPCOUNT max=ROW1MAPNIF_TRIPCOUNT
 			WestPad_Poy: for(int Poy_i=0;Poy_i<POY;Poy_i++){
 			#pragma HLS UNROLL
 				InBuf[Poy_i][nxtLine_i*wrd_1row][0] = 0;
@@ -993,7 +994,7 @@ void loadIfMap(
 		}
 		// East Zero Padding
 		EastPad_Line: for(int nxtLine_i=0;nxtLine_i<Nif*row_1map;nxtLine_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=15 max=15
+		#pragma HLS LOOP_TRIPCOUNT min=ROW1MAPNIF_TRIPCOUNT max=ROW1MAPNIF_TRIPCOUNT
 			EastPad_Poy: for(int Poy_i=0;Poy_i<POY;Poy_i++){
 			#pragma HLS UNROLL
 				InBuf[Poy_i][nxtLine_i*wrd_1row + wrd_1row-1][TixRem] = 0;
@@ -1028,13 +1029,13 @@ void loadWtMap(
 	else{
 		Pof_i = 0; wrdMap = 0;
 		WtLoop_Tof: for(int Tof_i=0;Tof_i<Tof;Tof_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=64 max=64
+		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
 			WtLoop_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=3 max=3
+			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
 				WtLoop_Nky: for(int Nky_i=0;Nky_i<NKY;Nky_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=3 max=3
+				#pragma HLS LOOP_TRIPCOUNT min=NKY max=NKY
 					WtLoop_Nkx: for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
-					#pragma HLS LOOP_TRIPCOUNT min=3 max=3
+					#pragma HLS LOOP_TRIPCOUNT min=NKX max=NKX
 						WtBuf[wrdMap + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][Pof_i] = *(WtMap + (Tof_i+ofBase*Tof)*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i);
 					}
 				}
@@ -1102,13 +1103,13 @@ void storeMap(
 		}
 		wrdMap = 0; OutBufNum_i = 0;
 		Loop_Tof: for(int Tof_i=0; Tof_i<Tof;Tof_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=64 max=64
+		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
 			wrdY = 0;
 			Loop_Toy: for(int Toy_i=0; Toy_i<Toy;Toy_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=28 max=28
+			#pragma HLS LOOP_TRIPCOUNT min=TOY_TRIPCOUNT max=TOY_TRIPCOUNT
 				Pox_i = 0; wrdX = 0;
 				Loop_Tox: for(int Tox_i=0; Tox_i<Tox;Tox_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=224 max=224
+				#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
 					*(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) =
 							OutBuf[OutBufNum_i][wrdMap + wrdY + wrdX][Pox_i];
 					if( *(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) >= (1 << NUM_BITS)){
@@ -1291,8 +1292,8 @@ void ConvLayer(
 	#endif
 	data_bool layerCnfg = 0;
 
-	for(int i=0;i<nofy_step_rom[layerNo];i++){
-	#pragma HLS LOOP_TRIPCOUNT min=1 max=8
+	Nofy_step_loop: for(int i=0;i<nofy_step_rom[layerNo];i++){
+	#pragma HLS LOOP_TRIPCOUNT min=NOFYSTEP_TRIPCOUNT max=NOFYSTEP_TRIPCOUNT
 		mem2Buf(/*layerCnfg=*/layerCnfg,
 				/*normal operation*/ IfMap, WtMap, InBuf, WtBuf);
 		#ifndef __SYNTHESIS__
@@ -1331,7 +1332,7 @@ void ConvLayer(
 }
 
 
-// Probably not used
+/* Not used
 void ConvLayer_module(data_bool layerCnfg, int test, int loop_limit_1, int loop_limit_2,
 		px_data_t *IfMap,  // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
 		wt_data_t *WtMap,  // [NOF][NIF][NKY][NKX]
@@ -1370,8 +1371,6 @@ void ConvLayer_module(data_bool layerCnfg, int test, int loop_limit_1, int loop_
 		wndclc_loop_limit = 1;
 		tileclc_loop_limit = 1;
 		Tiy = tiy_rom[layerNo];
-		// tileClc_Dfl(0, /*normal operation*/  tileclc_loop_limit, wndclc_loop_limit,
-		// 					InBuf, WtBuf, BiasBuf, OutBuf);
 	}
 	else{
 		wndclc_loop_limit = wndclc_loop_limit_rom[layerNo];
@@ -1404,23 +1403,18 @@ void ConvLayer_module(data_bool layerCnfg, int test, int loop_limit_1, int loop_
 		else{
 			yBase = Noy_step_i*(Tiy - 2) -1;
 		}
-		loadIfMap(layerCnfg , /*normal operation*/ northTile, southTile, yBase, IfMap, InBuf);
+		loadIfMap(layerCnfg , northTile, southTile, yBase, IfMap, InBuf);
 		// For steps in layer
 		for(int Nof_step_i=0;Nof_step_i<loop_limit_2;Nof_step_i++){
-	#pragma HLS LOOP_TRIPCOUNT min=2 max=64
+		#pragma HLS LOOP_TRIPCOUNT min=2 max=64
 			ofBase = Nof_step_i;
-			loadWtMap(layerCnfg , /*normal operation*/ ofBase, WtMap, WtBuf);
-			loadBiasTile(layerCnfg, /*normal operation*/ BiasBuf);
-			//tileClc(layerCnfg , /*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
-
-			// tileClc_Dfl(2, /*normal operation*/  tileclc_loop_limit, wndclc_loop_limit,
-			// 		InBuf, WtBuf, BiasBuf, OutBuf);
-			// storeMap(layerCnfg , /*normal operation*/ OutBuf, ofBase, /* yBase= */Noy_step_i, OfMap);
+			loadWtMap(layerCnfg , ofBase, WtMap, WtBuf);
+			loadBiasTile(layerCnfg, BiasBuf);
 		}
-		// yBase += Tiy - northTile;
-
 	}
 }
+
+*/
 
 
 void gap(px_data_t *in, px_data_t *out){

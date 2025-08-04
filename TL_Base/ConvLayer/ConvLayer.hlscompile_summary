@@ -1,0 +1,245 @@
+<ENTRY>
+{
+ "thisFile": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\ConvLayer.hlscompile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "08/01/25 21:50:34",
+ "timestampMillis": "1754074234059",
+ "buildStep": {
+  "cmdId": "3d8d03e0-c4f8-43b3-9318-c841a5353465",
+  "name": "v++",
+  "logFile": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\logs\\ConvLayer.steps.log",
+  "commandLine": "C:/Xilinx/2025.1/Vitis/bin/unwrapped/win64.o/v++.exe  -c --mode hls --config C:\\Programming_Files\\VGGHLS-TX\\TL_Base\\hls_config.cfg --work_dir ConvLayer ",
+  "args": [
+   "-c",
+   "--mode",
+   "hls",
+   "--config",
+   "C:\\Programming_Files\\VGGHLS-TX\\TL_Base\\hls_config.cfg",
+   "--work_dir",
+   "ConvLayer"
+  ],
+  "iniFiles": [
+   {
+    "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\hls_config.cfg",
+    "content": "part=xcvu9p-flga2104-3-e\n\n[hls]\nflow_target=vivado\npackage.output.format=ip_catalog\npackage.output.syn=false\nsyn.top=ConvLayer\nsyn.file=../src_files/Main_Code.cpp\ntb.file=../src_files/Auxiliary_Calculations.cpp\ntb.file=../src_files/main_tb.cpp\ntb.file=../src_files/tb_Buf2Pe.cpp\ntb.file=../src_files/tb_Dfl_ControlLogic.cpp\ntb.file=../src_files/tb_fcLayer.cpp\ntb.file=../src_files/tb_gap.cpp\ntb.file=../src_files/tb_loadbin.cpp\ntb.file=../src_files/tb_maxPool.cpp\ntb.file=../src_files/tb_Mem2Buf.cpp\ntb.file=../src_files/tb_parameters.cpp\ntb.file=../src_files/tb_Top.cpp"
+   }
+  ],
+  "cwd": "C:\\Programming_Files\\VGGHLS-TX\\TL_Base"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "08/01/25 21:50:34",
+ "timestampMillis": "1754074234060",
+ "status": {
+  "cmdId": "3d8d03e0-c4f8-43b3-9318-c841a5353465",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "08/01/25 21:50:40",
+ "timestampMillis": "1754074240044",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "ConvLayer",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "C:/Programming_Files\\VGGHLS-TX\\src_files\\Main_Code.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2025.1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "08/01/25 21:50:40",
+ "timestampMillis": "1754074240045",
+ "buildStep": {
+  "cmdId": "f3cad4d9-232b-456a-88fe-5f9c0c663c16",
+  "name": "",
+  "logFile": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "C:\\Programming_Files\\VGGHLS-TX\\TL_Base"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "08/01/25 21:50:40",
+ "timestampMillis": "1754074240046",
+ "status": {
+  "cmdId": "f3cad4d9-232b-456a-88fe-5f9c0c663c16",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "08/01/25 21:50:40",
+ "timestampMillis": "1754074240046",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\hls_data.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "08/01/25 21:50:40",
+ "timestampMillis": "1754074240046",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\syn\\report\\csynth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "08/01/25 21:50:40",
+ "timestampMillis": "1754074240047",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\syn\\report\\csynth.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "08/01/25 21:52:42",
+ "timestampMillis": "1754074362946",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "08/01/25 21:52:42",
+ "timestampMillis": "1754074362947",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "08/01/25 21:52:42",
+ "timestampMillis": "1754074362947",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_SCHEDULE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "08/01/25 21:52:42",
+ "timestampMillis": "1754074362948",
+ "status": {
+  "cmdId": "f3cad4d9-232b-456a-88fe-5f9c0c663c16",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "08/01/25 21:52:43",
+ "timestampMillis": "1754074363317",
+ "status": {
+  "cmdId": "3d8d03e0-c4f8-43b3-9318-c841a5353465",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "08/01/25 21:52:43",
+ "timestampMillis": "1754074363340",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\reports\\v++_compile_ConvLayer_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "08/01/25 21:52:43",
+ "timestampMillis": "1754074363341",
+ "report": {
+  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\reports\\.db\\v++_compile_ConvLayer_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

@@ -10,7 +10,7 @@
 #define NUM_BITS 8
 #define SYMM_RANGE 127
 
-#define MODEL 4
+#define MODEL 9
 // 0 -> Toy Example 1
 // 1 -> Toy Example 2
 // 2 -> Toy Example 3
@@ -1248,11 +1248,11 @@
 		#define ZERO_PAD 1
 		// Necessary Parameters
 		const int Nof_step_rom[LAYERS] = {  1,   1,   1,   1,   1,   1,   1,   4,   4,   4,   4,   4,   4};/*Nof/Tof*/
-		const int Nif_rom[LAYERS]      = {  3,  64,  64, 128, 128, 256, 256, 256, 512, 512, 512, 512, 512};
+		constexpr int Nif_rom[LAYERS]      = {  3,  64,  64, 128, 128, 256, 256, 256, 512, 512, 512, 512, 512};
 		const int Noy_rom[LAYERS]      = {224, 224, 112, 112,  56,  56,  56,  28,  28,  28,  14,  14,  14};
-		const int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256, 128, 128, 128, 128, 128, 128};
-		const int Toy_rom[LAYERS]      = { 28,  28,  28,  28,  28,  28,  28,  28,  28,  28,  14,  14,  14};
-		const int Tox_rom[LAYERS]      = {224, 224, 112, 112,  56,  56,  56,  28,  28,  28,  14,  14,  14};
+		constexpr int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256, 128, 128, 128, 128, 128, 128};
+		constexpr int Toy_rom[LAYERS]      = { 28,  28,  28,  28,  28,  28,  28,  28,  28,  28,  14,  14,  14};
+		constexpr int Tox_rom[LAYERS]      = {224, 224, 112, 112,  56,  56,  56,  28,  28,  28,  14,  14,  14};
 		// Buffer Sizing
 		const int WRD_INBUF = 12800; // Should be able to fit input pixels for all layers
 		// WRD_INBUF = max(WRD_INBUF = WRD_1ROW[layer_no] * ROWS_1MAP[layer_no] * TIF[layer_no]), for every layer_no
@@ -1277,15 +1277,15 @@
 		#define MAP_SIZE 3211264 // should be max of IFMAP_MEMSIZE and OFMAP_MEMSIZE
 		// Parameters that are calculated from necessary parameters
 		const int noy_step_rom[LAYERS] = {8, 8, 4, 4, 2, 2, 2, 1, 1, 1, 1, 1, 1};
-		const int nofy_step_rom[LAYERS] = {8, 8, 4, 4, 2, 2, 2, 4, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
+		constexpr int nofy_step_rom[LAYERS] = {8, 8, 4, 4, 2, 2, 2, 4, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
 		const int niy_rom[LAYERS] = {224, 224, 112, 112, 56, 56, 56, 28, 28, 28, 14, 14, 14};
 		const int tof_step_rom[LAYERS] = {8, 8, 16, 16, 32, 32, 32, 16, 16, 16, 16, 16, 16};
 		const int toy_step_rom[LAYERS] = {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2};
 		const int tox_step_rom[LAYERS] = {32, 32, 16, 16, 8, 8, 8, 4, 4, 4, 2, 2, 2};
-		const int tiy_rom[LAYERS] = {30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 16, 16, 16};
+		constexpr int tiy_rom[LAYERS] = {30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 16, 16, 16};
 		const int tix_rom[LAYERS] = {226, 226, 114, 114, 58, 58, 58, 30, 30, 30, 16, 16, 16};
-		const int row_1map_rom[LAYERS] = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 3, 3};
-		const int wrd_1row_rom[LAYERS] = {33, 33, 17, 17, 9, 9, 9, 5, 5, 5, 3, 3, 3};
+		constexpr int row_1map_rom[LAYERS] = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 3, 3};
+		constexpr int wrd_1row_rom[LAYERS] = {33, 33, 17, 17, 9, 9, 9, 5, 5, 5, 3, 3, 3};
 		// pe_loop_limit = Nif*NKX*NKY-1
 		const int pe_loop_limit_rom[LAYERS] = {26, 575, 575, 1151, 1151, 2303, 2303,
 										2303, 4607, 4607, 4607, 4607, 4607};
@@ -1293,10 +1293,10 @@
 		const int wtbuf2pe_loop_limit_rom[LAYERS] = {215, 4607, 9215, 18431, 36863, 73727, 73727,
 												36863, 73727, 73727, 73727, 73727, 73727};
 		// wndclc_loop_limit_rom = Nif*Nky*Nkx
-		const int wndclc_loop_limit_rom[LAYERS] = {27, 576, 576, 1152, 1152, 2304, 2304,
+		constexpr int wndclc_loop_limit_rom[LAYERS] = {27, 576, 576, 1152, 1152, 2304, 2304,
 													2304, 4608, 4608, 4608, 4608, 4608};
 		// tileclc_loop_limit_rom = Tof_step*Toy_step*Tox_step
-		const int tileclc_loop_limit_rom[LAYERS] = {1024, 1024, 1024, 1024, 1024, 1024, 1024,
+		constexpr int tileclc_loop_limit_rom[LAYERS] = {1024, 1024, 1024, 1024, 1024, 1024, 1024,
 													256, 256, 256, 64, 64, 64};
 		// POY*Tox_step - (Tox_step-1) - (Tof_step-1)*(POF/OUTBUF_NUM)*Toy*Tox_step
 		const int pe2buf_addr_offset1_rom[LAYERS] = {-24895, -24895, -26783, -26783, -27727, -27727, -27727,
@@ -1381,5 +1381,20 @@
 	const int HEAD_OUT_SIZE[2] = {0};
 	const int bit_shift_fc_rom[2] = {0};
 #endif
+
+
+// *****  Constants for loop tripcounts pragmas  *****
+// Given for calculating module latency for each layer
+#define LR_NUM_SYNTH 2
+constexpr int WNDCLC_TRIPCOUNT = wndclc_loop_limit_rom[LR_NUM_SYNTH];
+constexpr int TILECLC_TRIPCOUNT = tileclc_loop_limit_rom[LR_NUM_SYNTH];
+constexpr int WRD1ROW_TRIPCOUNT = wrd_1row_rom[LR_NUM_SYNTH];
+constexpr int ROW1MAPNIF_TRIPCOUNT = row_1map_rom[LR_NUM_SYNTH]*Nif_rom[LR_NUM_SYNTH];
+constexpr int NOFYSTEP_TRIPCOUNT = nofy_step_rom[LR_NUM_SYNTH];
+constexpr int NIF_TRIPCOUNT = Nif_rom[LR_NUM_SYNTH];
+constexpr int TOF_TRIPCOUNT = Tof_rom[LR_NUM_SYNTH];
+constexpr int TOY_TRIPCOUNT = Toy_rom[LR_NUM_SYNTH];
+constexpr int TIY_TRIPCOUNT = tiy_rom[LR_NUM_SYNTH];
+constexpr int TOX_TRIPCOUNT = Tox_rom[LR_NUM_SYNTH];
 
 #endif // PARAMETERS_H
