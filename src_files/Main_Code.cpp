@@ -1,6 +1,8 @@
 #include "header.h"
 #include "hls_stream.h"
 #include <iostream>
+// Region2: REGION2_SEQ, REGION2_DFL, REGION2_MNLSCHEDULE_2BUF, REGION2_PPL
+#define REGION2_DFL
 
 void ReLu(
 		px_data_t in, px_data_t *out){
@@ -197,7 +199,7 @@ void InBuf2Pe_wrapper(
 		// Inputs
 		row_inbuf_i_dt row, Pox_i_dt col,
 		Poy_i_dt bank, data_bool dct_ld, data_bool fl_ld,
-		data_bool wr_fifo, px_data_t InBuf[POY][WRD_INBUF][POX],
+		data_bool wr_fifo, const px_data_t InBuf[POY][WRD_INBUF][POX],
 		// Output
 		px_data_t px_stream[POY][POX]
 	){
@@ -218,7 +220,7 @@ void InBuf2Pe(
 		// Inputs
 		row_inbuf_i_dt row, Pox_i_dt col,
 		Poy_i_dt bank, data_bool dct_ld, data_bool fl_ld,
-		data_bool wr_fifo, px_data_t InBuf[POY][WRD_INBUF][POX],
+		data_bool wr_fifo, const px_data_t InBuf[POY][WRD_INBUF][POX],
 		// Output
 		px_data_t px_stream[POY][POX],
 		// Input-Output
@@ -359,7 +361,7 @@ void WtBuf2Pe_ctrl(
 
 
 void WtBuf2Pe(
-		/* Inputs */ wt_data_t WtBuf[WRD_WTBUF][POF],
+		/* Inputs */ const wt_data_t WtBuf[WRD_WTBUF][POF],
 		row_wtbuf_i_dt row_wt,
 		/* Output */ wt_data_t wt_stream[POF]){
 	#pragma HLS INLINE
@@ -383,7 +385,7 @@ void wndClc_ctrl(
 	// Calculates the base address that changes for each each execution of a calculation of a window of pixels.
 	// Note that for WtBuf this isn't necessary, since the loop order chosen
 	// simplifies the algorithm of the row to just incrementing by 1 each execution.
-	#pragma HLS INLINE
+	#pragma HLS INLINE off
 
 	static Tof_step_i_dt Tof_step_i = 0;
 	static Toy_step_i_dt Toy_step_i = 0;
@@ -419,12 +421,12 @@ void wndClc_Dfl(
 		row_inbuf_i_dt rowStepAddress, Nif_dt Nif_in,
 		wrd_1row_dt wrd_1row_in, row_1map_dt row_1map_in,
 		// Inputs
-		px_data_t InBuf[POY][WRD_INBUF][POX],
-		wt_data_t WtBuf[WRD_WTBUF][POF],
+		const px_data_t InBuf[POY][WRD_INBUF][POX],
+		const wt_data_t WtBuf[WRD_WTBUF][POF],
 		// Output
 		acc_data_t rslt_stream_out[POF][POY][POX]
 	){
-	#pragma HLS INLINE
+	#pragma HLS INLINE off
 
 	#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=InBuf
 	#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=InBuf
@@ -567,7 +569,7 @@ void Pe2Buf(
 		// Output
 		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]
 	){
-	#pragma HLS INLINE
+	#pragma HLS INLINE off
 	// Partition I/O
 	#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_stream
 	#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_stream
@@ -767,6 +769,7 @@ void tileClc(
 }
 
 
+// Dev for macros (all versions of region 2)
 void tileClc_Dfl(
 		// Parameters
 		tile_loop_dt tileclc_loop_limit_in, wnd_loop_dt wndclc_loop_limit_in,
@@ -784,51 +787,337 @@ void tileClc_Dfl(
 		// Output
 		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]
 	){
-	#pragma HLS INLINE
-	tile_loop_dt tileclc_loop_limit = tileclc_loop_limit_in;
-	wnd_loop_dt wndclc_loop_limit = wndclc_loop_limit_in;
-	wtbuf2pe_loop_dt wtbuf2pe_loop_limit = wtbuf2pe_loop_limit_in;
-	Nif_dt Nif = Nif_in;
-	Toy_dt Toy = Toy_in;
-	Toy_step_dt Toy_step = Toy_step_in;
-	Tox_step_dt Tox_step = Tox_step_in;
-	Tof_step_dt Tof_step = Tof_step_in;
-	wrd_1row_dt wrd_1row = wrd_1row_in;
-	row_1map_dt row_1map = row_1map_in;
-	row_outbuf_i_dt pe2buf_addr_offset1 = pe2buf_addr_offset1_in;
-	row_outbuf_i_dt pe2buf_addr_offset2 = pe2buf_addr_offset2_in;
-	row_outbuf_i_dt pe2buf_addr_offset3 = pe2buf_addr_offset3_in;
-	bit_shift_dt bit_shift = bit_shift_in;
 	#ifndef __SYNTHESIS__
-		std::cout << "For this tile, bit shift is " << bit_shift << std::endl;
+		std::cout << "For this tile, bit shift is " << bit_shift_in << std::endl;
 	#endif
 
-	Region2: for(int counter=0;counter<tileclc_loop_limit;counter++){
-	#pragma HLS PIPELINE off
-	#pragma HLS loop_tripcount min=TILECLC_TRIPCOUNT max=TILECLC_TRIPCOUNT
-		acc_data_t px_toBuf[POF][POY][POX]; 		// Channel for calculated output pixels between wndClc and Pe2Buf
+	#if defined(REGION2_SEQ) || defined(REGION2_DFL) || defined(REGION2_PPL)
+		#pragma HLS INLINE
+		Region2: for(int counter=0;counter<tileclc_loop_limit_in;counter++){
+		#ifdef REGION2_SEQ
+			#pragma HLS PIPELINE off
+		#endif
+		#ifdef REGION2_DFL
+			#pragma HLS DATAFLOW
+		#endif
+		#ifdef REGION2_PPL
+			#pragma HLS PIPELINE
+		#endif
+		#pragma HLS loop_tripcount min=TILECLC_TRIPCOUNT max=TILECLC_TRIPCOUNT
+			acc_data_t px_toBuf[POF][POY][POX]; 		// Channel for calculated output pixels between wndClc and Pe2Buf
+			#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf
+			#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf
+			#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf
+			row_inbuf_i_dt rowStepAddress; 				// Base address for row of InBuf for each execution of wndClc
+			wndClc_ctrl(Toy_step_in, Tox_step_in, Tof_step_in, wrd_1row_in, &rowStepAddress);
+			wndClc_Dfl(wndclc_loop_limit_in, wtbuf2pe_loop_limit_in, rowStepAddress,
+					Nif_in, wrd_1row_in, row_1map_in,
+					InBuf, WtBuf, px_toBuf);
+			Pe2Buf(Toy_in, Toy_step_in, Tox_step_in, Tof_step_in,
+					pe2buf_addr_offset1_in, pe2buf_addr_offset2_in,
+					pe2buf_addr_offset3_in,
+					bit_shift_in,
+					px_toBuf, BiasBuf, OutBuf);
+		}   
+	#endif // defined(REGION2_SEQ) || defined(REGION2_PPL)
+
+	#ifdef REGION2_MNLSCHEDULE_2BUF
+		#pragma HLS INLINE off
+		acc_data_t px_toBuf[POF][POY][POX]; // Channel for calculated output pixels between wndClc and Pe2Buf
 		#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf
 		#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf
 		#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf
+		acc_data_t px_toBuf2[POF][POY][POX]; // Channel for calculated output pixels between wndClc and Pe2Buf	
+		#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf2
+		#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf2
+		#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf2
 		row_inbuf_i_dt rowStepAddress; 				// Base address for row of InBuf for each execution of wndClc
-
-		wndClc_ctrl(Toy_step, Tox_step, Tof_step, wrd_1row, &rowStepAddress);
-		wndClc_Dfl(wndclc_loop_limit, wtbuf2pe_loop_limit, rowStepAddress,
-				Nif, wrd_1row, row_1map,
+		wndClc_ctrl(Toy_step_in, Tox_step_in, Tof_step_in, wrd_1row_in, &rowStepAddress);
+		wndClc_Dfl(wndclc_loop_limit_in, wtbuf2pe_loop_limit_in, rowStepAddress,
+				Nif_in, wrd_1row_in, row_1map_in,
 				InBuf, WtBuf, px_toBuf);
-		Pe2Buf(Toy, Toy_step, Tox_step, Tof_step,
-				pe2buf_addr_offset1, pe2buf_addr_offset2,
-				pe2buf_addr_offset3,
-				bit_shift,
+		Region2: for(int counter=0;counter<tileclc_loop_limit_in;counter++){
+		#pragma HLS PIPELINE off
+		#pragma HLS loop_tripcount min=TILECLC_TRIPCOUNT max=TILECLC_TRIPCOUNT
+			wndClc_ctrl(Toy_step_in, Tox_step_in, Tof_step_in, wrd_1row_in, &rowStepAddress);
+			Pe2Buf(Toy_in, Toy_step_in, Tox_step_in, Tof_step_in,
+					pe2buf_addr_offset1_in, pe2buf_addr_offset2_in,
+					pe2buf_addr_offset3_in,
+					bit_shift_in,
+					px_toBuf, BiasBuf, OutBuf);
+			wndClc_Dfl(wndclc_loop_limit_in, wtbuf2pe_loop_limit_in, rowStepAddress,
+					Nif_in, wrd_1row_in, row_1map_in,
+					InBuf, WtBuf, px_toBuf2);
+
+			wndClc_ctrl(Toy_step_in, Tox_step_in, Tof_step_in, wrd_1row_in, &rowStepAddress);
+			Pe2Buf(Toy_in, Toy_step_in, Tox_step_in, Tof_step_in,
+					pe2buf_addr_offset1_in, pe2buf_addr_offset2_in,
+					pe2buf_addr_offset3_in,
+					bit_shift_in,
+					px_toBuf2, BiasBuf, OutBuf);
+			wndClc_Dfl(wndclc_loop_limit_in, wtbuf2pe_loop_limit_in, rowStepAddress,
+					Nif_in, wrd_1row_in, row_1map_in,
+					InBuf, WtBuf, px_toBuf);
+		}
+		Pe2Buf(Toy_in, Toy_step_in, Tox_step_in, Tof_step_in,
+				pe2buf_addr_offset1_in, pe2buf_addr_offset2_in,
+				pe2buf_addr_offset3_in,
+				bit_shift_in,
 				px_toBuf, BiasBuf, OutBuf);
-	}
+	#endif // REGION2_MNLSCHEDULE_2BUF
 }
 
+
+/* Non dataflow verions
+	void tileClc_Dfl(
+			// Parameters
+			tile_loop_dt tileclc_loop_limit_in, wnd_loop_dt wndclc_loop_limit_in,
+			wtbuf2pe_loop_dt wtbuf2pe_loop_limit_in,
+			Nif_dt Nif_in, Toy_dt Toy_in,
+			Toy_step_dt Toy_step_in, Tox_step_dt Tox_step_in, Tof_step_dt Tof_step_in,
+			wrd_1row_dt wrd_1row_in, row_1map_dt row_1map_in,
+			row_outbuf_i_dt pe2buf_addr_offset1_in, row_outbuf_i_dt pe2buf_addr_offset2_in,
+			row_outbuf_i_dt pe2buf_addr_offset3_in,
+			bit_shift_dt bit_shift_in,
+			// Inputs
+			px_data_t InBuf[POY][WRD_INBUF][POX],
+			wt_data_t WtBuf[WRD_WTBUF][POF],
+			b_data_t BiasBuf[BIASBUF_LENGTH],
+			// Output
+			px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]
+		){
+		#pragma HLS INLINE off
+		// tile_loop_dt tileclc_loop_limit = tileclc_loop_limit_in;
+		// wnd_loop_dt wndclc_loop_limit = wndclc_loop_limit_in;
+		// wtbuf2pe_loop_dt wtbuf2pe_loop_limit = wtbuf2pe_loop_limit_in;
+		// Nif_dt Nif = Nif_in;
+		// Toy_dt Toy = Toy_in;
+		// Toy_step_dt Toy_step = Toy_step_in;
+		// Tox_step_dt Tox_step = Tox_step_in;
+		// Tof_step_dt Tof_step = Tof_step_in;
+		// wrd_1row_dt wrd_1row = wrd_1row_in;
+		// row_1map_dt row_1map = row_1map_in;
+		// row_outbuf_i_dt pe2buf_addr_offset1 = pe2buf_addr_offset1_in;
+		// row_outbuf_i_dt pe2buf_addr_offset2 = pe2buf_addr_offset2_in;
+		// row_outbuf_i_dt pe2buf_addr_offset3 = pe2buf_addr_offset3_in;
+		// bit_shift_dt bit_shift = bit_shift_in;
+		#ifndef __SYNTHESIS__
+			std::cout << "For this tile, bit shift is " << bit_shift << std::endl;
+		#endif
+
+		// Region2: for(int counter=0;counter<tileclc_loop_limit;counter++){
+			// #pragma HLS PIPELINE off
+			// #pragma HLS loop_tripcount min=TILECLC_TRIPCOUNT max=TILECLC_TRIPCOUNT
+			// 	acc_data_t px_toBuf[POF][POY][POX]; 		// Channel for calculated output pixels between wndClc and Pe2Buf
+			// 	#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf
+			// 	#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf
+			// 	#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf
+			// 	row_inbuf_i_dt rowStepAddress; 				// Base address for row of InBuf for each execution of wndClc
+			// 	wndClc_ctrl(Toy_step, Tox_step, Tof_step, wrd_1row, &rowStepAddress);
+			// 	wndClc_Dfl(wndclc_loop_limit, wtbuf2pe_loop_limit, rowStepAddress,
+			// 			Nif, wrd_1row, row_1map,
+			// 			InBuf, WtBuf, px_toBuf);
+			// 	Pe2Buf(Toy, Toy_step, Tox_step, Tof_step,
+			// 			pe2buf_addr_offset1, pe2buf_addr_offset2,
+			// 			pe2buf_addr_offset3,
+			// 			bit_shift,
+			// 			px_toBuf, BiasBuf, OutBuf);
+			// }
+		
+		// // Decouple Tile: Delayed Pipeline + Double Buffering
+			// acc_data_t px_toBuf[POF][POY][POX]; // Channel for calculated output pixels between wndClc and Pe2Buf
+			// #pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf
+			// #pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf
+			// #pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf
+			// acc_data_t px_toBuf2[POF][POY][POX]; // Channel for calculated output pixels between wndClc and Pe2Buf	
+			// #pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf2
+			// #pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf2
+			// #pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf2
+			// row_inbuf_i_dt rowStepAddress; 				// Base address for row of InBuf for each execution of wndClc
+			// wndClc_ctrl(Toy_step, Tox_step, Tof_step, wrd_1row, &rowStepAddress);
+			// wndClc_Dfl(wndclc_loop_limit, wtbuf2pe_loop_limit, rowStepAddress,
+			// 		Nif, wrd_1row, row_1map,
+			// 		InBuf, WtBuf, px_toBuf);
+			// Region2: for(int counter=0;counter<tileclc_loop_limit;counter++){
+			// #pragma HLS PIPELINE off
+			// #pragma HLS loop_tripcount min=TILECLC_TRIPCOUNT max=TILECLC_TRIPCOUNT
+			// 	wndClc_ctrl(Toy_step, Tox_step, Tof_step, wrd_1row, &rowStepAddress);
+			// 	Pe2Buf(Toy, Toy_step, Tox_step, Tof_step,
+			// 			pe2buf_addr_offset1, pe2buf_addr_offset2,
+			// 			pe2buf_addr_offset3,
+			// 			bit_shift,
+			// 			px_toBuf, BiasBuf, OutBuf);
+			// 	wndClc_Dfl(wndclc_loop_limit, wtbuf2pe_loop_limit, rowStepAddress,
+			// 			Nif, wrd_1row, row_1map,
+			// 			InBuf, WtBuf, px_toBuf2);
+
+			// 	wndClc_ctrl(Toy_step, Tox_step, Tof_step, wrd_1row, &rowStepAddress);
+			// 	Pe2Buf(Toy, Toy_step, Tox_step, Tof_step,
+			// 			pe2buf_addr_offset1, pe2buf_addr_offset2,
+			// 			pe2buf_addr_offset3,
+			// 			bit_shift,
+			// 			px_toBuf2, BiasBuf, OutBuf);
+			// 	wndClc_Dfl(wndclc_loop_limit, wtbuf2pe_loop_limit, rowStepAddress,
+			// 			Nif, wrd_1row, row_1map,
+			// 			InBuf, WtBuf, px_toBuf);
+			// }
+			// Pe2Buf(Toy, Toy_step, Tox_step, Tof_step,
+			// 		pe2buf_addr_offset1, pe2buf_addr_offset2,
+			// 		pe2buf_addr_offset3,
+			// 		bit_shift,
+			// 		px_toBuf, BiasBuf, OutBuf);
+					
+		// Decouple Tile (2): Double Buffering
+			// Region2: for(int counter=0;counter<tileclc_loop_limit;counter++){
+			// #pragma HLS PIPELINE off
+			// #pragma HLS loop_tripcount min=TILECLC_TRIPCOUNT max=TILECLC_TRIPCOUNT
+			// 	acc_data_t px_toBuf[POF][POY][POX]; // Channel for calculated output pixels between wndClc and Pe2Buf
+			// 	#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf
+			// 	#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf
+			// 	#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf
+			// 	acc_data_t px_toBuf2[POF][POY][POX]; // Channel for calculated output pixels between wndClc and Pe2Buf	
+			// 	#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf2
+			// 	#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf2
+			// 	#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf2
+			// 	row_inbuf_i_dt rowStepAddress; 				// Base address for row of InBuf for each execution of wndClc
+			// 	wndClc_ctrl(Toy_step, Tox_step, Tof_step, wrd_1row, &rowStepAddress);
+			// 	wndClc_Dfl(wndclc_loop_limit, wtbuf2pe_loop_limit, rowStepAddress,
+			// 			Nif, wrd_1row, row_1map,
+			// 			InBuf, WtBuf, px_toBuf);
+			// 	Pe2Buf(Toy, Toy_step, Tox_step, Tof_step,
+			// 			pe2buf_addr_offset1, pe2buf_addr_offset2,
+			// 			pe2buf_addr_offset3,
+			// 			bit_shift,
+			// 			px_toBuf, BiasBuf, OutBuf);
+			// 	wndClc_ctrl(Toy_step, Tox_step, Tof_step, wrd_1row, &rowStepAddress);
+			// 	wndClc_Dfl(wndclc_loop_limit, wtbuf2pe_loop_limit, rowStepAddress,
+			// 			Nif, wrd_1row, row_1map,
+			// 			InBuf, WtBuf, px_toBuf2);
+			// 	Pe2Buf(Toy, Toy_step, Tox_step, Tof_step,
+			// 			pe2buf_addr_offset1, pe2buf_addr_offset2,
+			// 			pe2buf_addr_offset3,
+			// 			bit_shift,
+			// 			px_toBuf2, BiasBuf, OutBuf);
+			// }
+
+		// Decouple Tile (3): Read Inputs Directly + Delayed Pipeline + Double Buffering
+		acc_data_t px_toBuf[POF][POY][POX]; // Channel for calculated output pixels between wndClc and Pe2Buf
+		#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf
+		#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf
+		#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf
+		acc_data_t px_toBuf2[POF][POY][POX]; // Channel for calculated output pixels between wndClc and Pe2Buf	
+		#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf2
+		#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf2
+		#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf2
+		row_inbuf_i_dt rowStepAddress; 				// Base address for row of InBuf for each execution of wndClc
+		wndClc_ctrl(Toy_step_in, Tox_step_in, Tof_step_in, wrd_1row_in, &rowStepAddress);
+		wndClc_Dfl(wndclc_loop_limit_in, wtbuf2pe_loop_limit_in, rowStepAddress,
+				Nif_in, wrd_1row_in, row_1map_in,
+				InBuf, WtBuf, px_toBuf);
+		Region2: for(int counter=0;counter<tileclc_loop_limit_in;counter++){
+		#pragma HLS PIPELINE off
+		#pragma HLS loop_tripcount min=TILECLC_TRIPCOUNT max=TILECLC_TRIPCOUNT
+			wndClc_ctrl(Toy_step_in, Tox_step_in, Tof_step_in, wrd_1row_in, &rowStepAddress);
+			Pe2Buf(Toy_in, Toy_step_in, Tox_step_in, Tof_step_in,
+					pe2buf_addr_offset1_in, pe2buf_addr_offset2_in,
+					pe2buf_addr_offset3_in,
+					bit_shift_in,
+					px_toBuf, BiasBuf, OutBuf);
+			wndClc_Dfl(wndclc_loop_limit_in, wtbuf2pe_loop_limit_in, rowStepAddress,
+					Nif_in, wrd_1row_in, row_1map_in,
+					InBuf, WtBuf, px_toBuf2);
+
+			wndClc_ctrl(Toy_step_in, Tox_step_in, Tof_step_in, wrd_1row_in, &rowStepAddress);
+			Pe2Buf(Toy_in, Toy_step_in, Tox_step_in, Tof_step_in,
+					pe2buf_addr_offset1_in, pe2buf_addr_offset2_in,
+					pe2buf_addr_offset3_in,
+					bit_shift_in,
+					px_toBuf2, BiasBuf, OutBuf);
+			wndClc_Dfl(wndclc_loop_limit_in, wtbuf2pe_loop_limit_in, rowStepAddress,
+					Nif_in, wrd_1row_in, row_1map_in,
+					InBuf, WtBuf, px_toBuf);
+		}
+		Pe2Buf(Toy_in, Toy_step_in, Tox_step_in, Tof_step_in,
+				pe2buf_addr_offset1_in, pe2buf_addr_offset2_in,
+				pe2buf_addr_offset3_in,
+				bit_shift_in,
+				px_toBuf, BiasBuf, OutBuf);
+	}
+*/
+
+
+/* Dataflow version:
+	void tileClc_Dfl(
+			// Parameters
+			tile_loop_dt tileclc_loop_limit_in, wnd_loop_dt wndclc_loop_limit_in,
+			wtbuf2pe_loop_dt wtbuf2pe_loop_limit_in,
+			Nif_dt Nif_in, Toy_dt Toy_in,
+			Toy_step_dt Toy_step_in, Tox_step_dt Tox_step_in, Tof_step_dt Tof_step_in,
+			wrd_1row_dt wrd_1row_in, row_1map_dt row_1map_in,
+			row_outbuf_i_dt pe2buf_addr_offset1_in, row_outbuf_i_dt pe2buf_addr_offset2_in,
+			row_outbuf_i_dt pe2buf_addr_offset3_in,
+			bit_shift_dt bit_shift_in,
+			// Inputs
+			px_data_t InBuf[POY][WRD_INBUF][POX],
+			wt_data_t WtBuf[WRD_WTBUF][POF],
+			b_data_t BiasBuf[BIASBUF_LENGTH],
+			// Output
+			px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]
+		){
+		#pragma HLS INLINE off
+		// tile_loop_dt tileclc_loop_limit = tileclc_loop_limit_in;
+		// wnd_loop_dt wndclc_loop_limit = wndclc_loop_limit_in;
+		// wtbuf2pe_loop_dt wtbuf2pe_loop_limit = wtbuf2pe_loop_limit_in;
+		// Nif_dt Nif = Nif_in;
+		// Toy_dt Toy = Toy_in;
+		// Toy_step_dt Toy_step = Toy_step_in;
+		// Tox_step_dt Tox_step = Tox_step_in;
+		// Tof_step_dt Tof_step = Tof_step_in;
+		// // Toy_step_dt Toy_step = Toy_step_in;
+		// // Tox_step_dt Tox_step = Tox_step_in;
+		// // Tof_step_dt Tof_step = Tof_step_in;
+		// // Toy_step_dt Toy_step2 = Toy_step_in;
+		// // Tox_step_dt Tox_step2 = Tox_step_in;
+		// // Tof_step_dt Tof_step2 = Tof_step_in;
+
+		// wrd_1row_dt wrd_1row = wrd_1row_in;
+		// row_1map_dt row_1map = row_1map_in;
+		// row_outbuf_i_dt pe2buf_addr_offset1 = pe2buf_addr_offset1_in;
+		// row_outbuf_i_dt pe2buf_addr_offset2 = pe2buf_addr_offset2_in;
+		// row_outbuf_i_dt pe2buf_addr_offset3 = pe2buf_addr_offset3_in;
+		// bit_shift_dt bit_shift = bit_shift_in;
+		#ifndef __SYNTHESIS__
+			std::cout << "For this tile, bit shift is " << bit_shift << std::endl;
+		#endif
+
+		Region2: for(int counter=0;counter<tileclc_loop_limit_in;counter++){
+		#pragma HLS DATAFLOW
+		#pragma HLS loop_tripcount min=TILECLC_TRIPCOUNT max=TILECLC_TRIPCOUNT
+			acc_data_t px_toBuf[POF][POY][POX]; 		// Channel for calculated output pixels between wndClc and Pe2Buf
+			#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=px_toBuf
+			#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=px_toBuf
+			#pragma HLS ARRAY_PARTITION dim=3 type=complete variable=px_toBuf
+			row_inbuf_i_dt rowStepAddress; 				// Base address for row of InBuf for each execution of wndClc
+
+			wndClc_ctrl(Toy_step_in, Tox_step_in, Tof_step_in, wrd_1row_in, &rowStepAddress);
+			wndClc_Dfl(wndclc_loop_limit_in, wtbuf2pe_loop_limit_in, rowStepAddress,
+					Nif_in, wrd_1row_in, row_1map_in,
+					InBuf, WtBuf, px_toBuf);
+			Pe2Buf(Toy_in, Toy_step_in, Tox_step_in, Tof_step_in,
+					pe2buf_addr_offset1_in, pe2buf_addr_offset2_in,
+					pe2buf_addr_offset3_in,
+					bit_shift_in,
+					px_toBuf, BiasBuf, OutBuf);
+		}
+
+	}
+*/
 
 void loadBiasTile(
 		data_bool layerCnfg,
 		b_data_t BiasBuf[BIASBUF_LENGTH]
 	){
+#pragma HLS PIPELINE off
 	#pragma HLS INLINE off
 	// Based on Nof_step, Noy_step and layerNo, we load
 	// the correct Tof biases to the corresponding buffer

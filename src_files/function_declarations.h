@@ -26,19 +26,19 @@ void InBuf2Pe_ctrl(
 void InBuf2Pe_wrapper(
 		/* Inputs */ row_inbuf_i_dt row, Pox_i_dt col,
 		Poy_i_dt bank, data_bool dct_ld, data_bool fl_ld,
-		data_bool wr_fifo, px_data_t InBuf[POY][WRD_INBUF][POX],
+		data_bool wr_fifo, const px_data_t InBuf[POY][WRD_INBUF][POX],
 		/* Output */ px_data_t px_stream[POY][POX]);
 void InBuf2Pe(
 		/* Inputs */ row_inbuf_i_dt row, Pox_i_dt col,
 		Poy_i_dt bank, data_bool dct_ld, data_bool fl_ld,
-		data_bool wr_fifo, px_data_t InBuf[POY][WRD_INBUF][POX],
+		data_bool wr_fifo, const px_data_t InBuf[POY][WRD_INBUF][POX],
 		/* Output */ px_data_t px_stream[POY][POX],
 		/* Input-Output */ hls::stream<px_data_t,4> FIFO_arr[POY][POX]);
 void WtBuf2Pe_ctrl(
 		/* Parameter */ wtbuf2pe_loop_dt wtbuf2pe_loop_limit,
 		/* Address Output */ row_wtbuf_i_dt *row_wt_o);
 void WtBuf2Pe(
-		/* Inputs */ wt_data_t WtBuf[WRD_WTBUF][POF],
+		/* Inputs */ const wt_data_t WtBuf[WRD_WTBUF][POF],
 		row_wtbuf_i_dt row_wt,
 		/* Output */ wt_data_t wt_stream[POF]);
 void wndClc_ctrl(
@@ -49,8 +49,8 @@ void wndClc_Dfl(
 		/* Parameters */ wnd_loop_dt wndclc_loop_limit_in, wtbuf2pe_loop_dt wtbuf2pe_loop_limit_in,
 		row_inbuf_i_dt rowStepAddress, Nif_dt Nif_in,
 		wrd_1row_dt wrd_1row_in, row_1map_dt row_1map_in,
-		/* Inputs */ px_data_t InBuf[POY][WRD_INBUF][POX],
-		wt_data_t WtBuf[WRD_WTBUF][POF],
+		/* Inputs */ const px_data_t InBuf[POY][WRD_INBUF][POX],
+		const wt_data_t WtBuf[WRD_WTBUF][POF],
 		/* Output */ acc_data_t rslt_stream_out[POF][POY][POX]);
 void wndClc(
 		/* Parameters */ wnd_loop_dt wndclc_loop_limit_in, wtbuf2pe_loop_dt wtbuf2pe_loop_limit_in,
