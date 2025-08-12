@@ -4,187 +4,190 @@
 
 // ****** Testbench of Modules for Reading/Writing External Memory  *****
 
-int loadIfMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep){
-// verbose=1 -> print every loadIfMap results for the impl.
-// printLayer, printNofStep, printNoyStep -> print call for Layer=printLayer,...
-// NofFirst -> loop order in each conv. layer. NofFirst = 1, load weights first and fully buffer them (Nof=Tof)
-// Change yBase calculation if we change order to NofFirst = 1
+/*
+	int loadIfMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep){
+	// verbose=1 -> print every loadIfMap results for the impl.
+	// printLayer, printNofStep, printNoyStep -> print call for Layer=printLayer,...
+	// NofFirst -> loop order in each conv. layer. NofFirst = 1, load weights first and fully buffer them (Nof=Tof)
+	// Change yBase calculation if we change order to NofFirst = 1
 
-	// Declare all variable parameters
-	int Noy_step /*Noy/Toy*/, Niy;
-	int Tof_step /*ceil(Tof/Pof)*/, Toy_step /*ceil(Toy/Poy)*/, Tox_step /*ceil(Tox/Pox)*/;
-	int Tiy, Tix;
-	int row_1map /*ceil(Tiy/Poy)*/, wrd_1row /*ceil(Tix/Pox)*/;
+		// Declare all variable parameters
+		int Noy_step, Niy; // Noy_step=Noy/Toy
+		int Tof_step, Toy_step, Tox_step; // Tof_step=ceil(Tof/Pof), Toy_step=ceil(Toy/Poy), Tox_step=ceil(Tox/Pox)
+		int Tiy, Tix;
+		int row_1map, wrd_1row; // row_1map=ceil(Tiy/Poy), wrd_1row=ceil(Tix/Pox)
 
-	static px_data_t IfMap[IFMAP_MEMSIZE];
-	static px_data_t InBuf[POY][WRD_INBUF][POX], InBuf_golden[POY][WRD_INBUF][POX];
-	static px_data_t Compared_InBuf[POY][WRD_INBUF][POX] = {0};
-	Niy_dt yBase;
-	data_bool northTile, southTile;
+		static px_data_t IfMap[IFMAP_MEMSIZE];
+		static px_data_t InBuf[POY][WRD_INBUF][POX], InBuf_golden[POY][WRD_INBUF][POX];
+		static px_data_t Compared_InBuf[POY][WRD_INBUF][POX] = {0};
+		Niy_dt yBase;
+		data_bool northTile, southTile;
 
-	int check = 0;
+		int check = 0;
 
-	for(int layerNo=0;layerNo<LAYERS;layerNo++){
-		parameterCalculation(Noy_rom, Tof_rom, Toy_rom, Tox_rom, layerNo,
-			&Noy_step, &Niy, &Tof_step, &Toy_step, &Tox_step, &Tiy, &Tix, &row_1map, &wrd_1row);
+		for(int layerNo=0;layerNo<LAYERS;layerNo++){
+			parameterCalculation(Noy_rom, Tof_rom, Toy_rom, Tox_rom, layerNo,
+				&Noy_step, &Niy, &Tof_step, &Toy_step, &Tox_step, &Tiy, &Tix, &row_1map, &wrd_1row);
 
-		// Initialize IfMap
-		for(int Nif_i=0; Nif_i<Nif_rom[layerNo];Nif_i++){
-			for(int Niy_i=0; Niy_i<Niy;Niy_i++){
-				for(int Nix_i=0;Nix_i<(Tix-2);Nix_i++){
-					*(IfMap
-					+ Nif_i*Niy*(Tix-2)
-					+ Niy_i*(Tix-2)
-					+ Nix_i) = (Nif_i+1)*10000
-							+ (Niy_i+1)*100 + (Nix_i+1);
+			// Initialize IfMap
+			for(int Nif_i=0; Nif_i<Nif_rom[layerNo];Nif_i++){
+				for(int Niy_i=0; Niy_i<Niy;Niy_i++){
+					for(int Nix_i=0;Nix_i<(Tix-2);Nix_i++){
+						*(IfMap
+						+ Nif_i*Niy*(Tix-2)
+						+ Niy_i*(Tix-2)
+						+ Nix_i) = (Nif_i+1)*10000
+								+ (Niy_i+1)*100 + (Nix_i+1);
+					}
 				}
 			}
-		}
 
-		// Print IfMap
-		if(verbose || (printLayer*printNofStep*printNoyStep && printLayer == layerNo+1)){
-			printIfMap(layerNo, IfMap, 0);
-		}
+			// Print IfMap
+			if(verbose || (printLayer*printNofStep*printNoyStep && printLayer == layerNo+1)){
+				printIfMap(layerNo, IfMap, 0);
+			}
 
-		// Call loadIfMap to load parameters
-		loadIfMap(/*layerCnfg=*/1, northTile, southTile,
-					yBase, IfMap, InBuf);
-		yBase = 0;
-		if(nofFirst[layerNo]){
-			for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
-				// Nof_step = 1
-				for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
-					initInBuf_undef(InBuf_golden);
-					loadIfMap_software(layerNo, Noy_step_i,
-							IfMap, InBuf_golden);
+			// Call loadIfMap to load parameters
+			loadIfMap(1, northTile, southTile,
+						yBase, IfMap, InBuf);
+			yBase = 0;
+			if(nofFirst[layerNo]){
+				for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
+					// Nof_step = 1
+					for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
+						initInBuf_undef(InBuf_golden);
+						loadIfMap_software(layerNo, Noy_step_i,
+								IfMap, InBuf_golden);
 
-					// Code below needs to be copy-paste from ConvLayer module
-					if(Noy_step_i == 0){
-						northTile = 1;
-					}
-					else{
-						northTile = 0;
-					}
-					if(Noy_step_i == Noy_step - 1){
-						southTile = 1;
-					}
-					else{
-						southTile = 0;
-					}
+						// Code below needs to be copy-paste from ConvLayer module
+						if(Noy_step_i == 0){
+							northTile = 1;
+						}
+						else{
+							northTile = 0;
+						}
+						if(Noy_step_i == Noy_step - 1){
+							southTile = 1;
+						}
+						else{
+							southTile = 0;
+						}
 
-					// Could be replaced with yBase = 0
-					if(Noy_step_i == 0){  // copy-paste from ConvLayer module
-						yBase = 0;
-					}
-					else{
-						yBase = Noy_step_i*(Tiy - 2) -1;
-					}
+						// Could be replaced with yBase = 0
+						if(Noy_step_i == 0){  // copy-paste from ConvLayer module
+							yBase = 0;
+						}
+						else{
+							yBase = Noy_step_i*(Tiy - 2) -1;
+						}
 
-					initInBuf_undef(InBuf);
-					loadIfMap(/*layerCnfg=*/0, northTile, southTile,
-										yBase, IfMap, InBuf);
+						initInBuf_undef(InBuf);
+						loadIfMap(0, northTile, southTile,
+											yBase, IfMap, InBuf);
 
-					// Compare values of InBuf
-					for(int index=0; index<WRD_INBUF;index++){
-						for(int Poy_i=0; Poy_i<POY;Poy_i++){
-							for(int Pox_i=0;Pox_i<POX;Pox_i++){
-								if(InBuf[Poy_i][index][Pox_i] != InBuf_golden[Poy_i][index][Pox_i]){
-									check = 1;
+						// Compare values of InBuf
+						for(int index=0; index<WRD_INBUF;index++){
+							for(int Poy_i=0; Poy_i<POY;Poy_i++){
+								for(int Pox_i=0;Pox_i<POX;Pox_i++){
+									if(InBuf[Poy_i][index][Pox_i] != InBuf_golden[Poy_i][index][Pox_i]){
+										check = 1;
+									}
+									Compared_InBuf[Poy_i][index][Pox_i] = InBuf[Poy_i][index][Pox_i] - InBuf_golden[Poy_i][index][Pox_i];
 								}
-								Compared_InBuf[Poy_i][index][Pox_i] = InBuf[Poy_i][index][Pox_i] - InBuf_golden[Poy_i][index][Pox_i];
 							}
 						}
-					}
 
-					// Print information for debugging
-					if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
-							&& Noy_step_i == printNoyStep-1)){
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Input Buffers under test" << std::endl;
-						printInBuf(InBuf);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Golden Input Buffers" << std::endl;
-						printInBuf(InBuf_golden);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Comparison of Input Buffers" << std::endl;
-						printInBuf(Compared_InBuf);
+						// Print information for debugging
+						if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
+								&& Noy_step_i == printNoyStep-1)){
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Input Buffers under test" << std::endl;
+							printInBuf(InBuf);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Golden Input Buffers" << std::endl;
+							printInBuf(InBuf_golden);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Comparison of Input Buffers" << std::endl;
+							printInBuf(Compared_InBuf);
+						}
 					}
 				}
 			}
+			else{
+				for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
+					// Noy_step = 1
+					for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
+						initInBuf_undef(InBuf_golden);
+						loadIfMap_software(layerNo, Noy_step_i,
+													IfMap, InBuf_golden);
+
+						// Code below needs to be copy-paste from ConvLayer module
+						if(Noy_step_i == 0){
+							northTile = 1;
+						}
+						else{
+							northTile = 0;
+						}
+						if(Noy_step_i == Noy_step - 1){
+							southTile = 1;
+						}
+						else{
+							southTile = 0;
+						}
+
+
+						if(Noy_step_i == 0){  // copy-paste from ConvLayer module
+							yBase = 0;
+						}
+						else{
+							yBase = Noy_step_i*(Tiy - 2) -1;
+						}
+
+						initInBuf_undef(InBuf);
+						loadIfMap(0, northTile, southTile,
+											yBase, IfMap, InBuf);
+
+						// Compare values of InBuf
+						for(int index=0; index<WRD_INBUF;index++){
+							for(int Poy_i=0; Poy_i<POY;Poy_i++){
+								for(int Pox_i=0;Pox_i<POX;Pox_i++){
+									if(InBuf[Poy_i][index][Pox_i] != InBuf_golden[Poy_i][index][Pox_i]){
+										check = 1;
+									}
+									Compared_InBuf[Poy_i][index][Pox_i] = InBuf[Poy_i][index][Pox_i] - InBuf_golden[Poy_i][index][Pox_i];
+								}
+							}
+						}
+
+						// Print information for debugging
+						if(verbose || (printLayer == layerNo && Nof_step_i == printNofStep-1
+								&& Noy_step_i == printNoyStep-1)){
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Input Buffers under test" << std::endl;
+							printInBuf(InBuf);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Golden Input Buffers" << std::endl;
+							printInBuf(InBuf_golden);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Comparison of Input Buffers" << std::endl;
+							printInBuf(Compared_InBuf);
+						}
+					}
+				}
+			}
+		}
+
+		// Verification Print
+		if(check){
+			std::cout << "*****  Loading IfMap to InBuf test failed!  ******\n" << std::endl;
 		}
 		else{
-			for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
-				// Noy_step = 1
-				for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
-					initInBuf_undef(InBuf_golden);
-					loadIfMap_software(layerNo, Noy_step_i,
-												IfMap, InBuf_golden);
-
-					// Code below needs to be copy-paste from ConvLayer module
-					if(Noy_step_i == 0){
-						northTile = 1;
-					}
-					else{
-						northTile = 0;
-					}
-					if(Noy_step_i == Noy_step - 1){
-						southTile = 1;
-					}
-					else{
-						southTile = 0;
-					}
-
-
-					if(Noy_step_i == 0){  // copy-paste from ConvLayer module
-						yBase = 0;
-					}
-					else{
-						yBase = Noy_step_i*(Tiy - 2) -1;
-					}
-
-					initInBuf_undef(InBuf);
-					loadIfMap(/*layerCnfg=*/0, northTile, southTile,
-										yBase, IfMap, InBuf);
-
-					// Compare values of InBuf
-					for(int index=0; index<WRD_INBUF;index++){
-						for(int Poy_i=0; Poy_i<POY;Poy_i++){
-							for(int Pox_i=0;Pox_i<POX;Pox_i++){
-								if(InBuf[Poy_i][index][Pox_i] != InBuf_golden[Poy_i][index][Pox_i]){
-									check = 1;
-								}
-								Compared_InBuf[Poy_i][index][Pox_i] = InBuf[Poy_i][index][Pox_i] - InBuf_golden[Poy_i][index][Pox_i];
-							}
-						}
-					}
-
-					// Print information for debugging
-					if(verbose || (printLayer == layerNo && Nof_step_i == printNofStep-1
-							&& Noy_step_i == printNoyStep-1)){
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Input Buffers under test" << std::endl;
-						printInBuf(InBuf);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Golden Input Buffers" << std::endl;
-						printInBuf(InBuf_golden);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Comparison of Input Buffers" << std::endl;
-						printInBuf(Compared_InBuf);
-					}
-				}
-			}
+			std::cout << "*****  loadIfMap Test Passed!  ******\n" << std::endl;
 		}
+		return check;
 	}
+*/
 
-	// Verification Print
-	if(check){
-		std::cout << "*****  Loading IfMap to InBuf test failed!  ******\n" << std::endl;
-	}
-	else{
-		std::cout << "*****  loadIfMap Test Passed!  ******\n" << std::endl;
-	}
-	return check;
-}
 
 int loadWtMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep, int printProgress){
 // verbose=1 -> print every loadIfMap results for the impl.

@@ -4,12 +4,11 @@
 #include <ap_fixed.h>
 //#include <ap_float.h>
 #include "parameters.h"
-
 #define DATA_TYPE 3
 // 0 -> all int
 // 1 -> 8,16-bit integer for data
 // 2 -> 16,32-bit integer for data
-// 3 -> 8-bit fixed integer for data
+// 3 -> ap_int<32> for data
 // 4 -> 16-bit fixed integr for data
 #define DATA_TYPE_PAR 0
 // Data types for parameters and internal variables, counters
@@ -17,53 +16,97 @@
 // 1 -> Just enough arbitrary precision, manually calculated
 
 #if (DATA_TYPE == 0)
+	constexpr int SYNTH_BITS=32;
 	typedef int px_data_t;
-	typedef int acc_data_t
+	#if defined(IFMAP_FACTOR7)
+		typedef ap_int<224> px_data_t_widened;
+	#elif defined(IFMAP_FACTOR14)
+		typedef ap_int<448> px_data_t_widened;
+	#else
+		typedef px_data_t px_data_t_widened;
+	#endif
+	typedef int acc_data_t;
 	typedef int wt_data_t;
+	#if defined(WTMAP_FACTOR9)
+		typedef ap_int<288> wt_data_t_widened;
+	#elif defined(WTMAP_FACTOR18)
+		typedef ap_int<576> wt_data_t_widened;
+	#else
+		typedef wt_data_t wt_data_t_widened;
+	#endif
 	typedef int b_data_t;
 	typedef int bfc_data_t;
 	typedef int mul_data_t;
 	typedef int acc_data_t;
 #elif (DATA_TYPE == 1)
+	constexpr int SYNTH_BITS=8;
 	typedef ap_int<8> px_data_t;
+	#if defined(IFMAP_FACTOR7)
+		typedef ap_int<56> px_data_t_widened;
+	#elif defined(IFMAP_FACTOR14)
+		typedef ap_int<112> px_data_t_widened;
+	#else
+		typedef px_data_t px_data_t_widened;
+	#endif
 	typedef ap_int<18> acc_data_t;
 	typedef ap_int<8> wt_data_t;
+	#if defined(WTMAP_FACTOR9)
+		typedef ap_int<72> wt_data_t_widened;
+	#elif defined(WTMAP_FACTOR18)
+		typedef ap_int<144> wt_data_t_widened;
+	#else
+		typedef wt_data_t wt_data_t_widened;
+	#endif
 	typedef ap_int<8> b_data_t;
 	typedef ap_int<8> bfc_data_t;
-	typedef ap_int<16> mul_data_t;
-	typedef ap_int<16> acc_data_t;
+	typedef ap_int<18> mul_data_t;
+	typedef ap_int<18> acc_data_t;
 #elif (DATA_TYPE == 2)
+	constexpr int SYNTH_BITS=16;
 	typedef ap_int<16> px_data_t;
+	#if defined(IFMAP_FACTOR7)
+		typedef ap_int<112> px_data_t_widened;
+	#elif defined(IFMAP_FACTOR14)
+		typedef ap_int<224> px_data_t_widened;
+	#else
+		typedef px_data_t px_data_t_widened;
+	#endif
 	typedef ap_int<32> acc_data_t;
 	typedef ap_int<16> wt_data_t;
+	#if defined(WTMAP_FACTOR9)
+		typedef ap_int<144> wt_data_t_widened;
+	#elif defined(WTMAP_FACTOR18)
+		typedef ap_int<288> wt_data_t_widened;
+	#else
+		typedef wt_data_t wt_data_t_widened;
+	#endif
 	typedef ap_int<16> b_data_t;
 	typedef ap_int<16> bfc_data_t;
 	typedef ap_int<32> mul_data_t;
 	typedef ap_int<32> acc_data_t;
 #elif (DATA_TYPE == 3)
+	constexpr int SYNTH_BITS=32;
 	typedef ap_int<32> px_data_t;
+	#if defined(IFMAP_FACTOR7)
+		typedef ap_int<224> px_data_t_widened;
+	#elif defined(IFMAP_FACTOR14)
+		typedef ap_int<448> px_data_t_widened;
+	#else
+		typedef px_data_t px_data_t_widened;
+	#endif
 	typedef ap_int<32> acc_data_t;
 	typedef ap_int<32> wt_data_t;
+	#if defined(WTMAP_FACTOR9)
+		typedef ap_int<288> wt_data_t_widened;
+	#elif defined(WTMAP_FACTOR18)
+		typedef ap_int<576> wt_data_t_widened;
+	#else
+		typedef wt_data_t wt_data_t_widened;
+	#endif
 	typedef ap_int<32> b_data_t;
 	typedef ap_int<32> bfc_data_t;
 	typedef ap_int<32> mul_data_t;
 	typedef ap_int<32> acc_data_t;
-#elif (DATA_TYPE == 3)
-	typedef ap_fixed<8,2,AP_RND> px_data_t;
-	typedef ap_fixed<18,4,AP_RND> acc_data_t;
-	typedef ap_fixed<8,2,AP_RND> wt_data_t;
-	typedef ap_fixed<8,2,AP_RND> b_data_t;
-	typedef ap_fixed<8,2,AP_RND> bfc_data_t;
-	typedef ap_fixed<16,5,AP_RND> mul_data_t;
-	typedef ap_fixed<16,5,AP_RND> acc_data_t;
-#elif (DATA_TYPE == 4)
-	typedef ap_fixed<16,5,AP_RND> px_data_t;
-	typedef ap_fixed<32,10,AP_RND> acc_data_t;
-	typedef ap_fixed<16,5,AP_RND> wt_data_t;
-	typedef ap_fixed<16,5,AP_RND> b_data_t;
-	typedef ap_fixed<16,5,AP_RND> bfc_data_t;
-	typedef ap_fixed<32,10,AP_RND> mul_data_t;
-	typedef ap_fixed<32,10,AP_RND> acc_data_t;
 #endif // Data types
 
 // Parameters

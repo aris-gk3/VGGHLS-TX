@@ -1,8 +1,7 @@
 #include "header.h"
 #include "hls_stream.h"
 #include <iostream>
-// Region2: REGION2_SEQ, REGION2_DFL, REGION2_MNLSCHEDULE_2BUF, REGION2_PPL
-#define REGION2_DFL
+
 
 void ReLu(
 		px_data_t in, px_data_t *out){
@@ -1172,7 +1171,7 @@ void loadIfMap(
 		data_bool layerCnfg,
 		// Inputs
 		data_bool northTile_in, data_bool southTile_in,
-		Niy_dt yBase_in, const px_data_t IfMap[IFMAP_MEMSIZE], //[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
+		Niy_dt yBase_in, const px_data_t_widened IfMap[IFMAP_MEMSIZE], //[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
 		// Output
 		px_data_t InBuf[POY][WRD_INBUF][POX]
 	){
@@ -1224,17 +1223,41 @@ void loadIfMap(
 			If_Tiy: for(int yTile_i=0;yTile_i<yTile;yTile_i++){
 			#pragma HLS LOOP_TRIPCOUNT min=TIY_TRIPCOUNT max=TIY_TRIPCOUNT
 				Pox_i = 1; wrdX = 0;
-				If_Nix: for(int xTile_i=0;xTile_i<xTile;xTile_i++){
+				// If_Nix: for(int xTile_i=0;xTile_i<xTile;xTile_i++){
+				// #pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
+				// 	wrd_i = wrdMap + wrdY + wrdX;
+				// 	InBuf[Poy_i][wrd_i][Pox_i] = *(IfMap + Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i);
+				// 	if(Pox_i == POX-1){
+				// 		wrdX++;
+				// 		Pox_i = 0;
+				// 	}
+				// 	else{
+				// 		Pox_i++;
+				// 	}
+				// }
+				If_Nix: for(int xTile_i=0;xTile_i<xTile/7;xTile_i++){
 				#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
 					wrd_i = wrdMap + wrdY + wrdX;
-					InBuf[Poy_i][wrd_i][Pox_i] = *(IfMap + Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i);
-					if(Pox_i == POX-1){
-						wrdX++;
-						Pox_i = 0;
+					for(int i=0;i<14;i++){
+					#pragma HLS UNROLL
+						InBuf[Poy_i][wrd_i][Pox_i] = *(IfMap + Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i);
 					}
-					else{
-						Pox_i++;
-					}
+					InBuf[Poy_i][wrd_i][1] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i].range(31,0);
+					InBuf[Poy_i][wrd_i][2] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i+1].range(63,32);
+					InBuf[Poy_i][wrd_i][3] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i+2].range(95,64);
+					InBuf[Poy_i][wrd_i][4] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i+3].range(127,96);
+					InBuf[Poy_i][wrd_i][5] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i+4].range(159,128);
+					InBuf[Poy_i][wrd_i][6] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i+5].range(191,160);
+					InBuf[Poy_i][wrd_i+1][0] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i+6].range(223,192);
+					
+					// if(Pox_i == POX-1){
+					// 	wrdX++;
+					// 	Pox_i = 0;
+					// }
+					// else{
+					// 	Pox_i++;
+					// }
+					wrdX++;
 				}
 				if(Poy_i == POY-1){
 					Poy_i = 0;
@@ -1299,6 +1322,7 @@ void loadWtMap(
 		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]
 	){
 	#pragma HLS INLINE off
+	#pragma HLS INTERFACE m_axi port=WtMap max_widen_bitwidth=256
 	static Nif_dt Nif; 				// Parameters stored locally (1)
 	static Tof_dt Tof; 				// Parameters stored locally (2)
 	static layerNo_dt layerNo = 0;  // "State" for layer
@@ -1401,7 +1425,7 @@ void storeMap(
 				#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
 					*(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) =
 							OutBuf[OutBufNum_i][wrdMap + wrdY + wrdX][Pox_i];
-					if( *(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) >= (1 << NUM_BITS)){
+					if( *(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) >= (1 << HW_EMUL_NUM_BITS)){
 						#ifdef DEBUG_MODE
 							std::cout << "Value out of range found in " << (Tof_i+ofBase*Tof) << " Map, "
 								<< (Toy_i+yBase*Toy) << " Row, " << Tox_i << " Column\n";
@@ -1436,7 +1460,7 @@ void mem2Buf(
 		// Parameter Loading State
 		data_bool layerCnfg,
 		// Inputs
-		const px_data_t IfMap[IFMAP_MEMSIZE],
+		const px_data_t_widened IfMap[IFMAP_MEMSIZE],
 		const wt_data_t WtMap[WTMAP_MEMSIZE],
 		// Outputs
 		px_data_t InBuf[POY][WRD_INBUF][POX],
@@ -1515,7 +1539,7 @@ void ConvLayer_Dfl(
 		px_data_t OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
 		b_data_t BiasBuf1[BIASBUF_LENGTH], b_data_t BiasBuf2[BIASBUF_LENGTH],
 		// Inputs
-		px_data_t IfMap[IFMAP_MEMSIZE],
+		px_data_t_widened IfMap[IFMAP_MEMSIZE],
 		wt_data_t WtMap[WTMAP_MEMSIZE],
 		// Output
 		px_data_t OfMap[OFMAP_MEMSIZE]
@@ -1539,7 +1563,7 @@ void ConvLayer_Dfl(
 
 void ConvLayer(
 		//Inputs
-		const px_data_t *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
+		const px_data_t_widened *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
 		const wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		//Output
 		px_data_t *OfMap 	// [NOF][NOY][NOX]
@@ -1817,50 +1841,225 @@ void maxPool(
 }
 
 
-void vgg16Top(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
-		px_data_t *Map2, px_data_t finalOut[1000]
-	){
-	// Outside controller calls this function once, instead
-	// calling as many times as the layers.
+// void vgg16Top(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
+// 		px_data_t *Map2, px_data_t finalOut[1000]
+// 	){
+// 	// Outside controller calls this function once, instead
+// 	// calling as many times as the layers.
 
-	ConvLayer(Map1, WtMap, Map2);
-	WtMap += WtMapOffsetConv[0];
-	ConvLayer(Map2, WtMap, Map1);
-	WtMap += WtMapOffsetConv[1];
-	maxPool(Map1, 64, 112, 112, Map2);
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	WtMap += WtMapOffsetConv[0];
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	WtMap += WtMapOffsetConv[1];
+// 	maxPool(Map1, 64, 112, 112, Map2);
 
-	ConvLayer(Map2, WtMap, Map1);
-	WtMap += WtMapOffsetConv[2];
-	ConvLayer(Map1, WtMap, Map2);
-	WtMap += WtMapOffsetConv[3];
-	maxPool(Map2, 128, 56, 56, Map1);
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	WtMap += WtMapOffsetConv[2];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	WtMap += WtMapOffsetConv[3];
+// 	maxPool(Map2, 128, 56, 56, Map1);
 
-	ConvLayer(Map1, WtMap, Map2);
-	WtMap += WtMapOffsetConv[4];
-	ConvLayer(Map2, WtMap, Map1);
-	WtMap += WtMapOffsetConv[5];
-	ConvLayer(Map1, WtMap, Map2);
-	WtMap += WtMapOffsetConv[6];
-	maxPool(Map2, 256, 28, 28, Map1);
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	WtMap += WtMapOffsetConv[4];
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	WtMap += WtMapOffsetConv[5];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	WtMap += WtMapOffsetConv[6];
+// 	maxPool(Map2, 256, 28, 28, Map1);
 
-	ConvLayer(Map1, WtMap, Map2);
-	WtMap += WtMapOffsetConv[7];
-	ConvLayer(Map2, WtMap, Map1);
-	WtMap += WtMapOffsetConv[8];
-	ConvLayer(Map1, WtMap, Map2);
-	WtMap += WtMapOffsetConv[9];
-	maxPool(Map2, 512, 14, 14, Map1);
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	WtMap += WtMapOffsetConv[7];
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	WtMap += WtMapOffsetConv[8];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	WtMap += WtMapOffsetConv[9];
+// 	maxPool(Map2, 512, 14, 14, Map1);
 
-	ConvLayer(Map1, WtMap, Map2);
-	WtMap += WtMapOffsetConv[10];
-	ConvLayer(Map2, WtMap, Map1);
-	WtMap += WtMapOffsetConv[11];
-	ConvLayer(Map1, WtMap, Map2);
-	WtMap += WtMapOffsetConv[12];
-	maxPool(Map2, 512, 7, 7, Map1);
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	WtMap += WtMapOffsetConv[10];
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	WtMap += WtMapOffsetConv[11];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	WtMap += WtMapOffsetConv[12];
+// 	maxPool(Map2, 512, 7, 7, Map1);
 
-	fcLayers(Map1, WtMap, finalOut);
-}
+// 	fcLayers(Map1, WtMap, finalOut);
+// }
+
+
+// void tlModelTop(px_data_t_widened *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
+// 		px_data_t *Map2, px_data_t finalOut[17]
+// 	){
+// 	#ifndef __SYNTHESIS__
+// 		int min, max, minWt, maxWt;
+// 		findMinMax(Map1, 3*224*224, min, max);
+// 		std::cout << "Input Range : min=" << min << " ,max=" << max << "\n";
+// 	#endif
+	
+// 	// First Conv. Block
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 3*64*3*3, minWt, maxWt);
+// 		findMinMax(Map2, 64*224*224, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "01) After block1_conv1: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	WtMap += WtMapOffsetConv[0];
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 64*64*3*3, minWt, maxWt);
+// 		findMinMax(Map1, 64*224*224, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "02) After block1_conv2: min=" << min << ", max=" << max << "\n";
+// 	#endif
+	
+// 	maxPool(Map1, 64, 112, 112, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(Map2, 64*112*112, min, max);
+// 		std::cout << "03) After maxpool1: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	// Second Conv. Block
+// 	WtMap += WtMapOffsetConv[1];
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 64*128*3*3, minWt, maxWt);
+// 		findMinMax(Map1, 128*112*112, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "04) After block2_conv1: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	WtMap += WtMapOffsetConv[2];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 128*128*3*3, minWt, maxWt);
+// 		findMinMax(Map2, 128*112*112, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "05) After block2_conv2: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	maxPool(Map2, 128, 56, 56, Map1);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(Map1, 128*56*56, min, max);
+// 		std::cout << "06) After maxpool2: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	// Third Conv. Block
+// 	WtMap += WtMapOffsetConv[3];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 128*256*3*3, minWt, maxWt);
+// 		findMinMax(Map2, 256*56*56, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "07) After block3_conv1: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	WtMap += WtMapOffsetConv[4];
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 256*256*3*3, minWt, maxWt);
+// 		findMinMax(Map1, 256*56*56, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "08) After block3_conv2: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	WtMap += WtMapOffsetConv[5];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 256*256*3*3, minWt, maxWt);
+// 		findMinMax(Map2, 256*56*56, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "09) After block3_conv3: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	maxPool(Map2, 256, 28, 28, Map1);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(Map1, 256*28*28, min, max);
+// 		std::cout << "10) After maxpool3: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	// Fourth Conv. Block
+// 	WtMap += WtMapOffsetConv[6];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 256*512*3*3, minWt, maxWt);
+// 		findMinMax(Map2, 512*28*28, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "11) After block4_conv1: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	WtMap += WtMapOffsetConv[7];
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
+// 		findMinMax(Map1, 512*28*28, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "12) After block4_conv2: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	WtMap += WtMapOffsetConv[8];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
+// 		findMinMax(Map2, 512*28*28, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "13) After block4_conv3: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	maxPool(Map2, 512, 14, 14, Map1);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(Map1, 512*14*14, min, max);
+// 		std::cout << "14) After maxpool4: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	// Fifth Conv. Block
+// 	WtMap += WtMapOffsetConv[9];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
+// 		findMinMax(Map2, 512*14*14, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "15) After block5_conv1: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	WtMap += WtMapOffsetConv[10];
+// 	ConvLayer(Map2, WtMap, Map1);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
+// 		findMinMax(Map1, 512*14*14, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "16) After block5_conv2: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	WtMap += WtMapOffsetConv[11];
+// 	ConvLayer(Map1, WtMap, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
+// 		findMinMax(Map2, 512*14*14, min, max);
+// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+// 		std::cout << "17) After block5_conv3: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	maxPool(Map2, 512, 7, 7, Map1);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(Map1, 512*7*7, min, max);
+// 		std::cout << "18) After maxpool5: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	gap(Map1, Map2);
+// 	#ifndef __SYNTHESIS__
+// 		findMinMax(Map2, 512, min, max);
+// 		std::cout << "19) After gap: min=" << min << ", max=" << max << "\n";
+// 	#endif
+
+// 	WtMap += WtMapOffsetConv[12];
+// 	fcLayersOF(Map2, WtMap, finalOut);
+// 	#ifndef __SYNTHESIS__
+// 		std::cout << "Finished all fc layers!" << std::endl;
+// 	#endif
+	
+// }
 
 
 void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
@@ -1871,9 +2070,15 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		findMinMax(Map1, 3*224*224, min, max);
 		std::cout << "Input Range : min=" << min << " ,max=" << max << "\n";
 	#endif
-	
+	#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
+		px_data_t_widened Map[IFMAP_MEMSIZE_WIDENED];
+	#else
+		px_data_t Map[IFMAP_MEMSIZE];
+	#endif
+
 	// First Conv. Block
-	ConvLayer(Map1, WtMap, Map2);
+	pack(Map1, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map2);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 3*64*3*3, minWt, maxWt);
 		findMinMax(Map2, 64*224*224, min, max);
@@ -1882,7 +2087,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[0];
-	ConvLayer(Map2, WtMap, Map1);
+	pack(Map2, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map1);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 64*64*3*3, minWt, maxWt);
 		findMinMax(Map1, 64*224*224, min, max);
@@ -1898,7 +2104,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 
 	// Second Conv. Block
 	WtMap += WtMapOffsetConv[1];
-	ConvLayer(Map2, WtMap, Map1);
+	pack(Map2, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map1);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 64*128*3*3, minWt, maxWt);
 		findMinMax(Map1, 128*112*112, min, max);
@@ -1907,7 +2114,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[2];
-	ConvLayer(Map1, WtMap, Map2);
+	pack(Map1, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map2);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 128*128*3*3, minWt, maxWt);
 		findMinMax(Map2, 128*112*112, min, max);
@@ -1923,7 +2131,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 
 	// Third Conv. Block
 	WtMap += WtMapOffsetConv[3];
-	ConvLayer(Map1, WtMap, Map2);
+	pack(Map1, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map2);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 128*256*3*3, minWt, maxWt);
 		findMinMax(Map2, 256*56*56, min, max);
@@ -1932,7 +2141,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[4];
-	ConvLayer(Map2, WtMap, Map1);
+	pack(Map2, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map1);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 256*256*3*3, minWt, maxWt);
 		findMinMax(Map1, 256*56*56, min, max);
@@ -1941,7 +2151,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[5];
-	ConvLayer(Map1, WtMap, Map2);
+	pack(Map1, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map2);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 256*256*3*3, minWt, maxWt);
 		findMinMax(Map2, 256*56*56, min, max);
@@ -1957,7 +2168,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 
 	// Fourth Conv. Block
 	WtMap += WtMapOffsetConv[6];
-	ConvLayer(Map1, WtMap, Map2);
+	pack(Map1, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map2);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 256*512*3*3, minWt, maxWt);
 		findMinMax(Map2, 512*28*28, min, max);
@@ -1966,7 +2178,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[7];
-	ConvLayer(Map2, WtMap, Map1);
+	pack(Map2, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map1);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
 		findMinMax(Map1, 512*28*28, min, max);
@@ -1975,7 +2188,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[8];
-	ConvLayer(Map1, WtMap, Map2);
+	pack(Map1, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map2);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
 		findMinMax(Map2, 512*28*28, min, max);
@@ -1991,7 +2205,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 
 	// Fifth Conv. Block
 	WtMap += WtMapOffsetConv[9];
-	ConvLayer(Map1, WtMap, Map2);
+	pack(Map1, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map2);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
 		findMinMax(Map2, 512*14*14, min, max);
@@ -2000,7 +2215,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[10];
-	ConvLayer(Map2, WtMap, Map1);
+	pack(Map2, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map1);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
 		findMinMax(Map1, 512*14*14, min, max);
@@ -2009,7 +2225,8 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[11];
-	ConvLayer(Map1, WtMap, Map2);
+	pack(Map1, Map, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+	ConvLayer(Map, WtMap, Map2);
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
 		findMinMax(Map2, 512*14*14, min, max);

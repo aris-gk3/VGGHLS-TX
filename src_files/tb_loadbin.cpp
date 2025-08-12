@@ -280,7 +280,8 @@ void wtMemInitBin(
 
         if (!file) {
             std::cerr << "Failed to open: " << bin_path << std::endl;
-            WtMapCNN[i] = nullptr;
+              WtMapCNN[i] = -6666;
+            // WtMapCNN[i] = nullptr;
             continue;
         }
 
@@ -302,7 +303,8 @@ void wtMemInitBin(
         if (!file) {
             std::cerr << "Read failed: " << bin_path << std::endl;
             delete[] buffer;
-            WtMapCNN[i] = nullptr;
+            WtMapCNN[i] = -6666;
+            // WtMapCNN[i] = nullptr;
             continue;
         }
 

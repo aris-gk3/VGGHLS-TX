@@ -57,7 +57,6 @@ INFO: [COSIM 212-14] Instrumenting C test bench ...
    Generating cosim.tv.exe
 INFO: [COSIM 212-302] Starting C TB testing ... 
 *********************************************************************************  Starting Verification. ************************************************************************************
-*****  Layer 1  *****
 Loaded parameters in mem2Buf, layer:0
 Loaded parameters in loadBiasTile, layer:0
 Loaded parameters in tileClc, layer:0
@@ -72,49 +71,6 @@ Finished loadBiasTile tile:1
 For this tile, bit shift is 0
 Finished tileClc tile:1
 Finished tile:1
-
-Number of out of range synth values are:854
-
-Positions of out of range values (first 20) for synth module are:
-12   14   16   18   20   22   23   25   26   27   28   29   30   31   34   35   37   39   43   44   
-Values out of range (first 20) for synth module are:
-17627   2259   2607   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   12786   5759   30996   17028   2402   35290   18074   Number of out of range tb values are:854
-
-Positions of out of range values (first 20) for TB are:
-12   14   16   18   20   22   23   25   26   27   28   29   30   31   34   35   37   39   43   44   
-Values out of range (first 20) for TB are:
-17627   2259   2607   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   12786   5759   30996   17028   2402   35290   18074   
-*****  Layer 2  *****
-Loaded parameters in mem2Buf, layer:1
-Loaded parameters in loadBiasTile, layer:1
-Loaded parameters in tileClc, layer:1
-Loaded parameters, layer:1
-Finished mem2Buf tile:0
-Finished loadBiasTile tile:0
-For this tile, bit shift is 0
-Finished tileClc tile:0
-Finished tile:0
-Finished mem2Buf tile:1
-Finished loadBiasTile tile:1
-For this tile, bit shift is 0
-Finished tileClc tile:1
-Finished tile:1
-
-Number of out of range synth values are:858
-
-Positions of out of range values (first 20) for synth module are:
-0   9   11   12   13   14   15   18   19   20   21   22   23   24   25   27   28   29   30   31   
-Values out of range (first 20) for synth module are:
-21707   6321   17883   28666   36670   36232   40200   56876   6222   55463   18145   24016   25188   54021   26746   61800   45285   64236   10800   9753   Number of out of range tb values are:858
-
-Positions of out of range values (first 20) for TB are:
-0   9   11   12   13   14   15   18   19   20   21   22   23   24   25   27   28   29   30   31   
-Values out of range (first 20) for TB are:
-21707   6321   17883   28666   36670   36232   40200   56876   6222   55463   18145   24016   25188   54021   26746   61800   45285   64236   10800   9753   
-Printing first 20 elements of last output layer
-   21707       0       0       0       0       0       0       0       0    6321       0   17883   28666   36670   36232   40200       0       0   56876    6222
-*****  ConvLayer Test with bias + ReLu Passed!  ******
-
 *********************************************************************************  Verification Complete. ************************************************************************************
 INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
 INFO: [COSIM 212-333] Generating C post check test bench ...
@@ -133,56 +89,17 @@ Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.
 Multi-threading is on. Using 10 slave threads.
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/glbl.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module glbl
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer.autotb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module apatb_ConvLayer_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_control_s_axi.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_control_s_axi
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_ConvLayer_int_const_int_const_int_WtBuf_RAM_AUTO_1R1W.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_ConvLayer_int_const_int_const_int_WtBuf_RAM_AUTO_1R1W
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_dataflow_in_loop_Region2_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_dataflow_in_loop_Region2_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_dataflow_parent_loop_proc.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_dataflow_parent_loop_proc
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_entry_proc.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_entry_proc
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w2_d3_S.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w2_d3_S
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w2_d3_S_ShiftReg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w32_d2_S.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w32_d2_S
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w32_d2_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_ConvLayer_ap_int_32_const_ap_int_32_const_ap_int_32_WtBuf_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_ConvLayer_ap_int_32_const_ap_int_32_const_ap_int_32_WtBuf_RAM_AUTO_1R1W
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w32_d4_S.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w32_d4_S
 INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w32_d4_S_ShiftReg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w3_d2_S.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w3_d2_S
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w3_d2_S_ShiftReg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w3_d3_S.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w3_d3_S
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w3_d3_S_ShiftReg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w4_d4_S.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w4_d4_S
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w4_d4_S_ShiftReg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w6_d3_S.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w6_d3_S
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w6_d3_S_ShiftReg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w7_d3_S.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w7_d3_S
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w7_d3_S_ShiftReg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w7_d4_S.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w7_d4_S
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w7_d4_S_ShiftReg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_fifo_w8_d4_S.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w8_d4_S
-INFO: [VRFC 10-311] analyzing module ConvLayer_fifo_w8_d4_S_ShiftReg
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_flow_control_loop_pipe_sequential_init
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_gmem_m_axi.v" into library xil_defaultlib
@@ -201,8 +118,6 @@ INFO: [VRFC 10-311] analyzing module ConvLayer_gmem_m_axi_srl
 INFO: [VRFC 10-311] analyzing module ConvLayer_gmem_m_axi_mem
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadBiasTile.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_loadBiasTile
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadBiasTile_Nof_step_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_loadBiasTile_Nof_step_rom_ROM_AUTO_1R
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadBiasTile_Pipeline_BiasLoop_Tof.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_loadBiasTile_Pipeline_BiasLoop_Tof
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadBiasTile_Pipeline_BiasLoop_Tof_bias_ROM_AUTO_1R.v" into library xil_defaultlib
@@ -219,24 +134,19 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-T
 INFO: [VRFC 10-311] analyzing module ConvLayer_loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadIfMap_Pipeline_WestPad_Line.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_loadIfMap_Pipeline_WestPad_Line
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadIfMap_row_1map_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_loadIfMap_row_1map_rom_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadIfMap_tiy_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_loadIfMap_tiy_rom_ROM_AUTO_1R
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadWtMap.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_loadWtMap
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadWtMap_Nif_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_loadWtMap_Nif_rom_ROM_AUTO_1R
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadWtMap_Pipeline_WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_loadWtMap_Pipeline_WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_loadWtMap_Tof_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_loadWtMap_Tof_rom_ROM_AUTO_1R
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mac_muladd_3ns_2ns_8ns_8_4_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_3ns_2ns_8ns_8_4_1_DSP48_0
 INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_3ns_2ns_8ns_8_4_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mac_muladd_4ns_4ns_32s_33_4_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_4ns_4ns_32s_33_4_1_DSP48_0
 INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_4ns_4ns_32s_33_4_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mac_muladd_5s_4ns_5ns_5_4_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_5s_4ns_5ns_5_4_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_5s_4ns_5ns_5_4_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mac_muladd_6ns_4ns_3ns_9_4_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_6ns_4ns_3ns_9_4_1_DSP48_0
 INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_6ns_4ns_3ns_9_4_1
@@ -245,18 +155,14 @@ INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_6ns_4ns_7s_9_4_1_DSP48
 INFO: [VRFC 10-311] analyzing module ConvLayer_mac_muladd_6ns_4ns_7s_9_4_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mem2Buf.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mem2Buf
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mem2Buf_noy_step_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_mem2Buf_noy_step_rom_ROM_AUTO_1R
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_10ns_32s_42_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_mul_10ns_32s_42_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_32ns_32ns_36_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_32ns_32ns_36_1_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_32s_10ns_42_1_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_mul_32s_10ns_42_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_32s_32s_32_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_32s_32s_32_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_32s_3ns_32_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_32s_3ns_32_1_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_32s_4ns_32_1_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_mul_32s_4ns_32_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_32s_5s_32_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_32s_5s_32_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_33s_32ns_62_1_1.v" into library xil_defaultlib
@@ -265,40 +171,32 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-T
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_33s_4ns_37_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_37s_4ns_41_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_37s_4ns_41_1_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_3ns_3ns_5_1_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_mul_3ns_3ns_5_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_3ns_3ns_6_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_3ns_3ns_6_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_3ns_4ns_6_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_mul_3ns_4ns_6_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_3ns_4ns_7_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_mul_3ns_4ns_7_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_4ns_32s_32_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_4ns_32s_32_1_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_4ns_3ns_6_1_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_mul_4ns_3ns_6_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_4ns_3ns_7_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_4ns_3ns_7_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_4ns_4ns_8_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_4ns_4ns_8_1_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_4ns_8ns_11_1_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_mul_4ns_8ns_11_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_4ns_8ns_12_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_4ns_8ns_12_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_5ns_2ns_6_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_5ns_2ns_6_1_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_5s_4ns_5_1_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_mul_5s_4ns_5_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_mul_8ns_4ns_11_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_mul_8ns_4ns_11_1_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_nofFirst_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_nofFirst_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_nofy_step_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_nofy_step_rom_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_Pe2Buf4.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_Pe2Buf4
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_Pe2Buf4_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_Pe2Buf4_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_p_ZZ9ConvLayerPKiS0_PiE5InBuf_0_0_RAM_AUTO_1R1W.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_p_ZZ9ConvLayerPKiS0_PiE5InBuf_0_0_RAM_AUTO_1R1W
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_p_ZZ9ConvLayerPKiS0_PiE6OutBuf_0_0_RAM_AUTO_1R1W.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_p_ZZ9ConvLayerPKiS0_PiE6OutBuf_0_0_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_Pe2Buf.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_Pe2Buf
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E5InBuf_0_0_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E5InBuf_0_0_RAM_AUTO_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_RAM_AUTO_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_RAM_AUTO_1R1W
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_sparsemux_13_4_8_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_sparsemux_13_4_8_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_sparsemux_7_2_31_1_1.v" into library xil_defaultlib
@@ -313,29 +211,14 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-T
 INFO: [VRFC 10-311] analyzing module ConvLayer_storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_tileClc.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ConvLayer_tileClc
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_tileClc_pe2buf_addr_offset1_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_tileClc_pe2buf_addr_offset1_rom_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_tileClc_pe2buf_addr_offset2_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_tileClc_pe2buf_addr_offset2_rom_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_tileClc_pe2buf_addr_offset3_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_tileClc_pe2buf_addr_offset3_rom_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_tileClc_toy_step_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_tileClc_toy_step_rom_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_tileClc_wndclc_loop_limit_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_tileClc_wndclc_loop_limit_rom_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_tileClc_wtbuf2pe_loop_limit_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_tileClc_wtbuf2pe_loop_limit_rom_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_Toy_rom_ROM_AUTO_1R.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_Toy_rom_ROM_AUTO_1R
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_urem_4ns_3ns_2_8_seq_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_urem_4ns_3ns_2_8_seq_1_divseq
-INFO: [VRFC 10-311] analyzing module ConvLayer_urem_4ns_3ns_2_8_seq_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_wndClc_ctrl2.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_wndClc_ctrl2
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_wndClc_Dfl3.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_wndClc_Dfl3
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_wndClc_Dfl3_Pipeline_Region1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ConvLayer_wndClc_Dfl3_Pipeline_Region1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_tileClc_Dfl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_tileClc_Dfl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_wndClc_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_wndClc_ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_wndClc_Dfl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_wndClc_Dfl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/ConvLayer_wndClc_Dfl_Pipeline_Region1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ConvLayer_wndClc_Dfl_Pipeline_Region1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module dataflow_monitor
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/file_agent/file_agent_pkg.sv" into library xil_defaultlib
@@ -361,16 +244,9 @@ Compiling package xil_defaultlib.axi_pkg
 Compiling package xil_defaultlib.ConvLayer_subsystem_pkg
 Compiling package xil_defaultlib.file_agent_pkg
 Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
-Compiling module xil_defaultlib.ConvLayer_nofFirst_ROM_AUTO_1R
-Compiling module xil_defaultlib.ConvLayer_loadWtMap_Nif_rom_ROM_...
-Compiling module xil_defaultlib.ConvLayer_loadIfMap_row_1map_rom...
-Compiling module xil_defaultlib.ConvLayer_p_ZZ9ConvLayerPKiS0_Pi...
-Compiling module xil_defaultlib.ConvLayer_ConvLayer_int_const_in...
-Compiling module xil_defaultlib.ConvLayer_mem2Buf_noy_step_rom_R...
-Compiling module xil_defaultlib.ConvLayer_Toy_rom_ROM_AUTO_1R
-Compiling module xil_defaultlib.ConvLayer_p_ZZ9ConvLayerPKiS0_Pi...
-Compiling module xil_defaultlib.ConvLayer_nofy_step_rom_ROM_AUTO...
-Compiling module xil_defaultlib.ConvLayer_loadIfMap_tiy_rom_ROM_...
+Compiling module xil_defaultlib.ConvLayer_p_ZZ9ConvLayerPK6ap_in...
+Compiling module xil_defaultlib.ConvLayer_ConvLayer_ap_int_32_co...
+Compiling module xil_defaultlib.ConvLayer_p_ZZ9ConvLayerPK6ap_in...
 Compiling module xil_defaultlib.ConvLayer_mul_33s_32ns_62_1_1(NU...
 Compiling module xil_defaultlib.ConvLayer_mac_muladd_4ns_4ns_32s...
 Compiling module xil_defaultlib.ConvLayer_mac_muladd_4ns_4ns_32s...
@@ -389,73 +265,42 @@ Compiling module xil_defaultlib.ConvLayer_mul_3ns_3ns_6_1_1(NUM_...
 Compiling module xil_defaultlib.ConvLayer_mul_4ns_4ns_8_1_1(NUM_...
 Compiling module xil_defaultlib.ConvLayer_mul_4ns_8ns_12_1_1(NUM...
 Compiling module xil_defaultlib.ConvLayer_mul_4ns_3ns_7_1_1(NUM_...
-Compiling module xil_defaultlib.ConvLayer_urem_4ns_3ns_2_8_seq_1...
-Compiling module xil_defaultlib.ConvLayer_urem_4ns_3ns_2_8_seq_1...
+Compiling module xil_defaultlib.ConvLayer_mul_3ns_4ns_7_1_1(NUM_...
 Compiling module xil_defaultlib.ConvLayer_loadIfMap
-Compiling module xil_defaultlib.ConvLayer_loadWtMap_Tof_rom_ROM_...
 Compiling module xil_defaultlib.ConvLayer_loadWtMap_Pipeline_WtL...
-Compiling module xil_defaultlib.ConvLayer_mul_32s_10ns_42_1_1(NU...
+Compiling module xil_defaultlib.ConvLayer_mul_10ns_32s_42_1_1(NU...
 Compiling module xil_defaultlib.ConvLayer_mul_4ns_32s_32_1_1(NUM...
 Compiling module xil_defaultlib.ConvLayer_mul_8ns_4ns_11_1_1(NUM...
-Compiling module xil_defaultlib.ConvLayer_mul_4ns_8ns_11_1_1(NUM...
 Compiling module xil_defaultlib.ConvLayer_loadWtMap
 Compiling module xil_defaultlib.ConvLayer_mul_32s_5s_32_1_1(NUM_...
 Compiling module xil_defaultlib.ConvLayer_mem2Buf
-Compiling module xil_defaultlib.ConvLayer_loadBiasTile_Nof_step_...
 Compiling module xil_defaultlib.ConvLayer_loadBiasTile_Pipeline_...
 Compiling module xil_defaultlib.ConvLayer_loadBiasTile_Pipeline_...
-Compiling module xil_defaultlib.ConvLayer_mul_5s_4ns_5_1_1(NUM_S...
 Compiling module xil_defaultlib.ConvLayer_mul_5ns_2ns_6_1_1(NUM_...
+Compiling module xil_defaultlib.ConvLayer_mac_muladd_5s_4ns_5ns_...
+Compiling module xil_defaultlib.ConvLayer_mac_muladd_5s_4ns_5ns_...
 Compiling module xil_defaultlib.ConvLayer_loadBiasTile
-Compiling module xil_defaultlib.ConvLayer_tileClc_wndclc_loop_li...
-Compiling module xil_defaultlib.ConvLayer_tileClc_wtbuf2pe_loop_...
-Compiling module xil_defaultlib.ConvLayer_tileClc_toy_step_rom_R...
-Compiling module xil_defaultlib.ConvLayer_tileClc_pe2buf_addr_of...
-Compiling module xil_defaultlib.ConvLayer_tileClc_pe2buf_addr_of...
-Compiling module xil_defaultlib.ConvLayer_tileClc_pe2buf_addr_of...
-Compiling module xil_defaultlib.ConvLayer_entry_proc
 Compiling module xil_defaultlib.ConvLayer_mul_32s_3ns_32_1_1(NUM...
-Compiling module xil_defaultlib.ConvLayer_wndClc_ctrl2
+Compiling module xil_defaultlib.ConvLayer_wndClc_ctrl
 Compiling module xil_defaultlib.ConvLayer_mul_32s_32s_32_1_1(NUM...
 Compiling module xil_defaultlib.ConvLayer_sparsemux_9_3_32_1_1(d...
 Compiling module xil_defaultlib.ConvLayer_sparsemux_7_2_32_1_1(d...
-Compiling module xil_defaultlib.ConvLayer_wndClc_Dfl3_Pipeline_R...
-Compiling module xil_defaultlib.ConvLayer_mul_3ns_3ns_5_1_1(NUM_...
+Compiling module xil_defaultlib.ConvLayer_wndClc_Dfl_Pipeline_Re...
 Compiling module xil_defaultlib.ConvLayer_fifo_w32_d4_S_ShiftReg
 Compiling module xil_defaultlib.ConvLayer_fifo_w32_d4_S_default
-Compiling module xil_defaultlib.ConvLayer_wndClc_Dfl3
+Compiling module xil_defaultlib.ConvLayer_wndClc_Dfl
 Compiling module xil_defaultlib.ConvLayer_sparsemux_13_4_8_1_1(d...
 Compiling module xil_defaultlib.ConvLayer_mac_muladd_3ns_2ns_8ns...
 Compiling module xil_defaultlib.ConvLayer_mac_muladd_3ns_2ns_8ns...
-Compiling module xil_defaultlib.ConvLayer_Pe2Buf4_Pipeline_loop_...
-Compiling module xil_defaultlib.ConvLayer_mul_4ns_3ns_6_1_1(NUM_...
-Compiling module xil_defaultlib.ConvLayer_Pe2Buf4
-Compiling module xil_defaultlib.ConvLayer_fifo_w3_d3_S_ShiftReg
-Compiling module xil_defaultlib.ConvLayer_fifo_w3_d3_S_default
-Compiling module xil_defaultlib.ConvLayer_fifo_w6_d3_S_ShiftReg
-Compiling module xil_defaultlib.ConvLayer_fifo_w6_d3_S_default
-Compiling module xil_defaultlib.ConvLayer_fifo_w7_d3_S_ShiftReg
-Compiling module xil_defaultlib.ConvLayer_fifo_w7_d3_S_default
-Compiling module xil_defaultlib.ConvLayer_fifo_w4_d4_S_ShiftReg
-Compiling module xil_defaultlib.ConvLayer_fifo_w4_d4_S_default
-Compiling module xil_defaultlib.ConvLayer_fifo_w7_d4_S_ShiftReg
-Compiling module xil_defaultlib.ConvLayer_fifo_w7_d4_S_default
-Compiling module xil_defaultlib.ConvLayer_fifo_w8_d4_S_ShiftReg
-Compiling module xil_defaultlib.ConvLayer_fifo_w8_d4_S_default
-Compiling module xil_defaultlib.ConvLayer_fifo_w2_d3_S_ShiftReg
-Compiling module xil_defaultlib.ConvLayer_fifo_w2_d3_S_default
-Compiling module xil_defaultlib.ConvLayer_fifo_w3_d2_S_ShiftReg
-Compiling module xil_defaultlib.ConvLayer_fifo_w3_d2_S_default
-Compiling module xil_defaultlib.ConvLayer_fifo_w32_d2_S_ShiftReg
-Compiling module xil_defaultlib.ConvLayer_fifo_w32_d2_S_default
-Compiling module xil_defaultlib.ConvLayer_dataflow_in_loop_Regio...
-Compiling module xil_defaultlib.ConvLayer_dataflow_parent_loop_p...
+Compiling module xil_defaultlib.ConvLayer_Pe2Buf_Pipeline_loop_P...
+Compiling module xil_defaultlib.ConvLayer_mul_3ns_4ns_6_1_1(NUM_...
+Compiling module xil_defaultlib.ConvLayer_Pe2Buf
+Compiling module xil_defaultlib.ConvLayer_tileClc_Dfl
 Compiling module xil_defaultlib.ConvLayer_tileClc
 Compiling module xil_defaultlib.ConvLayer_mul_33s_4ns_37_1_1(NUM...
 Compiling module xil_defaultlib.ConvLayer_mul_37s_4ns_41_1_1(NUM...
 Compiling module xil_defaultlib.ConvLayer_sparsemux_7_2_31_1_1(d...
 Compiling module xil_defaultlib.ConvLayer_storeMap_Pipeline_Loop...
-Compiling module xil_defaultlib.ConvLayer_mul_32s_4ns_32_1_1(NUM...
 Compiling module xil_defaultlib.ConvLayer_storeMap
 Compiling module xil_defaultlib.ConvLayer_control_s_axi
 Compiling module xil_defaultlib.ConvLayer_gmem_m_axi_srl(DATA_WI...
@@ -489,17 +334,9 @@ Compiling module xil_defaultlib.misc_interface_default
 Compiling module xil_defaultlib.axi_if(ADDR_WIDTH=64,STRB_WIDTH=...
 Compiling module xil_defaultlib.axi_if(ADDR_WIDTH=6,STRB_WIDTH=4...
 Compiling module xil_defaultlib.sv_module_top
-Compiling module xil_defaultlib.AESL_deadlock_detect_unit(IN_CHA...
-Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_I...
-Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_I...
-Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_I...
-Compiling module xil_defaultlib.AESL_deadlock_report_unit_defaul...
-Compiling module xil_defaultlib.AESL_deadlock_detector_2
-Compiling module xil_defaultlib.df_fifo_intf_default
-Compiling module xil_defaultlib.df_process_intf_default
 Compiling module xil_defaultlib.nodf_module_intf_default
-Compiling module xil_defaultlib.df_loop_intf_default
-Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=13)
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=12)
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=8)
 Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
 Compiling module xil_defaultlib.dataflow_monitor_1
 Compiling module xil_defaultlib.apatb_ConvLayer_top
@@ -510,7 +347,7 @@ Built simulation snapshot ConvLayer
   **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
   **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
   **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-  **** Start of session at: Sun Aug 10 13:08:59 2025
+  **** Start of session at: Sat Aug  9 19:53:12 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -813,46 +650,16 @@ UVM_INFO C:/Xilinx/2025.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv
 //
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
-// RTL Simulation : 0 / 2 [0.00%] @ "125000"
-// RTL Simulation : 1 / 2 [100.00%] @ "44155000"
-// RTL Simulation : 2 / 2 [100.00%] @ "135555000"
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 1 / 1 [100.00%] @ "56575000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 135605 ns : File "C:/Xilinx/2025.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+$finish called at time : 56625 ns : File "C:/Xilinx/2025.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
 ## quit
-INFO: [Common 17-206] Exiting xsim at Sun Aug 10 13:09:09 2025...
+INFO: [Common 17-206] Exiting xsim at Sat Aug  9 19:53:16 2025...
 INFO: [COSIM 212-316] Starting C post checking ...
 *********************************************************************************  Starting Verification. ************************************************************************************
-*****  Layer 1  *****
-
-Number of out of range synth values are:854
-
-Positions of out of range values (first 20) for synth module are:
-12   14   16   18   20   22   23   25   26   27   28   29   30   31   34   35   37   39   43   44   
-Values out of range (first 20) for synth module are:
-17627   2259   2607   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   12786   5759   30996   17028   2402   35290   18074   Number of out of range tb values are:854
-
-Positions of out of range values (first 20) for TB are:
-12   14   16   18   20   22   23   25   26   27   28   29   30   31   34   35   37   39   43   44   
-Values out of range (first 20) for TB are:
-17627   2259   2607   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   12786   5759   30996   17028   2402   35290   18074   
-*****  Layer 2  *****
-
-Number of out of range synth values are:858
-
-Positions of out of range values (first 20) for synth module are:
-0   9   11   12   13   14   15   18   19   20   21   22   23   24   25   27   28   29   30   31   
-Values out of range (first 20) for synth module are:
-21707   6321   17883   28666   36670   36232   40200   56876   6222   55463   18145   24016   25188   54021   26746   61800   45285   64236   10800   9753   Number of out of range tb values are:858
-
-Positions of out of range values (first 20) for TB are:
-0   9   11   12   13   14   15   18   19   20   21   22   23   24   25   27   28   29   30   31   
-Values out of range (first 20) for TB are:
-21707   6321   17883   28666   36670   36232   40200   56876   6222   55463   18145   24016   25188   54021   26746   61800   45285   64236   10800   9753   
-Printing first 20 elements of last output layer
-   21707       0       0       0       0       0       0       0       0    6321       0   17883   28666   36670   36232   40200       0       0   56876    6222
-*****  ConvLayer Test with bias + ReLu Passed!  ******
-
 *********************************************************************************  Verification Complete. ************************************************************************************
 INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
-INFO: [HLS 200-112] Total CPU user time: 10 seconds. Total CPU system time: 3 seconds. Total elapsed time: 155.729 seconds; peak allocated memory: 226.234 MB.
-INFO: [vitis-run 60-791] Total elapsed time: 0h 2m 40s
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+INFO: [HLS 200-112] Total CPU user time: 7 seconds. Total CPU system time: 2 seconds. Total elapsed time: 117.428 seconds; peak allocated memory: 224.605 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 2m 1s

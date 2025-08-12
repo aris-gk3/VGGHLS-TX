@@ -5,6 +5,7 @@
 
 // *****  Testing Functions  *****
 
+#if MODEL == 7
 int vgg16_test(int verbose, int minPrint, int biasReLuTrue){
     int check = 0;
     px_data_t finalOut[1000], finalOut_golden[1000], Compared_finalOut[1000]; // Final Output
@@ -73,7 +74,7 @@ int vgg16_test(int verbose, int minPrint, int biasReLuTrue){
 
     return check;
 }
-
+#endif
 
 int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
     int check = 0;
@@ -188,7 +189,7 @@ int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
 
 
 void minimalRunSynth(int layerNo){
-	static px_data_t IfMap[MAP_SIZE] = {0};
+	static px_data_t_widened IfMap[MAP_SIZE] = {0};
 	static px_data_t WtMap[WTMAP_MEMSIZE] = {0};
 	static px_data_t OfMap[MAP_SIZE] = {0};
 
@@ -198,6 +199,7 @@ void minimalRunSynth(int layerNo){
 
 // *****  Software Functions  *****
 
+#if MODEL == 7
 void vgg16_software(px_data_t* IfMap,
                     wt_data_t** WtMapConv,
                     wt_data_t** WtMapFC,
@@ -352,7 +354,7 @@ void vgg16_software(px_data_t* IfMap,
 
 	fcLayer(Map2, WtMapFC[2], 4096, 1000, 2, finalOut);
 }
-
+#endif
 
 void oxfordFlowers_software(px_data_t* IfMap,
                     wt_data_t** WtMapConv,
