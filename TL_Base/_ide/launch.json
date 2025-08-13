@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "TL_Base",
+      "type": "gdb",
+      "request": "launch",
+      "target": "${workspaceFolder}\\TL_Base\\ConvLayer\\hls\\csim\\build\\csim.exe",
+      "cwd": "${workspaceFolder}\\TL_Base\\ConvLayer\\hls\\csim\\build",
+      "gdbpath": "${env:XILINX_HLS}\\tps\\win64\\msys64\\mingw64\\bin\\gdb.exe",
+      "debugger_args": [
+        "--init-command=${env:XILINX_HLS}\\tps\\win64\\msys64\\mingw64\\bin\\gdbinit"
+      ],
+      "valuesFormatting": "prettyPrinters",
+      "env": {
+        "PATH": "C:\\Xilinx\\2025.1\\Vitis\\win64\\tools\\fpo_v7_1;C:\\Xilinx\\2025.1\\Vitis\\win64\\tools\\fft_v9_1;C:\\Xilinx\\2025.1\\Vitis\\win64\\tools\\fir_v7_0;C:\\Xilinx\\2025.1\\Vitis\\win64\\tools\\dds_v6_0;C:\\Xilinx\\2025.1\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt\\bin;${env:PATH}"
+      }
+    }
+  ]
+}

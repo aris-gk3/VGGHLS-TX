@@ -76,116 +76,116 @@ int vgg16_test(int verbose, int minPrint, int biasReLuTrue){
 }
 #endif
 
-int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
-    int check = 0;
-    px_data_t finalOut[CLASSES], finalOut_golden[CLASSES], Compared_finalOut[CLASSES]; // Final Output
+// int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
+//     int check = 0;
+//     px_data_t finalOut[CLASSES], finalOut_golden[CLASSES], Compared_finalOut[CLASSES]; // Final Output
 
-    if (MODEL != 9) {
-        std::cout << "Forgot to change to the correct model!\n";
-        return 1;
-    }
+//     if (MODEL != 9) {
+//         std::cout << "Forgot to change to the correct model!\n";
+//         return 1;
+//     }
 
-	// wt_data_t* WtMapCNN = new wt_data_t[WTMAP_FULL_SIZE];
-    // wt_data_t** WtMapConv = new wt_data_t*[LAYERS];
-	// wt_data_t** WtMapFC = new wt_data_t*[2];
-	wt_data_t* WtMapCNN = nullptr;
-    wt_data_t** WtMapConv = nullptr;
-	wt_data_t** WtMapFC = nullptr;
+// 	// wt_data_t* WtMapCNN = new wt_data_t[WTMAP_FULL_SIZE];
+//     // wt_data_t** WtMapConv = new wt_data_t*[LAYERS];
+// 	// wt_data_t** WtMapFC = new wt_data_t*[2];
+// 	wt_data_t* WtMapCNN = nullptr;
+//     wt_data_t** WtMapConv = nullptr;
+// 	wt_data_t** WtMapFC = nullptr;
 
-    wtMemInitBin(WtMapCNN, WtMapConv, WtMapFC);
+//     wtMemInitBin(WtMapCNN, WtMapConv, WtMapFC);
 
-	// std::cout << "1D array print\n";
-	// for(int i=0;i<13;i++){
-	// 	WtMapCNN += WtMapOffsetConv[i];
-	// }
-	// WtMapCNN += WtMapOffsetFC[0];
-	// for(int i=0;i<17;i++){
-	// 	for(int j=0;j<256;j++){
-	// 		std::cout << std::setw(4) << *(WtMapCNN + i*256 + j) << "  ";
-	// 	}
-	// 	std::cout << "\n";
-	// }
+// 	// std::cout << "1D array print\n";
+// 	// for(int i=0;i<13;i++){
+// 	// 	WtMapCNN += WtMapOffsetConv[i];
+// 	// }
+// 	// WtMapCNN += WtMapOffsetFC[0];
+// 	// for(int i=0;i<17;i++){
+// 	// 	for(int j=0;j<256;j++){
+// 	// 		std::cout << std::setw(4) << *(WtMapCNN + i*256 + j) << "  ";
+// 	// 	}
+// 	// 	std::cout << "\n";
+// 	// }
 
-	// std::cout << "2D array print\n";
-	// for(int i=0;i<17;i++){
-	// 	for(int j=0;j<256;j++){
-	// 		std::cout << std::setw(4) << *(WtMapFC[1] + i*256 + j) << "  ";
-	// 	}
-	// 	std::cout << "\n";
-	// }
+// 	// std::cout << "2D array print\n";
+// 	// for(int i=0;i<17;i++){
+// 	// 	for(int j=0;j<256;j++){
+// 	// 		std::cout << std::setw(4) << *(WtMapFC[1] + i*256 + j) << "  ";
+// 	// 	}
+// 	// 	std::cout << "\n";
+// 	// }
 
-	px_data_t* IfMap = initIfMap(0, 1);
-	px_data_t* Map2 = new px_data_t[MAP_SIZE];
+// 	px_data_t* IfMap = initIfMap(0, 1);
+// 	px_data_t* Map2 = new px_data_t[MAP_SIZE];
 
-    oxfordFlowers_software(IfMap, WtMapConv, WtMapFC, finalOut_golden, biasReLuTrue);
-	std::cout << "Computed SW C sim of Oxford Flowers Model" << std::endl;
-    tlModelTop(IfMap, WtMapCNN, Map2, finalOut);
-	std::cout << "Computed HW C sim of Oxford Flowers Model" << std::endl;
+//     oxfordFlowers_software(IfMap, WtMapConv, WtMapFC, finalOut_golden, biasReLuTrue);
+// 	std::cout << "Computed SW C sim of Oxford Flowers Model" << std::endl;
+//     tlModelTop(IfMap, WtMapCNN, Map2, finalOut);
+// 	std::cout << "Computed HW C sim of Oxford Flowers Model" << std::endl;
 
-    // // Compare outputs
-    // for (int i = 0; i < CLASSES; i++) {
-    //     if (finalOut[i] != finalOut_golden[i]) {
-    //         check = 1;
-    //     }
-    //     Compared_finalOut[i] = finalOut[i] - finalOut_golden[i];
-    // }
+//     // // Compare outputs
+//     // for (int i = 0; i < CLASSES; i++) {
+//     //     if (finalOut[i] != finalOut_golden[i]) {
+//     //         check = 1;
+//     //     }
+//     //     Compared_finalOut[i] = finalOut[i] - finalOut_golden[i];
+//     // }
 
-    // Debug print
-    if (debug) {
-        std::cout << "Printing Output Results Under Test\n\n";
-        for (int i = 0; i < CLASSES; i++) {
-            std::cout << std::setw(7) << finalOut[i];
-            if ((i+1) % 10 == 0) std::cout << "\n";
-        }
-        std::cout << "\n\n";
-        std::cout << "Printing Golden Output Results\n\n";
-        for (int i = 0; i < CLASSES; i++) {
-            std::cout << std::setw(7) << finalOut_golden[i];
-            if ((i+1) % 10 == 0) std::cout << "\n";
-        }
-        std::cout << "\n\n";
-    }
+//     // Debug print
+//     if (debug) {
+//         std::cout << "Printing Output Results Under Test\n\n";
+//         for (int i = 0; i < CLASSES; i++) {
+//             std::cout << std::setw(7) << finalOut[i];
+//             if ((i+1) % 10 == 0) std::cout << "\n";
+//         }
+//         std::cout << "\n\n";
+//         std::cout << "Printing Golden Output Results\n\n";
+//         for (int i = 0; i < CLASSES; i++) {
+//             std::cout << std::setw(7) << finalOut_golden[i];
+//             if ((i+1) % 10 == 0) std::cout << "\n";
+//         }
+//         std::cout << "\n\n";
+//     }
 
-	// Find position of max
-	int maxIndex = 0; // start by assuming first element is max
-    for (int i = 1; i < CLASSES; ++i) {
-        if (finalOut_golden[i] > finalOut_golden[maxIndex]) {
-            maxIndex = i;
-        }
-    }
-    std::cout << "Class found in testbench is number " << maxIndex << std::endl;
-	maxIndex = 0;
-    for (int i = 1; i < CLASSES; ++i) {
-        if (finalOut[i] > finalOut[maxIndex]) {
-            maxIndex = i;
-        }
-    }
-    std::cout << "Class found in DUT is number " << maxIndex << std::endl;
+// 	// Find position of max
+// 	int maxIndex = 0; // start by assuming first element is max
+//     for (int i = 1; i < CLASSES; ++i) {
+//         if (finalOut_golden[i] > finalOut_golden[maxIndex]) {
+//             maxIndex = i;
+//         }
+//     }
+//     std::cout << "Class found in testbench is number " << maxIndex << std::endl;
+// 	maxIndex = 0;
+//     for (int i = 1; i < CLASSES; ++i) {
+//         if (finalOut[i] > finalOut[maxIndex]) {
+//             maxIndex = i;
+//         }
+//     }
+//     std::cout << "Class found in DUT is number " << maxIndex << std::endl;
 
-    // Verification
-    if (check) {
-        std::cout << "*****  Tranfer Learning Model for Oxford Flowers ";
-        std::cout << (biasReLuTrue ? "with " : "without ");
-        std::cout << "bias + ReLu test failed!  ******\n" << std::endl;
-    } else {
-        std::cout << "*****  CnnTop ";
-        std::cout << (biasReLuTrue ? "with " : "without ");
-        std::cout << "bias + ReLu Passed!  ******\n" << std::endl;
-    }
+//     // Verification
+//     if (check) {
+//         std::cout << "*****  Tranfer Learning Model for Oxford Flowers ";
+//         std::cout << (biasReLuTrue ? "with " : "without ");
+//         std::cout << "bias + ReLu test failed!  ******\n" << std::endl;
+//     } else {
+//         std::cout << "*****  CnnTop ";
+//         std::cout << (biasReLuTrue ? "with " : "without ");
+//         std::cout << "bias + ReLu Passed!  ******\n" << std::endl;
+//     }
 
-	delete[] WtMapConv;
-    delete[] WtMapFC;
-    delete[] WtMapCNN;
-	WtMapCNN = nullptr;  // Good practice to avoid dangling pointer
-	WtMapConv = nullptr;
-	WtMapFC = nullptr;
+// 	delete[] WtMapConv;
+//     delete[] WtMapFC;
+//     delete[] WtMapCNN;
+// 	WtMapCNN = nullptr;  // Good practice to avoid dangling pointer
+// 	WtMapConv = nullptr;
+// 	WtMapFC = nullptr;
 
-	delete[] IfMap;
-	IfMap = nullptr;
-	delete[] Map2;
-	Map2 = nullptr;
-    return check;
-}
+// 	delete[] IfMap;
+// 	IfMap = nullptr;
+// 	delete[] Map2;
+// 	Map2 = nullptr;
+//     return check;
+// }
 
 
 void minimalRunSynth(int layerNo){

@@ -331,8 +331,12 @@ int convLayer_test(int verbose, int debug, int minPrint,
 		px_data_t* IfMap = initIfMap(layerNo, binInput);
 		wt_data_t* WtMap = initWtMap(layerNo, binInput);
 		convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
-		pack(IfMap, IfMap2, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap2, WtMap, OfMap);
+		#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
+			pack<px_data_t_widened>(IfMap, IfMap2, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+			ConvLayer(IfMap2, WtMap, OfMap);
+		#else
+			ConvLayer(IfMap, WtMap, OfMap);
+		#endif
 
 		printcheck = 0;
 		// Compare Output Feature Maps
@@ -441,6 +445,7 @@ int convLayer_test(int verbose, int debug, int minPrint,
 		std::cout << "Printing first 20 elements of last output layer" << std::endl;
 		for(int i=0;i<20;i++){
 			std::cout << std::setw(8) << OfMap[i];
+			std::cout << std::setw(8) << OfMap[i];
 		}
 		std::cout << "\n";
 		std::cout << "*****  ConvLayer Test ";
@@ -461,7 +466,11 @@ int convLayer_test_widenedport(int verbose, int debug, int minPrint,
 					int binInput){
 	// Memory Data
 	static px_data_t IfMap[IFMAP_MEMSIZE*7] = {0};
-	static px_data_t_widened IfMap_widened[IFMAP_MEMSIZE] = {0};
+	#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
+		static px_data_t_widened IfMap2[MAP_SIZE] = {0};
+	#else
+		static px_data_t IfMap2[MAP_SIZE] = {0};
+	#endif
 	static wt_data_t WtMap[MAP_SIZE] = {0};
 	static px_data_t OfMap[OFMAP_MEMSIZE] = {0}, OfMap_golden[OFMAP_MEMSIZE] = {0};
 	static px_data_t Compared_OfMap[OFMAP_MEMSIZE];
@@ -471,10 +480,16 @@ int convLayer_test_widenedport(int verbose, int debug, int minPrint,
 		std::cout << "*****  Layer " << layerNo+1 << "  *****" << std::endl;
 		// Initialize Memories
 		px_data_t* IfMap = initIfMap(layerNo, binInput);
-		datapackIfMap(IfMap, IfMap_widened);
+		// datapackIfMap(IfMap, IfMap_widened);
 		wt_data_t* WtMap = initWtMap(layerNo, binInput);
 		convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
-		ConvLayer(IfMap_widened, WtMap, OfMap);
+		// ConvLayer(IfMap_widened, WtMap, OfMap);
+		#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
+			pack<px_data_t_widened>(IfMap, IfMap2, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+			ConvLayer(IfMap2, WtMap, OfMap);
+		#else
+			ConvLayer(IfMap, WtMap, OfMap);
+		#endif
 
 		printcheck = 0;
 		// Compare Output Feature Maps

@@ -157,6 +157,9 @@ int maxPool_test(int verbose);
 int convLayer_test(int verbose, int debug, int minPrint,
 					int printErrorOnly, int printLayer, int biasReLuTrue,
 					int binInput);
+int convLayer_test_widenedport(int verbose, int debug, int minPrint,
+					int printErrorOnly, int printLayer, int biasReLuTrue,
+					int binInput);
 int loadIfMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep);
 int loadWtMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep, int printProgress);
 int storeMaps_test(int verbose, int printLayer, int printNofStep, int printNoyStep);
@@ -249,7 +252,6 @@ px_data_t* initIfMap(int layerNo, int binInput);
 wt_data_t* initWtMap(int layerNo, int binInput);
 void MemInit(wt_data_t*& WtMapCNN,  wt_data_t**& WtMapConv, wt_data_t**& WtMapFC,
     px_data_t*& IfMap, px_data_t*& Map2);
-void datapackIfMap(px_data_t *IfMap, px_data_t_widened *IfMap_widened);
 
 // Bin Loading Functions
 bool pathExists(const char* path);
@@ -265,11 +267,34 @@ void wtMemInitBin(wt_data_t*& WtMapCNN, wt_data_t**& WtMapConv, wt_data_t**& WtM
 int MemInitBin_test();
 
 // Misc Functions
+// template <typename data_t_widened>
+// void pack(px_data_t *Map, data_t_widened *Map_widened,
+//             int factor, int mem_size_widened);
+
+#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
 template <typename data_t_widened>
 void pack(px_data_t *Map, data_t_widened *Map_widened,
-			int factor, int mem_size_widened);
+            int factor, int mem_size_widened){
+    for(int i=0;i<mem_size_widened;i++){
+        for(int factor_i=0;factor_i<factor;factor_i++){
+            Map_widened[i].range(SYNTH_BITS*(factor_i+1)-1,SYNTH_BITS*factor_i)
+                = Map[i*factor+factor_i];
+        }
+    }
+}
+#endif
+
+#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
 template <typename data_t_widened>
 void unpack(data_t_widened *Map_widened, px_data_t *Map, 
-			int factor, int mem_size_widened);
+			int factor, int mem_size_widened){
+	for(int i=0;i<mem_size_widened;i++){
+		for(int factor_i=0;factor_i<factor;factor_i++){
+			Map [i*factor+factor_i] = 
+				Map_widened[i].range(SYNTH_BITS*(factor_i+1)-1,SYNTH_BITS*factor_i);
+		}
+	}
+}
+#endif
 
 #endif // FUNCTION_DECLARATIONS_H

@@ -1,0 +1,1290 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=0' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../src_files/tb_port_widening.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Top.cpp in debug mode
+   Compiling ../../../../../src_files/tb_parameters.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Mem2Buf.cpp in debug mode
+   Compiling ../../../../../src_files/tb_maxPool.cpp in debug mode
+   Compiling ../../../../../src_files/tb_loadbin.cpp in debug mode
+   Compiling ../../../../../src_files/tb_gap.cpp in debug mode
+   Compiling ../../../../../src_files/tb_fcLayer.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Dfl_ControlLogic.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Buf2Pe.cpp in debug mode
+   Compiling ../../../../../src_files/main_tb.cpp in debug mode
+   Compiling ../../../../../src_files/Auxiliary_Calculations.cpp in debug mode
+   Compiling ../../../../../src_files/Main_Code.cpp in debug mode
+   Generating csim.exe
+In file included from ../../../../../src_files/tb_port_widening.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Top.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_parameters.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Mem2Buf.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_maxPool.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_loadbin.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_gap.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_fcLayer.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Dfl_ControlLogic.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Buf2Pe.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/main_tb.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Auxiliary_Calculations.cpp:2:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Main_Code.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+*********************************************************************************  Starting Verification. ************************************************************************************
+*****  Layer 1  *****
+Loaded parameters in mem2Buf, layer:0
+Loaded parameters in loadBiasTile, layer:0
+Loaded parameters in tileClc, layer:0
+Loaded parameters, layer:0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+***  Printing Input Buffers  ***
+   0     0     0     0     0     0     0  |     0    41    35    62     4    97   108  |     0   114    47   109     0    82   101  |     0    74    74    46     5   109    35  |     0    59    92    74    56    56    13  |     0    76    78    10    67    61    11  |     0     5     6    51    78     3     5  |   
+   0     0     0     0     0     0     0  |    86    46    82    16    73   113   113  |     3    87    69   105    32    68   108  |    36   100    75    75    28   106    50  |     1   126   108    31     4     9    75  |    97    77    47    75    34    74    64  |    14   120    28    57    60    84    24  |   
+   0     0     0     0     0     0     0  |    59   105   107    51    38    91    60  |   103    15   122     2    59    15    74  |   114    90    89    39    19    57    52  |    66    20    45    39    22    34    32  |    65     3    32    12    44    18    57  |    85   112    90    93    62    81    37  |   
+   0     0     0     0     0     0     0  |     7    12    62    25    36    94    13  |   100    97   121    57    81    45    34  |   111   110    75    83    84    57    64  |    47    28   125    13    53   107    46  |    44    81    87    15   124    41    53  |   110   119    33     2    50    92    29  |   
+   0     0     0     0     0     0     0  |    28     6    55    71    94    51    18  |    86   110    60     3    75    13    42  |    54    37    19     9    26   127    57  |    99    52    36    32   115    17    39  |     6    33    87    18   127    75    92  |    71   119    20    37   102    54    65  |   
+   0     0     0     0     0     0     0  |    77    72    67    59    11    38    31  |    23    49    46     5     5    41    70  |    61    74    75   124    59    56     8  |     5    58    33     7   116   123   108  |    56    42    56    14   122    27   122  |    29    65    24   121    19    64    58  |   
+   0     0     0     0     0     0     0  |     3    90   125     9    56    37    31  |     2   127    40    64   111   106    18  |   115    17    76    75   109    28   124  |    60    87    18    48    24     4     4  |    71    26    33   121    90   106    83  |   122    34    33    45    25    22    16  |   
+   0     0     0     0     0     0     0  |    93    84    75   124    22   117    69  |    66   105    63    11    49    79    49  |     3    41   113    29     2    74   124  |    41   125    42    90    16    76   111  |    59    75    50   107    99    63    82  |    66   124    80   120     4     9   109  |   
+   0     0     0     0     0     0     0  |    59    19    13     9    10    28    91  |    10   119   119    16    46     4    31  |   120    57     5   103    33    67    29  |    48    98    32    87     9    98    61  |    88   120    49    40    14   104   103  |    24     5    30    34    89    94     3  |   
+   0     0     0     0     0     0     0  |    46    50    32    26    80   110    64  |   109    86    18    38   127   108    46  |    61     4    38    17    80    65    85  |   104   101    97    67    12    22    61  |    52    33    77    36   122    18   110  |   106    95   113    29   100    94   113  |   
+   0     0     0     0     0     0     0  |   120    54   125    18    73    50   118  |   124    69     1   116    87   109    31  |    20    88    58   121    61    92   105  |    40    54    79    40   100    72   126  |    32    40   105     9    53   121     3  |   100   118    47    37    23    55    35  |   
+   0     0     0     0     0     0     0  |    30   125    73    92    45    79    20  |    26    39   117    90    48    77    16  |   112     0    86   120    22    93    18  |    42   110    53    91   105   104    98  |    80    91    89    46    49    86    74  |   104    46    12    23   117    16    17  |   
+   0     0     0     0     0     0     0  |   114    68    64   102    80   107    68  |    41    37     7    75   116    14    47  |    11    68    87    87    97    23    40  |    65    41    22    83    62    15    21  |   115    90    46     6    51   125    96  |    72    97     6    58   105   105   111  |   
+   0     0     0     0     0     0     0  |    48    55    50    59    33    34   118  |   112   110    35    38    42    37    10  |    73    27   115    51    14    91    71  |     3   102    42    74    19   108    52  |   102   118    80    83     2   127    89  |    58   115   110    54    35    61    62  |   
+   0     0     0     0     0     0     0  |    34    17    29    97    11    31    90  |    11   107    88    89    48    11     8  |    58    48    17    18    81    66    18  |    24    39   115    20    86    14    33  |    13    26    36   104    39    53    92  |     2    79    76    21    44     0   108  |   
+   0     0     0     0     0     0     0  |    48    74    25     2    57   114    29  |    86    78    50    81     1   119   119  |    38    18    71   107    44    19    79  |    40     0    33   117    66    44   109  |   101   126     7    26    75    44    24  |   100   118    67   127    80   122    26  |   
+   0     0     0     0     0     0     0  |    73    44     0   126    69    25    85  |   123    84    77    73    77    73   114  |   116   104    21    99    40    62   126  |    91   112    64    20   126     1    99  |    89   117    55    35   120    25     7  |    22   126    96    89    62    14    84  |   
+   0     0     0     0     0     0     0  |   105     0    50   106    73    76    83  |    14    33    29    63    11    62    83  |    35    51   117    10    46    77    60  |   112    94    68    49   122    34    19  |    60    73    18    30    54   101    98  |    81    29   101    55    44    61    48  |   
+   0     0     0     0     0     0     0  |    63   103    86    63    20    86   126  |    57     4    97   125    64    36    29  |    61    66    71   106    28    37    99  |    51   106    47    16    14    32   121  |     3    68    66   119   127    94     7  |    21    24    39    37    88    40    52  |   
+   0     0     0     0     0     0     0  |    45    92    14   102     3   111    87  |    55    10    31   101   116    80    21  |    10    28    67   105    23    91    24  |    47   122    67    25   117   118    40  |    45    12   103    30    21    11    12  |    12    59   118    32   127     1    14  |   
+   0     0     0     0     0     0     0  |    73    97   127   105    15    97    77  |   104   125    71    58    29    54    82  |   119     4    14    80    25   127    58  |    33   127    59   117    44    69   110  |    11   117    53   111   125    15    84  |    96   110   102     7    53   102    86  |   
+   0     0     0     0     0     0     0  |    81    30    29    28    22   114   114  |    52    30    35   118    68    57    44  |    45    25   119    40    42    25    92  |     6    57    32    25    15    57    10  |     5    35    38    51    60    65    63  |   115     2    18    93   122    91     2  |   
+   0     0     0     0     0     0     0  |   102    29   112     4    79    74   119  |    14    41    68    29    64    65    50  |    19    94    94    38    35    34   111  |    92     3   102    37    96    53    87  |    83    98     3    37    95    66    17  |    95    65    94    43     9    17    70  |   
+   0     0     0     0     0     0     0  |     2    87   104    57    44    83    75  |   113    47   114   100    80   114    72  |    24    31   118    95    70    94    33  |     0    13    62    81    21   125    30  |    47    98    16    99    69    56     7  |    47     7    53    61    95   119    35  |   
+   0     0     0     0     0     0     0  |    73    18    30    51   116    30    12  |    65    86    70    95     9    22   127  |   103    85   126    24    56     2    89  |    97    22    48    38    39   105     1  |    87    33    67    80     1    83    95  |   114   126    30    95   108    72    90  |   
+   0     0     0     0     0     0     0  |   116    85    84    31    84    36    89  |     4   102    95    69    23    69    62  |    33    14   101    53    56     9   119  |    21   117   113    88     1    25    15  |    38    66     8    23    56    28    11  |    29    30    51    88    38    59   117  |   
+   0     0     0     0     0     0     0  |   126    53    79    50    34   116    76  |   124    51    99    67     4    18    43  |    59    50    57    83    43    32   119  |    34   120   118   104   126   104    90  |    25    78    68    12   103    48   121  |     7   124    75    70    77    65   127  |   
+   0     0     0     0     0     0     0  |    79    83    16    45    72    83    15  |     8    35    42    63   112    63    28  |    57    77   118   124    88    43   109  |   105    57    60    11     9   125    72  |    33    80    68    21    10    31   118  |   103   120    85    65    99   119    63  |   
+   0     0     0     0     0     0     0  |   117   102    89    29    42   101    64  |    85    45    81    79    68     5    22  |    44    77   125    37    51   103   101  |    35    78    69   103    30    19    20  |    98    57    18    92    46    18    13  |    16    21    74    78    11   106    55  |   
+   0     0     0     0     0     0     0  |   119    43   120     1     7    68    14  |    88    94    85     8    30     1    86  |    15    83    45    92    10   124    34  |    98    50     8   103    20    95   122  |    26    34   111    16     4    79   103  |   127    75   105    63    34   118   112  |   
+   0     0     0     0     0     0     0  |    95    80     0    84    97    13    62  |    12    59   105    31   109    37    72  |   108    76    30    71    33     4    59  |   104    76    70    85   100   115    62  |   103     3    10    80    32    58   122  |    80    57    17    64    60    33    22  |   
+   0     0     0     0     0     0     0  |   123     5    21     7    59    51     2  |   107     9    13    25    29    74     7  |    98    58    61    64   126    35     6  |   103   127   111    37   102    39    70  |     2    66   105   111    94    60    17  |    59   106   116    71   109    76    45  |   
+   0     0     0     0     0     0     0  |    31     0     0     0     0     0     0  |    49     0     0     0     0     0     0  |    21     0     0     0     0     0     0  |   116     0     0     0     0     0     0  |   117     0     0     0     0     0     0  |    65     0     0     0     0     0     0  |   
+   0   111   109    16     1    19    99  |     0    17   107   104     2   115    13  |     0   116   105     2   124    45   107  |     0    30    77    39    21    73   102  |     0    25     1    31   118    78   100  |     0   109   107    50    70    68    78  |     0    32   117    40    45    51    13  |   
+  78    40    59    79    27    79    91  |   106     4    20   119     6   101    18  |    42    53    48    23    71    60    68  |    86    98    23    25    36   124   121  |    53    52    79   100   102    78    58  |    16    83    98    96    85    90    14  |    48   102    87   117    57    71   125  |   
+ 104    34     3    34    50    39    13  |    96    99    66   100   113    91    24  |    39   121    63    42   100    55   111  |    36    45    35   124   113     1    57  |    63    71    22    99     2     1    31  |    96    15    63   102   125     1    72  |   111    77    71    13    76    72    93  |   
+ 125   117    35    13    94   109    46  |    98    50    36    89     8    67    48  |    37    24   110    14    57    69   106  |    76    14    71    83   119    93    38  |    97   124   120    81    77   114    42  |   107    74    72    47    64   108    63  |   115    96     1    22    90    51    44  |   
+  77    59    67    34    79    89    60  |    64   119    76    81    98    60    54  |    73    50    23   122    73   104    24  |    16   116    13   101    42   100    72  |    60    70    20    89    45    56    48  |   118    47    21    31   123   109    55  |   102    55   121   127    59    10    68  |   
+ 126    40    74    49     8    17    53  |    33     7    85    28    33    55   113  |    79     5    66    35    38    90   121  |    80    74    23    46    94    33    82  |   108   127    94    38    19    52     6  |   107    76    31   113    11    60    28  |    20    88    97   121    15    97    29  |   
+  63    55    60    85    63    79   100  |   124    32    24   120    51    95   119  |    27    39    93    30    92    12   112  |     3    18    52    80    36    31   119  |    28    42    69    21   114    96    53  |    78    54    55   117    46    22    82  |     0     0    50   120    64    11   117  |   
+  68   120    78    40   122    20     7  |    75    40   114    36    77    71   105  |    95   114     5    19     6    10    91  |     6    64    79    30    44    68    37  |    74   120    24   108    71    95    15  |    51     4    39    38    95    66    97  |    71    75    70   116   125    85    98  |   
+  25    16    81    13    18    74   121  |     3    34    49    48    96    55    49  |   125    66    37    84   108    42    20  |    48   120    23    66    93    45     8  |    67    77   110    63    92    71   118  |    95    72    18    22    16     0    71  |    43   113   107    14    34    97    98  |   
+  82    72    85    20    16    33    77  |    52     3     2   115    71     4    11  |    88    57   127    32    81    47    49  |     5    17    84     5   118    73    73  |     4    52    10     8   126   123    91  |    29    74    40    19    48   108   109  |    24   122    54    13    85    69     9  |   
+  92   104    74     3   113    74     4  |   112    70    97    43    45   121    78  |     9    88    29    37    50    13    42  |    13   101    38   122   103    78    63  |   101    54    35    49    54     4    55  |   122    19    60    83     6   118    55  |    51    68    27   103    63   110   106  |   
+ 124    78    20    62    61   124   126  |    19    37    58    76    17     3    90  |    54    26    70   105   122    14   109  |   108    21     0    60   127     4   126  |    61   126    48   110    40    76    87  |    50    61    29    38   125    80    62  |    81    58    16    13     7   119   124  |   
+ 105    69     5    53     8    92    44  |   125    15    21    64    55    93   126  |    45    70    29    35    31   116    77  |    33   114     5    38   103    41     1  |     0    28    53    16    56     5     1  |   114    74    21    43    57    15    55  |    32     7    13    61    19    80    10  |   
+  70     6    11    91    62    77   108  |    83    87    48    43    27    88   106  |    41    13    99    12     1     5    64  |    16    81    46   103    57   125   119  |    80    74    25    37    11   104    22  |    48    33    42    45    63   109    37  |   122   126   107   102    29    52    44  |   
+  93    15    20    36    77    54   120  |     8    34    36    27   115    33    41  |   105    80    35     4     4     7    39  |   106    97    58   103   106    49    25  |   114    28    16    74    11   103    40  |   104    74    78    55    81   113   123  |    54    51    27    54    34    22    59  |   
+  45    79    27    79    89   126    57  |    72   113    88    48   108    31    62  |    62    67    66    74    19    71   113  |    22    47    33    71    85    93    25  |    89    28    61    76    59    73     0  |    14   114    93     3    75   115   108  |    61    25    74    20    16    68    38  |   
+  57    19    37   126   119   104    49  |   106    61   108    90    76    48     6  |    83     3    31    53   101   110    59  |    25   109    36    86   105    40    56  |   103     4   101     7     0   104   101  |    98    79    73    14    83    53    42  |    53    86    56    52    10    23   111  |   
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 10
+Finished tileClc tile:0
+Finished tile:0
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+***  Printing Input Buffers  ***
+   0    12    85    29    13    87    93  |     0     5    16     0    45    27    29  |     0   102    81    13    14    97    24  |     0    55     2    13    86    48    56  |     0     0    10    72    45    16    99  |     0    74    81     6    60    10     3  |     0    28    63    15    42    36   127  |   
+  12   104    11    46    20    39    14  |    40     4   101    20     4   109   114  |    80    61    42   123    50    61   122  |    76    58    96    75   100    62    44  |    99    36    18   108   100    25    18  |    95    34    69    70   120   117    52  |     6    93     3    65   105   123    25  |   
+  39    98    78    32    23    91    68  |    87    61   127    76    87    78    82  |    93    85    54    37    82    81   115  |    33   115    28    50   112    42    80  |    11    95    89   123    25    34    17  |     3    97    20     8    52     0    93  |   114    65   117    98    43    14    93  |   
+  97    49    58    97    19    58   123  |   125     8    48    17    82    18    54  |    31    15    85   113    63    31    18  |    78    46   115    42    99    73    86  |    19    77    80   100    69   120    75  |   117    84    52    70   109    20    57  |   124    44   105   121    99     6   104  |   
+  72    34     5   121   119    97    33  |    80    95    74    54    32    67    96  |    54    68    88    84   100    22    14  |    34    88    25    29   107    96    19  |    59    35   115    87    92    43    86  |    41    46    80    76    96   126    65  |    22     0    23    66    30    98    59  |   
+  83    28    23    81    19    42    58  |   105    97    46    89    20    88    32  |   114    14    78     6   105    74   119  |    54    75   127    63    90    41    74  |   125    63    73   107    46    28    30  |    15    18    53   116    46    76   125  |    51   109    75    65    34    97   110  |   
+  60    18    45   122   102    22    91  |    64   104     2   115    25    39    39  |    45    68     8    22    10    63    34  |   108   108   104   110    34    36   115  |    99    41    73     0    71    31    67  |   123    67    84    86    98   119    58  |    28     2    48   119    91   118   127  |   
+   2    95    62   107   122    59    32  |    27    23     9    49    45    15    94  |   105   114    43    52   109   123    20  |   115    88   108    25    66   103    10  |    66    49    20    11    53    59     8  |    93   101   106    47    77    95    86  |    76    92    56    48    18    60    59  |   
+  42    80    65    48    75    56   104  |    63    30    43   116   118    77    99  |    45    34    51    34    38    18    17  |    28   101    63     0     4    15    88  |    51   110    56    87    56    74    34  |    26    70     6   111   105    77    86  |   123   116    17    15    64    31    92  |   
+ 100   126   113   127    21    69    74  |    59    23    68    41    39    87    59  |    61   115    16    43   116   120    62  |    48    57    92   108    68    81    89  |    94    18    48    84    95    10    22  |    13    37    21    75    12    74   124  |     6    27    17    57    21    58    20  |   
+  43    41     3   102    22   111    86  |   100    86   107    94    32   115    98  |    42    32    62    82   123    68    71  |   100    77    39    71    16    42    45  |   121    38    76    71    69   109    61  |    83   115    85    89     3    85    30  |    89   124   107     5    50    41   121  |   
+  60   102    74    39    97   108    18  |    81     4    90    55   112     4   125  |    25    72    56    30    60    39     7  |    28    26    44     3    75    61   120  |    99    99   126    14    39    46    23  |   117     9   117   104    87    98    45  |    90   117    90    57   100    65     3  |   
+   0    10    30    55    29    77    72  |    39    91    88     6    64    50    44  |    49    66    17    21    99    86    21  |    72    69    50    44    48    64   107  |    18   110    35    18    76   120    22  |    55    69    77    17    98     7   127  |    96    80    22   111    23   116    12  |   
+  39    69    39   126   114    91    67  |    62    59    29    25    45    11    16  |     5    94    74    77    89    38    93  |    69    86    55     4    64    84    50  |    69    77   107    37    40    61    23  |    79   104   110    24    90     7    21  |    41    82    73    69    29    93    51  |   
+  85    44    48   121    83    20    27  |    84     3    54    77    37    54   100  |    18    91   116    57   108    60    65  |   119   127    18    71    15   111    91  |   107    53    55   126   118    21    90  |    86    71    11   103     8   119   101  |    32   123    55     9    47    92    36  |   
+  22    35   114    76    91    13    70  |    42    27   109    53    20   127    29  |    64    76   124    33     8   126     9  |    97    31   104    54    64   115    84  |    20   122   120    28    67    70    69  |    97    70   118   124    25    96    35  |    81   108    40   126    75    39    55  |   
+  93    72    38    30    42    26    68  |    88    84     6   113    90    17    74  |    82    36    89    43    21    38    57  |   115    65     7    20     4    96   119  |    98    50   120   115    78    71   109  |    72     0    20    17    28   100     4  |    76    50    67    54    22    62    34  |   
+  72    99    18    53    41    95   120  |   112    59    22   123    90    71    86  |    31    60    97    47     3     5   116  |    31    14   123    55   108    64    89  |    54    88   107   124    95    33    13  |    46    67    57   103    34    79    24  |    77   119   109    94   126   115     3  |   
+  49   109    51    96    12    97     4  |    82    82    35    45    71    66    39  |   118   114    38     4    41   111    41  |     4    19   100   106    26    47    51  |   100   125     3   105     2    73   109  |   126   122    46     8    73     6   126  |    58    81    11    79    88    46    15  |   
+  44    48    28    25    82    75   101  |   105     4   124   107     9    25    29  |    72    52     7   122    75     9    50  |    80    40     6   110    31     1   108  |    10    72    65   110    13   106    18  |   125   124   127    34    30    45   109  |    49    44    10    52    89    48    70  |   
+  52    95    69    81    35    60   117  |    37    69   113    55    50    78     5  |    63   109    20   123   103    43   112  |    42    97    20   100   108    94    30  |    15    41    90    59   102   108   119  |    22    75    79    72   127    95    99  |   102    81    89    83    95    62    74  |   
+  44    18    48    20    26    35    39  |    47   114    86    79    99    89    83  |    96     6    33    91   124    96    77  |     9   117    26    30    44    95    30  |   112   104    71     2    60   127    77  |    94     7    50   109   116   103    99  |    27   121    99    73    28    64   102  |   
+ 114   126    65    50   103    27    49  |     2    16    67     0   120   116     8  |   103    99    67    22   115    78    27  |    10    63   105   123    64   113    16  |    81   107    93    56    71    39    15  |    37    48    69    84   112    55    65  |   111    86    76    87    35   104    78  |   
+  78    13   122   105   105    44    11  |    37   108    47    81    25   105   111  |    13    90   120    64   114   106    71  |    13    63    27    95   125    23    91  |    45     3    97    85    65    88   115  |   117    14    18    75    70    21    86  |   110    73   118   104    20    54    77  |   
+  38    34   118    14    57    81   117  |    42     5     2    76    88   106    68  |    18   122    24    47    72    79   113  |     7     9    30   126    50     8   101  |    49    59   125     3    62    27     6  |    55    23    30     4    19    18    62  |    66    37   103    74    90   117   115  |   
+  52    33    71    65     2    95    87  |   113   108   102   105   125    24    51  |    84     5    89    84   110    44    60  |    36    21    40   106    30    68   123  |    42    67    92    19    85     8   119  |    46    56   124    56    91    31    56  |   120    27    17    63   120    50    71  |   
+ 118   119     6    21   101   110    18  |    78    41    66   112    40    42    87  |    95   114   118    34    39   111    66  |    15    27    75    50    75     4   122  |    72   108   104    40   125    50    40  |   112    45   118    13    35    65   115  |   113    38    29   104    39   121     4  |   
+  93    10    70   122    23    63    63  |    36   114    89    98     0    42    17  |    58    44    53    44     1    12    61  |    40    32    36     0    34    77    12  |   116    54   109     7   107    85    70  |    41    86    87   105   101    12    51  |    76   104    43    77    23    91    26  |   
+   9    58    46    39   105    15    12  |    93   100    60    88    70    37    63  |    96    64   118    69    49    85    98  |    60    85    68    54    79    40    94  |    22    43    14   114    74    37    28  |    25    74    60    67    74    84     2  |   107    59    54   111   118    62   122  |   
+  55     1    56     5    56     1   112  |    66   118    14    95    19    47    36  |    59   101    55   127    92    83    53  |   104   118    60    78    91    23    41  |    18    80    36    50    88    32    11  |     1    28   119    21    27    25    96  |   125     1    62    94   108    40    50  |   
+ 114   105    58    20    82    37    52  |    26    36   116    46    48     8    29  |   109    29    49   126    45    74    39  |    84    29    25    11    51    52   121  |    53   108    85    93    40    14    60  |   121    81    13   125   118    31    23  |     8    22   104   114     3    49    52  |   
+  99   120    65   122     2     1    52  |   117    84   110    42    73    40    73  |   102    86   109    39   103     9   113  |    62   100     4    26   101    12   115  |     3   104   124    43    74    25    22  |    63    72    29     1    31    24    35  |   122   110    47    68   106   113    98  |   
+  57     0     0     0     0     0     0  |    88     0     0     0     0     0     0  |     1     0     0     0     0     0     0  |    93     0     0     0     0     0     0  |    20     0     0     0     0     0     0  |    77     0     0     0     0     0     0  |    49     0     0     0     0     0     0  |   
+   0   127    60    42    33   105    63  |     0   122    48    32    70    94    43  |     0    21     3    58    67    13    43  |     0    88    29    61    64   125    39  |     0    76   102   116   101    55     7  |     0   120    71    38    88    65    51  |     0   100    38    26    68    38    19  |   
+  33   125    83    69   126    82    73  |   120    41    61    59     1    35    76  |    82     9    74     9    56    22    43  |   121    70     1    24   108    82   109  |    51     8   106    81   101     0    26  |    73   118    14    27   107    71    59  |     3    57   116    93    69    80    87  |   
+  62    70    37    16   101    18    56  |    80    57    76    27    75    85    23  |    17    99    17    10    67    31    34  |   103     9    29   101    54    56     0  |    60   118    23    52    12   104    90  |   119   113    40     0    46   118    87  |   127    65   120    80     2    44    32  |   
+  48    59    53    36    48    52    31  |    26   106    98   112    91     7    40  |    65    34    54     4   108   104    73  |    45    74   121     9   108    61    75  |   103    73   117    39    98   112   118  |   118     9   113     5    86   103    17  |    98   113    52    75    81    12   102  |   
+  39    33    48     2    63    94    44  |     7    25     3    83   107   122   125  |    92   113   120   127    73    62    20  |    78    48   119    76     1    51    90  |     6    95   104     3    60    96    55  |    44     4    51   108    34    77    20  |   103    42    64    79    90     3    87  |   
+  51   120    17    58    82     2   121  |    85    90    17    71     6    88    39  |    98    60    82    80     5    10   127  |    33    69    93    61    24    64     9  |    92    30    56   118     7    36    78  |    89   111   109    99    26    92    85  |    97    95     4   109    25    16    38  |   
+  46    45     6   107    27    98    58  |    26    13   126    59     8     4    21  |    70   106    63   110    12    36    54  |    28    12   114    12    13    10    69  |     2    59    62    30   117   125   107  |    98    63    76    43    43    70    79  |    35    95    67    59    23    46    26  |   
+  23   126    68    52    13    56     0  |    71    51    87    99    69    61   109  |    99    99    57   102    66    49    74  |   115   118    49   101    13   126    95  |     0    85     9     7    45    11   115  |    17   102     7   117    42    63    80  |    47    19   116    86    13     4    60  |   
+ 124     0    66     1   100    73    28  |    69   114   127    11   126    82   126  |   127    83    50   118    54    66   106  |    81    42    65    10    51    33    72  |   100   127    22    14    29   120     0  |    96    90    24    76    29    78   122  |   108    68    46    10    91    44    31  |   
+  16    28    46     6    64     1   101  |   117    79   116    26    86    72   119  |   123    92   106    94    30    54    82  |   107   109    24    56    98   116   127  |    13    39     6    17   104    41     5  |    41    53    61    82   121   126   109  |     6    60    68    97    93    27    62  |   
+ 115     9    54    84    59    51   118  |     9    97    93    77     4    57    60  |     3    78     9   120   119     4   116  |    73    22    97    94   122    92    69  |    68     2    14     6   119     8    88  |    90    89    55   120    85    81    84  |   116   101     5    61   123     0    98  |   
+  27    16   117    40    84    51    95  |    63    64    14    94    49    32     9  |    78   111   109     2     3   113    75  |    81     4    90    61    80    12   108  |    79   102    28    55    35    90    51  |    80   127   124    23     1    68   105  |    93    54    66     6   116    48    86  |   
+  52    25   103   117    22    71    39  |    92    40    41   107     5     9    54  |     0     3    67    25    12    65    35  |    71    52    28    70    84   119    84  |    90    67    30    59     5    52    51  |    96    54    48    64    70   127    39  |     2    23    58    29    64    96    23  |   
+  29    49     2    20    59   101   122  |   113    45    36   109   122    71   112  |   109   111    52    56    35    45    31  |    91    31    60    93   126    60    15  |     2   100    67    68    83    31    71  |    41   102    81    86   105   123    79  |    25    79   111   121    10   123    47  |   
+  49    26    99   108    82    14    64  |   113   107    55    24    89    83    97  |    73    56    90    22    45   116    46  |    31    71   116   109    52    57    80  |    92    98    46    38    87   105   111  |   105    78    48    71   126    78    50  |    45    86    33    90    18    46    65  |   
+ 107    82    87    73    96     5    73  |    55    98    75     6    96    96    33  |    62     2    76    92    84    34     6  |     7    28    33   116    67    50    65  |    26    23    20   117    53   120    27  |     0    90   107     8    51    91    90  |    64    79   111    85    68    69    70  |   
+  23    80   109    42    99    93    49  |    80    98   123    53    43    74    23  |    32   113    83    30    23    12    62  |    46     4    94    46    79    43    13  |    35    35     5    45   122    48   108  |    39    87    46    99    65    33    66  |    97    39    67    24    76     9   121  |   
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 10
+Finished tileClc tile:1
+Finished tile:1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+***  Printing Input Buffers  ***
+   0    36    12   125    91    33    94  |     0    85    29    94     0    90    63  |     0    79    20    74    68   116    60  |     0    25    91     9    79   120    61  |     0    59    88    99    75   109    43  |     0    62   117    32    93    91   108  |     0    40    25     7    48    75   106  |   
+ 113     7    67    68    21    80     7  |    40    83    14    88   125    50    24  |    74    28    35    77     1   126    44  |    33     9    10    11   106    91    76  |   115    66    76   121     0   113   126  |     9   112   112     1    11   105    77  |    43    59   127    10    83   107    62  |   
+  90   112    52    70    36    60    14  |     3    93    44    27   105    30    80  |    99   104    11   124    74   111     5  |    97    89   121   114    45   119    86  |   101   120    29     4   124   126   107  |    87    12    32    58    29    75   107  |    31    95    41    29   122    40   126  |   
+  55    12    15    50    54    18    58  |    56    53    15    66    85    72    92  |    31   110    31    98     3    18   126  |   115    30     7    59    71    90   105  |    60    47    15   116    42     7   101  |     3     8   126    54    51     1    58  |    78    17    30    40   106    48    47  |   
+  57    67    63   113    26    78    90  |    14    29    45    49    59    72    79  |    31   127    69    51    87    19    18  |    23   111   112    62    22    55    13  |    27   119    20    27    31    58    39  |    86    31    27    18    26    38    71  |   110   109   107   107    48     3    87  |   
+  45   123    50    95    79    70   127  |    34    36    29   105    75     3    53  |   106    20   114   120   122   101    61  |    77   116    56   114    38    20    32  |    19   108   119    65    21    55   101  |     3    35    56    75    16   118    21  |   102    66     2   122    94   123    55  |   
+  45     6   126   124   127   114    84  |    63    51    79     1    12   119    72  |    26    69    49    18    54    96    74  |    37     4    76    54   103   120     3  |    74    56    73   117     6     6    27  |   112    41    80    87   123    81    58  |   127    30     8   101    46    34     6  |   
+ 108    29    10   117    17    84    59  |    15    59    36    80     8    89   100  |    69    91   117    69   109    87   101  |    24   103    68   127    71    53     5  |    15    70    91    36    31    91    14  |    51    95     0    92   124    49    70  |    11    28   124    81   102    31   119  |   
+  39   111    35    81    20    82    55  |   124   126    75    93   107   100    60  |    10    35   111    49    39     6    84  |   120   102   121    22   113    63   101  |   111    80    80    83   112    23    89  |    22   104    92    50    77    23    22  |    22    55     5   121    48    70     6  |   
+  27   101    18    26    74    19    22  |    86    86    94    90    27   105    60  |    26   106     3    82     7    46    83  |    48    72     7   104    86    11    99  |    96    24   116     6    79    39   117  |   114     3    81    19    59    43    16  |    46    49    39   118    98    62    60  |   
+  39    27   122    23    65    54    48  |    66    35    81    64    56   113    23  |    73    40   117    68    97    89    55  |    37   112    13    43    35    54    57  |    60    68    66   123   102    79    69  |   120   108    59    62    18   110     2  |    64    47    33   123    15    89    25  |   
+  38    68    85    20   113    60    40  |    40    28    56    44   104    25    66  |    61   122    73   122   124    98    91  |   109    70    79    39    53   126    58  |    64   104    20    90    25    84    41  |    63    72    94    60    50    78   110  |   113    78   118   116     7    83    82  |   
+  42    66    85   121    38    72    19  |    69    56    32    18   104    78    21  |    35    35    75    76    12   115   124  |   109    11    62   110    56    62    48  |    75   121    97    63    20    55    25  |   100   116    28     8    73   102    31  |    96     5    87    17   127    84    42  |   
+  12    70    26    67    73   101   121  |    73    71   109    72    70    78    30  |    23    86    87    70    21     1    36  |    61    27    96    39   126    38    18  |     5    61    17    81    73   102   112  |    53   100   113    46    62   105    71  |    22    57     8    36    36    86    30  |   
+  50    28    78    85    28    29    78  |    38    17   120    62    49   122   102  |    58   105    57    31    25    27   115  |    85   107    59     2    62    72    29  |    94    96    36   110     6    73    11  |    63    17    28   107    91   101   102  |    95    67    76     1    35   102    85  |   
+  19   103   108    13    14    17    95  |    56    45   125    50    20    28   105  |    64    12     3    57    53    21   105  |    49   108    70    74   122   100    38  |    21    53    13    12   105   113   105  |   115    79    33    40    13    37   122  |    83    34    74    69   107   102    33  |   
+  29    92   104    96    84    82   121  |     1    49   109    66    87    78   113  |    66    42    70   106    70    72    49  |    11    80    90    33    73    71    33  |     2    41    16    47     7    83    41  |    79    64    82    92    41   116    49  |    27    26     7   112    86    51    33  |   
+  16    87    74    74    49   120    35  |    99    48    79    14   103    76    62  |    29    16   123    31   119    85   121  |     8    34    85   101    40    60    90  |   106    12   102    72    65    41   107  |    12   119    53    48    11    67    52  |    54    10    74     5    78    50    59  |   
+  76    66    66    10    11   107    81  |    55    74    74    17    27    76   120  |     5   108    68     0    51    87    94  |    28   112    89    95    58    86    44  |   102    30    49    54    24    15    10  |    74    61   115    14    53    74    31  |    47    22    72   111   121    81    19  |   
+ 120    40    28   104   124     9   114  |    43    29    22   106    37     5    32  |    94    79    28     8    55     2    12  |    27    36   118   108    60   104   124  |   106     6   108    59    59    31    58  |    81    92    69    32    61    15    12  |    90    14    74    65    72    32    59  |   
+  61    59    79    90    23    53     8  |    73    77   117    82   110   111    30  |    95     3   113     9    75    86   111  |    38   100    43    69    87   113    99  |    71   120    11    79    58    72    97  |   105    71   121   111    27   100    83  |    53    90    94   108    34    75    32  |   
+ 120    27    74    38    74    99   124  |   106    47    84    51    29   121     9  |   106    87   100   112    33    64    68  |    65    58     1    70    28    95    53  |    55     1    52    27    87   126   101  |    20    83     3    88    25    70    91  |    31    89   120   101    44    95    32  |   
+  49     8    81   118    56    79    35  |    30     1    32    97   115    42   114  |    65    26    75   116   119   103    92  |     1    29   125    54    46    78     9  |    71    80    92    47   127    38    32  |   121   124    17   104    81    56    74  |     0   105    67   104    14    76    46  |   
+  78    13   127    71     7    50    98  |    61    34    19    18    11   112    64  |    30    38    27    69    25    83   115  |   118     0    93     7    57    65    66  |    79    26    34     1   113    36   116  |    48    91    49    91    75    99    82  |    34    43    84    60    78   102    36  |   
+ 112    90    14    14   105    53   100  |     4    13    40    34     4    92    13  |    92    51    43    60    80    46   117  |    33    83   127    34   118    51     2  |   122   118    12    29    29   115    29  |    16    34    58   117   110   119    46  |    10    97   114   114    17    70    30  |   
+  12    42     5     6    57    41    49  |    59    28    44    20     3   117    81  |   112    61     8    69    35   125     0  |   115    52    32     1    98   105    67  |    12    42   125    47     7    96    36  |     3    71    38    57    92    11    42  |    31    50    35     6    39    17    93  |   
+  70   109   114   102    46    91   122  |    80     9   110     3    46    93   107  |   114    29    66    85    75    73    97  |    21   113    22   102   109   101     6  |    31    77    19    61   124   122   127  |   121   121    97    98    96    80   118  |    11    60    39    94     2    46    19  |   
+  26   113    56    48    75    32    32  |    94    98    46   111    44    33    48  |    81     6    78   113     6   121   123  |   123    68    95    93    96    16    73  |   101     3    42    92    66    78    97  |    21    45   119    21    53    27    13  |    22    41    14    49    63    95    19  |   
+  86     8    33    53    15    51    94  |   110   103    17    64    92   122   126  |    21    88    13   104    22    59   111  |   116    97   124   115   100   127    25  |    51    12    72    43   111    76   100  |   121    96    88    86    95    44    56  |   110   102    20    60    91    39   126  |   
+   9    57     5    58    62   124    82  |    75    10    72    78   108    50   111  |    90    53    62     8   104    63    73  |   126    97   111    80   122    74   102  |   127    55   100    15   105   123    80  |    37    95    36    43   127   123    14  |    55     0    56    13     2   114    41  |   
+  73   107    35    15    64    66    43  |    55    84    81    78    47   111    52  |    48    92    97    34    30    92    62  |    28    75   125    20   118    81   112  |    99   105    77    43    29    22   115  |   109   125   121   112   124   114   110  |    34    80    40   105   124    46    10  |   
+  17    42   112    26    23    93    69  |    69    36    69    86    59   110    30  |    54    35    74    63    23    25   104  |   110    16    72   126    49    69   108  |   117    81     6    58    19    92   114  |    82    79    78    28    68    69    66  |    13   114   102    75    77   104    36  |   
+  19     0     0     0     0     0     0  |   105     0     0     0     0     0     0  |    42     0     0     0     0     0     0  |   126     0     0     0     0     0     0  |    13     0     0     0     0     0     0  |   125     0     0     0     0     0     0  |   121     0     0     0     0     0     0  |   
+   0     4    43    97   105    68    11  |     0    87    21   118    51    78    57  |     0    43    62    14    52   114    91  |     0     7    14   113    20    55    88  |     0   116   109   102   124    37    26  |     0   121    67    54    20    68     8  |     0    30   120    42     3    29    10  |   
+  33    74     0   124    31    30    91  |    51    70   123    63    56    43    43  |    40    86   120    60   102    57    54  |    73    35     0    89   113   113     5  |    94    85    26   127    33   123    31  |    47    19    79    22    61   126    13  |     4     5    37     7    15    35    85  |   
+  37    55    97    52   122    91    77  |    81    93   111     7     5    45     0  |    11    25   124    30     3   101    62  |    60    50    48     2    92    77    48  |    74   114    50    58   120    43   125  |    30    31    43    79    63    72    78  |    33     2    66    72    25   108    75  |   
+  39    51    53   115    87   124    13  |    22    84    12    63     3    77    29  |    34    93   107    51   117    11    36  |    83    54    25   120    54    31   109  |    49    72    96    53    76   111    63  |    69   121     6    19    65   100    97  |    22    51    84    57    29   103    28  |   
+  11   107   110   110     9    87    62  |    86    33    10    98    76    44   100  |   119    21    41    16    34     9    49  |    21    81    50    64    50   119    13  |    89    92    13    58    37   124    96  |   106    63    34    70    34    35    18  |   113     1    89    44    82   113    11  |   
+   4   113    93    52    73   107    83  |    37    87    82    99    23   113   113  |    17    28   103   110    17    51    26  |    15   105    39    61     0    89    85  |   105   102    23    55    41    12    43  |   101    58    65    70    87   116    34  |    76    14    44    81    80    56    68  |   
+  95    97    26    38     8    65    42  |   120    56    45    35   111   118    76  |    51   107   106    98    76     9    20  |   118    68   121   109     7    65    43  |    42    10     1    76     9   104    57  |    56     4    42     5    56    68   101  |     6   123    30    34   126    30    88  |   
+  31   100    23    40   101    13   102  |   120    31    25    11     2   100    94  |    28    53    74    34    68    10    38  |    22    14   113    21    52   104     5  |   107    18    87    11    88   103    69  |    37    41    68    44    58   109    44  |    75    59     0    33    98   100     2  |   
+  23    68    51   113    64    44    15  |    64    23    79    98    37    82    27  |    58    56    63    20     9    63    17  |    44    48   108    79    17   123    89  |    63     6    63    90   104    15    91  |    26    66    30   126    52     1   127  |   102   109   114     3    29    92    45  |   
+  91    73   125    25    12     9     1  |    66   116    91    99     1    52   104  |    43    89    73    60     8   102   121  |    94    33    80    12   107    72    58  |    35   116   119    60   112     1    53  |    65   121    71    50    96    58   113  |     2    88    71    87     2    26   119  |   
+ 123    87    27    58    69    89    49  |    19    42    82     4    29    54   115  |   111   113   109    96   125    55     7  |   119   116    21    87    78    38    20  |    19   122   114   111   121    73    66  |    43    77    43    50   100   105    59  |    39    51   105    40   121    78    36  |   
+  95    98    36    43    33    75    29  |    16   109    47     9     7    30    22  |    12    85    97    53    65    52     6  |    91     3     0    88    87   117    54  |     6    96    85    25    82    73   108  |    20    82    40    33    57    25   112  |    13    67    65    23    21    75    12  |   
+ 105    50   122    34    93     8    34  |    36     6   110     3    12    11   111  |    60     6    25   123    51    99   122  |    87    60   101    83   123    27    41  |    29    47    56    83    11    56   101  |    55   103   124    67    12    68    23  |    77   109    23   107    37    70    37  |   
+ 112   100    95    29    68    86   125  |    11    12   124     0   102    16   108  |    47    90   106    53    82    45   116  |    35   117    46    36    80    85    28  |    48     6    82    53    39    47   109  |    30    52    93    80    33    99   109  |    53    40    88    93     4    26    38  |   
+  38    65    91    57    72    18     1  |   124    81   115    27    49    50    18  |    73    61    57    45    70    14    47  |   117    75    87   121   111   109     0  |   104    68   117     6    20    25    47  |    11   111    59    93    29    88    97  |    68    22    79     4   114   115    65  |   
+  62    22    80    12    13    29    38  |    59    20   123    37   122    50    80  |    83     2    18    55    58    14   105  |    12    73    95   106    86    23    55  |   112    82    40   104    85    55     3  |     7     3    54    86    63    85    20  |    87    70    80    95    29    88    52  |   
+  14    65    23    51    55    23    98  |    79    60   106   108   115    40    90  |     6    20   104   100    51   111   114  |    93    79   121    99    30   115    19  |   121   120     6    49    94    60    35  |     5    20   117    22    24    83    12  |    39    45    47    89   118    63    53  |   
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 10
+Finished tileClc tile:2
+Finished tile:2
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+***  Printing Input Buffers  ***
+   0    48   101   121    83   111    79  |     0    26    75    90   123    29    82  |     0    45   120    36    35    12    81  |     0   111    84    34   114    69    52  |     0   106    72    27    17    79    99  |     0    38    58    86    40    50    70  |     0    42    20    28    94   118    70  |   
+   3    32    15    28    84    67    37  |    84    28    75    94    50    65    99  |   114   116    49    96    13     8     4  |    35    80    73    12    45    65    16  |    48    90    28    72    90    19    16  |    97    56    49   126    91    39    10  |   126    18    16    21   121    36     9  |   
+  29    74    50    33    17   122    66  |    65    74   114    31    92    75    55  |   122    72   121     9    34   107     0  |    50    12   110   103    76    33    69  |    80    93   122    66    64    55    45  |    59     5    69    33   104   115    97  |    93    74   118    12    42    30     8  |   
+  82    24    80    61    45   107   118  |    56    19    91    44    45   126   126  |   100   125    86    12    28     7   103  |    92    64     8     4     1   108   121  |    42    67    59    61   100    23   124  |    86   109    53    95    78   110    55  |   102    40    63    17    69    91   115  |   
+  52    74    73   119    22    47    53  |    84    65    97    58    47    66    95  |    17    31     3    30    35     6    56  |    20   108    24   108    25     2    40  |     5    49     6   108    58    63    24  |    11   117    54   102    45    67   110  |    79    64    16    34    27    24    20  |   
+  37     2    81    94    56    90    88  |   121    15    17   106    46    39    95  |   127    67    27    90    56   121    24  |     1    71   118    22    30   119    12  |    69    67    42     7    40    74    66  |    20    94    63    19    30    25    66  |    54    64    62    35    71    13    21  |   
+  95    55    25    35    40    28   102  |   126    59   101    53    15    19     2  |    71     4    35    50   116    79    12  |    32    90   122    35    62    26    45  |   115     4    19    15    87    58    12  |    39    76    21   126    38   120    82  |    35   120    41   120    19    28    39  |   
+  12    60    51   105   109    30    67  |    55    64    27    87    41    85    87  |    86    38    27    64    51   101    34  |   114    87   121    77    18    52   110  |    18    60   127    38    78    44     1  |    62    59   115   114   111    52    36  |   127    62    30    90   126    52    31  |   
+  93    99     5   112   102    81    87  |   114    50   107    66   105    96   102  |    31   120    45    61    49    95   104  |    13    60    53    41   102    85    67  |   100     7   106    77    49    74    96  |    75    96    52   114    58    70    39  |   107    79   122    96    40    82     1  |   
+  96    37    40    85    29    10   102  |   125   110   109    44    44    36    65  |     4    57   106    25    55    13   108  |    61    47    39     5     4   109   114  |   112   119    45    89    92   109    88  |   101    58     3   123     7    53    40  |    99    31    49    85    77   108   105  |   
+  19    58   106    93    44    58    82  |    17    30    49    55    17    44    21  |    90    93    36    76     8    42   113  |    87    63   108    35   120   126    15  |   112    14    49    68    72   110    22  |    14    17    26    56    98    67    47  |    23    15    79     6    45    69     2  |   
+  54    51    45    26    53   109    28  |    36    69    99    58    22    16   101  |     6    61    38   111   114   126    12  |    99     2    64   100    83    32    90  |    67   126   119    63    65    92    23  |    47    24    20    41    66    28    11  |    45    56    94    73    96    70   126  |   
+  61    63    61    39   104    25    95  |    75    89    26    12    74    64   127  |   126    73    54   112   109   101    99  |   123    22   123    29   121    17   117  |   109    73    80    89    21    75    28  |   122   105    29   109   106    27    64  |    74   126    74    32    31     9    73  |   
+ 109    80   114    89    44    73    36  |    81    93    33    72   108   105    34  |    37    88    72    16    94    52    96  |    51   104   110    26    74    81   103  |    65    54    28    78   119   105    62  |    24   105    88    21    47    35   109  |     0    42    44    85    56    40   125  |   
+  47    41    21    55    87    83   121  |    26    61    98    51    45   107    98  |     3    19    40    10    55    39    30  |    83   117    13    65    93    78    88  |   115    41    58    98     8    42    54  |    74   119    86   116    30     1    96  |    63    41     9   127     9    28     0  |   
+  38   108    35    22   102    39    70  |    92     0    75   120    57    75     3  |    84    13    71    27     7    62    21  |    22   122    97    39    88   103    69  |    43    49    95    69    53    46    91  |    26    25    10    29    37   122    31  |   107    26    41    86    48    53    89  |   
+ 119    37    10   126   103    80    94  |    66    67    54   111    62    80    72  |    75   101    20     6    97    47    90  |    60    19    13    12   119   114   123  |    58    86    10    73    41    35    21  |   111    53   114     5    30    73    15  |     3    56    44     7   127   109    81  |   
+  70     5    87    96    53    26    52  |    67    93    94    34   114    89    12  |     8    30   106    17   105    46    99  |    94   111     5    20    96    65    65  |    10   120    54    21    32    57    47  |    87    99     6   123   113    63    52  |    12    86   124    46    27   123    88  |   
+  56    36    41    42    42    19    72  |   109    79    73   105    17   114   115  |   100   116    59   113    94    93    61  |     5    90    40    73   123    26    78  |    57    75    55   121    78   113    79  |   102    13    17    10    65    44   104  |   118   105    94     3    59    17    64  |   
+  74    16    73    47    60     8    59  |   113    39    94    97    85    50    97  |   122    91    95    15    56    60    35  |   108    18    19    98   110    16    74  |    79    53    67     2   126    21    30  |    43    45    56    22   112    51   103  |     9    96    56    70    77    82   108  |   
+  15    60   106    47    37    99   125  |    55   123     9    59    67    70    24  |    72    61    95   100    72    53    79  |   107    11    83   115    92    57     8  |    72   108    77    47    38    89    45  |     6   104    53    98    79    29    36  |    77     7   115    82   126    14    87  |   
+  33    14    40   106   102    93    38  |     2    86    23    72    68    82    20  |    81    17   108    55    50    89    16  |    86   104    46    30   120    23    34  |    91     2   101   101    94    55    82  |    39     8    25   116    43    95    41  |     1    34    83    51    41    55    46  |   
+ 112    15   107    32    90    16   110  |    60   111     5    40    62   110    53  |    29    79    93    55    76    13   119  |   122   120    26    86   109    55    92  |    61    50   101    12     7    50    10  |    77    68   101    97     4    71    44  |    18   120    67    94    74    62   104  |   
+  66    46    34    77    41    40   101  |    74   121    21   124     3   104    63  |    35    18    91   115    69    44    76  |    85    99    59    89   121    93    86  |   102    82   127    87    39    97    35  |    96    73   109    20    86    34   124  |    75    47    79    57    13     6    41  |   
+  51    38   102    74    99    63   101  |    87    42    14    53   121   115   104  |    31     1   127     5    33    49     9  |    51    50    33     2     2     3    47  |    60    69    92   116    70   112    68  |    98    67    24    35    18     1    47  |    76    50    61    86    16    60    89  |   
+  48    75   119    44    77    91    80  |    82   101    40    32   101    59    53  |    90    13   108    22    52    55     8  |    16   108    77   120     2   119    80  |    59    42    82    44    22    34    22  |    37   111     4    28    58    96    97  |    20    97   106    47    52    90    57  |   
+  71    80    23    13   119    68   107  |     3    87    82   106    53    14     8  |    55    54    70    93   112    32    10  |    75    53    26   111    16    67    26  |    39    27   119    39   125    62    95  |    51    50     5    13    31    91     2  |    87    64   107    41    94    96    43  |   
+  60    40    56    63   116    35    29  |   125    35    16    86    78    58   108  |    76    49   115    16     1     7    86  |    51    56    39    20    19   116    34  |    58    34   117    10    14   104    26  |   103    85    37    27   121    75     4  |    68    59   126   111    93     4    41  |   
+  76    92     5   111    46   108   112  |    40   111    87    86   107   100   126  |   115   116    20    56   116    54    61  |    85   115    37    94   114   106    20  |   120   114   115    16    13     9   109  |     2   123   100    22   108    25    47  |    27    22    98    55    56    37    67  |   
+  24    58   120     0    17    17   106  |    17   103    39    78    18    79   112  |    55    77   106    34    64    67    17  |    82    22    72   100   101    22    88  |    41   103    74   124    71   111    74  |     6   106   119    82    48   119   113  |    47    71    87    78   102    85    84  |   
+   1    74   117    79    95    76    92  |    52    98    22    50    96    68     5  |    83   120   123    12    65    91    14  |    69    86    75    98   106    91    32  |   113    66    46    62    67    10    99  |    65     5    77    39    52    49   126  |    28   103    80    38    37    24    25  |   
+  21    93    29    67    18    10    99  |   105   117    24    11    19     5   127  |    91   114    35    95    43   121   108  |   116    60     8   106    98    80   115  |    59    59    14    82    65   112    92  |    57    87   124    63    79    67   110  |   117   120    27    90    20    48   115  |   
+  69     0     0     0     0     0     0  |    84     0     0     0     0     0     0  |    45     0     0     0     0     0     0  |   120     0     0     0     0     0     0  |    94     0     0     0     0     0     0  |     7     0     0     0     0     0     0  |    26     0     0     0     0     0     0  |   
+   0   126    60    53    91    36    73  |     0    42    28   105    73    67    56  |     0    54    26     0    77    91   124  |     0    43    32    65    18   117   123  |     0    17    21   117    61    24    31  |     0   110    97   100   121    76    79  |     0    76   107    86   108    26   114  |   
+  78    17    66   116   125    51    18  |    27    92    78     5    45   124    47  |    43    29    60    47    81    38   103  |    71   121    20    90    51    90    67  |    54    26    95   110    25    63    74  |    66    40    36    83    77   126     4  |    49    75   108   113    21    62   121  |   
+  29   117    53    12   112     0    75  |    99    78    44    40    32    97    82  |    23    28     0   104    36     8    68  |    33    41    92    85    99    63    73  |   105    59   102   118    68    76    10  |    87    27    70    83    49   120    47  |    83    17    37   116    17    10    95  |   
+ 100    91    33   124    84    69   120  |    87   110    35    71     0    20    14  |    72    73    13    27    83    48   125  |    61    84    38    32    84     1    13  |    65   119    55   125    12   111     5  |    89    26     8    90     2    98    46  |    15    38    97    96    62    66    80  |   
+ 120    27   125   103    43    70   112  |    47    13    99   126     6    83   108  |    27    30    44    47    84    73   111  |   101    87    62    66    60    47    96  |    53    63     3   126   102    14    41  |    50    94    98    45   124   109    49  |     4    61    66    21    35    84    96  |   
+ 115    18    46    32   109    78    66  |    19   124    23   112    86     3    81  |    93    37     2   125    75    85    74  |    26    54   118    45    20   107    54  |    18    87   123   106   120   110    28  |    13    46    26    27    65     5     5  |    83   102    90    39    53    89   120  |   
+  81    81   119     6     5   110    50  |    24    31    38    47   102    54    28  |    96    41    94   124    29    59    12  |    17    57    73   116    19    70    43  |    19    21    12    31    46    31    33  |    78     6    82     5    87    14    21  |    43    84    65    47   118    91    47  |   
+  92    43    71     6     3    20    58  |    93   108    56    29     4    60    60  |    11   104    55    71    11    20   111  |   109     6    13    45    31     4    25  |    11    48     2   119    72   116     3  |   110    77    94    76    15    76   117  |    28    69   105    85   123   117    54  |   
+ 107    93    38    95    36   117    84  |   116    17    31    55    86    55    10  |    45   115    77    47   101    33     9  |    63    11    24    17   121    58    59  |    82    98   104    35    59    10     7  |    13   127    37    46    83    26    84  |    25   107    56   122   104   112    12  |   
+  51    79    64    78   118    59    35  |    29   114    55    77    73    73    95  |   105    47    30    60    15    63    36  |    94    47   126     2    16    68   122  |    70    25    94     7    20     1   106  |   103    22    70    51    99    30   123  |    10    77    62   110    68    66    53  |   
+ 116    81   121    54    17    60    54  |    14    31    64    80   118   112   115  |    75    65    75    93    68    40    99  |    21   126    67   100    99    45    43  |    83    32    79   110    59    71   118  |   109   109    24     2    52    62   106  |    74    46    70    40    55    90    47  |   
+  72    70    31    72    35    68    55  |     5    42    29    77    17   125     0  |   110    76    34     1    52    89    31  |    10    20   116    11    19    63    93  |    97   106    92    20    55    25     2  |   124    55    33    68    39    78    85  |    98    97    13    66   107    70    31  |   
+   6    16    62    60    93    30    31  |    86    40   100     7    75    97    42  |    97    77    33    75    18    91    82  |    79     8    94    77    90    19   127  |    74    96     3    88    74    17    25  |   119    93   120    51    11    93     8  |     1     7    38    37    68     0    52  |   
+  65    32    32   120    91    32   117  |    34   116    58   100    96    50    93  |   109    78     4     3    14     7    62  |   104    85     6    60    47    70    30  |    92    49    70   118     9    24     8  |    16    11    78    27   101    36     1  |    78    11    37    18    11    19    19  |   
+  60     5   125    12    47    67    59  |    40    85    88    34   122    62    59  |   106    95    66    73    80    85    40  |   108   107   100    10    27    79    42  |    21    67   101   107    66   117   103  |    77    46   111   119    45    15    10  |   124   115    39    51    68   101    57  |   
+  38    28     6    24    94    70    80  |    84     7   104    13    56    22    77  |   124    67    22    90    69    11    24  |    39    56    89    42    14    14   121  |    92    78   121    35    25     7    56  |    35   110    61   109   112    95    28  |     4   126   111    49    27   124   110  |   
+  29   103    34    24   116    22    67  |   102    75    59     0    36    76    77  |     6   108    95     7    56    23    88  |    36    80   118   117    87     0    74  |   104     1   103    18    42    14    12  |   123     6    29    37    88    73     6  |     5   104   125   119    10    58    33  |   
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 10
+Finished tileClc tile:3
+Finished tile:3
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+***  Printing Input Buffers  ***
+   0    50    94    19   116    67    49  |     0    85    26   114    32   102    86  |     0     0   125    28    43    42    87  |     0    59   111    88    62    23    28  |     0    15    88   111     1    54    13  |     0     3    32    42    27    13    18  |     0    32    47    78    53    39    19  |   
+  66    49   113    53    79   127   104  |    46    93    29    36    36    24    82  |    70    69    84    53    86    91     0  |    82    17    29    78    45   112   121  |    26   106     1    88   112   126    70  |   102   120     6    60   104    45   109  |   125    98    54    96    93    38   120  |   
+ 114   114    73    49    95    21    94  |    15     4    81    87    48    85     8  |    35   117     0    74    92    67   101  |    20    12   125    17    75    41    29  |    76    16   113    53   101    77    89  |    49    74     3    60    19   120    64  |    45     2    92    49    59   114   123  |   
+  51    86   126     0   121    68    47  |   125    34    20    79    90    54    30  |   109    62   122   111     9   124    78  |    11    19   119     7    15   127     6  |    94     7    84    64   115    39    15  |   110     3    89    65    61    93    50  |    67   112    78    51   118     7    53  |   
+  55    53    37    10   108     5    48  |    35    73   103    80   124    49    16  |    12    36    19    23    72   110   127  |    27    78    17    39   118    67   101  |   119    79    72    74    46    56    42  |    73    48    34    71    25    85    54  |    57   120     7   101    95    35   113  |   
+  57    50   118    78    77   103    71  |   108    35    11    92    62    68    30  |    49    27    73    46    35     5     8  |    82    67    56    44    68    83    13  |    21    66    97    62   105    86    51  |    67    65    75    76    89    53     4  |    35   103   127    62    94    25     8  |   
+  81    37   124   111    99    18    17  |   126     0    68    13    35   124    84  |    53     0    93   119    66    11   103  |    92   108   113    53    38     8   111  |    92    14    37    77    56    59    22  |    30    44    35    73    97   108     4  |     8    15    19    49     8    99    97  |   
+  96    60    56    69    14    25    56  |    20    37   112    71    15     2    54  |    28    81    30    36    61    35    77  |     1    41    12     5    33   101    67  |    74    19     0    18    66    46    97  |   127   120    66   114    40   104   111  |    40    64    28    77    92   121    52  |   
+  76    43   105    12    66    53    73  |    32    60    12    36   112    65    98  |   110    35   108    70    68    29    77  |    92   104   114    56   101    79   113  |    18    19     4    68   124    97    56  |    57    45    12    48    48    90    10  |   120    61   112    68    42    66    77  |   
+  50    62    51    50    12    43    60  |    50    95   113    30    90     8    75  |   123    98    71     1     4    20    11  |    87   111    61    68    80   121     5  |    13    47    91    77     7    92    64  |   100    74    42     5   112   104    69  |    37   103    49    84    85    67    27  |   
+ 113     7    83    56    88   123    61  |    80    69    10    67    44    35    91  |    91    62    77   105   112    57   115  |   122    60    68    48    13     3    45  |    21     6    25    34   108    74    48  |    20    99   113    71   115    86    37  |    95    28   119    37    12   111    51  |   
+ 107    52    82    57    47   127   109  |    70   127    91    96   120   104   100  |   116    17    81   126    29   124    26  |   126    80   125    58    39    35    87  |   107    38    39    61    29    69    99  |    67   121    23    46     8    74     6  |    15    51    20    54   110    27     7  |   
+  57     0    86    67    98    62    45  |    59    64    68   114   101     6   106  |    65    52    82     2     7    44    76  |   115   102   105    57   115    56    60  |   120    94   111    96    79    51    32  |   120    34    78    62    67    36    98  |    29    60   109    29   120    19   104  |   
+  75    99    47    65    29     6    68  |    86   124    59    25    31    94    26  |    49    98    31    42    52    64    17  |    37    62    98    95    35    85    49  |   122    56    12    29    51    69     1  |   120   119    37    77    45    55     9  |   103    35    54    87    89    84    81  |   
+  78    84     4    29     2    54    30  |    46     6   118    46    26     9    86  |   109    91    63   121    70    95    67  |   115    27     8     5   110     2    12  |    41    14   120    91   122    56    90  |   117   123    56     2    83    74    84  |    64    43   112     2    95     0    35  |   
+  78    50    23   105   100    77   122  |    21    20    85     6     3    11   105  |   126    78    72    69   126   119    14  |    17    74    56    77    92   122    49  |    86   110   109    71    37   123    26  |    85    36    47    90    98    97    17  |    23    82    70    47    26    22    93  |   
+ 106    35    14   122    98    18   117  |    28    10    95   121    13    24    80  |   110    84    67   127   100    91    52  |     5    11    34    84    14    99     7  |    12    55   100    63    52    57    51  |    41    95   114    10   125   100    31  |     4    11    50   123    18   108    50  |   
+ 104   107    58   119    54    68    42  |    16    67    65    55   122   112    62  |    96   100    46     3    87    17    50  |    32   117    10    69    21    79    13  |    24    30    92    99   124    83    88  |    15     8    44    71    84    69    26  |    79    91     3    87   100    76    91  |   
+ 117    19   106    62   107    88   104  |   116    97    33    54    39    54    22  |    21     9    11    87    42   127    68  |    64    82    80    39    92   123    25  |    93     5    23    49    38   113    62  |    84   106     9   122   110    42    91  |    13    73    77    12    29   111    23  |   
+  33   106    35   111    17    72    65  |    61    35    83    81    27    31    94  |    26    88    78    15    79    56   119  |    65   113    93    82    53   121    85  |    56    86    72    65    86    76    63  |    10   111    87     5    56    23   127  |    60    36    82    69   102    68    91  |   
+  41    98    22    82    75    70    82  |   109    78    47   112    49    82   115  |   122    29    95    12    94    74    15  |   121    87    12   109   121    54    15  |    17     5    32    93    43    31    89  |   107    46     2    34    28    12    86  |    46    90    25     5   115     5   111  |   
+  39   106    75    94   111    15    37  |   118   101    31    14    88   100   116  |    20    52    56    47    49    42    48  |    73   127    31    40    66     9    99  |    92   109    91    96    82    40    20  |    23    39   116    65    42    48    76  |    64    84   115    50    19    72    18  |   
+  49    19    13    46    77    94    18  |    90    89   115    83    91    63    81  |   121     0   119    95   115    65   107  |   116    80    64    90   125    45     7  |    53    17   118    77    97    75    78  |    35    10    66    63     7    99   103  |    37     4    76    57    87    60   123  |   
+  43   112    97   125    81    15    22  |    76   113    51    16   127    81   106  |    30    32    56    74   119   119    82  |    40   102    55    84    63   105    23  |   115    44   122    85    97    15   126  |     5    88    71   118   101    82    82  |   104    84   103    95    82    24    90  |   
+ 111     8     0    67    37   110   119  |    34    93    53     5    55    46    83  |    90   100    20    12    59    89    46  |    62    38     4    32    88   120   110  |   119    42   108     8    55    18   125  |    45   120    54    14   127    47    66  |     7    24    73   120    89    88    37  |   
+  33     5    31    51    62   118    52  |    54    71    88    12    37   106    94  |    17   119     5    73    34    90    86  |   121    62    47    80   127   109    34  |    56    67    93    11     2    76    77  |    20    47    23    96   116    30    92  |    86    42   102    57    29    12    89  |   
+ 121    32   117     9    66    43   102  |   103    18   112    39    61    59    46  |    44    59     4    59    22   116    60  |    50   101    88    77    51    29    56  |    96    86    20   102   126     0    73  |    30    87    98    13    94    99    23  |    83    48   103    74    59    15    76  |   
+  68    49    69    39    18    71    55  |     1    54     0    22   101   116    69  |    45    45    37     7   112    55    77  |    81   126   124    35    59   121    25  |   116    17    77    17    79    35   111  |    30    78    95   122    51    27    24  |    88    30   124     5   111    75    92  |   
+ 107    52    90    86    70    59    67  |    11   125    13    24   115    99    63  |   121    22    12    53    76    70    75  |    96     9    64   118   122   107    81  |   102    94    15    34    36    90    56  |    52    28    98     3   115    27   104  |   113    75    34    95    15    55    72  |   
+ 100     4    15    88    49    63    54  |    19    13    44    95     4     4    37  |    80    47    59    77   102    96    15  |    98    19    70     9    29   123   126  |    16    96    84   122   114   124   122  |    35    63   110    10    45    12     9  |    99    88    27    32    22    82    53  |   
+  26     5    49    83    47    66    70  |    19    76    69    92    65     5    14  |    87   113   125    58    20    72    24  |    79    62     1   117    15    82     9  |    97   121   120    22    25   108    11  |   119   107    11    36    28    94    70  |   119    91    98    39   127   112    97  |   
+ 109    18    70   117   114     9    15  |    98    71   104    72    80   109   109  |    86    66   122     9    37    43   125  |    79   106    70    95   121    43     7  |    87    38    18   115    84    85    82  |   117    96    39   108    63    18    40  |    50   127    77   115    65    72    79  |   
+  81     0     0     0     0     0     0  |    23     0     0     0     0     0     0  |     8     0     0     0     0     0     0  |    75     0     0     0     0     0     0  |     9     0     0     0     0     0     0  |   105     0     0     0     0     0     0  |    20     0     0     0     0     0     0  |   
+   0   108   110    38   118     9   120  |     0   113    67   121     7    61    41  |     0    55    23    14    16    74    14  |     0    68    83    46    56    56    15  |     0    34    93    33    39    16    21  |     0    89    31    47     7    89     6  |     0   111     0    32   125    27    75  |   
+  40    81    25    46    23    17   111  |    47   108    53    12    94    21    88  |    90    92    20   100   122    91    61  |   113    72    62    29    50    11    37  |    59    89    57    30    79    76    25  |     2    55    15    81    25    70    32  |    12     9    71    29    88    34    66  |   
+  38     0    35    25    70     2    50  |     6    11     1   126    28   114    12  |    51   108    29   103    38     8    50  |    23   108    33    92    74    13    75  |    25    81    50   102   114    73     0  |    33    99   122    12     4     4   121  |    23   108    33    86   106     5    93  |   
+ 101    53   123    62    37    15    97  |    93    57    39     9    82    92   125  |    51   102    28    60     6    85    83  |   109    35    32     0    72   100    41  |    21    88   124   125    32   112    72  |    50   109   119    91    23    97   120  |    77    74    91    64    51    31     1  |   
+ 110    48    93   109    39    41    68  |    16    95    13    39    25   112    21  |    72    13   127    91    95   126    78  |    62    66    27    80    31    93    85  |    25     7    74    80     1    21    20  |     2    99   114    33    46    44   113  |    33    94   125    12    77    44    86  |   
+ 127    93     4   124    62    41    69  |    29    74    98   110    66    14    69  |    70    87    33   125    49   111    16  |    66    44    74    15    85   117    44  |    89   112   100    13   116    72    35  |    83    76   119    96    87    15   124  |   119   103    12   110    70   115    64  |   
+   4   126    28    11    20   104    84  |   121    67   103    97   111    66     5  |    78    36    28    59     0    58    29  |   109   107    98    31    47    24    68  |    61    94    97    23   100    36    33  |    38    69    66    42     6    37    93  |    16   106    45    97     0   101    31  |   
+  78    84    84    76   101    75   122  |   120    26    52    23    75    69     7  |    46   123     2    85    23    79    36  |   121    96     7    47    80    80    25  |    96    48    10    77   126    50    46  |   107    82    85    86    41    92    43  |    35    48    46   114    90    54    87  |   
+ 120    75    26    74    18    34   106  |    97    95   113     8    15     1    73  |    90     2    92    72    74   104    82  |    12    60    69    80   106    93   110  |    30    19    19   105    24   106     3  |    57    17    46    90   123    23   123  |     5    61   126   109    60   106    60  |   
+  24    47   120    35   124    21    74  |     5    73     8    88    46     7    90  |    51    94   104    93    51    65    84  |   108    21    32    24    83   106    63  |   118    23    57   115    86    43    35  |    26    12    58    85     3    43     9  |    32    27    43    37    35    19   120  |   
+  94   121    80    70    30    92     3  |   122    65    39    50    16   103    61  |    25    62    34   111    76    86     8  |    36    54   105     7    57   114    12  |     4   114    37     1    63     3   114  |    31    58   126   102    70    80    98  |    95    86    27    61    54    35     3  |   
+  85    58   103   125    89    30    47  |    32   120    89    42    81    61    70  |   117    84    47   101    92    94    20  |    94    54    52    87     4   107    97  |    98     6    47    40    80    74   116  |    10    44   103     0    73   101    23  |    93    16    37     5   118    35    16  |   
+  12    51    52    67    22     9    28  |   112    16    10   121    68    13   101  |   111    90    89     7    43    39    43  |    49    25     8    53   114    96    85  |    95    86   127    74    66    63    77  |    33    23    38    16    67    76   122  |    30   103   101    77    28    15    68  |   
+  14   101    70    35   127    67    98  |    55   101    93    25   102    45    67  |    40    74     4    34    88    57   124  |    42    61    66    36    27    16    22  |     4   102    31     9   120    90    24  |     0   107    36    55    55    62    10  |   100   119    88    24    31   100   116  |   
+ 115   103    71    99     7    34   110  |   116   117   101    46    51   119    94  |    45    29   116   106    76    72    27  |     5    41    25    31    56    94    76  |    99    95   127    86    97   127    25  |    49     9    75    22    45   115    44  |    86   109    40   103     6     4    42  |   
+  36    98   121   109    85     1    71  |     2    59    17    61    27    10    23  |    59    69    86    71   117    25    21  |    86   104    16    50   106    22     8  |    92    12     7    39     3   105    58  |    84    25     2    77    71   122   113  |    70   119    74    77    62    49   118  |   
+  70    67    14    91    26    89    86  |    23    16   108   114    62    52   114  |    30   120    54     8    37     5   110  |     4     6    83   100   120    82    50  |   112    63    42    79    95    37    38  |    11    45    37    17     1     5    50  |   124    87    43   114     7   122    62  |   
+Finished mem2Buf tile:4
+Finished loadBiasTile tile:4
+For this tile, bit shift is 10
+Finished tileClc tile:4
+Finished tile:4
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+***  Printing Input Buffers  ***
+   0    40   121    74    62    28     5  |     0     4    10    40   109    51    75  |     0    72    35    48    93    76    78  |     0   124    43    43    51   110   116  |     0    41    10    97    26    33    39  |     0    85    39    26    56   110    78  |     0    11   108    30    53    92    80  |   
+  45    60   104    15     7     3    80  |    53    23     5    44    83    57   103  |    72    15    12    74    92   119    34  |    46    75     6    81   105   103     8  |    49   116   122    41    67    49    33  |    23    49   113    58    51   125   117  |    41    43   114   108   126   113    13  |   
+  88   102   122   118    15    13   100  |   111    12    73    69   101    60    65  |    92   111    32    64   119   121    50  |     7    88    37   112    44    13    94  |    88    15     0    93   108    64   109  |    56    92    90    13    31    90     9  |    13     7    91    10    45    34    87  |   
+  88    68    25   124    26    31   101  |     7    98    58    43    92   110    58  |    60    48    10    10    76   114    49  |   126    22    82    66   114    19    16  |    86   124    90   123    87    57    32  |    75    74   106    92     2    76    41  |   101   105    74    14   124    53   115  |   
+  68     6    82    42    26    81    76  |   123    54    61   114    34    22    98  |    16    14   115    28    69    75   102  |    43    21    90   112    43   120    66  |   115    83    92    53   123    38    93  |    17    80    96    52    94    92    31  |    44    21    78    53   123    35   112  |   
+ 107    12    31    47    16   109    74  |   124    96     9    63   124    90   114  |     0    28   124   115    60    11    13  |    63   103     0    50    23    41    34  |     1   106    30   102    86    91    58  |    14    77    93   118    66    74    92  |    45    55    69    74    33    30    16  |   
+   5    81    40    95    47    85    85  |    64     2   108    11    73    50    64  |   100    57    97    98    33    20    90  |    89    60    48   108    31    68    75  |     7    84     1    49    43    10    58  |    86    73   122    58    45    45    79  |    47    98    70    14    14   119    51  |   
+ 106    29    27    10   116    69    26  |    39   108    34    32    58    96     3  |    24    94   127   113    13    19   100  |    69    91   123    38   117    70     5  |    54    75    93   102   123    97    46  |   116    22   111    90    38    76    39  |     6    36   119    41   126   112    55  |   
+ 116    73    77    36    38   127    11  |     8    26    46     4     0     7    46  |   117    34    44    76    95    63     2  |    99   104    48    69   108    46   113  |   121   116    32    55    79    93    98  |    96    78   101   106    47    83    61  |    63   127   103    37    53    24   106  |   
+  16    48    51    48    24   116    22  |   115    40   106    50    37    21    90  |     0    99    24    11   109    69    47  |   126     8    71    35    56    45    30  |    54    64   126    98    78   117    46  |   112    50    70    48   118    68   103  |   116     7    37   117   122    66    82  |   
+  64     0    53    41    70   121   113  |     1    25    91   100     7    88   107  |    77    77   110    26    25     4    63  |    14   102    22    83   100    69    20  |    43    42   121    22    80    99    19  |    12    98    66   107    69    38   100  |    25    86    23    90    44    85    46  |   
+  68    69    68   113    93   113    26  |    12    74    31    32    15    32    64  |     7   117    72    37   125    90     5  |    61    47     7    41    48     7    49  |    55    94    36    84    47    15    12  |   124   107   102    77     2    90    93  |    21    63    23    61    49    80   109  |   
+  30     7    31    76    22    57   123  |    20   107    32    70    56    33    86  |   110   101    32     0    91    72    54  |    83   123     8    66    38    53     3  |   108    55    64    83    66   113    37  |    96    33    49   125    86     2     5  |    88    63    65     6    11   114     9  |   
+  39   127    81   121    26    28    88  |    88    36    58    59    96    43     8  |    58   118    90    22    23    37    56  |    21    29    58   116     8    50   112  |    49    67    97    60   123   121    56  |    85    13    87    86    56    35    25  |    75    38    36    42     7    88    26  |   
+  14    27    29     8    31    70    60  |    99   108    51    46   121    84    67  |   120    63     0   110    70    69    96  |    52    94    44    79   112    98    57  |   127    16    96    89    94   115   118  |    65    28    68    20   120    64    64  |    99    75   127     9    38    17    63  |   
+  11    58    71     5     6     4   123  |    99   105    29    94   114    92    29  |    60    81     7    56    26    66    85  |    32    90    77    60     4    30   106  |    22   108    57    18    58    89    38  |    38   112    18    97    68    89    79  |    89    76    31    81    40     8    46  |   
+ 117    86   114    82    71    26    60  |    16     5   105    96    70    36     9  |    41   121    83    85    80    76    63  |   104    57    24   120    14    25    68  |   118    77    32    19    39    19     1  |   123    61    83   108    68    67    95  |    30    18    25    76    13    48    68  |   
+ 120    11   113    15    52   120     5  |    75    99   121    76   127    15    86  |    37    99    71   118    67   124   102  |    80    51    99   118    72   102    62  |    18   125    86    50    85   118   101  |    53   102    39    19    52    83   100  |   127    25    94     2    43    38    66  |   
+   3    16     3    72    76    58    49  |    75     0    82   121    94    23    99  |    22    42    52    50    23    62   116  |    75    86    81   123    95   121    13  |    82    76    79    93    30    14    86  |    19    84    89    95    60    70   118  |   118    53    21    10    33   105    22  |   
+ 125    52    42    41   123    73     5  |    14    15   116    58   117    78    24  |    64    69   106     8   122   116     8  |    27    64    84    59    17    35    28  |    39   103   122   122    66    68    30  |   109    34    36   109    22    61    84  |   116    89    25    61    20   119     7  |   
+  13    45    82    65    10    94     8  |   108    70   102   114    56    18    47  |   117    33   111     1    13    19    49  |    80    73    86    53    48   104   118  |    36    67     4    88    74    26   102  |    25    25    95    48     2    47   105  |    89    82    81     6     1    50   104  |   
+  11    46    51     3   101   122   121  |    72    93   108     5    89    47    40  |    53    64    74    88    29    53    38  |    24   127    86    98   120    51   122  |    58    65    22    13    51    82    44  |    99    46    20    63    22    58    68  |    91   111    88    98   105    18    75  |   
+ 115    20    57    33    16    57    16  |   122    65   106    99    72    28    70  |    86    46    26   108   106     1    56  |   111    37   110    68    94    48    12  |    46   108    17   116    12   113   106  |   121    77    41     2    92    11   123  |    58    14    94   121    54    72   103  |   
+   9    84    62    85   126   103   115  |    68    10   110    76     0    43    67  |    14    79    50    74    45    51     6  |   113    11    80   119    10   102     4  |   116    38    17   125    33    46     7  |    31     8    61     1   121   114    85  |   123    25    28    46    27    26    56  |   
+  36   126    91   121    48    66    25  |   103    36    30    18    62    15    79  |    15    92   106    80    30    39   100  |    67    46    39   122   119    18    62  |    44    35    62    90   113    89    71  |   113    66    21    54    54     3   101  |    58    19    22    87   107    24     2  |   
+  96    88   124    27    12   123    93  |   103    65    61    90    65     2    76  |    21   122    84    92   110   102   104  |    48    40    70     9    89    77    58  |     1   117    29    74    75    95    73  |    80     9    96     5    12    69    29  |   101    12    23    35    99    39    63  |   
+  92    93    12    90    13    15   105  |   124    57    71    56    70   101    93  |    83    46   122   109    61    69   119  |    74     2    78     0    88   117    94  |    74   126   106   121     1    62    59  |    57   106   119    97    30   104    53  |     1    14    29    63    25    59   117  |   
+  48    10    94   104    37    12   110  |   106    25   124    47   113    78    59  |   115   122   100    88    85     7    98  |    83    21    94    11    89    31    44  |    19    82    49   113     5   127    97  |    58    25    39    50    98    13    73  |    81    82     6   117   119    50    43  |   
+  51    17    32   107    87    30    88  |    23    15    53     7   115   119    65  |    41    61   118    95    28   106    27  |    19    37    75    58   122     0    79  |   125    78    28    98    52    64    67  |    15    65    81    29   115    50    97  |   111     4    82    52    94    95    15  |   
+ 108    23    76    64    30     6    56  |    83   124    85     1    68    83    15  |    39    90    49     9    88    23    66  |    47    89   105    62    35   121    90  |    52    34     4    10   106    34    94  |   126    93    10    83   120    57    87  |    85    50     4     3    20   103    75  |   
+  19    30    85    29    47    38   105  |    82    19    93    74    84    52    81  |    61    72   105    45    24    33    90  |    58     3    32    77   101    54    43  |    50    12    44    50    33    59   109  |    13    45    50   101    54   119    72  |    52    44    92   109    10    52    99  |   
+  27    71   108    48    55    88    71  |    49    26    53    15   113    38   104  |    37    19    78    60     3    46    27  |   127    24     0    93   116    88    39  |    72    18    19    29    76    12    86  |     7   106    79    34    19    50   110  |    68     7   124    20    82    50    56  |   
+  54     0     0     0     0     0     0  |    52     0     0     0     0     0     0  |    60     0     0     0     0     0     0  |   119     0     0     0     0     0     0  |    13     0     0     0     0     0     0  |    37     0     0     0     0     0     0  |   104     0     0     0     0     0     0  |   
+   0    80    64    52    58   115    23  |     0    46    11    38   111    60    10  |     0    44    54    58   123    62    17  |     0    82    39    57     7     1    20  |     0    41    71   106    58    13   123  |     0    56   126    23    61   107    46  |     0     8    53     6    56    34    22  |   
+  47     9     5    40   111    56   112  |   113   116    50    84    77   120    38  |    55    20     2    89    95    90    56  |    72    16   124    32   110     5    45  |   110    17    40    15    66    34    13  |   111    62    15    16    35    88    97  |    20    64    56    10    88    80    48  |   
+  64    87    42    91   126    98     2  |    58    22   111     9   122    96    48  |    97    10    84    26     9   101     9  |    31   124   126    24    19    57    54  |    90    51    24    11     0    35    95  |   124   121    72   122    57   109    43  |   108    20    54   109    36    93    67  |   
+  44    63    65    56    75    90    70  |    41    54    24     3   121    36   105  |    99    52    24    22    14   124    37  |    98    35     6    26    16    72    66  |    47   105    45    55     9   114     8  |    81   112    83    20     1    96    63  |    80    31    66    89   126   124    46  |   
+ 109    41    14     0   123     2    56  |   123    21     8    93     6     1    95  |   127    96    36    19    67    40    77  |    32    18    74   108    90     0   107  |     7    51    98    46   116    16    31  |    92    76    84    34    57    96    82  |    70   100     8    16    80   121   109  |   
+  40    81    95    73    59   126    94  |    69    66    49    93    90    18    79  |    77    51    70   109    69     3   106  |     7    75    35    97    67   121    55  |    61    51    82    34    29    27    63  |    53    18    90    22    27    18     9  |    56    17    67    38     4     6    29  |   
+ 120   105    11    53    52    46    14  |    26    36   114    56     9    27     7  |   126    92    34    30   115     6    71  |    10    89    67   111    92    55   117  |    40    99   127    52    42   117    58  |    63    66   124   116    71    10    62  |    54    61    98    55    26    60    40  |   
+ 117    93    63   124    12    51    39  |    72    41    13   122    87   127    63  |     7   112    41    77   103    58    71  |    58    27    93    26    69    78     7  |   106    16   111    11   120    34    70  |    30    56    41    72     8    29    78  |    94   124    81   120   126    41   101  |   
+  63    14    15    50     8    53    81  |     7     3    67    87    81    48    90  |    64   103   109    93    56    20   109  |    18    65   115    12   100   102   114  |    36    25    63    44   125    48    81  |    30   120    55     4    44   121   114  |    41   101    69    93    25    73    62  |   
+  10   103    38    25    32    25   117  |   121   121    78     4    49   110    91  |    11   101    39    30   116   108     9  |     6    85    56    80    51    57     9  |    51   110     9     0    52   125    98  |    89    91    35    23    64    97    28  |    66    65    13   126    31    13    64  |   
+  58    77    33   108   107    58    26  |    87    17     7    40   108    27    79  |    88   104   113    22    21    65   117  |    37    27     9    63    80   115    54  |    38   114   117    42     3   123    56  |    67    53    93    95    24    31    35  |   101    43   106   103   118    40    32  |   
+   8    64   125    75    69    89     4  |    95    88    97    32    69    93   106  |    34   109    10    99    57    69   103  |    87   105    66    61    42   119    66  |     8    51    79    85    31    92    68  |    60    50   122    84    32    93    53  |   124    80    11    98    54    96    93  |   
+ 124    27    90    55     8    73    26  |   115    61    98    88   118    14    33  |   101    43    67    48   124    72     5  |   124   111    99     9    67     2    45  |    93    17    44    41   115    65     3  |    51    23     5    89    51    15   110  |    35    11    86    97    44   116    85  |   
+  89    52    81    32    47    63    68  |    72    95   101    32   122     0    30  |    96    80   105    18    46    69    48  |   104    47   100    94    20    51     2  |    42    35    94   108   115   117    29  |   108    85    95    37    21    48     8  |   119   108   112   111    64    15    75  |   
+  75   101    58    63    80    45    26  |    98    50    28    63    94    93   122  |    16   121    78    16    56   105     6  |    62     3   120    58    70    25   103  |    82    25    65    69   113    53    68  |    54     1    81    58    31     4    70  |    80     3    82    32    57    80    21  |   
+  54   106    41    12   112    76    11  |    69    48   120    55    36    15    46  |    15     8    84   125    74    55    94  |    27    88     4     4   108    46   101  |   113    10    82   116    17    91     9  |    26     5     4   118    66    38    19  |    29    49    99    49     6   119    74  |   
+   8    83    91   123    41    98    26  |    96     9   127    64    65    98    71  |    79    58   110   101   124    55    53  |   125   112    17    48     2   105    75  |    17    51    78   106   125     1   113  |    52     9    15    91    19     5    14  |    13   124    58    75   108     0    12  |   
+Finished mem2Buf tile:5
+Finished loadBiasTile tile:5
+For this tile, bit shift is 10
+Finished tileClc tile:5
+Finished tile:5
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+calling if_nix2
+calling if_nix3
+calling if_nix4
+calling if_nix5
+calling if_nix6
+calling if_nix0
+calling if_nix1
+***  Printing Input Buffers  ***
+   0    20    52    30    48   122    73  |     0    40    27   122   100     6    49  |     0     5   106    97    55   116    54  |     0    50     7    27    81    74    62  |     0    55    92   112    91    18    50  |     0    29    80    40   125    84   123  |     0   107    74    10    94    22   127  |   
+  70    63   115    42   125    81    93  |   104    74     1   117    63    34    33  |   118    81    90    32    31    92   104  |    55   125     4    21    99    40    59  |   117   118     9    59    84    46    33  |   118    99   112   122    58    21    34  |     3   109    66    58    92     6    70  |   
+  79    40    67   111    31    98    83  |    96    96    91   104   123     0    99  |    38    54    89   108   115    12   104  |    11   114   101     5   109    79     8  |   118    92    40    57    83    16   107  |    79    60    74    19    12    25    58  |   126    89   114    24   127    48    29  |   
+  66    99    34    49    16   123    23  |    86    83    77    64    51    39    84  |    80    83     8    95    99   105    17  |    55    75    27    55    43    40    23  |    19    34    78   111    16    76    46  |   109    66   104    48    28    61    30  |    75    18    51    34    86    99    46  |   
+  90    59    79    87    33    17     9  |    93     8   101    34    33   111    85  |    29    93    36    46    28    29   111  |    68    64   117    69    58    35    65  |   119    59    65    45    33     9    49  |    97    86   110    47   124    88    41  |    40    23   102    19   113    24    16  |   
+  57    14    78     2   127   108    98  |    41    70    12    19   102   105    92  |   108    70    52    40     1    10    39  |    74    53    77    42    23   119    77  |    11    60    96   127   113    89    85  |   118     2   115    17    87    88    72  |    84    48    16    70    17    27    45  |   
+ 121    57    30   117    11   102    50  |    66    65    93    45   127    53    69  |    84    46    46   113    17   106   103  |    23    72    57    72    41    76    63  |   115    87    37    58    47    37   118  |    80    35    27    80    11    59    51  |    22   115    66    16    37    88    31  |   
+  41    95    91    57    31    34   105  |   110    20    48    98    41   110    61  |    72    75    60    39    33    51   105  |    62   110    71    47    14    88    52  |    88   100    24    35   121    69   104  |    31    20   121    43   105    98    75  |    26   104    48   110   102    23    38  |   
+  85    60    51    58    19    45    31  |    41    78    82    96    25    50    75  |    54   118   109    79     4    71     9  |    35    61   110    79   125   115    66  |    25    42    60    40    43    62    92  |    63    69    63    33    55    49    65  |    63    22    95     4    73    83    88  |   
+ 124   123    40    79    65   102   117  |    65    75    87   103    13    75   110  |    17    62    95    53   116    31    88  |    50   123    70    35    62    11    59  |   109    42    22    24    50    54    32  |    10   116    86   123    25    73    14  |    80     1    15    54    59   107    13  |   
+   0    38    16    46   116    51   110  |    34    26    38    26    35    74    68  |    49     9     9    97     3    13    84  |    19    60    96    10   124    68    69  |    50   123    83    30   118    57    64  |   116    14    12    36    89    50   108  |    67    61    48    36    13   121   114  |   
+  67   103     3    66    64    69    37  |   119    38    49   120    91    58   122  |    63   107    13   102    18    25    77  |    34    30    94    49   109    76   104  |    41    39   110     4   117    58    17  |    91   110     3     4    49    74    17  |    64    91   102    92    41   102    48  |   
+ 108    83    26    65     3     9    74  |    86    92    44     6    69    18    67  |     3    90    30   107   103    57    33  |    28    85    88    56    18     7    76  |    73    86    66    52   109     3    44  |    49   100    68    40    33    54    41  |   125     8    70    92    86    39    43  |   
+ 127    36    88     2    36    10    98  |    87    85    30    45    45    82   106  |    64    18   123    83     7   100    83  |     2     6   119    90   123   104    36  |   100    87    27    44    81     7   101  |    47    45   109    48    80   105    31  |    44    49   120    77    66    53    89  |   
+ 110   127    95   120    45     3    82  |    58   110    25    51    72    75    42  |    37    65   105   103    56    88   118  |    22    62   122    29    99   111    95  |   119    47   113    92    51    91    12  |    47    90   121    44    14    99    38  |    38     7    56    22    94    78    84  |   
+  93     2    53   106    77    76    73  |    69   127    33   127     6    62    29  |    15    20     2   117    90    30   104  |    68    43    31   116    82    84   112  |   107    43    66    38   117    72   127  |    12   124    49    49    75    98    91  |    47     7    53    61    92    10    76  |   
+  26    62    56     7    21   102    53  |    28    54    84    36   104   117   116  |   125    83    68     8    38     2   123  |   100    27   111   122   119    20    50  |   122    24    61    67     4    51     1  |   102    81    21    43   117   103    80  |    81    79    97   122   113    57     7  |   
+ 116    99   125    40    47    53    68  |   114    59     6    99     1    56    82  |    87    27    53   107    43   112     0  |   109    43    18    40   119     6    84  |   122    20    37     2    43    34    88  |    71   126   119    97    16   107    19  |    28    16    15    45   110     9    14  |   
+  97    25   118    70    78    56    34  |   116    44    93    48    54    20    88  |   104    89    54     2    37    26    77  |    39   104    42    68     3    20    42  |    24    32    97   127    55    72    22  |    34    75     2    57    43   127    58  |    47    47    54   125    70     0    62  |   
+  94   111    94    91   121    10     5  |    99   108    67    28   100    61    15  |   106    36    52   122    58   113    86  |   122     1   120    28     2    14    33  |    27   106    89    43    68   124    57  |    86    70    29    78     8    36   102  |    50   127    14    46    87   108   112  |   
+  58    29    32   126    99    43    31  |    53    99    45    65    88     8    76  |    57    75    16    67    85    17    52  |   112    95    49    74     0    79    63  |   127    38   120    31     1    74    85  |    17    40    78    10     1     8    93  |    76   110    25    83    40    19    65  |   
+  75    92    97    89    73    31    34  |   119    63   126    45    71    52    50  |    50    53    33    50   117   121   112  |    69   103    81    78    28    23   101  |   118   125    23   106     2    54    24  |    13    30   121   110   111   125    17  |    84   115     1    66    45    20    88  |   
+  53    18   109   122    37    33   102  |    26    37   107    88     6     7    20  |    52    90    70    94    50    79    93  |   107   119    38    19    16    64   105  |    40    69    52   127     7    36    95  |    81    12    24    43     1    65   104  |    79    20   121    30   101    96    43  |   
+  93    88    55    87    47    48   126  |    48    67    71    49     7   118    72  |   115    30    73   115   104    95   102  |    46    80     6    68    90    85    31  |   106    65    70    77   102    63    61  |    46    89    80    54    19     4     6  |     3     0   110    38   105    14    67  |   
+  83    10   118   108     5    59    77  |    37     0    71    92    14    20    93  |    61   105     1    81    74    25    43  |    64    76    12    18    94    81    31  |    89    49    80   104   117    69    33  |    46    33    54    27    53   123    25  |   103    35    36   114    70   125   112  |   
+ 107    68    13   100    55   104    75  |   101    85    88     9    59     4   126  |   102    21    87    81    22    91    64  |    52    44    18    36    16    21    22  |    23    65    17   106   113    92    10  |    89   124    93    11     0    85    35  |    64     6   125   111     7    43   105  |   
+ 112     7    92     0    90   111   117  |    65    78    87    31    81    13    21  |    42    13    42   116   101    19    59  |    20    12   125     8   126    74    14  |   101    19   121    98     4   122    54  |     6   106    70    11    95   107    92  |    95    88    11     9   120   100    40  |   
+   1    52     5     2    45   114    67  |    56    77     6    32   114    74    78  |    29    24    48     1    46   121    20  |    59   124    77    76   107   103    93  |    23    99    35    42    48   124   112  |    59    52   123    66     6    32    23  |    46    87    29    61   116    59    24  |   
+  37   116    87    44    97    22    45  |    75    38    77    35   109    32     4  |     2   105    80    53   102    36    44  |   112    70    71    44   115    42    13  |    61    68    26    78    61    59    16  |    18   107    48   100   107    94    27  |    23    67   115    54    38    28    23  |   
+  50   115    45    57    88   102   110  |    80    52    35    52    81    59    46  |    58    77    76    85    24   102    42  |    57   105    49     5   117    16   107  |    21    46    88    42    48    97   120  |    22    68    76    45    16     0    89  |     3    84    18   119    94    21    22  |   
+ 110    20    98    44    97   119    69  |   115    56    94   126    23    79    77  |     3   123    62   101    77   103    85  |     6    37    41   106   108     7     6  |   100   125    72    20    90   118     8  |     5    76    66   108     0   126     2  |    81    91    64   120    71   101    29  |   
+  29   125    15   116    97   120    13  |    84   110   127    95   120    48   112  |    73   100    31   119    70     1    70  |     4    71    56   101    84    85    85  |    13     0    18    80    41    19   102  |   109   117   116    97    77    35    65  |    43    15    40    63    73   109    46  |   
+ 116     0     0     0     0     0     0  |    41     0     0     0     0     0     0  |    73     0     0     0     0     0     0  |   124     0     0     0     0     0     0  |   105     0     0     0     0     0     0  |    57     0     0     0     0     0     0  |    20     0     0     0     0     0     0  |   
+   0    41    52    95    39    98    40  |     0    95   117   111     0    64    93  |     0    22   117     2    16    54     5  |     0    85    28    96   127    78    10  |     0    37    82    80   118    15    83  |     0    13   127    28    29     2    72  |     0    21    11    10    27    46    81  |   
+ 100    59     6    99     4    40    22  |    96   118    68    93   120    36    25  |    65    69     4    16     1    33    88  |    77    81    79   100   103    72    89  |    77    65    44    65   114    64    39  |     9    63    35    16   105    50    71  |    72   112    61    55    21    70    67  |   
+ 107   124    73    82    22    30    59  |   126   109   119    72    56    43    60  |    32   116    35     3    77    31    74  |    55    89   117    10    61    65    10  |    44    99    22   101   112    91    39  |   104    91    46    28    78    51    71  |    81     9   100    56    63    18    18  |   
+  55   123   117   108    71    38    40  |    57    99   119    54   118   110    82  |    88    51     0    41   107    35   117  |    28    83    90   109    46    45    89  |    13    44    76    41    72   117    69  |    52    36    29     6    64    97     3  |    24    37    22    44    30    91    89  |   
+ 116     8    16    32    41    79    78  |   110    48    83    32    75     7    74  |    62    24    25    89     0    71   110  |    11    71    73    20   111    24    33  |   126    69    75    25    65     1    75  |    62    27     7    48    29    10    85  |   116    79   101    32    44    59    37  |   
+ 109   109    62     8   102    75    12  |     9    98     6    62    32    15   109  |   112    55   111    79     5    16    89  |   105    19     1    37    94   118    87  |    62    31    69    39   115   104   112  |    53     2    66    61    11    14    42  |    23   101     0    79   112    18    15  |   
+  45    16    67     4   101    66    97  |   125    66    69    52    51    65    34  |   110    81   113    39   119    31    10  |   104     5   110   101    26    35    64  |    84    37   101   118     2    20   109  |    24   123   126    99    25    59    56  |    30    77    96    51    69    96    74  |   
+  81    71     6    21   120    77    65  |    76    25    66    71    40   106   100  |    20    70    46    45   125    87    87  |    48    54    16   110     0   124    97  |    41    81    50    51    55    66    75  |     6   127    90    35    44    15    93  |    79    41    80   103   103    77    95  |   
+  62    38     4    23     8    44     8  |   102   124    23    35    28    69    59  |    95    33   126   111    47    37    88  |    80    27    34    69   102    84    71  |    98   116   107   107   108    90   112  |    60    52    66    43   103    64    59  |     7    97    13    75   127    13    16  |   
+   9   120    72    48    96    69    38  |   123     2     9    81    80   127    96  |   111    70    91     1    82    64    67  |    45   109    68    40    48    48    88  |   125    30    78    46    48   121    37  |    38     2     1   123    27    64    53  |   113    65   100   120    56    48    13  |   
+   6    79   106    38   122    84   121  |    37    13    96    51     8    12    42  |     7    63    58    82    31   104    44  |    22    45    33    12    40    50    40  |    57    31    61   103     9    48    70  |    88    92    53   109    43    43    45  |    91    45    50    38   119   107     6  |   
+  96    87    95    50   102   117    54  |    68    72    54    46   110    95   107  |   115    23    50   122    76    12    22  |   117    45    28    59     5   100     0  |    83   112    60    27    35    79   113  |    20    74    90    66    45    54    49  |    64    33    62    88    43   127     8  |   
+  84    72    49    24    51    94    26  |    95    47   107    36    97    99    94  |    69    66    93    71     7    63    95  |    47    11   112    74    78   121     6  |    69    17    10   117    93    25    57  |    46    92    21    16    93    40    98  |    18   117   119    99   118    45   103  |   
+  32    11    65   109   109    20    27  |    86    98    82   119    26    45   109  |    21    95    50    83    17    41    88  |    36    41   106   105    26    48    99  |    76   105     1    33   124   105    23  |    85    71   127    99     0   124   122  |     7   106   108    23   111    18    23  |   
+  68     0    86    33    10   101    63  |   113    12   124    85   122   112    14  |    21   114    82    59    22    55   106  |    24   123   127    89    69     2   123  |    98   111    44    58   113    24   104  |    91    22     0    99     2    67    90  |   108    55    36    94    94    73   120  |   
+  93    50    22   115    49    40    28  |    29   102    28   122    81    37    18  |   120    11    14   123    68   103   117  |   116    10    53    30    19    88    14  |    27    73    90    10    69    94    37  |   117    50    66   104    98    99     2  |     8    43    56    95   115    77   108  |   
+  99    25     8   119    33    48    15  |    67    55   114   108    44    84    78  |    26    49     7    31    59    46    45  |    15    16    48    89   118    69    21  |    75    91    83    98     4    33   108  |   117    27    89     1    13    75    28  |    54    86    42     0    59    74    12  |   
+Finished mem2Buf tile:6
+Finished loadBiasTile tile:6
+For this tile, bit shift is 10

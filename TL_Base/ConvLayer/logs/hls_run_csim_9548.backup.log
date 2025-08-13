@@ -1,0 +1,310 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=0' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../src_files/tb_port_widening.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Top.cpp in debug mode
+   Compiling ../../../../../src_files/tb_parameters.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Mem2Buf.cpp in debug mode
+   Compiling ../../../../../src_files/tb_maxPool.cpp in debug mode
+   Compiling ../../../../../src_files/tb_loadbin.cpp in debug mode
+   Compiling ../../../../../src_files/tb_gap.cpp in debug mode
+   Compiling ../../../../../src_files/tb_fcLayer.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Dfl_ControlLogic.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Buf2Pe.cpp in debug mode
+   Compiling ../../../../../src_files/main_tb.cpp in debug mode
+   Compiling ../../../../../src_files/Auxiliary_Calculations.cpp in debug mode
+   Compiling ../../../../../src_files/Main_Code.cpp in debug mode
+   Generating csim.exe
+In file included from ../../../../../src_files/tb_port_widening.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Top.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_parameters.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Mem2Buf.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_maxPool.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_loadbin.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_gap.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_fcLayer.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Dfl_ControlLogic.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Buf2Pe.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/main_tb.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Auxiliary_Calculations.cpp:2:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Main_Code.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+*********************************************************************************  Starting Verification. ************************************************************************************
+*****  Layer 1  *****
+Loaded parameters in mem2Buf, layer:0
+Loaded parameters in loadBiasTile, layer:0
+Loaded parameters in tileClc, layer:0
+Loaded parameters, layer:0
+calling if_nix1
+Calling wrd_i: 0Calling wrd_i: 1Calling wrd_i: 2Calling wrd_i: 3Calling wrd_i: 4Calling wrd_i: 5Calling wrd_i: 6Calling wrd_i: 7Calling wrd_i: 8Calling wrd_i: 9Calling wrd_i: 10Calling wrd_i: 11Calling wrd_i: 12Calling wrd_i: 13Calling wrd_i: 14Calling wrd_i: 15Calling wrd_i: 16Calling wrd_i: 17Calling wrd_i: 18Calling wrd_i: 19Calling wrd_i: 20Calling wrd_i: 21Calling wrd_i: 22Calling wrd_i: 23Calling wrd_i: 24Calling wrd_i: 25Calling wrd_i: 26Calling wrd_i: 27Calling wrd_i: 28Calling wrd_i: 29Calling wrd_i: 30Calling wrd_i: 31
+calling if_nix2
+Calling wrd_i: 0Calling wrd_i: 1Calling wrd_i: 2Calling wrd_i: 3Calling wrd_i: 4Calling wrd_i: 5Calling wrd_i: 6Calling wrd_i: 7Calling wrd_i: 8Calling wrd_i: 9Calling wrd_i: 10Calling wrd_i: 11Calling wrd_i: 12Calling wrd_i: 13Calling wrd_i: 14Calling wrd_i: 15Calling wrd_i: 16Calling wrd_i: 17Calling wrd_i: 18Calling wrd_i: 19Calling wrd_i: 20Calling wrd_i: 21Calling wrd_i: 22Calling wrd_i: 23Calling wrd_i: 24Calling wrd_i: 25Calling wrd_i: 26Calling wrd_i: 27Calling wrd_i: 28Calling wrd_i: 29Calling wrd_i: 30Calling wrd_i: 31
+calling if_nix3
+Calling wrd_i: 0Calling wrd_i: 1Calling wrd_i: 2Calling wrd_i: 3Calling wrd_i: 4Calling wrd_i: 5Calling wrd_i: 6Calling wrd_i: 7Calling wrd_i: 8Calling wrd_i: 9Calling wrd_i: 10Calling wrd_i: 11Calling wrd_i: 12Calling wrd_i: 13Calling wrd_i: 14Calling wrd_i: 15Calling wrd_i: 16Calling wrd_i: 17Calling wrd_i: 18Calling wrd_i: 19Calling wrd_i: 20Calling wrd_i: 21Calling wrd_i: 22Calling wrd_i: 23Calling wrd_i: 24Calling wrd_i: 25Calling wrd_i: 26Calling wrd_i: 27Calling wrd_i: 28Calling wrd_i: 29Calling wrd_i: 30Calling wrd_i: 31
+calling if_nix4
+Calling wrd_i: 0Calling wrd_i: 1Calling wrd_i: 2Calling wrd_i: 3Calling wrd_i: 4Calling wrd_i: 5Calling wrd_i: 6Calling wrd_i: 7Calling wrd_i: 8Calling wrd_i: 9Calling wrd_i: 10Calling wrd_i: 11Calling wrd_i: 12Calling wrd_i: 13Calling wrd_i: 14Calling wrd_i: 15Calling wrd_i: 16Calling wrd_i: 17Calling wrd_i: 18Calling wrd_i: 19Calling wrd_i: 20Calling wrd_i: 21Calling wrd_i: 22Calling wrd_i: 23Calling wrd_i: 24Calling wrd_i: 25Calling wrd_i: 26Calling wrd_i: 27Calling wrd_i: 28Calling wrd_i: 29Calling wrd_i: 30Calling wrd_i: 31
+calling if_nix5
+Calling wrd_i: 0Calling wrd_i: 1Calling wrd_i: 2Calling wrd_i: 3Calling wrd_i: 4Calling wrd_i: 5Calling wrd_i: 6Calling wrd_i: 7Calling wrd_i: 8Calling wrd_i: 9Calling wrd_i: 10Calling wrd_i: 11Calling wrd_i: 12Calling wrd_i: 13Calling wrd_i: 14Calling wrd_i: 15Calling wrd_i: 16Calling wrd_i: 17Calling wrd_i: 18Calling wrd_i: 19Calling wrd_i: 20Calling wrd_i: 21Calling wrd_i: 22Calling wrd_i: 23Calling wrd_i: 24Calling wrd_i: 25Calling wrd_i: 26Calling wrd_i: 27Calling wrd_i: 28Calling wrd_i: 29Calling wrd_i: 30Calling wrd_i: 31
+calling if_nix6
+Calling wrd_i: 0Calling wrd_i: 1Calling wrd_i: 2Calling wrd_i: 3Calling wrd_i: 4Calling wrd_i: 5Calling wrd_i: 6Calling wrd_i: 7Calling wrd_i: 8Calling wrd_i: 9Calling wrd_i: 10Calling wrd_i: 11Calling wrd_i: 12Calling wrd_i: 13Calling wrd_i: 14Calling wrd_i: 15Calling wrd_i: 16Calling wrd_i: 17Calling wrd_i: 18Calling wrd_i: 19Calling wrd_i: 20Calling wrd_i: 21Calling wrd_i: 22Calling wrd_i: 23Calling wrd_i: 24Calling wrd_i: 25Calling wrd_i: 26Calling wrd_i: 27Calling wrd_i: 28Calling wrd_i: 29Calling wrd_i: 30Calling wrd_i: 31
+calling if_nix0
+Calling wrd_i: 33Calling wrd_i: 34Calling wrd_i: 35Calling wrd_i: 36Calling wrd_i: 37Calling wrd_i: 38Calling wrd_i: 39Calling wrd_i: 40Calling wrd_i: 41Calling wrd_i: 42Calling wrd_i: 43Calling wrd_i: 44Calling wrd_i: 45Calling wrd_i: 46Calling wrd_i: 47Calling wrd_i: 48Calling wrd_i: 49Calling wrd_i: 50Calling wrd_i: 51Calling wrd_i: 52Calling wrd_i: 53Calling wrd_i: 54Calling wrd_i: 55Calling wrd_i: 56Calling wrd_i: 57Calling wrd_i: 58Calling wrd_i: 59Calling wrd_i: 60Calling wrd_i: 61Calling wrd_i: 62Calling wrd_i: 63Calling wrd_i: 64
+calling if_nix1
+Calling wrd_i: 33Calling wrd_i: 34Calling wrd_i: 35Calling wrd_i: 36Calling wrd_i: 37Calling wrd_i: 38Calling wrd_i: 39Calling wrd_i: 40Calling wrd_i: 41Calling wrd_i: 42Calling wrd_i: 43Calling wrd_i: 44Calling wrd_i: 45Calling wrd_i: 46Calling wrd_i: 47Calling wrd_i: 48Calling wrd_i: 49Calling wrd_i: 50Calling wrd_i: 51Calling wrd_i: 52Calling wrd_i: 53Calling wrd_i: 54Calling wrd_i: 55Calling wrd_i: 56Calling wrd_i: 57Calling wrd_i: 58Calling wrd_i: 59Calling wrd_i: 60Calling wrd_i: 61Calling wrd_i: 62Calling wrd_i: 63Calling wrd_i: 64
+calling if_nix2
+Calling wrd_i: 33Calling wrd_i: 34Calling wrd_i: 35Calling wrd_i: 36Calling wrd_i: 37Calling wrd_i: 38Calling wrd_i: 39Calling wrd_i: 40Calling wrd_i: 41Calling wrd_i: 42Calling wrd_i: 43Calling wrd_i: 44Calling wrd_i: 45Calling wrd_i: 46Calling wrd_i: 47Calling wrd_i: 48Calling wrd_i: 49Calling wrd_i: 50Calling wrd_i: 51Calling wrd_i: 52Calling wrd_i: 53Calling wrd_i: 54Calling wrd_i: 55Calling wrd_i: 56Calling wrd_i: 57Calling wrd_i: 58Calling wrd_i: 59Calling wrd_i: 60Calling wrd_i: 61Calling wrd_i: 62Calling wrd_i: 63Calling wrd_i: 64
+calling if_nix3
+Calling wrd_i: 33Calling wrd_i: 34Calling wrd_i: 35Calling wrd_i: 36Calling wrd_i: 37Calling wrd_i: 38Calling wrd_i: 39Calling wrd_i: 40Calling wrd_i: 41Calling wrd_i: 42Calling wrd_i: 43Calling wrd_i: 44Calling wrd_i: 45Calling wrd_i: 46Calling wrd_i: 47Calling wrd_i: 48Calling wrd_i: 49Calling wrd_i: 50Calling wrd_i: 51Calling wrd_i: 52Calling wrd_i: 53Calling wrd_i: 54Calling wrd_i: 55Calling wrd_i: 56Calling wrd_i: 57Calling wrd_i: 58Calling wrd_i: 59Calling wrd_i: 60Calling wrd_i: 61Calling wrd_i: 62Calling wrd_i: 63Calling wrd_i: 64
+calling if_nix4
+Calling wrd_i: 33Calling wrd_i: 34Calling wrd_i: 35Calling wrd_i: 36Calling wrd_i: 37Calling wrd_i: 38Calling wrd_i: 39Calling wrd_i: 40Calling wrd_i: 41Calling wrd_i: 42Calling wrd_i: 43Calling wrd_i: 44Calling wrd_i: 45Calling wrd_i: 46Calling wrd_i: 47Calling wrd_i: 48Calling wrd_i: 49Calling wrd_i: 50Calling wrd_i: 51Calling wrd_i: 52Calling wrd_i: 53Calling wrd_i: 54Calling wrd_i: 55Calling wrd_i: 56Calling wrd_i: 57Calling wrd_i: 58Calling wrd_i: 59Calling wrd_i: 60Calling wrd_i: 61Calling wrd_i: 62Calling wrd_i: 63Calling wrd_i: 64
+calling if_nix5
+Calling wrd_i: 33Calling wrd_i: 34Calling wrd_i: 35Calling wrd_i: 36Calling wrd_i: 37Calling wrd_i: 38Calling wrd_i: 39Calling wrd_i: 40Calling wrd_i: 41Calling wrd_i: 42Calling wrd_i: 43Calling wrd_i: 44Calling wrd_i: 45Calling wrd_i: 46Calling wrd_i: 47Calling wrd_i: 48Calling wrd_i: 49Calling wrd_i: 50Calling wrd_i: 51Calling wrd_i: 52Calling wrd_i: 53Calling wrd_i: 54Calling wrd_i: 55Calling wrd_i: 56Calling wrd_i: 57Calling wrd_i: 58Calling wrd_i: 59Calling wrd_i: 60Calling wrd_i: 61Calling wrd_i: 62Calling wrd_i: 63Calling wrd_i: 64
+calling if_nix6
+Calling wrd_i: 33Calling wrd_i: 34Calling wrd_i: 35Calling wrd_i: 36Calling wrd_i: 37Calling wrd_i: 38Calling wrd_i: 39Calling wrd_i: 40Calling wrd_i: 41Calling wrd_i: 42Calling wrd_i: 43Calling wrd_i: 44Calling wrd_i: 45Calling wrd_i: 46Calling wrd_i: 47Calling wrd_i: 48Calling wrd_i: 49Calling wrd_i: 50Calling wrd_i: 51Calling wrd_i: 52Calling wrd_i: 53Calling wrd_i: 54Calling wrd_i: 55Calling wrd_i: 56Calling wrd_i: 57Calling wrd_i: 58Calling wrd_i: 59Calling wrd_i: 60Calling wrd_i: 61Calling wrd_i: 62Calling wrd_i: 63Calling wrd_i: 64
+calling if_nix0
+Calling wrd_i: 66Calling wrd_i: 67Calling wrd_i: 68Calling wrd_i: 69Calling wrd_i: 70Calling wrd_i: 71Calling wrd_i: 72Calling wrd_i: 73Calling wrd_i: 74Calling wrd_i: 75Calling wrd_i: 76Calling wrd_i: 77Calling wrd_i: 78Calling wrd_i: 79Calling wrd_i: 80Calling wrd_i: 81Calling wrd_i: 82Calling wrd_i: 83Calling wrd_i: 84Calling wrd_i: 85Calling wrd_i: 86Calling wrd_i: 87Calling wrd_i: 88Calling wrd_i: 89Calling wrd_i: 90Calling wrd_i: 91Calling wrd_i: 92Calling wrd_i: 93Calling wrd_i: 94Calling wrd_i: 95Calling wrd_i: 96Calling wrd_i: 97
+calling if_nix1
+Calling wrd_i: 66Calling wrd_i: 67Calling wrd_i: 68Calling wrd_i: 69Calling wrd_i: 70Calling wrd_i: 71Calling wrd_i: 72Calling wrd_i: 73Calling wrd_i: 74Calling wrd_i: 75Calling wrd_i: 76Calling wrd_i: 77Calling wrd_i: 78Calling wrd_i: 79Calling wrd_i: 80Calling wrd_i: 81Calling wrd_i: 82Calling wrd_i: 83Calling wrd_i: 84Calling wrd_i: 85Calling wrd_i: 86Calling wrd_i: 87Calling wrd_i: 88Calling wrd_i: 89Calling wrd_i: 90Calling wrd_i: 91Calling wrd_i: 92Calling wrd_i: 93Calling wrd_i: 94Calling wrd_i: 95Calling wrd_i: 96Calling wrd_i: 97
+calling if_nix2
+Calling wrd_i: 66Calling wrd_i: 67Calling wrd_i: 68Calling wrd_i: 69Calling wrd_i: 70Calling wrd_i: 71Calling wrd_i: 72Calling wrd_i: 73Calling wrd_i: 74Calling wrd_i: 75Calling wrd_i: 76Calling wrd_i: 77Calling wrd_i: 78Calling wrd_i: 79Calling wrd_i: 80Calling wrd_i: 81Calling wrd_i: 82Calling wrd_i: 83Calling wrd_i: 84Calling wrd_i: 85Calling wrd_i: 86Calling wrd_i: 87Calling wrd_i: 88Calling wrd_i: 89Calling wrd_i: 90Calling wrd_i: 91Calling wrd_i: 92Calling wrd_i: 93Calling wrd_i: 94Calling wrd_i: 95Calling wrd_i: 96Calling wrd_i: 97
+calling if_nix3
+Calling wrd_i: 66Calling wrd_i: 67Calling wrd_i: 68Calling wrd_i: 69Calling wrd_i: 70Calling wrd_i: 71Calling wrd_i: 72Calling wrd_i: 73Calling wrd_i: 74Calling wrd_i: 75Calling wrd_i: 76Calling wrd_i: 77Calling wrd_i: 78Calling wrd_i: 79Calling wrd_i: 80Calling wrd_i: 81Calling wrd_i: 82Calling wrd_i: 83Calling wrd_i: 84Calling wrd_i: 85Calling wrd_i: 86Calling wrd_i: 87Calling wrd_i: 88Calling wrd_i: 89Calling wrd_i: 90Calling wrd_i: 91Calling wrd_i: 92Calling wrd_i: 93Calling wrd_i: 94Calling wrd_i: 95Calling wrd_i: 96Calling wrd_i: 97
+calling if_nix4
+Calling wrd_i: 66Calling wrd_i: 67Calling wrd_i: 68Calling wrd_i: 69Calling wrd_i: 70Calling wrd_i: 71Calling wrd_i: 72Calling wrd_i: 73Calling wrd_i: 74Calling wrd_i: 75Calling wrd_i: 76Calling wrd_i: 77Calling wrd_i: 78Calling wrd_i: 79Calling wrd_i: 80Calling wrd_i: 81Calling wrd_i: 82Calling wrd_i: 83Calling wrd_i: 84Calling wrd_i: 85Calling wrd_i: 86Calling wrd_i: 87Calling wrd_i: 88Calling wrd_i: 89Calling wrd_i: 90Calling wrd_i: 91Calling wrd_i: 92Calling wrd_i: 93Calling wrd_i: 94Calling wrd_i: 95Calling wrd_i: 96Calling wrd_i: 97
+calling if_nix5
