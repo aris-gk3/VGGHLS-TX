@@ -1,0 +1,210 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=0' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../src_files/Main_Code.cpp in debug mode
+   Generating csim.exe
+In file included from ../../../../../src_files/Main_Code.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+*********************************************************************************  Starting Verification. ************************************************************************************
+*****  Layer 1  *****
+Loaded parameters in mem2Buf, layer:0
+Loaded parameters in loadBiasTile, layer:0
+Loaded parameters in tileClc, layer:0
+Loaded parameters, layer:0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***  Printing Input Buffers  ***
+   0     0     0     0     0     0     0  |     0    41    35    62     4    97   108  |     0   114    47   109     0    82   101  |     0    74    74    46     5   109    35  |     0    59    92    74    56    56    13  |     0    76    78    10    67    61    11  |     0     5     6    51    78     3     5  |   
+   0     0     0     0     0     0     0  |    86    84    75   124    22   117    69  |     3   105    63    11    49    79    49  |    36    41   113    29     2    74   124  |     1   125    42    90    16    76   111  |    97    75    50   107    99    63    82  |    14   124    80   120     4     9   109  |   
+   0     0     0     0     0     0     0  |    59    17    29    97    11    31    90  |    10   107    88    89    48    11     8  |   120    48    17    18    81    66    18  |    48    39   115    20    86    14    33  |    88    26    36   104    39    53    92  |    24    79    76    21    44     0   108  |   
+   0     0     0     0     0     0     0  |    48    30    29    28    22   114   114  |    86    30    35   118    68    57    44  |    38    25   119    40    42    25    92  |    40    57    32    25    15    57    10  |   101    35    38    51    60    65    63  |   100     2    18    93   122    91     2  |   
+   0     0     0     0     0     0     0  |   102   102    89    29    42   101    64  |    14    45    81    79    68     5    22  |    19    77   125    37    51   103   101  |    92    78    69   103    30    19    20  |    83    57    18    92    46    18    13  |    95    21    74    78    11   106    55  |   
+   0     0     0     0     0     0     0  |   119    47   103   104    84   119    74  |    88    47    96    16    43     5    99  |    15    64   104    72    17    40   126  |    98    73    72    57    13    72    97  |    26    50    71    10    40    76    85  |   127    99    47   100   105    30    33  |   
+   0     0     0     0     0     0     0  |    74   104    84    73   106   121    37  |    55   104    67    43    58    45    36  |    96   100   127   103    59    13    92  |   111    37    47     5    85    97   118  |    12   112   124    13   112   115    26  |    95    16    13     8   116     9   111  |   
+   0     0     0     0     0     0     0  |     8    85    16    56    40    81    89  |    65    70    78    84    87    61    44  |    14    62    49    60    95    94    30  |   118   104    68    90     7    93    56  |     2   106    12    22    25    97     1  |    56   108    19    86    91    20     1  |   
+   0     0     0     0     0     0     0  |   108    52    63    57    38    63     9  |    48    31    49    70    89    29    10  |    85   125    12    87    61    39    73  |    69    85    56    54   123   100    46  |   102    48    29    41    58    92    33  |    34    21    36   121    35    24    11  |   
+   0     0     0     0     0     0     0  |    94    32    80    59   117     6    12  |     6   114    28    15    81   110    92  |    51    73    25    16   100   113    31  |    46    13    15   103    54   118    27  |    63    38    70    59    80   101    25  |    46   125     6    53    58    37    97  |   
+   0     0     0     0     0     0     0  |   126    79   104   118   114   123    20  |   109    61    54    65   108   119    97  |    70     8    46    80    92    81    84  |    50   119   119    42    42    80    22  |    88    84    58    87    63    62    79  |    97   101    31    96     1    97    38  |   
+   0     0     0     0     0     0     0  |    25    66   124    28    65   120    77  |   113   101    41    82   106    30   124  |    21    46    38    89    93    38    67  |    13    68   121    27    97    56    42  |    97    80    44   127    64   125    57  |    26   122    70   109    64    29   121  |   
+   0     0     0     0     0     0     0  |    12     4    19    47    51    15   115  |    37     5    46     7    43    38    49  |    53    96   120    21    65    34     2  |    36    31    87    33    30    10    78  |    90    74    53   115   105   102   125  |    64   103   121    82    75    63   120  |   
+   0     0     0     0     0     0     0  |    83    38    88    11     8     1    56  |    11    81    98    79    27    46     2  |    74     6    13   110    93    10     0  |    88    46    34    15    88   126   121  |   124    47   105    91    20   112    52  |     0   114    42   121    24    74   122  |   
+   0     0     0     0     0     0     0  |    97    17     8    37   118   121    61  |     9    77    18    68    92   121    38  |    88    24    51    96    13    87    51  |   119    56    18     0   114    93    12  |    14   118    88    44   113    81    88  |    68    26    45   109   116   124    64  |   
+   0     0     0     0     0     0     0  |   119   111    16    80    27    72     1  |     1    58    78    57   113    14    88  |    96    87    85     9    83   115    15  |    28   111    44    41     7    32    48  |    61    41    91     0    85    60    66  |    76    46   107   117     7   111    77  |   
+   0     0     0     0     0     0     0  |    67    52    78    96    60   101    94  |    77    35     5    47   119    58    77  |   115    39    62    52    78   124    52  |    30    71    99    57   104    51   123  |    52    11    90     5   110   103    10  |    31   124    13    95     8    33    73  |   
+   0     0     0     0     0     0     0  |     2   112    74    14    61   109    20  |   112    61    52    89    66    42   118  |    54    42     0    59    65    59    28  |    28    30   120    94    64     9    78  |   105     1    98   104    73   122    84  |   103    58     7     1   100   120   117  |   
+   0     0     0     0     0     0     0  |    49    29   117   101    92    16    88  |    58    67   106    77    82    41    31  |    56   121   115    57   120   113    22  |    83     5    55    51    54    49   102  |    50    48    94    67   117    49    55  |   126    66    18   112    27    57    48  |   
+   0     0     0     0     0     0     0  |    70   105   119    93   107    53   105  |    64    34   115   117   123   115    93  |   104   106     0    26    40    30    75  |    71   106    39    51    56    93    59  |    99    74   111    39   117    89    54  |    70    49    96    96    37    58    67  |   
+   0     0     0     0     0     0     0  |    69    79    93    86    47    69    83  |    94    17     2    33    30     5   104  |    72   113    15   116    55    11   106  |   107   118   108    23    31    95    65  |    48    40     2    81     1    10    85  |   125    16    55   107     2    19    15  |   
+   0     0     0     0     0     0     0  |    41    11    70   108   102    98    35  |   109    39    13    71    68   125    52  |    41     7    72     7    52    34   106  |    37    19    63    83    62    55    12  |    43    51    58    83   107    37    99  |     1    79     0    49    66    85    55  |   
+   0     0     0     0     0     0     0  |   115   109    85    23    18    74    87  |    25   114    85   101    62    10    78  |    17    88   118    17    14    28    18  |     2   101    95    35   107    70    76  |    20    97    57    36    62    81    36  |   112    22    44    27   109     5    65  |   
+   0     0     0     0     0     0     0  |     2    15    99    67     1    91   127  |   117   110   114     8    83   124    80  |    62    43    44    14    34   103     5  |   103   107    25    62    54    68    38  |   119    89    63   126    87    58    57  |   119    26    40    56    77   114    72  |   
+   0     0     0     0     0     0     0  |    48    20    18   108    20   105    48  |    24    55   123    50    58    12     3  |    21    81    66    32    38    31    72  |    17   106    77     0     0    40   103  |   114     8     6    25   111    49    73  |    34    53    84    50    28    66    84  |   
+   0     0     0     0     0     0     0  |   118    95   108    90    60    69    10  |    71   118     8    95    35    46   123  |     2     7   121    38     5   101    65  |   111   120     6    86   106    81    37  |    86    51   120    24    91    92   111  |   127    31    23    20    94   109   103  |   
+   0     0     0     0     0     0     0  |    75    39    68    51    62     2    56  |   122   122     2    79   103    20    99  |   103    78   126   115    57   103     9  |    59   107    95    38    29    69    81  |    30    25    78   112   124   116   100  |    55    32   114    89    60    61   106  |   
+   0     0     0     0     0     0     0  |     4    41    73    43    49    81    74  |    97   122    13    61   102   115    36  |    14     5   100    85    72    75    26  |    19   113    86    91    33     2    52  |   121   103   108    55    55    63   123  |    71    14    44    81    84    43   118  |   
+   0     0     0     0     0     0     0  |     0    58    89    41    94    70    38  |    55    23   127     3   112    47    17  |    90    19     6   119   116     0     2  |    80    55    88    77    19    65    99  |     0     9    92    76   117   123    27  |    84    20   121    62    65    53    18  |   
+   0     0     0     0     0     0     0  |    42    89    61   100   100    56    51  |   125    60    63    97   109    32   110  |   122    93    70    12    43    43     1  |   107    36    27    13    38    65    50  |    22   122     6    13   100    73    73  |    67    69    79    52   111    45    16  |   
+   0     0     0     0     0     0     0  |    11     2    44    78    54    10    23  |     1    44    13    10   101    80    78  |    51    73    88    71    83    25    60  |    73    31    54    12   104    44     9  |   106   119    78    98    12    83    94  |    63    25    73    80    39    84    99  |   
+   0     0     0     0     0     0     0  |    66    61   110    94   113    66    33  |     5   124   112    30   100    82    55  |    98    97    62    57     6    22   114  |    96    21    96    23    30    53    90  |     7    64    94    32   117    88   120  |    95     9    65    60    83    39    83  |   
+   0     0     0     0     0     0     0  |    67     0     0     0     0     0     0  |    46     0     0     0     0     0     0  |   106     0     0     0     0     0     0  |    93     0     0     0     0     0     0  |   112     0     0     0     0     0     0  |    12     0     0     0     0     0     0  |   
+   0   111   109    16     1    19    99  |     0    17   107   104     2   115    13  |     0   116   105     2   124    45   107  |     0    30    77    39    21    73   102  |     0    25     1    31   118    78   100  |     0   109   107    50    70    68    78  |     0    32   117    40    45    51    13  |   
+  78   120    78    40   122    20     7  |   106    40   114    36    77    71   105  |    42   114     5    19     6    10    91  |    86    64    79    30    44    68    37  |    53   120    24   108    71    95    15  |    16     4    39    38    95    66    97  |    48    75    70   116   125    85    98  |   
+  25    15    20    36    77    54   120  |     3    34    36    27   115    33    41  |   125    80    35     4     4     7    39  |    48    97    58   103   106    49    25  |    67    28    16    74    11   103    40  |    95    74    78    55    81   113   123  |    43    51    27    54    34    22    59  |   
+  45   124   107   127    15    44    91  |    72    57    57     1    67    95    82  |    62    98     4    75    96    25   112  |    22    31    85    69    44     5    60  |    89    23    51    87   112    73    63  |    14   114    39   105   116    14     0  |    61    90    56    99     0   123     7  |   
+ 103   106    86     3    92    38   122  |    85    65    31    68    74    75    62  |    16    33    12    89   124    99   107  |     0    18     4     9    27   117   105  |    13    29   113    30    78    10    32  |    31    73    58    94    62    40   120  |    31    30    70    18    18    89    90  |   
+  89    68    70   110    88    37    15  |   112    61    85    81   126    73   101  |    11    54    36    53    97   115   108  |   116    23   123    65    11     9   108  |   113    73    34    30     4   116    45  |    74    50    96   115    83    28   119  |    73    59   126   105     0   106    17  |   
+  15    76    11   125    73   109    30  |    68   107    29   117    87   101    78  |    39    54   108   118     6    57    40  |    96   117    31    10    62    51    84  |    22   112    95    57   104    26   121  |   114   111    84    10   106    53    63  |    27    57    37     5    45    77    80  |   
+  35    24    96     3    22    27    64  |    72    19   123     5    17    32    71  |    49     8   109    68    22    75    30  |   101    28    61    41   107    67    75  |   108   122   116    26    90    49    88  |    79    72    24     1    41    61    76  |    21    46    51    68    33    14    48  |   
+  96    12    51   109    94    31    82  |     8    29    51    79    18   122    95  |     1    81    13   101   103    47    27  |    53    47    39   120     6    72   108  |    11    63   107    80    23    77    60  |   107    10    63    53    65    68   114  |    62    23    13   110    45    55   117  |   
+  66   120    22   124   122    32    59  |    68     0    63    57    26    61   110  |   124   126    73    19    33   100    67  |    50    88   124    51    24   126     2  |    46   120    32    65     5   113   115  |    55    69   124   100   114    38    94  |    23    38    89    69   103     5    11  |   
+ 117   115    77    76    90     2    68  |    59    70   109    35    48   104    81  |    91    38    38   110   109    93   115  |   127    90    33    52   120    39    85  |    76    44     5   125    57    15    29  |   109    98   123    81    23    93   116  |     7    69    43    57   124    89     1  |   
+  63   105    79    78    42    63   113  |    89    69    80     8    70    11    41  |   110    55    80     4    92    43    42  |     8   103    88    42    52    69   123  |    47   124   110    99    21     1    36  |   105    31    28    21    72     8    46  |    64   119   106    42    21     1    32  |   
+  60     0    10     8   108    28    37  |    55    28    82    91   115     6   110  |    26    68    56    20     8     3    57  |    75   127    36   123    84    29   112  |    52    85   126    87   127    91   122  |    59    78    46   114    49    70    62  |    74   115    28    18    16   101    38  |   
+  42    95    45    18   108   114    19  |    67    95    57    77    24    82    71  |    19    88    23    83    36    80    94  |    98    52    15    76    25    86    31  |   119    89   105    95   127    75    83  |    27    49   109    52    92    23    66  |    22    35    98   117    58    33    52  |   
+  65   108    56    74    97    37   108  |    47    52    34    75    34    22     3  |    51    57    18   121    30    21    45  |   120    68    49    91    60   107    19  |    35    29    39   121   102    96    93  |    95    12    27    92     3    60    50  |    82    89    53    10   123    71    59  |   
+  81    38    99   114    99    99    90  |    82    56    75    94    51    62   112  |    89    13    44    32    61    40    23  |   109    76    12    34    73    74    88  |    22    30   118    75    33    75    57  |    93    42   111     3    12    85    69  |    73    25     1    50    81    13     1  |   
+  69    33    99    16    93   104    32  |    16     2    68    96    22    69   119  |   102    39    24    23    90    62    55  |    49    25    71   124    82    94    70  |    88    95    57    89    37    42    13  |    67     2    86   116   124    44   117  |    90     9     6    22   127   107   100  |   
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 10

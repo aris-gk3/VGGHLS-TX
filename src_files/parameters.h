@@ -176,8 +176,6 @@
 	// Software Parameters
 	#if defined(IFMAP_FACTOR7)
 		#define IFMAP_MEMSIZE_WIDENED (4056/7)
-	#elif defined(IFMAP_FACTOR14)
-		#define IFMAP_MEMSIZE_WIDENED (4056/14)
 	#elif defined(IFMAP_FACTOR1)
 		#define IFMAP_MEMSIZE_WIDENED 4056
 	#endif
@@ -301,8 +299,6 @@
 	// Software Parameters
 	#if defined(IFMAP_FACTOR7)
 		#define IFMAP_MEMSIZE_WIDENED (1008/7)
-	#elif defined(IFMAP_FACTOR14)
-		#define IFMAP_MEMSIZE_WIDENED (1008/14)
 	#elif defined(IFMAP_FACTOR1)
 		#define IFMAP_MEMSIZE_WIDENED 1008
 	#endif
@@ -427,8 +423,6 @@
 	// Software Parameters
 	#if defined(IFMAP_FACTOR7)
 		#define IFMAP_MEMSIZE_WIDENED (183600/7+1)
-	#elif defined(IFMAP_FACTOR14)
-		#define IFMAP_MEMSIZE_WIDENED (183600/14+1)
 	#elif defined(IFMAP_FACTOR1)
 		#define IFMAP_MEMSIZE_WIDENED 183600
 	#endif
@@ -552,8 +546,6 @@
 	// Software Parameters
 	#if defined(IFMAP_FACTOR7)
 		#define IFMAP_MEMSIZE_WIDENED (1204224/7)
-	#elif defined(IFMAP_FACTOR14)
-		#define IFMAP_MEMSIZE_WIDENED (1204224/14)
 	#elif defined(IFMAP_FACTOR1)
 		#define IFMAP_MEMSIZE_WIDENED 1204224
 	#endif
@@ -677,8 +669,6 @@
 	// Software Parameters
 	#if defined(IFMAP_FACTOR7)
 		#define IFMAP_MEMSIZE_WIDENED (1728/7+1)
-	#elif defined(IFMAP_FACTOR14)
-		#define IFMAP_MEMSIZE_WIDENED (1728/14+1)
 	#elif defined(IFMAP_FACTOR1)
 		#define IFMAP_MEMSIZE_WIDENED 1728
 	#endif
@@ -803,8 +793,6 @@
 	// Software Parameters
 	#if defined(IFMAP_FACTOR7)
 		#define IFMAP_MEMSIZE_WIDENED (3211264/7)
-	#elif defined(IFMAP_FACTOR14)
-		#define IFMAP_MEMSIZE_WIDENED (3211264/14)
 	#elif defined(IFMAP_FACTOR1)
 		#define IFMAP_MEMSIZE_WIDENED 3211264
 	#endif
@@ -929,8 +917,6 @@
 	// Software Parameters
 	#if defined(IFMAP_FACTOR7)
 		#define IFMAP_MEMSIZE_WIDENED (401408/7)
-	#elif defined(IFMAP_FACTOR14)
-		#define IFMAP_MEMSIZE_WIDENED (401408/14)
 	#elif defined(IFMAP_FACTOR1)
 		#define IFMAP_MEMSIZE_WIDENED 401408
 	#endif
@@ -1070,8 +1056,6 @@
 		// Software Parameters
 		#if defined(IFMAP_FACTOR7)
 			#define IFMAP_MEMSIZE_WIDENED 458752
-		#elif defined(IFMAP_FACTOR14)
-			#define IFMAP_MEMSIZE_WIDENED 229376
 		#elif defined(IFMAP_FACTOR1)
 			#define IFMAP_MEMSIZE_WIDENED 3211264
 		#endif
@@ -1204,8 +1188,6 @@
 		// Software Parameters
 		#if defined(IFMAP_FACTOR7)
 			#define IFMAP_MEMSIZE_WIDENED 458752
-		#elif defined(IFMAP_FACTOR14)
-			#define IFMAP_MEMSIZE_WIDENED 229376
 		#elif defined(IFMAP_FACTOR1)
 			#define IFMAP_MEMSIZE_WIDENED 3211264
 		#endif
@@ -1338,8 +1320,6 @@
 		// Software Parameters
 		#if defined(IFMAP_FACTOR7)
 			#define IFMAP_MEMSIZE_WIDENED 458752
-		#elif defined(IFMAP_FACTOR14)
-			#define IFMAP_MEMSIZE_WIDENED 229376
 		#elif defined(IFMAP_FACTOR1)
 			#define IFMAP_MEMSIZE_WIDENED 3211264
 		#endif

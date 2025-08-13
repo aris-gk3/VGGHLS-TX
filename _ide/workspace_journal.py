@@ -1,4 +1,4 @@
-# 2025-08-12T21:50:07.307848800
+# 2025-08-13T16:55:51.644278400
 import vitis
 
 client = vitis.create_client()
@@ -25,95 +25,7 @@ comp.run(operation="C_SIMULATION")
 
 comp.run(operation="C_SIMULATION")
 
-comp.run(operation="C_SIMULATION")
+comp.run(operation="SYNTHESIS")
 
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-status = client.create_launch_config(project_name="TL_Base", launch_config="TL_Base", target="TL_Base", build_output_path="TL_Base")
-
-status = client.create_launch_config(project_name="TL_Base", launch_config="TL_Base", target="TL_Base", build_output_path="TL_Base")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
-
-comp.run(operation="C_SIMULATION")
+comp.run(operation="SYNTHESIS")
 

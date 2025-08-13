@@ -314,169 +314,16 @@ int convLayer_test(int verbose, int debug, int minPrint,
 					int printErrorOnly, int printLayer, int biasReLuTrue,
 					int binInput){
 	// Memory Data
-	static px_data_t IfMap[MAP_SIZE] = {0};
-	#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
-		static px_data_t_widened IfMap2[MAP_SIZE] = {0};
-	#else
-		static px_data_t IfMap2[MAP_SIZE] = {0};
-	#endif
-	static px_data_t WtMap[MAP_SIZE] = {0};
-	static px_data_t OfMap[OFMAP_MEMSIZE] = {0}, OfMap_golden[OFMAP_MEMSIZE] = {0};
-	static px_data_t Compared_OfMap[OFMAP_MEMSIZE];
-	int check = 0, printcheck;
-
-	for(int layerNo=0;layerNo<1;layerNo++){
-		std::cout << "*****  Layer " << layerNo+1 << "  *****" << std::endl;
-		// Initialize Memories
-		px_data_t* IfMap = initIfMap(layerNo, binInput);
-		wt_data_t* WtMap = initWtMap(layerNo, binInput);
-		convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
-		#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
-			pack<px_data_t_widened>(IfMap, IfMap2, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-			ConvLayer(IfMap2, WtMap, OfMap);
-		#else
-			ConvLayer(IfMap, WtMap, OfMap);
-		#endif
-
-		printcheck = 0;
-		// Compare Output Feature Maps
-		int error_count = 0, error_positions[20], error_values[20], error_values_synth[20], error_values_tb[20];
-		for(int i=0;i<OFMAP_MEMSIZE;i++){
-			Compared_OfMap[i] = OfMap[i] - OfMap_golden[i];
-			if(OfMap[i] != OfMap_golden[i]){
-				check = 1; printcheck = 1;
-				if(error_count<20){
-					error_positions[error_count] = i;
-					error_values[error_count] = Compared_OfMap[i];
-					error_values_synth[error_count] = OfMap[i];
-					error_values_tb[error_count] = OfMap_golden[i];
-				}
-				error_count++;
-			}
-		}
-
-		int outofrange_synth = 0, outofrange_synth_positions[20], outofrange_synth_values[20];
-		int outofrange_tb = 0, outofrange_tb_positions[20], outofrange_tb_values[20];
-		for(int i=0;i<OFMAP_MEMSIZE;i++){
-			if(OfMap[i] < -HW_EMUL_SYMM_RANGE || OfMap[i] > HW_EMUL_SYMM_RANGE){
-				if(outofrange_synth<20){
-					outofrange_synth_positions[outofrange_synth] = i;
-					outofrange_synth_values[outofrange_synth] = OfMap[i];
-				}
-				outofrange_synth++;
-			}
-			if(OfMap_golden[i] < -HW_EMUL_SYMM_RANGE || OfMap_golden[i] > HW_EMUL_SYMM_RANGE){
-				if(outofrange_tb<20){
-					outofrange_tb_positions[outofrange_tb] = i;
-					outofrange_tb_values[outofrange_tb] = OfMap_golden[i];
-				}
-				outofrange_tb++;
-			}
-		}
-
-		// Print Debugging Info
-		if(debug){
-			if(printcheck){
-				std::cout << "\nNumber of errors is  " << error_count << std::endl;
-				std::cout << "\nPositions of errors (first 20) are:\n";
-				for(int i=0;i<error_count && i<20;i++){
-					std::cout << error_positions[i] << "   ";
-				}
-				std::cout << "\nValues of errors (first 20) for synth module are:\n";
-				for(int i=0;i<error_count && i<20;i++){
-					std::cout << error_values_synth[i] << "   ";
-				}
-				std::cout << "\nValues of errors (first 20) for tb module are:\n";
-				for(int i=0;i<error_count && i<20;i++){
-					std::cout << error_values_tb[i] << "   ";
-				}
-			}
-			if(outofrange_synth){
-				std::cout << "\nNumber of out of range synth values are:" << outofrange_synth << std::endl;
-				std::cout << "\nPositions of out of range values (first 20) for synth module are:\n";
-				for(int i=0;i<outofrange_synth && i<20;i++){
-					std::cout << outofrange_synth_positions[i] << "   ";
-				}
-				std::cout << "\nValues out of range (first 20) for synth module are:\n";
-				for(int i=0;i<outofrange_synth && i<20;i++){
-					std::cout << outofrange_synth_values[i] << "   ";
-				}
-			}
-			if(outofrange_tb){
-				std::cout << "Number of out of range tb values are:" << outofrange_tb << std::endl;
-				std::cout << "\nPositions of out of range values (first 20) for TB are:\n";
-				for(int i=0;i<outofrange_tb && i<20;i++){
-					std::cout << outofrange_tb_positions[i] << "   ";
-				}
-
-				std::cout << "\nValues out of range (first 20) for TB are:\n";
-				for(int i=0;i<outofrange_tb && i<20;i++){
-					std::cout << outofrange_tb_values[i] << "   ";
-				}
-			}
-			std::cout << "\n";
-		}
-		if(verbose || printErrorOnly*printcheck || (printLayer && printLayer == layerNo+1)){
-			std::cout << "Printing IfMap of Layer" << layerNo+1 << std::endl;
-			printIfMap(layerNo, IfMap, minPrint);
-			std::cout << "Printing WtMap of Layer" << layerNo+1 << std::endl;
-			printWtMap(layerNo, WtMap, minPrint);
-			std::cout << "Printing OfMap under test of Layer" << layerNo+1 << std::endl;
-			printOfMap(layerNo, OfMap, minPrint);
-			std::cout << "Printing Golden OfMap of Layer" << layerNo+1 << std::endl;
-			printOfMap(layerNo, OfMap_golden, minPrint);
-			std::cout << "Printing Compared OfMap of Layer " << layerNo+1 << std::endl;
-			printOfMap(layerNo, Compared_OfMap, minPrint);
-		}
-	}
-
-	// Verification Print
-	if(check){
-		std::cout << "*****  Convolutional Layer ";
-		if(biasReLuTrue){
-			std::cout << "with ";
-		}
-		else{
-			std::cout << "without ";
-		}
-		std::cout << " bias + ReLu test failed!  ******\n" << std::endl;
-	}
-	else{
-		std::cout << "Printing first 20 elements of last output layer" << std::endl;
-		for(int i=0;i<20;i++){
-			std::cout << std::setw(8) << OfMap[i];
-			std::cout << std::setw(8) << OfMap[i];
-		}
-		std::cout << "\n";
-		std::cout << "*****  ConvLayer Test ";
-		if(biasReLuTrue){
-			std::cout << "with ";
-		}
-		else{
-			std::cout << "without ";
-		}
-		std::cout << "bias + ReLu Passed!  ******\n" << std::endl;
-	}
-	return check;
-}
-
-
-int convLayer_test_widenedport(int verbose, int debug, int minPrint,
-					int printErrorOnly, int printLayer, int biasReLuTrue,
-					int binInput){
-	// Memory Data
 	static px_data_t IfMap[IFMAP_MEMSIZE*7] = {0};
-	#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
-		static px_data_t_widened IfMap2[MAP_SIZE] = {0};
-	#else
-		static px_data_t IfMap2[MAP_SIZE] = {0};
+	#if defined(IFMAP_FACTOR7)
+		static px_data_t_port IfMap2[MAP_SIZE] = {0};
 	#endif
 	static wt_data_t WtMap[MAP_SIZE] = {0};
 	static px_data_t OfMap[OFMAP_MEMSIZE] = {0}, OfMap_golden[OFMAP_MEMSIZE] = {0};
 	static px_data_t Compared_OfMap[OFMAP_MEMSIZE];
 	int check = 0, printcheck;
 
-	for(int layerNo=0;layerNo<1;layerNo++){
+	for(int layerNo=0;layerNo<LAYERS;layerNo++){
 		std::cout << "*****  Layer " << layerNo+1 << "  *****" << std::endl;
 		// Initialize Memories
 		px_data_t* IfMap = initIfMap(layerNo, binInput);
@@ -484,8 +331,8 @@ int convLayer_test_widenedport(int verbose, int debug, int minPrint,
 		wt_data_t* WtMap = initWtMap(layerNo, binInput);
 		convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
 		// ConvLayer(IfMap_widened, WtMap, OfMap);
-		#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
-			pack<px_data_t_widened>(IfMap, IfMap2, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+		#if defined(IFMAP_FACTOR7)
+			pack<px_data_t_port>(IfMap, IfMap2, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
 			ConvLayer(IfMap2, WtMap, OfMap);
 		#else
 			ConvLayer(IfMap, WtMap, OfMap);
@@ -599,8 +446,7 @@ int convLayer_test_widenedport(int verbose, int debug, int minPrint,
 		for(int i=0;i<20;i++){
 			std::cout << std::setw(8) << OfMap[i];
 		}
-		std::cout << "\n";
-		std::cout << "*****  ConvLayer Test ";
+		std::cout << "\n\n*****  ConvLayer Test ";
 		if(biasReLuTrue){
 			std::cout << "with ";
 		}
@@ -831,29 +677,6 @@ void convLayer_software(int layerNo,
 
 // *****  Auxiliary Functions  *****
 
-// void initIfMap(px_data_t (&IfMap)[MAP_SIZE], int layerNo, int binInput){
-// 	if(binInput==1){
-// 		if(layerNo==0){
-// 			px_data_t* imgMem = nullptr;
-// 			imgMem = imgLoadFromBin_wrapper();
-// 			for(int i=0;i<IFMAP_MEMSIZE;i++){
-// 				if(i < Nif_rom[layerNo]*niy_rom[layerNo]*(tix_rom[layerNo]-2) ){
-// 					IfMap[i] = imgMem[i];
-// 				}
-// 				else{
-// 					IfMap[i] = 0;
-// 				}
-// 			}
-// 		}
-// 		else{
-// 			for(int i=0;i<IFMAP_MEMSIZE;i++){
-// 				IfMap[i] = rand()%50;
-// 			}
-// 		}
-// 	}
-// }
-
-
 px_data_t* initIfMap(int layerNo, int binInput){
 	px_data_t* imgMem = nullptr;
 	if(binInput==1){
@@ -892,7 +715,7 @@ wt_data_t* initWtMap(int layerNo, int binInput){
 }
 
 
-void datapackIfMap(px_data_t *IfMap, px_data_t_widened *IfMap_widened){
+void datapackIfMap(px_data_t *IfMap, px_data_t_port *IfMap_widened){
 	for(int i=0;i<IFMAP_MEMSIZE;i++){
 		#if DATA_TYPE==1 // 8 bits
 			IfMap_widened[i].range(7,0) = IfMap[i*7+0];

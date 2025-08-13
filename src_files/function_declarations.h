@@ -92,7 +92,7 @@ void loadBiasTile(data_bool layerCnfg,
 void loadIfMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ data_bool northTile, data_bool southTile,
-		Niy_dt yBase_in, const px_data_t_widened IfMap[IFMAP_MEMSIZE],//[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
+		Niy_dt yBase_in, const px_data_t_port IfMap[IFMAP_MEMSIZE],//[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
 		/* Output */ px_data_t InBuf[POY][WRD_INBUF][POX]);
 void loadWtMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
@@ -104,7 +104,7 @@ void storeMap(
 		/* Output */ px_data_t OfMap[OFMAP_MEMSIZE]);
 void mem2Buf(
 		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ const px_data_t_widened IfMap[IFMAP_MEMSIZE],
+		/* Inputs */ const px_data_t_port IfMap[IFMAP_MEMSIZE],
 		const wt_data_t WtMap[WTMAP_MEMSIZE],
 		/* Outputs */ px_data_t InBuf[POY][WRD_INBUF][POX],
 		wt_data_t WtBuf[WRD_WTBUF][POF]);
@@ -115,11 +115,11 @@ void ConvLayer_Dfl(
 		wt_data_t WtBuf1[WRD_WTBUF][POF], wt_data_t WtBuf2[WRD_WTBUF][POF],
 		px_data_t OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
 		b_data_t BiasBuf1[BIASBUF_LENGTH], b_data_t BiasBuf2[BIASBUF_LENGTH],
-		/* Inputs */ px_data_t_widened IfMap[IFMAP_MEMSIZE],
+		/* Inputs */ px_data_t_port IfMap[IFMAP_MEMSIZE],
 		wt_data_t WtMap[WTMAP_MEMSIZE],
 		/* Output */ px_data_t OfMap[OFMAP_MEMSIZE]);
 void ConvLayer(
-		/*Inputs*/ const px_data_t_widened IfMap[IFMAP_MEMSIZE], // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
+		/*Inputs*/ const px_data_t_port IfMap[IFMAP_MEMSIZE], // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
 		const wt_data_t WtMap[WTMAP_MEMSIZE], // [NOF][NIF][NKY][NKX]
 		/*Output*/ px_data_t OfMap[OFMAP_MEMSIZE]);
 void ConvLayer_module(data_bool layerCnfg, int test, int loop_limit_1, int loop_limit_2,
@@ -157,7 +157,7 @@ int maxPool_test(int verbose);
 int convLayer_test(int verbose, int debug, int minPrint,
 					int printErrorOnly, int printLayer, int biasReLuTrue,
 					int binInput);
-int convLayer_test_widenedport(int verbose, int debug, int minPrint,
+int convLayer_test(int verbose, int debug, int minPrint,
 					int printErrorOnly, int printLayer, int biasReLuTrue,
 					int binInput);
 int loadIfMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep);
@@ -267,11 +267,7 @@ void wtMemInitBin(wt_data_t*& WtMapCNN, wt_data_t**& WtMapConv, wt_data_t**& WtM
 int MemInitBin_test();
 
 // Misc Functions
-// template <typename data_t_widened>
-// void pack(px_data_t *Map, data_t_widened *Map_widened,
-//             int factor, int mem_size_widened);
-
-#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
+#if defined(IFMAP_FACTOR7)
 template <typename data_t_widened>
 void pack(px_data_t *Map, data_t_widened *Map_widened,
             int factor, int mem_size_widened){
@@ -284,7 +280,8 @@ void pack(px_data_t *Map, data_t_widened *Map_widened,
 }
 #endif
 
-#if defined(IFMAP_FACTOR7) || defined(IFMAP_FACTOR14)
+
+#if defined(IFMAP_FACTOR7)
 template <typename data_t_widened>
 void unpack(data_t_widened *Map_widened, px_data_t *Map, 
 			int factor, int mem_size_widened){

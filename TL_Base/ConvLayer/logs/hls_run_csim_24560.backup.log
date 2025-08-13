@@ -1,0 +1,154 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Programming_Files/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=0' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../src_files/Main_Code.cpp in debug mode
+csim.mk:160: recipe for target 'obj/Main_Code.o' failed
+In file included from ../../../../../src_files/Main_Code.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+../../../../../src_files/Main_Code.cpp:1231:7: error: expected expression
+                                                /       wrd_i = wrdMap + wrdY + wrdX;
+                                                ^
+../../../../../src_files/Main_Code.cpp:1232:7: error: expected expression
+                                                /       InBuf[Poy_i][wrd_i][1] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(31,0);
+                                                ^
+../../../../../src_files/Main_Code.cpp:1232:91: error: use of undeclared identifier 'xTili'; did you mean 'xTile'?
+                                                /       InBuf[Poy_i][wrd_i][1] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(31,0);
+                                                                                                                                         ^~~~~
+                                                                                                                                         xTile
+../../../../../src_files/Main_Code.cpp:1193:9: note: 'xTile' declared here
+        Tix_dt xTile;                                   // Number of pixels for x dimension to be loaded
+               ^
+../../../../../src_files/Main_Code.cpp:1233:7: error: expected expression
+                                                /       InBuf[Poy_i][wrd_i][2] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(63,32);
+                                                ^
+../../../../../src_files/Main_Code.cpp:1233:91: error: use of undeclared identifier 'xTili'; did you mean 'xTile'?
+                                                /       InBuf[Poy_i][wrd_i][2] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(63,32);
+                                                                                                                                         ^~~~~
+                                                                                                                                         xTile
+../../../../../src_files/Main_Code.cpp:1193:9: note: 'xTile' declared here
+        Tix_dt xTile;                                   // Number of pixels for x dimension to be loaded
+               ^
+../../../../../src_files/Main_Code.cpp:1234:7: error: expected expression
+                                                /       InBuf[Poy_i][wrd_i][3] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(95,64);
+                                                ^
+../../../../../src_files/Main_Code.cpp:1234:91: error: use of undeclared identifier 'xTili'; did you mean 'xTile'?
+                                                /       InBuf[Poy_i][wrd_i][3] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(95,64);
+                                                                                                                                         ^~~~~
+                                                                                                                                         xTile
+../../../../../src_files/Main_Code.cpp:1193:9: note: 'xTile' declared here
+        Tix_dt xTile;                                   // Number of pixels for x dimension to be loaded
+               ^
+../../../../../src_files/Main_Code.cpp:1235:7: error: expected expression
+                                                /       InBuf[Poy_i][wrd_i][4] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(127,96);
+                                                ^
+../../../../../src_files/Main_Code.cpp:1235:91: error: use of undeclared identifier 'xTili'; did you mean 'xTile'?
+                                                /       InBuf[Poy_i][wrd_i][4] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(127,96);
+                                                                                                                                         ^~~~~
+                                                                                                                                         xTile
+../../../../../src_files/Main_Code.cpp:1193:9: note: 'xTile' declared here
+        Tix_dt xTile;                                   // Number of pixels for x dimension to be loaded
+               ^
+../../../../../src_files/Main_Code.cpp:1236:7: error: expected expression
+                                                /       InBuf[Poy_i][wrd_i][5] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(159,128);
+                                                ^
+../../../../../src_files/Main_Code.cpp:1236:91: error: use of undeclared identifier 'xTili'; did you mean 'xTile'?
+                                                /       InBuf[Poy_i][wrd_i][5] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(159,128);
+                                                                                                                                         ^~~~~
+                                                                                                                                         xTile
+../../../../../src_files/Main_Code.cpp:1193:9: note: 'xTile' declared here
+        Tix_dt xTile;                                   // Number of pixels for x dimension to be loaded
+               ^
+../../../../../src_files/Main_Code.cpp:1237:7: error: expected expression
+                                                /       InBuf[Poy_i][wrd_i][6] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(191,160);
+                                                ^
+../../../../../src_files/Main_Code.cpp:1237:91: error: use of undeclared identifier 'xTili'; did you mean 'xTile'?
+                                                /       InBuf[Poy_i][wrd_i][6] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix/7-2) + xTili*7].range(191,160);
+                                                                                                                                         ^~~~~
+                                                                                                                                         xTile
+../../../../../src_files/Main_Code.cpp:1193:9: note: 'xTile' declared here
+        Tix_dt xTile;                                   // Number of pixels for x dimension to be loaded
+               ^
+../../../../../src_files/Main_Code.cpp:1238:90: error: use of undeclared identifier 'xTile_i'; did you mean 'yTile_i'?
+                                                InBuf[Poy_i][wrd_i+1][0] = IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(223,192);
+                                                                                                                                   ^~~~~~~
+                                                                                                                                   yTile_i
+../../../../../src_files/Main_Code.cpp:1224:20: note: 'yTile_i' declared here
+                        If_Tiy: for(int yTile_i=0;yTile_i<yTile;yTile_i++){
+                                        ^
+../../../../../src_files/Main_Code.cpp:1268:6: error: #else without #if
+                                #else
+                                 ^
+../../../../../src_files/Main_Code.cpp:1274:75: error: use of undeclared identifier 'yTile_i'; did you mean 'xTile_i'?
+                                                InBuf[Poy_i][wrd_i][Pox_i] = *(IfMap + Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i);
+                                                                                                                    ^~~~~~~
+                                                                                                                    xTile_i
+../../../../../src_files/Main_Code.cpp:1271:22: note: 'xTile_i' declared here
+                                        If_Nix: for(int xTile_i=0;xTile_i<xTile;xTile_i++){
+                                                        ^
+../../../../../src_files/Main_Code.cpp:1292:6: error: #endif without #if
+                                #endif
+                                 ^
+../../../../../src_files/Main_Code.cpp:1341:1: error: extraneous closing brace ('}')
+}
+^
+1 warning and 18 errors generated.
+make: *** [obj/Main_Code.o] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+ERROR: 4
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 1 seconds. Total elapsed time: 8.57 seconds; peak allocated memory: 138.273 MB.
