@@ -25,12 +25,10 @@
 	#endif
 	typedef int acc_data_t;
 	typedef int wt_data_t;
-	#if defined(WTMAP_FACTOR9)
-		typedef ap_int<288> wt_data_t_widened;
-	#elif defined(WTMAP_FACTOR18)
-		typedef ap_int<576> wt_data_t_widened;
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		typedef ap_int<(32*WTMAP_WIDTHFACTOR)> wt_data_t_port;
 	#else
-		typedef wt_data_t wt_data_t_widened;
+		typedef wt_data_t wt_data_t_port;
 	#endif
 	typedef int b_data_t;
 	typedef int bfc_data_t;
@@ -46,12 +44,10 @@
 	#endif
 	typedef ap_int<18> acc_data_t;
 	typedef ap_int<8> wt_data_t;
-	#if defined(WTMAP_FACTOR9)
-		typedef ap_int<72> wt_data_t_widened;
-	#elif defined(WTMAP_FACTOR18)
-		typedef ap_int<144> wt_data_t_widened;
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		typedef ap_int<(SYNTH_BITS*WTMAP_WIDTHFACTOR)> wt_data_t_port;
 	#else
-		typedef wt_data_t wt_data_t_widened;
+		typedef wt_data_t wt_data_t_port;
 	#endif
 	typedef ap_int<8> b_data_t;
 	typedef ap_int<8> bfc_data_t;
@@ -67,12 +63,10 @@
 	#endif
 	typedef ap_int<32> acc_data_t;
 	typedef ap_int<16> wt_data_t;
-	#if defined(WTMAP_FACTOR9)
-		typedef ap_int<144> wt_data_t_widened;
-	#elif defined(WTMAP_FACTOR18)
-		typedef ap_int<288> wt_data_t_widened;
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		typedef ap_int<(SYNTH_BITS*WTMAP_WIDTHFACTOR)> wt_data_t_port;
 	#else
-		typedef wt_data_t wt_data_t_widened;
+		typedef wt_data_t wt_data_t_port;
 	#endif
 	typedef ap_int<16> b_data_t;
 	typedef ap_int<16> bfc_data_t;
@@ -88,12 +82,10 @@
 	#endif
 	typedef ap_int<32> acc_data_t;
 	typedef ap_int<32> wt_data_t;
-	#if defined(WTMAP_FACTOR9)
-		typedef ap_int<288> wt_data_t_widened;
-	#elif defined(WTMAP_FACTOR18)
-		typedef ap_int<576> wt_data_t_widened;
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		typedef ap_int<(SYNTH_BITS*WTMAP_WIDTHFACTOR)> wt_data_t_port;
 	#else
-		typedef wt_data_t wt_data_t_widened;
+		typedef wt_data_t wt_data_t_port;
 	#endif
 	typedef ap_int<32> b_data_t;
 	typedef ap_int<32> bfc_data_t;

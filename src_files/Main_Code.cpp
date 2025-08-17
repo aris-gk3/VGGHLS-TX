@@ -1226,15 +1226,15 @@ void loadIfMap(
 				#if defined(IFMAP_FACTOR7)
 					wrdX = 0;
 					// std::cout << "calling if_nix" << Poy_i << std::endl;
-					If_Nix: for(int xTile_i=0;xTile_i<32;xTile_i++){
+					If_Nix: for(int xTile_i=0;xTile_i<xTile/7;xTile_i++){
 					#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
 						wrd_i = wrdMap + wrdY + wrdX;
-						InBuf[Poy_i][wrd_i][1] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(31,0);
-						InBuf[Poy_i][wrd_i][2] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(63,32);
-						InBuf[Poy_i][wrd_i][3] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(95,64);
-						InBuf[Poy_i][wrd_i][4] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(127,96);
-						InBuf[Poy_i][wrd_i][5] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(159,128);
-						InBuf[Poy_i][wrd_i][6] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(191,160);
+						InBuf[Poy_i][wrd_i  ][1] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range( 31, 0);
+						InBuf[Poy_i][wrd_i  ][2] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range( 63, 32);
+						InBuf[Poy_i][wrd_i  ][3] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range( 95, 64);
+						InBuf[Poy_i][wrd_i  ][4] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(127, 96);
+						InBuf[Poy_i][wrd_i  ][5] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(159,128);
+						InBuf[Poy_i][wrd_i  ][6] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(191,160);
 						InBuf[Poy_i][wrd_i+1][0] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(223,192);
 						// std::cout << "Packed hex value:";
 						// std::cout << IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i].to_string(16) << std::endl; // prints in hexadecimal << std::endl;
@@ -1341,9 +1341,10 @@ void loadIfMap(
 }
 
 
+#ifdef WTMAP_FACTOR1
 void loadWtMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t WtMap[WTMAP_MEMSIZE],
+		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t_port WtMap[WTMAP_MEMSIZE],
 		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]
 	){
 	#pragma HLS INLINE off
@@ -1370,6 +1371,7 @@ void loadWtMap(
 		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
 			WtLoop_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
 			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
+			
 				WtLoop_Nky: for(int Nky_i=0;Nky_i<NKY;Nky_i++){
 				#pragma HLS LOOP_TRIPCOUNT min=NKY max=NKY
 					WtLoop_Nkx: for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
@@ -1389,6 +1391,237 @@ void loadWtMap(
 	}
 
 }
+#endif
+
+#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR8)
+void loadWtMap(
+		/* Parameter Loading State */ data_bool layerCnfg,
+		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t_port WtMap[],
+		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]
+	){
+	#pragma HLS INLINE off
+	// #pragma HLS INTERFACE m_axi port=WtMap max_widen_bitwidth=256
+	static Nif_dt Nif; 				// Parameters stored locally (1)
+	static Tof_step_dt Tof_step; 				// Parameters stored locally (2)
+	static layerNo_dt layerNo = 0;  // "State" for layer
+	// Pof_i_dt Pof_i;
+	// row_wtbuf_i_dt wrdMap;
+
+	if(layerCnfg){
+		Nif = Nif_rom[layerNo];
+		Tof_step = tof_step_rom[layerNo];
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		WtLoop_Tof: for(int Tof_step_i=0;Tof_step_i<Tof_step;Tof_step_i++){
+		#pragma HLS LOOP_TRIPCOUNT min=TOF_STEP_TRIPCOUNT max=TOF_STEP_TRIPCOUNT
+			WtLoop_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
+				WtLoop_Nky: for(int Nky_i=0;Nky_i<NKY;Nky_i++){
+				#pragma HLS LOOP_TRIPCOUNT min=NKY max=NKY
+					WtLoop_Nkx: for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
+					#pragma HLS LOOP_TRIPCOUNT min=NKX max=NKX
+						WtLoop_Pof: for (int i = 0; i < (POF/WTMAP_WIDTHFACTOR); i++) {
+						#pragma HLS UNROLL
+							for (int chunk = 0; chunk < WTMAP_WIDTHFACTOR; chunk++) {
+								int idx = i*WTMAP_WIDTHFACTOR + chunk;
+								int bit_start = chunk * SYNTH_BITS;
+								int bit_end   = bit_start + SYNTH_BITS - 1;
+
+								WtBuf[Tof_step_i*Nif*NKY*NKX 
+									+ Nif_i*NKY*NKX 
+									+ Nky_i*NKX 
+									+ Nkx_i][idx] =
+									WtMap[(Tof_step_i + ofBase*Tof_step) * Nif*NKY*NKX*(POF/WTMAP_WIDTHFACTOR)
+										+ Nif_i*NKY*NKX*(POF/WTMAP_WIDTHFACTOR)
+										+ Nky_i*NKX*(POF/WTMAP_WIDTHFACTOR)
+										+ Nkx_i*(POF/WTMAP_WIDTHFACTOR)
+										+ i].range(bit_end, bit_start);
+							}
+						}
+						/*
+						#if defined(WTMAP_FACTOR8)					
+							WtLoop_Pof: for (int i = 0; i < POF/8; i++) {
+								WtBuf[Tof_step_i*Nif*NKY*NKX  + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*8 + 0] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/8)
+										+ Nif_i*NKY*NKX*(POF/8)
+										+ Nky_i*NKX*(POF/8)
+										+ Nkx_i*(POF/8)
+										+ i].range(SYNTH_BITS-1, 0);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*8 + 1] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/8)
+										+ Nif_i*NKY*NKX*(POF/8)
+										+ Nky_i*NKX*(POF/8)
+										+ Nkx_i*(POF/8)
+										+ i].range(SYNTH_BITS*2-1, SYNTH_BITS);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*8 + 2] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/8)
+										+ Nif_i*NKY*NKX*(POF/8)
+										+ Nky_i*NKX*(POF/8)
+										+ Nkx_i*(POF/8)
+										+ i].range(SYNTH_BITS*3-1, SYNTH_BITS*2);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*8 + 3] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/8)
+										+ Nif_i*NKY*NKX*(POF/8)
+										+ Nky_i*NKX*(POF/8)
+										+ Nkx_i*(POF/8)
+										+ i].range(SYNTH_BITS*4-1, SYNTH_BITS*3);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*8 + 4] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/8)
+										+ Nif_i*NKY*NKX*(POF/8)
+										+ Nky_i*NKX*(POF/8)
+										+ Nkx_i*(POF/8)
+										+ i].range(SYNTH_BITS*5-1, SYNTH_BITS*4);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*8 + 5] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/8)
+										+ Nif_i*NKY*NKX*(POF/8)
+										+ Nky_i*NKX*(POF/8)
+										+ Nkx_i*(POF/8)
+										+ i].range(SYNTH_BITS*6-1, SYNTH_BITS*5);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*8 + 6] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/8)
+										+ Nif_i*NKY*NKX*(POF/8)
+										+ Nky_i*NKX*(POF/8)
+										+ Nkx_i*(POF/8)
+										+ i].range(SYNTH_BITS*7-1, SYNTH_BITS*6);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*8 + 7] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/8)
+										+ Nif_i*NKY*NKX*(POF/8)
+										+ Nky_i*NKX*(POF/8)
+										+ Nkx_i*(POF/8)
+										+ i].range(SYNTH_BITS*8-1, SYNTH_BITS*7);
+							}
+
+						#elif defined(WTMAP_FACTOR16)
+							WtLoop_Pof: for (int i = 0; i < POF/16; i++) {
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 0] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(31, 0);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 1] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(63, 32);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 2] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(95, 64);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 3] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(127, 96);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 4] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(159, 128);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 5] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(191, 160);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 6] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(223, 192);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 7] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(255, 224);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 8] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(287, 256);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 9] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(319, 288);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 10] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(351, 320);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 11] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(383, 352);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 12] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(415, 384);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 13] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(447, 416);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 14] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(479, 448);
+								WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][i*POF/16 + 15] =
+									WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/16)
+										+ Nif_i*NKY*NKX*(POF/16)
+										+ Nky_i*NKX*(POF/16)
+										+ Nkx_i*(POF/16)
+										+ i].range(511, 480);
+							}
+
+						#elif defined(WTMAP_FACTOR32)
+							WtLoop_Pof: for (int i = 0; i < POF/32; i++) {
+							#pragma HLS UNROLL
+								for (int chunk = 0; chunk < 32; chunk++) {
+									int idx = i*32 + chunk;
+									int bit_start = chunk * 32;
+									int bit_end   = bit_start + 31;
+
+									WtBuf[Tof_step_i*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][idx] =
+										WtMap[(Tof_step_i + ofBase*tof_step_rom[layerNo]) * Nif*NKY*NKX*(POF/32)
+											+ Nif_i*NKY*NKX*(POF/32)
+											+ Nky_i*NKX*(POF/32)
+											+ Nkx_i*(POF/32)
+											+ i].range(bit_end, bit_start);
+								}
+							}
+						#endif						
+						*/
+					}
+				}
+			}
+		}
+	}
+}
+#endif
 
 
 void storeMap(
@@ -1486,7 +1719,7 @@ void mem2Buf(
 		data_bool layerCnfg,
 		// Inputs
 		const px_data_t_port IfMap[IFMAP_MEMSIZE],
-		const wt_data_t WtMap[WTMAP_MEMSIZE],
+		const wt_data_t_port WtMap[WTMAP_MEMSIZE],
 		// Outputs
 		px_data_t InBuf[POY][WRD_INBUF][POX],
 		wt_data_t WtBuf[WRD_WTBUF][POF]
@@ -1565,7 +1798,7 @@ void ConvLayer_Dfl(
 		b_data_t BiasBuf1[BIASBUF_LENGTH], b_data_t BiasBuf2[BIASBUF_LENGTH],
 		// Inputs
 		px_data_t_port IfMap[IFMAP_MEMSIZE],
-		wt_data_t WtMap[WTMAP_MEMSIZE],
+		wt_data_t_port WtMap[WTMAP_MEMSIZE],
 		// Output
 		px_data_t OfMap[OFMAP_MEMSIZE]
 	){
@@ -1589,7 +1822,7 @@ void ConvLayer_Dfl(
 void ConvLayer(
 		//Inputs
 		const px_data_t_port *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
-		const wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
+		const wt_data_t_port *WtMap, 	// [NOF][NIF][NKY][NKX]
 		//Output
 		px_data_t *OfMap 	// [NOF][NOY][NOX]
 	){
@@ -1879,128 +2112,149 @@ void maxPool(
 }
 
 
-void vgg16Top(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
-		px_data_t *Map2, px_data_t finalOut[1000]
-	){
-	// Outside controller calls this function once, instead
-	// calling as many times as the layers.
-	#if defined(IFMAP_FACTOR7)
-		static px_data_t_port IfMap_port[MAP_SIZE] = {0};
-	#endif
+// void vgg16Top(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
+// 		px_data_t *Map2, px_data_t finalOut[1000]
+// 	){
+// 	// Outside controller calls this function once, instead
+// 	// calling as many times as the layers.
+// 	// #if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+// 	// 	wt_data_t_port* WtMap_port = nullptr;
+// 	// 	WtMap_port = new wt_data_t_port[WTMAP_FULL_SIZE/WTMAP_WIDTHFACTOR];
+// 	// 	pack<px_data_t_port>(WtMap, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+// 	// #else
+// 	// 	wt_data_t *WtMap_port = WtMap;
+// 	// #endif
+// 	#if defined(IFMAP_FACTOR7)
+// 		static px_data_t_port IfMap_port[MAP_SIZE] = {0};
+// 	#endif
 
-	// Block1
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
-	#else
-		ConvLayer(Map1, WtMap, Map2);
-	#endif
-	WtMap += WtMapOffsetConv[0];
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
-	#else
-		ConvLayer(Map2, WtMap, Map1);
-	#endif
-	WtMap += WtMapOffsetConv[1];
-	maxPool(Map1, 64, 112, 112, Map2);
+// 	// Block1
+// 	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+// 		wt_reorder(WtMap, WtMap_reordered, layerNo);
+// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+// 	#else
+// 		wt_data_t_port* WtMap_port = WtMap;
+// 	#endif
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map2);
+// 	#else
+// 		ConvLayer(Map1, WtMap_port, Map2);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[0];
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map1);
+// 	#else
+// 		ConvLayer(Map2, WtMap, Map1);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[1];
+// 	maxPool(Map1, 64, 112, 112, Map2);
 
-	// Block2
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
-	#else
-		ConvLayer(Map2, WtMap, Map1);
-	#endif
-	WtMap += WtMapOffsetConv[2];
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
-	#else
-		ConvLayer(Map1, WtMap, Map2);
-	#endif
-	WtMap += WtMapOffsetConv[3];
-	maxPool(Map2, 128, 56, 56, Map1);
+// 	// Block2
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map1);
+// 	#else
+// 		ConvLayer(Map2, WtMap, Map1);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[2];
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map2);
+// 	#else
+// 		ConvLayer(Map1, WtMap, Map2);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[3];
+// 	maxPool(Map2, 128, 56, 56, Map1);
 
-	// Block3
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
-	#else
-		ConvLayer(Map1, WtMap, Map2);
-	#endif
-	WtMap += WtMapOffsetConv[4];
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
-	#else
-		ConvLayer(Map2, WtMap, Map1);
-	#endif
-	WtMap += WtMapOffsetConv[5];
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
-	#else
-		ConvLayer(Map1, WtMap, Map2);
-	#endif
-	WtMap += WtMapOffsetConv[6];
-	maxPool(Map2, 256, 28, 28, Map1);
+// 	// Block3
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map2);
+// 	#else
+// 		ConvLayer(Map1, WtMap, Map2);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[4];
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map1);
+// 	#else
+// 		ConvLayer(Map2, WtMap, Map1);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[5];
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map2);
+// 	#else
+// 		ConvLayer(Map1, WtMap, Map2);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[6];
+// 	maxPool(Map2, 256, 28, 28, Map1);
 
-	// Block4
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
-	#else
-		ConvLayer(Map1, WtMap, Map2);
-	#endif
-	WtMap += WtMapOffsetConv[7];
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
-	#else
-		ConvLayer(Map2, WtMap, Map1);
-	#endif
-	WtMap += WtMapOffsetConv[8];
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
-	#else
-		ConvLayer(Map1, WtMap, Map2);
-	#endif
-	WtMap += WtMapOffsetConv[9];
-	maxPool(Map2, 512, 14, 14, Map1);
+// 	// Block4
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map2);
+// 	#else
+// 		ConvLayer(Map1, WtMap, Map2);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[7];
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map1);
+// 	#else
+// 		ConvLayer(Map2, WtMap, Map1);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[8];
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map2);
+// 	#else
+// 		ConvLayer(Map1, WtMap, Map2);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[9];
+// 	maxPool(Map2, 512, 14, 14, Map1);
 
-	// Block5
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
-	#else
-		ConvLayer(Map1, WtMap, Map2);
-	#endif
-	WtMap += WtMapOffsetConv[10];
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
-	#else
-		ConvLayer(Map2, WtMap, Map1);
-	#endif
-	WtMap += WtMapOffsetConv[11];
-	#if defined(IFMAP_FACTOR7)
-		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
-	#else
-		ConvLayer(Map1, WtMap, Map2);
-	#endif
-	WtMap += WtMapOffsetConv[12];
-	maxPool(Map2, 512, 7, 7, Map1);
+// 	// Block5
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map2);
+// 	#else
+// 		ConvLayer(Map1, WtMap, Map2);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[10];
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map1);
+// 	#else
+// 		ConvLayer(Map2, WtMap, Map1);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[11];
+// 	#if defined(IFMAP_FACTOR7)
+// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+// 		ConvLayer(IfMap_port, WtMap, Map2);
+// 	#else
+// 		ConvLayer(Map1, WtMap, Map2);
+// 	#endif
+// 	WtMap += WtMapOffsetConv[12];
+// 	maxPool(Map2, 512, 7, 7, Map1);
 
-	fcLayers(Map1, WtMap, finalOut);
-}
+// 	fcLayers(Map1, WtMap, finalOut);
+// }
 
 
 void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		px_data_t *Map2, px_data_t finalOut[17]
 	){
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_data_t* WtMap_reordered = nullptr;
+		WtMap_reordered = new wt_data_t[WTMAP_MEMSIZE];
+		wt_data_t_port* WtMap_port = nullptr;
+		WtMap_port = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
+	#else
+		wt_data_t_port* WtMap_port;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		static px_data_t_port IfMap_port[MAP_SIZE] = {0};
 	#endif
@@ -2011,11 +2265,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 	
 	// First Conv. Block
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 0);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
+		ConvLayer(IfMap_port, WtMap_port, Map2);
 	#else
-		ConvLayer(Map1, WtMap, Map2);
+		ConvLayer(Map1, WtMap_port, Map2);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 3*64*3*3, minWt, maxWt);
@@ -2025,11 +2285,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[0];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 1);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
+		ConvLayer(IfMap_port, WtMap_port, Map1);
 	#else
-		ConvLayer(Map2, WtMap, Map1);
+		ConvLayer(Map2, WtMap_port, Map1);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 64*64*3*3, minWt, maxWt);
@@ -2046,11 +2312,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 
 	// Second Conv. Block
 	WtMap += WtMapOffsetConv[1];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 2);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
+		ConvLayer(IfMap_port, WtMap_port, Map1);
 	#else
-		ConvLayer(Map2, WtMap, Map1);
+		ConvLayer(Map2, WtMap_port, Map1);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 64*128*3*3, minWt, maxWt);
@@ -2060,11 +2332,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[2];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 3);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
+		ConvLayer(IfMap_port, WtMap_port, Map2);
 	#else
-		ConvLayer(Map1, WtMap, Map2);
+		ConvLayer(Map1, WtMap_port, Map2);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 128*128*3*3, minWt, maxWt);
@@ -2081,11 +2359,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 
 	// Third Conv. Block
 	WtMap += WtMapOffsetConv[3];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 4);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
+		ConvLayer(IfMap_port, WtMap_port, Map2);
 	#else
-		ConvLayer(Map1, WtMap, Map2);
+		ConvLayer(Map1, WtMap_port, Map2);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 128*256*3*3, minWt, maxWt);
@@ -2095,11 +2379,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[4];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 5);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
+		ConvLayer(IfMap_port, WtMap_port, Map1);
 	#else
-		ConvLayer(Map2, WtMap, Map1);
+		ConvLayer(Map2, WtMap_port, Map1);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 256*256*3*3, minWt, maxWt);
@@ -2109,11 +2399,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[5];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 6);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
+		ConvLayer(IfMap_port, WtMap_port, Map2);
 	#else
-		ConvLayer(Map1, WtMap, Map2);
+		ConvLayer(Map1, WtMap_port, Map2);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 256*256*3*3, minWt, maxWt);
@@ -2130,11 +2426,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 
 	// Fourth Conv. Block
 	WtMap += WtMapOffsetConv[6];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 7);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
+		ConvLayer(IfMap_port, WtMap_port, Map2);
 	#else
-		ConvLayer(Map1, WtMap, Map2);
+		ConvLayer(Map1, WtMap_port, Map2);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 256*512*3*3, minWt, maxWt);
@@ -2144,11 +2446,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[7];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 8);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
+		ConvLayer(IfMap_port, WtMap_port, Map1);
 	#else
-		ConvLayer(Map2, WtMap, Map1);
+		ConvLayer(Map2, WtMap_port, Map1);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
@@ -2158,11 +2466,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[8];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 9);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
+		ConvLayer(IfMap_port, WtMap_port, Map2);
 	#else
-		ConvLayer(Map1, WtMap, Map2);
+		ConvLayer(Map1, WtMap_port, Map2);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
@@ -2179,11 +2493,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 
 	// Fifth Conv. Block
 	WtMap += WtMapOffsetConv[9];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 10);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
+		ConvLayer(IfMap_port, WtMap_port, Map2);
 	#else
-		ConvLayer(Map1, WtMap, Map2);
+		ConvLayer(Map1, WtMap_port, Map2);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
@@ -2193,11 +2513,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[10];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 11);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map1);
+		ConvLayer(IfMap_port, WtMap_port, Map1);
 	#else
-		ConvLayer(Map2, WtMap, Map1);
+		ConvLayer(Map2, WtMap_port, Map1);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
@@ -2207,11 +2533,17 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[11];
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_reorder(WtMap, WtMap_reordered, 12);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
 	#if defined(IFMAP_FACTOR7)
 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap, Map2);
+		ConvLayer(IfMap_port, WtMap_port, Map2);
 	#else
-		ConvLayer(Map1, WtMap, Map2);
+		ConvLayer(Map1, WtMap_port, Map2);
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);

@@ -97,7 +97,7 @@ void loadIfMap(
 void loadWtMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t WtMap[WTMAP_MEMSIZE],
-		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]);
+		/* Output */ wt_data_t_port WtBuf[WRD_WTBUF][POF]);
 void storeMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
@@ -105,22 +105,22 @@ void storeMap(
 void mem2Buf(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ const px_data_t_port IfMap[IFMAP_MEMSIZE],
-		const wt_data_t WtMap[WTMAP_MEMSIZE],
+		const wt_data_t_port WtMap[WTMAP_MEMSIZE],
 		/* Outputs */ px_data_t InBuf[POY][WRD_INBUF][POX],
 		wt_data_t WtBuf[WRD_WTBUF][POF]);
 void ConvLayer_Dfl(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		int loop_limit,
 		/* Intermediate (Buffered) Data */ px_data_t InBuf1[POY][WRD_INBUF][POX], px_data_t InBuf2[POY][WRD_INBUF][POX],
-		wt_data_t WtBuf1[WRD_WTBUF][POF], wt_data_t WtBuf2[WRD_WTBUF][POF],
-		px_data_t OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
+		wt_data_t_port WtBuf1[WRD_WTBUF][POF], wt_data_t WtBuf2[WRD_WTBUF][POF],
+		px_data_t_port OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
 		b_data_t BiasBuf1[BIASBUF_LENGTH], b_data_t BiasBuf2[BIASBUF_LENGTH],
 		/* Inputs */ px_data_t_port IfMap[IFMAP_MEMSIZE],
 		wt_data_t WtMap[WTMAP_MEMSIZE],
 		/* Output */ px_data_t OfMap[OFMAP_MEMSIZE]);
 void ConvLayer(
 		/*Inputs*/ const px_data_t_port IfMap[IFMAP_MEMSIZE], // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
-		const wt_data_t WtMap[WTMAP_MEMSIZE], // [NOF][NIF][NKY][NKX]
+		const wt_data_t_port WtMap[WTMAP_MEMSIZE], // [NOF][NIF][NKY][NKX]
 		/*Output*/ px_data_t OfMap[OFMAP_MEMSIZE]);
 void ConvLayer_module(data_bool layerCnfg, int test, int loop_limit_1, int loop_limit_2,
 		px_data_t *IfMap,  // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
@@ -267,7 +267,7 @@ void wtMemInitBin(wt_data_t*& WtMapCNN, wt_data_t**& WtMapConv, wt_data_t**& WtM
 int MemInitBin_test();
 
 // Misc Functions
-#if defined(IFMAP_FACTOR7)
+#if defined(IFMAP_FACTOR7) || defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16)|| defined(WTMAP_FACTOR32)
 template <typename data_t_widened>
 void pack(px_data_t *Map, data_t_widened *Map_widened,
             int factor, int mem_size_widened){
@@ -281,7 +281,7 @@ void pack(px_data_t *Map, data_t_widened *Map_widened,
 #endif
 
 
-#if defined(IFMAP_FACTOR7)
+#if defined(IFMAP_FACTOR7) || defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
 template <typename data_t_widened>
 void unpack(data_t_widened *Map_widened, px_data_t *Map, 
 			int factor, int mem_size_widened){
@@ -293,5 +293,7 @@ void unpack(data_t_widened *Map_widened, px_data_t *Map,
 	}
 }
 #endif
+
+void wt_reorder(wt_data_t *Map, wt_data_t *Map_reordered, int layerNo);
 
 #endif // FUNCTION_DECLARATIONS_H

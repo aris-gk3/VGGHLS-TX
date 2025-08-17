@@ -188,146 +188,148 @@
 	}
 */
 
+/*
+	int loadWtMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep, int printProgress){
+	// verbose=1 -> print every loadIfMap results for the impl.
+	// printLayer, printNofStep, printNoyStep -> print call for Layer=printLayer,...
+	// NofFirst -> loop order in each conv. layer
+	// May need to change yBase calculation if we change order to NofFirst = 1
+	// -1 are elements that are not written to in the specific iteration
 
-int loadWtMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep, int printProgress){
-// verbose=1 -> print every loadIfMap results for the impl.
-// printLayer, printNofStep, printNoyStep -> print call for Layer=printLayer,...
-// NofFirst -> loop order in each conv. layer
-// May need to change yBase calculation if we change order to NofFirst = 1
-// -1 are elements that are not written to in the specific iteration
+		// Declare all variable parameters
+		int Noy_step, Niy; // Noy_step = Noy/Toy
+		int Tof_step, Toy_step, Tox_step; // Tof_step=ceil(Tof/Pof), Toy_step=ceil(Toy/Poy), Tox_step=ceil(Tox/Pox)
+		int Tiy, Tix;
+		int row_1map, wrd_1row; // row_1map=ceil(Tiy/Poy), wrd_1row=ceil(Tix/Pox)
 
-	// Declare all variable parameters
-	int Noy_step /*Noy/Toy*/, Niy;
-	int Tof_step /*ceil(Tof/Pof)*/, Toy_step /*ceil(Toy/Poy)*/, Tox_step /*ceil(Tox/Pox)*/;
-	int Tiy, Tix;
-	int row_1map /*ceil(Tiy/Poy)*/, wrd_1row /*ceil(Tix/Pox)*/;
+		// Declare Variables
+		static wt_data_t WtMap[WTMAP_MEMSIZE]; // [NOF][NIF][NKY][NKX]
+		static wt_data_t WtBuf[WRD_WTBUF][POF], WtBuf_golden[WRD_WTBUF][POF];
+		static wt_data_t Compared_WtBuf[WRD_WTBUF][POF] = {0};
+		int ofBase; // = Nof_step_i*Tof[layerNo];
 
-	// Declare Variables
-	static wt_data_t WtMap[WTMAP_MEMSIZE]; // [NOF][NIF][NKY][NKX]
-	static wt_data_t WtBuf[WRD_WTBUF][POF], WtBuf_golden[WRD_WTBUF][POF];
-	static wt_data_t Compared_WtBuf[WRD_WTBUF][POF] = {0};
-	int ofBase; // = Nof_step_i*Tof[layerNo];
+		int check = 0;
 
-	int check = 0;
-
-	for(int layerNo=0;layerNo<LAYERS;layerNo++){
-		parameterCalculation(Noy_rom, Tof_rom, Toy_rom, Tox_rom, layerNo,
-								&Noy_step, &Niy, &Tof_step, &Toy_step, &Tox_step, &Tiy, &Tix, &row_1map, &wrd_1row);
-		if(printProgress){
-			std::cout << "Finished layer " << layerNo << std::endl;
-		}
-		// Initialize WtMap
-		for(int Nif_i=0; Nif_i<Nif_rom[layerNo];Nif_i++){
-			for(int Nof_i=0; Nof_i<(Nof_step_rom[layerNo]*Tof_rom[layerNo]);Nof_i++){
-				for(int Nky_i=0;Nky_i<NKY;Nky_i++){
-					for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
-						*(WtMap
-						+ Nof_i*Nif_rom[layerNo]*NKX*NKY
-						+ Nif_i*NKX*NKY
-						+ Nky_i*NKY
-						+ Nkx_i) =
-								(Nif_i+1)*1000
-								+ (Nof_i+1)*100 + (Nky_i+1)*7 + (Nkx_i+1);
-					}
-				}
+		for(int layerNo=0;layerNo<LAYERS;layerNo++){
+			parameterCalculation(Noy_rom, Tof_rom, Toy_rom, Tox_rom, layerNo,
+									&Noy_step, &Niy, &Tof_step, &Toy_step, &Tox_step, &Tiy, &Tix, &row_1map, &wrd_1row);
+			if(printProgress){
+				std::cout << "Finished layer " << layerNo << std::endl;
 			}
-		}
-
-		// Print Weight Maps
-		if(verbose || printLayer*printNofStep*printNoyStep){
-			printWtMap(layerNo, WtMap, 0);
-		}
-
-		// Call loadWtMap to load parameters
-		loadWtMap(/*layerCnfg=*/1, ofBase, WtMap, WtBuf);
-		ofBase = 0;
-
-		if(nofFirst[layerNo]){
-			for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
-				for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
-					initWtBuf_undef(WtBuf_golden);
-					loadWtMap_software(layerNo, Nof_step_i, WtMap, WtBuf_golden);
-
-					// Code below needs to be copy-paste from ConvLayer module
-					ofBase = Nof_step_i; // needs to change if we change order, and maybe change place
-
-					initWtBuf_undef(WtBuf);
-					loadWtMap(/*layerCnfg=*/0, ofBase, WtMap, WtBuf);
-
-					// Compare values of WtBuf
-					for(int index=0; index<WRD_WTBUF;index++){
-						for(int Pof_i=0; Pof_i<POF;Pof_i++){
-							if(WtBuf[index][Pof_i] != WtBuf_golden[index][Pof_i]){
-								check = 1;
-							}
-							Compared_WtBuf[index][Pof_i] = WtBuf[index][Pof_i] - WtBuf_golden[index][Pof_i];
+			// Initialize WtMap
+			for(int Nif_i=0; Nif_i<Nif_rom[layerNo];Nif_i++){
+				for(int Nof_i=0; Nof_i<(Nof_step_rom[layerNo]*Tof_rom[layerNo]);Nof_i++){
+					for(int Nky_i=0;Nky_i<NKY;Nky_i++){
+						for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
+							*(WtMap
+							+ Nof_i*Nif_rom[layerNo]*NKX*NKY
+							+ Nif_i*NKX*NKY
+							+ Nky_i*NKY
+							+ Nkx_i) =
+									(Nif_i+1)*1000
+									+ (Nof_i+1)*100 + (Nky_i+1)*7 + (Nkx_i+1);
 						}
 					}
+				}
+			}
 
-					// Print information for debugging
-					if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
-							&& Noy_step_i == printNoyStep-1)){
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Weight Buffers under test" << std::endl;
-						printWtBuf(WtBuf);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Golden Weight Buffers" << std::endl;
-						printWtBuf(WtBuf_golden);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Comparison of Weight Buffers" << std::endl;
-						printWtBuf(Compared_WtBuf);
+			// Print Weight Maps
+			if(verbose || printLayer*printNofStep*printNoyStep){
+				printWtMap(layerNo, WtMap, 0);
+			}
+
+			// Call loadWtMap to load parameters
+			loadWtMap(1, ofBase, WtMap, WtBuf);
+			ofBase = 0;
+
+			if(nofFirst[layerNo]){
+				for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
+					for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
+						initWtBuf_undef(WtBuf_golden);
+						loadWtMap_software(layerNo, Nof_step_i, WtMap, WtBuf_golden);
+
+						// Code below needs to be copy-paste from ConvLayer module
+						ofBase = Nof_step_i; // needs to change if we change order, and maybe change place
+
+						initWtBuf_undef(WtBuf);
+						loadWtMap(0, ofBase, WtMap, WtBuf);
+
+						// Compare values of WtBuf
+						for(int index=0; index<WRD_WTBUF;index++){
+							for(int Pof_i=0; Pof_i<POF;Pof_i++){
+								if(WtBuf[index][Pof_i] != WtBuf_golden[index][Pof_i]){
+									check = 1;
+								}
+								Compared_WtBuf[index][Pof_i] = WtBuf[index][Pof_i] - WtBuf_golden[index][Pof_i];
+							}
+						}
+
+						// Print information for debugging
+						if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
+								&& Noy_step_i == printNoyStep-1)){
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Weight Buffers under test" << std::endl;
+							printWtBuf(WtBuf);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Golden Weight Buffers" << std::endl;
+							printWtBuf(WtBuf_golden);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Comparison of Weight Buffers" << std::endl;
+							printWtBuf(Compared_WtBuf);
+						}
 					}
 				}
 			}
+			else{
+				for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
+					for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
+						initWtBuf_undef(WtBuf_golden);
+						loadWtMap_software(layerNo, Nof_step_i, WtMap, WtBuf_golden);
+
+						ofBase = Nof_step_i;  // copy-paste from ConvLayer module
+
+						initWtBuf_undef(WtBuf);
+						loadWtMap(0, ofBase, WtMap, WtBuf);
+
+						// Compare values of WtBuf
+						for(int index=0; index<WRD_WTBUF;index++){
+							for(int Pof_i=0; Pof_i<POF;Pof_i++){
+								if(WtBuf[index][Pof_i] != WtBuf_golden[index][Pof_i]){
+									check = 1;
+								}
+								Compared_WtBuf[index][Pof_i] = WtBuf[index][Pof_i] - WtBuf_golden[index][Pof_i];
+							}
+						}
+
+						// Print information for debugging
+						if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
+								&& Noy_step_i == printNoyStep-1)){
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Weight Buffers under test" << std::endl;
+							printWtBuf(WtBuf);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Golden Weight Buffers" << std::endl;
+							printWtBuf(WtBuf_golden);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Comparison of Weight Buffers" << std::endl;
+							printWtBuf(Compared_WtBuf);
+						}
+					}
+				}
+			}
+		}
+
+		// Verification Print
+		if(check){
+			std::cout << "*****  Loading WtMap to InBuf test failed!  ******\n" << std::endl;
 		}
 		else{
-			for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
-				for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
-					initWtBuf_undef(WtBuf_golden);
-					loadWtMap_software(layerNo, Nof_step_i, WtMap, WtBuf_golden);
-
-					ofBase = Nof_step_i;  // copy-paste from ConvLayer module
-
-					initWtBuf_undef(WtBuf);
-					loadWtMap(/*layerCnfg=*/0, ofBase, WtMap, WtBuf);
-
-					// Compare values of WtBuf
-					for(int index=0; index<WRD_WTBUF;index++){
-						for(int Pof_i=0; Pof_i<POF;Pof_i++){
-							if(WtBuf[index][Pof_i] != WtBuf_golden[index][Pof_i]){
-								check = 1;
-							}
-							Compared_WtBuf[index][Pof_i] = WtBuf[index][Pof_i] - WtBuf_golden[index][Pof_i];
-						}
-					}
-
-					// Print information for debugging
-					if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
-							&& Noy_step_i == printNoyStep-1)){
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Weight Buffers under test" << std::endl;
-						printWtBuf(WtBuf);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Golden Weight Buffers" << std::endl;
-						printWtBuf(WtBuf_golden);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Comparison of Weight Buffers" << std::endl;
-						printWtBuf(Compared_WtBuf);
-					}
-				}
-			}
+			std::cout << "*****  loadWtMap Test Passed!  ******\n" << std::endl;
 		}
+		return check;
 	}
+*/
 
-	// Verification Print
-	if(check){
-		std::cout << "*****  Loading WtMap to InBuf test failed!  ******\n" << std::endl;
-	}
-	else{
-		std::cout << "*****  loadWtMap Test Passed!  ******\n" << std::endl;
-	}
-	return check;
-}
 
 int storeMaps_test(int verbose, int printLayer, int printNofStep, int printNoyStep){
 // verbose=1 -> print every loadIfMap results for the impl.

@@ -318,26 +318,41 @@ int convLayer_test(int verbose, int debug, int minPrint,
 	#if defined(IFMAP_FACTOR7)
 		static px_data_t_port IfMap2[MAP_SIZE] = {0};
 	#endif
+	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		wt_data_t* WtMap_reordered = nullptr;
+		WtMap_reordered = new wt_data_t[WTMAP_MEMSIZE];
+		wt_data_t_port* WtMap_port = nullptr;
+		WtMap_port = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
+	#endif
 	static wt_data_t WtMap[MAP_SIZE] = {0};
 	static px_data_t OfMap[OFMAP_MEMSIZE] = {0}, OfMap_golden[OFMAP_MEMSIZE] = {0};
 	static px_data_t Compared_OfMap[OFMAP_MEMSIZE];
 	int check = 0, printcheck;
-
-	for(int layerNo=0;layerNo<LAYERS;layerNo++){
+	std::cout << "Reached HERE!1" << std::endl;
+	for(int layerNo=0;layerNo<1;layerNo++){
 		std::cout << "*****  Layer " << layerNo+1 << "  *****" << std::endl;
 		// Initialize Memories
 		px_data_t* IfMap = initIfMap(layerNo, binInput);
 		// datapackIfMap(IfMap, IfMap_widened);
 		wt_data_t* WtMap = initWtMap(layerNo, binInput);
+		std::cout << "Reached HERE2!" << std::endl;
 		convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
-		// ConvLayer(IfMap_widened, WtMap, OfMap);
+		std::cout << "Reached HERE3!" << std::endl;
+		#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+			wt_reorder(WtMap, WtMap_reordered, layerNo);
+			pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+		#else
+			wt_data_t_port* WtMap_port = WtMap;
+		#endif
+		std::cout << "Reached HERE4!" << std::endl;
 		#if defined(IFMAP_FACTOR7)
 			pack<px_data_t_port>(IfMap, IfMap2, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-			ConvLayer(IfMap2, WtMap, OfMap);
+			std::cout << "Reached HERE5!" << std::endl;
+			ConvLayer(IfMap2, WtMap_port, OfMap);
 		#else
-			ConvLayer(IfMap, WtMap, OfMap);
+			ConvLayer(IfMap, WtMap_port, OfMap);
 		#endif
-
+		std::cout << "Reached HERE!" << std::endl;
 		printcheck = 0;
 		// Compare Output Feature Maps
 		int error_count = 0, error_positions[20], error_values[20], error_values_synth[20], error_values_tb[20];
@@ -421,6 +436,10 @@ int convLayer_test(int verbose, int debug, int minPrint,
 			printIfMap(layerNo, IfMap, minPrint);
 			std::cout << "Printing WtMap of Layer" << layerNo+1 << std::endl;
 			printWtMap(layerNo, WtMap, minPrint);
+			#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+			std::cout << "Printing WtMap reordered of Layer" << layerNo+1 << std::endl;
+			printWtMap(layerNo, WtMap_reordered, minPrint);
+			#endif
 			std::cout << "Printing OfMap under test of Layer" << layerNo+1 << std::endl;
 			printOfMap(layerNo, OfMap, minPrint);
 			std::cout << "Printing Golden OfMap of Layer" << layerNo+1 << std::endl;

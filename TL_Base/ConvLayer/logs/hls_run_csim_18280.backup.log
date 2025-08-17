@@ -1,0 +1,2691 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Programming_Files/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../src_files/tb_port_widening.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Top.cpp in debug mode
+   Compiling ../../../../../src_files/tb_parameters.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Mem2Buf.cpp in debug mode
+   Compiling ../../../../../src_files/tb_maxPool.cpp in debug mode
+   Compiling ../../../../../src_files/tb_loadbin.cpp in debug mode
+   Compiling ../../../../../src_files/tb_gap.cpp in debug mode
+   Compiling ../../../../../src_files/tb_fcLayer.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Dfl_ControlLogic.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Buf2Pe.cpp in debug mode
+   Compiling ../../../../../src_files/main_tb.cpp in debug mode
+   Compiling ../../../../../src_files/Auxiliary_Calculations.cpp in debug mode
+   Compiling ../../../../../src_files/Main_Code.cpp in debug mode
+   Generating csim.exe
+In file included from ../../../../../src_files/tb_port_widening.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Top.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_parameters.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Mem2Buf.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_maxPool.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_loadbin.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_gap.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_fcLayer.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Dfl_ControlLogic.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Buf2Pe.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/main_tb.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Auxiliary_Calculations.cpp:2:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Main_Code.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+*********************************************************************************  Starting Verification. ************************************************************************************
+Reached HERE!1
+*****  Layer 1  *****
+Reached HERE2!
+Reached HERE3!
+Reached HERE4!
+Reached HERE5!
+***  Printing Weight Buffers  ***
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+Loaded parameters in mem2Buf, layer:0
+Loaded parameters in loadBiasTile, layer:0
+Loaded parameters in tileClc, layer:0
+Loaded parameters, layer:0
+***  Printing Weight Buffers  ***
+  35     0     0     0     0     0     0     0  |   
+  36     0     0     0     0     0     0     0  |   
+  66     0     0     0     0     0     0     0  |   
+ 111     0     0     0     0     0     0     0  |   
+ -40     0     0     0     0     0     0     0  |   
+  13     0     0     0     0     0     0     0  |   
+ -81     0     0     0     0     0     0     0  |   
+ -92     0     0     0     0     0     0     0  |   
+  42     0     0     0     0     0     0     0  |   
+ -53     0     0     0     0     0     0     0  |   
+ -27     0     0     0     0     0     0     0  |   
+-106     0     0     0     0     0     0     0  |   
+  94     0     0     0     0     0     0     0  |   
+ -83     0     0     0     0     0     0     0  |   
+ -40     0     0     0     0     0     0     0  |   
+ -99     0     0     0     0     0     0     0  |   
+  38     0     0     0     0     0     0     0  |   
+ -58     0     0     0     0     0     0     0  |   
+ -79     0     0     0     0     0     0     0  |   
+  79     0     0     0     0     0     0     0  |   
+ -61     0     0     0     0     0     0     0  |   
+ -11     0     0     0     0     0     0     0  |   
+-107     0     0     0     0     0     0     0  |   
+ -53     0     0     0     0     0     0     0  |   
+   9     0     0     0     0     0     0     0  |   
+  10     0     0     0     0     0     0     0  |   
+ 117     0     0     0     0     0     0     0  |   
+  74     0     0     0     0     0     0     0  |   
+ -76     0     0     0     0     0     0     0  |   
+ -99     0     0     0     0     0     0     0  |   
+  19     0     0     0     0     0     0     0  |   
+ -19     0     0     0     0     0     0     0  |   
+ 112     0     0     0     0     0     0     0  |   
+ -89     0     0     0     0     0     0     0  |   
+  53     0     0     0     0     0     0     0  |   
+  88     0     0     0     0     0     0     0  |   
+  15     0     0     0     0     0     0     0  |   
+ -88     0     0     0     0     0     0     0  |   
+  23     0     0     0     0     0     0     0  |   
+-126     0     0     0     0     0     0     0  |   
+ -95     0     0     0     0     0     0     0  |   
+  97     0     0     0     0     0     0     0  |   
+ -25     0     0     0     0     0     0     0  |   
+ -38     0     0     0     0     0     0     0  |   
+  30     0     0     0     0     0     0     0  |   
+  65     0     0     0     0     0     0     0  |   
+-122     0     0     0     0     0     0     0  |   
+ -20     0     0     0     0     0     0     0  |   
+ -98     0     0     0     0     0     0     0  |   
+-104     0     0     0     0     0     0     0  |   
+-116     0     0     0     0     0     0     0  |   
+  30     0     0     0     0     0     0     0  |   
+  38     0     0     0     0     0     0     0  |   
+ 109     0     0     0     0     0     0     0  |   
+ -82     0     0     0     0     0     0     0  |   
+ -95     0     0     0     0     0     0     0  |   
+ -12     0     0     0     0     0     0     0  |   
+-112     0     0     0     0     0     0     0  |   
+  99     0     0     0     0     0     0     0  |   
+-125     0     0     0     0     0     0     0  |   
+ -24     0     0     0     0     0     0     0  |   
+  -3     0     0     0     0     0     0     0  |   
+-119     0     0     0     0     0     0     0  |   
+ 118     0     0     0     0     0     0     0  |   
+ -37     0     0     0     0     0     0     0  |   
+ -47     0     0     0     0     0     0     0  |   
+ -66     0     0     0     0     0     0     0  |   
+-102     0     0     0     0     0     0     0  |   
+  60     0     0     0     0     0     0     0  |   
+  44     0     0     0     0     0     0     0  |   
+ -97     0     0     0     0     0     0     0  |   
+ -51     0     0     0     0     0     0     0  |   
+  -9     0     0     0     0     0     0     0  |   
+ -40     0     0     0     0     0     0     0  |   
+ 102     0     0     0     0     0     0     0  |   
+ 109     0     0     0     0     0     0     0  |   
+ -94     0     0     0     0     0     0     0  |   
+  86     0     0     0     0     0     0     0  |   
+-127     0     0     0     0     0     0     0  |   
+  28     0     0     0     0     0     0     0  |   
+ 104     0     0     0     0     0     0     0  |   
+ 125     0     0     0     0     0     0     0  |   
+ -76     0     0     0     0     0     0     0  |   
+ 101     0     0     0     0     0     0     0  |   
+ -80     0     0     0     0     0     0     0  |   
+ -23     0     0     0     0     0     0     0  |   
+  14     0     0     0     0     0     0     0  |   
+  32     0     0     0     0     0     0     0  |   
+  73     0     0     0     0     0     0     0  |   
+  54     0     0     0     0     0     0     0  |   
+ -40     0     0     0     0     0     0     0  |   
+  26     0     0     0     0     0     0     0  |   
+  -1     0     0     0     0     0     0     0  |   
+-101     0     0     0     0     0     0     0  |   
+  62     0     0     0     0     0     0     0  |   
+ -82     0     0     0     0     0     0     0  |   
+ 104     0     0     0     0     0     0     0  |   
+-102     0     0     0     0     0     0     0  |   
+  34     0     0     0     0     0     0     0  |   
+ -71     0     0     0     0     0     0     0  |   
+  25     0     0     0     0     0     0     0  |   
+  46     0     0     0     0     0     0     0  |   
+  39     0     0     0     0     0     0     0  |   
+ -47     0     0     0     0     0     0     0  |   
+  19     0     0     0     0     0     0     0  |   
+  73     0     0     0     0     0     0     0  |   
+  72     0     0     0     0     0     0     0  |   
+ -45     0     0     0     0     0     0     0  |   
+  44     0     0     0     0     0     0     0  |   
+  63     0     0     0     0     0     0     0  |   
+ 119     0     0     0     0     0     0     0  |   
+ -44     0     0     0     0     0     0     0  |   
+  -9     0     0     0     0     0     0     0  |   
+ -61     0     0     0     0     0     0     0  |   
+  87     0     0     0     0     0     0     0  |   
+ -75     0     0     0     0     0     0     0  |   
+   9     0     0     0     0     0     0     0  |   
+  83     0     0     0     0     0     0     0  |   
+ -67     0     0     0     0     0     0     0  |   
+-124     0     0     0     0     0     0     0  |   
+ -59     0     0     0     0     0     0     0  |   
+  32     0     0     0     0     0     0     0  |   
+ -51     0     0     0     0     0     0     0  |   
+  -7     0     0     0     0     0     0     0  |   
+  87     0     0     0     0     0     0     0  |   
+ 126     0     0     0     0     0     0     0  |   
+ -56     0     0     0     0     0     0     0  |   
+ -35     0     0     0     0     0     0     0  |   
+ 127     0     0     0     0     0     0     0  |   
+  15     0     0     0     0     0     0     0  |   
+ -39     0     0     0     0     0     0     0  |   
+ -83     0     0     0     0     0     0     0  |   
+-119     0     0     0     0     0     0     0  |   
+ -11     0     0     0     0     0     0     0  |   
+ -36     0     0     0     0     0     0     0  |   
+  15     0     0     0     0     0     0     0  |   
+  65     0     0     0     0     0     0     0  |   
+ -57     0     0     0     0     0     0     0  |   
+ -19     0     0     0     0     0     0     0  |   
+ -16     0     0     0     0     0     0     0  |   
+ 111     0     0     0     0     0     0     0  |   
+ -48     0     0     0     0     0     0     0  |   
+ -12     0     0     0     0     0     0     0  |   
+ 105     0     0     0     0     0     0     0  |   
+  26     0     0     0     0     0     0     0  |   
+ 112     0     0     0     0     0     0     0  |   
+-115     0     0     0     0     0     0     0  |   
+  17     0     0     0     0     0     0     0  |   
+ -93     0     0     0     0     0     0     0  |   
+ -45     0     0     0     0     0     0     0  |   
+ -99     0     0     0     0     0     0     0  |   
+ -48     0     0     0     0     0     0     0  |   
+ -47     0     0     0     0     0     0     0  |   
+ -54     0     0     0     0     0     0     0  |   
+ -43     0     0     0     0     0     0     0  |   
+  92     0     0     0     0     0     0     0  |   
+ 119     0     0     0     0     0     0     0  |   
+ -50     0     0     0     0     0     0     0  |   
+ -54     0     0     0     0     0     0     0  |   
+  53     0     0     0     0     0     0     0  |   
+   7     0     0     0     0     0     0     0  |   
+-125     0     0     0     0     0     0     0  |   
+ -51     0     0     0     0     0     0     0  |   
+-117     0     0     0     0     0     0     0  |   
+-123     0     0     0     0     0     0     0  |   
+  -1     0     0     0     0     0     0     0  |   
+   6     0     0     0     0     0     0     0  |   
+ -63     0     0     0     0     0     0     0  |   
+  62     0     0     0     0     0     0     0  |   
+ -74     0     0     0     0     0     0     0  |   
+ -32     0     0     0     0     0     0     0  |   
+  77     0     0     0     0     0     0     0  |   
+  37     0     0     0     0     0     0     0  |   
+ -52     0     0     0     0     0     0     0  |   
+ -39     0     0     0     0     0     0     0  |   
+ -27     0     0     0     0     0     0     0  |   
+  67     0     0     0     0     0     0     0  |   
+   6     0     0     0     0     0     0     0  |   
+ -69     0     0     0     0     0     0     0  |   
+ -94     0     0     0     0     0     0     0  |   
+  43     0     0     0     0     0     0     0  |   
+ -79     0     0     0     0     0     0     0  |   
+  76     0     0     0     0     0     0     0  |   
+ 103     0     0     0     0     0     0     0  |   
+ -75     0     0     0     0     0     0     0  |   
+   6     0     0     0     0     0     0     0  |   
+ -15     0     0     0     0     0     0     0  |   
+  51     0     0     0     0     0     0     0  |   
+ -45     0     0     0     0     0     0     0  |   
+ -93     0     0     0     0     0     0     0  |   
+  -3     0     0     0     0     0     0     0  |   
+ -63     0     0     0     0     0     0     0  |   
+ -68     0     0     0     0     0     0     0  |   
+ -13     0     0     0     0     0     0     0  |   
+-105     0     0     0     0     0     0     0  |   
+  77     0     0     0     0     0     0     0  |   
+  22     0     0     0     0     0     0     0  |   
+  69     0     0     0     0     0     0     0  |   
+ -23     0     0     0     0     0     0     0  |   
+  78     0     0     0     0     0     0     0  |   
+  61     0     0     0     0     0     0     0  |   
+  38     0     0     0     0     0     0     0  |   
+  80     0     0     0     0     0     0     0  |   
+ -29     0     0     0     0     0     0     0  |   
+ -11     0     0     0     0     0     0     0  |   
+  42     0     0     0     0     0     0     0  |   
+ -83     0     0     0     0     0     0     0  |   
+ -53     0     0     0     0     0     0     0  |   
+  31     0     0     0     0     0     0     0  |   
+ 124     0     0     0     0     0     0     0  |   
+  77     0     0     0     0     0     0     0  |   
+ 108     0     0     0     0     0     0     0  |   
+ -58     0     0     0     0     0     0     0  |   
+-105     0     0     0     0     0     0     0  |   
+ -47     0     0     0     0     0     0     0  |   
+-110     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+   0     0     0     0     0     0     0     0  |   
+Finished mem2Buf tile:0
+Finished loadBiasTile tile:0
+For this tile, bit shift is 10
+Finished tileClc tile:0
+Finished tile:0
+Finished mem2Buf tile:1
+Finished loadBiasTile tile:1
+For this tile, bit shift is 10
+Finished tileClc tile:1
+Finished tile:1
+Finished mem2Buf tile:2
+Finished loadBiasTile tile:2
+For this tile, bit shift is 10
+Finished tileClc tile:2
+Finished tile:2
+Finished mem2Buf tile:3
+Finished loadBiasTile tile:3
+For this tile, bit shift is 10
+Finished tileClc tile:3
+Finished tile:3
+Finished mem2Buf tile:4
+Finished loadBiasTile tile:4
+For this tile, bit shift is 10
+Finished tileClc tile:4
+Finished tile:4
+Finished mem2Buf tile:5
+Finished loadBiasTile tile:5
+For this tile, bit shift is 10
+Finished tileClc tile:5
+Finished tile:5
+Finished mem2Buf tile:6
+Finished loadBiasTile tile:6
+For this tile, bit shift is 10
+Finished tileClc tile:6
+Finished tile:6
+Finished mem2Buf tile:7
+Finished loadBiasTile tile:7
+For this tile, bit shift is 10
+Finished tileClc tile:7
+Finished tile:7
+Reached HERE!
+
+Number of errors is  1455392
+
+Positions of errors (first 20) are:
+50176   50177   50178   50179   50180   50181   50182   50183   50184   50185   50186   50187   50188   50189   50190   50191   50192   50193   50194   50195   
+Values of errors (first 20) for synth module are:
+0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   
+Values of errors (first 20) for tb module are:
+11   39   2   30   25   11   36   27   10   36   39   30   48   17   53   7   24   49   12   27   
+*****  Convolutional Layer with  bias + ReLu test failed!  ******
+
+*********************************************************************************  Verification Complete. ************************************************************************************
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
+@E Simulation failed: Function 'main' returns nonzero value '1'.
+ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+ERROR: 4
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 2 seconds. Total elapsed time: 62.25 seconds; peak allocated memory: 139.066 MB.

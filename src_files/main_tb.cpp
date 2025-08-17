@@ -33,7 +33,6 @@ int main(){
 	// check += loadWtMap_test(/*Verbose=*/0, /*printLayer=*/0, /*printNofStep=*/0, /*printNoyStep=*/0, /*printProgress=*/1);
 	// check += storeMaps_test(/*Verbose=*/0, /*printLayer=*/0, /*printNofStep=*/0, /*printNoyStep=*/0);
 	// check += convLayer_test(/*Verbose=*/0, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
-	// check += convLayer_test(/*Verbose=*/0, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
 	// check += fcLayer_test(/*Verbose=*/1);
 	// check += maxPool_test(/*Verbose=*/1); /* prints max pool for a toy example */
 	

@@ -85,35 +85,10 @@ int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
         return 1;
     }
 
-	// wt_data_t* WtMapCNN = new wt_data_t[WTMAP_FULL_SIZE];
-    // wt_data_t** WtMapConv = new wt_data_t*[LAYERS];
-	// wt_data_t** WtMapFC = new wt_data_t*[2];
 	wt_data_t* WtMapCNN = nullptr;
     wt_data_t** WtMapConv = nullptr;
 	wt_data_t** WtMapFC = nullptr;
-
     wtMemInitBin(WtMapCNN, WtMapConv, WtMapFC);
-
-	// std::cout << "1D array print\n";
-	// for(int i=0;i<13;i++){
-	// 	WtMapCNN += WtMapOffsetConv[i];
-	// }
-	// WtMapCNN += WtMapOffsetFC[0];
-	// for(int i=0;i<17;i++){
-	// 	for(int j=0;j<256;j++){
-	// 		std::cout << std::setw(4) << *(WtMapCNN + i*256 + j) << "  ";
-	// 	}
-	// 	std::cout << "\n";
-	// }
-
-	// std::cout << "2D array print\n";
-	// for(int i=0;i<17;i++){
-	// 	for(int j=0;j<256;j++){
-	// 		std::cout << std::setw(4) << *(WtMapFC[1] + i*256 + j) << "  ";
-	// 	}
-	// 	std::cout << "\n";
-	// }
-
 	px_data_t* IfMap = initIfMap(0, 1);
 	px_data_t* Map2 = new px_data_t[MAP_SIZE];
 
@@ -190,7 +165,7 @@ int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
 
 void minimalRunSynth(int layerNo){
 	static px_data_t_port IfMap[MAP_SIZE] = {0};
-	static px_data_t WtMap[WTMAP_MEMSIZE] = {0};
+	static wt_data_t_port WtMap[WTMAP_MEMSIZE] = {0};
 	static px_data_t OfMap[MAP_SIZE] = {0};
 
 	ConvLayer(IfMap, WtMap, OfMap);
