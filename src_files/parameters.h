@@ -21,7 +21,7 @@
 // 7 -> VGG-16 Parameters (*)
 // 8 -> VGG-Base
 // 9 -> Model from Trasfer Learning
-#define SOLUTION 1
+#define SOLUTION 2
 // 0 -> VGG-16 Parameters Solution 1 -> Pof=32, Poy=Pox=7
 // 1 -> VGG-16 Parameters Solution 2 -> Pof=16, Poy=Pox=7 (*)
 // 2 -> VGG-16 Parameters Solution 3 -> Pof=8 , Poy=Pox=7 (*)

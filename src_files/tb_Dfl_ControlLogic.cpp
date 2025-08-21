@@ -479,6 +479,482 @@ int convLayer_test(int verbose, int debug, int minPrint,
 }
 
 
+int convLayer_test_experimental(int verbose, int debug, int minPrint,
+					int printErrorOnly, int printLayer, int biasReLuTrue,
+					int binInput){
+	// Memory Data
+	static px_data_t IfMap[FMAP_MEMSIZE*2] = {0};
+	#if defined(FMAP_WIDEN)
+		static px_data_t_port IfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
+		static px_data_t_port OfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
+	#endif
+	#if defined(WTMAP_WIDEN)
+		wt_data_t* WtMap_reordered = nullptr;
+		WtMap_reordered = new wt_data_t[WTMAP_MEMSIZE];
+		wt_data_t_port* WtMap_port = nullptr;
+		WtMap_port = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
+	#endif
+	static wt_data_t WtMap[WTMAP_MEMSIZE] = {0};
+	static px_data_t OfMap[FMAP_MEMSIZE] = {0}, OfMap_golden_tmp[FMAP_MEMSIZE] = {0}, OfMap_golden[FMAP_MEMSIZE] = {0};
+	static px_data_t Compared_OfMap[FMAP_MEMSIZE];
+	int check = 0, printcheck;
+	std::cout << "Reached HERE!1" << std::endl;
+	for(int layerNo=0;layerNo<LAYERS;layerNo++){
+		std::cout << "*****  Layer " << layerNo+1 << "  *****" << std::endl;
+		// Initialize Memories
+		px_data_t* IfMap = initIfMap(layerNo, binInput);
+		wt_data_t* WtMap = initWtMap(layerNo, binInput);
+		std::cout << "Reached HERE2!" << std::endl;
+		convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
+		#if defined(MAXPOOL_INTEGRATION)
+			if(layerNo==1 || layerNo==3 || layerNo==6 || layerNo==9 || layerNo==12){
+				convLayer_software(layerNo, IfMap, WtMap, OfMap_golden_tmp, biasReLuTrue);
+				maxPool(OfMap_golden_tmp, Nif_rom[layerNo+1], Noy_rom[layerNo+1], Tox_rom[layerNo+1], OfMap_golden);
+			}
+			else{
+				convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
+			}
+		#else
+			convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
+		#endif
+		std::cout << "Reached HERE3!" << std::endl;
+		#if defined(WTMAP_WIDEN)
+			wt_reorder(WtMap, WtMap_reordered, layerNo);
+			pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+		#else
+			wt_data_t_port* WtMap_port = WtMap;
+		#endif
+		std::cout << "Reached HERE4!" << std::endl;
+		#if defined(FMAP_WIDEN)
+			pack<px_data_t_port>(IfMap, IfMap_port, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
+			std::cout << "Reached HERE5!" << std::endl;
+			ConvLayer(IfMap_port, WtMap_port, OfMap_port);
+			unpack<px_data_t_port>(OfMap_port, OfMap, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
+		#else
+			ConvLayer(IfMap, WtMap_port, OfMap);
+		#endif
+		std::cout << "Reached HERE!" << std::endl;
+		printcheck = 0;
+		// Compare Output Feature Maps
+		int error_count = 0, error_positions[20], error_values[20], error_values_synth[20], error_values_tb[20];
+		for(int i=0;i<FMAP_MEMSIZE;i++){
+			Compared_OfMap[i] = OfMap[i] - OfMap_golden[i];
+			if(OfMap[i] != OfMap_golden[i]){
+				check = 1; printcheck = 1;
+				if(error_count<20){
+					error_positions[error_count] = i;
+					error_values[error_count] = Compared_OfMap[i];
+					error_values_synth[error_count] = OfMap[i];
+					error_values_tb[error_count] = OfMap_golden[i];
+				}
+				error_count++;
+			}
+		}
+
+		int outofrange_synth = 0, outofrange_synth_positions[20], outofrange_synth_values[20];
+		int outofrange_tb = 0, outofrange_tb_positions[20], outofrange_tb_values[20];
+		for(int i=0;i<FMAP_MEMSIZE;i++){
+			if(OfMap[i] < -HW_EMUL_SYMM_RANGE || OfMap[i] > HW_EMUL_SYMM_RANGE){
+				if(outofrange_synth<20){
+					outofrange_synth_positions[outofrange_synth] = i;
+					outofrange_synth_values[outofrange_synth] = OfMap[i];
+				}
+				outofrange_synth++;
+			}
+			if(OfMap_golden[i] < -HW_EMUL_SYMM_RANGE || OfMap_golden[i] > HW_EMUL_SYMM_RANGE){
+				if(outofrange_tb<20){
+					outofrange_tb_positions[outofrange_tb] = i;
+					outofrange_tb_values[outofrange_tb] = OfMap_golden[i];
+				}
+				outofrange_tb++;
+			}
+		}
+
+		// Print Debugging Info
+		if(debug){
+			if(printcheck){
+				std::cout << "\nNumber of errors is  " << error_count << std::endl;
+				std::cout << "\nPositions of errors (first 20) are:\n";
+				for(int i=0;i<error_count && i<20;i++){
+					std::cout << error_positions[i] << "   ";
+				}
+				std::cout << "\nValues of errors (first 20) for synth module are:\n";
+				for(int i=0;i<error_count && i<20;i++){
+					std::cout << error_values_synth[i] << "   ";
+				}
+				std::cout << "\nValues of errors (first 20) for tb module are:\n";
+				for(int i=0;i<error_count && i<20;i++){
+					std::cout << error_values_tb[i] << "   ";
+				}
+			}
+			if(outofrange_synth){
+				std::cout << "\nNumber of out of range synth values are:" << outofrange_synth << std::endl;
+				std::cout << "\nPositions of out of range values (first 20) for synth module are:\n";
+				for(int i=0;i<outofrange_synth && i<20;i++){
+					std::cout << outofrange_synth_positions[i] << "   ";
+				}
+				std::cout << "\nValues out of range (first 20) for synth module are:\n";
+				for(int i=0;i<outofrange_synth && i<20;i++){
+					std::cout << outofrange_synth_values[i] << "   ";
+				}
+			}
+			if(outofrange_tb){
+				std::cout << "Number of out of range tb values are:" << outofrange_tb << std::endl;
+				std::cout << "\nPositions of out of range values (first 20) for TB are:\n";
+				for(int i=0;i<outofrange_tb && i<20;i++){
+					std::cout << outofrange_tb_positions[i] << "   ";
+				}
+
+				std::cout << "\nValues out of range (first 20) for TB are:\n";
+				for(int i=0;i<outofrange_tb && i<20;i++){
+					std::cout << outofrange_tb_values[i] << "   ";
+				}
+			}
+			std::cout << "\n";
+		}
+		if(verbose || printErrorOnly*printcheck || (printLayer && printLayer == layerNo+1)){
+			std::cout << "Printing IfMap of Layer" << layerNo+1 << std::endl;
+			printIfMap(layerNo, IfMap, minPrint);
+			std::cout << "Printing WtMap of Layer" << layerNo+1 << std::endl;
+			printWtMap(layerNo, WtMap, minPrint);
+			#if defined(WTMAP_WIDEN)
+			std::cout << "Printing WtMap reordered of Layer" << layerNo+1 << std::endl;
+			printWtMap(layerNo, WtMap_reordered, minPrint);
+			#endif
+			std::cout << "Printing OfMap under test of Layer" << layerNo+1 << std::endl;
+			printOfMap(layerNo, OfMap, minPrint);
+			std::cout << "Printing Golden OfMap of Layer" << layerNo+1 << std::endl;
+			printOfMap(layerNo, OfMap_golden, minPrint);
+			std::cout << "Printing Compared OfMap of Layer " << layerNo+1 << std::endl;
+			printOfMap(layerNo, Compared_OfMap, minPrint);
+		}
+	}
+
+	// Verification Print
+	if(check){
+		std::cout << "*****  Convolutional Layer ";
+		if(biasReLuTrue){
+			std::cout << "with ";
+		}
+		else{
+			std::cout << "without ";
+		}
+		std::cout << " bias + ReLu test failed!  ******\n" << std::endl;
+	}
+	else{
+		std::cout << "Printing first 20 elements of last output layer" << std::endl;
+		for(int i=0;i<20;i++){
+			std::cout << std::setw(8) << OfMap[i];
+		}
+		std::cout << "\n\n*****  ConvLayer Test ";
+		if(biasReLuTrue){
+			std::cout << "with ";
+		}
+		else{
+			std::cout << "without ";
+		}
+		std::cout << "bias + ReLu Passed!  ******\n" << std::endl;
+	}
+	return check;
+}
+
+
+int convLayer_experimentalold(int verbose, int debug, int minPrint,
+					int printErrorOnly, int printLayer, int biasReLuTrue,
+					int binInput){
+	// Memory Data
+	// static px_data_t IfMap[FMAP_MEMSIZE*2] = {0};
+	#if defined(FMAP_WIDEN)
+		static px_data_t_port IfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
+		static px_data_t_port OfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
+	#endif
+	#if defined(WTMAP_WIDEN)
+		wt_data_t* WtMap_reordered = nullptr;
+		WtMap_reordered = new wt_data_t[WTMAP_MEMSIZE];
+		wt_data_t_port* WtMap_port = nullptr;
+		WtMap_port = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
+	#endif
+	// static wt_data_t WtMap[WTMAP_MEMSIZE] = {0};
+	static px_data_t OfMap[FMAP_MEMSIZE] = {0}, OfMap_golden_tmp[FMAP_MEMSIZE] = {0}, OfMap_golden[FMAP_MEMSIZE] = {0};
+	static px_data_t Compared_OfMap[FMAP_MEMSIZE];
+	int check = 0, printcheck;
+	std::cout << "Reached HERE!1" << std::endl;
+
+	int layerNo = 0;
+
+	std::cout << "*****  Layer " << layerNo+1 << "  *****" << std::endl;
+	// Initialize Memories
+	px_data_t* IfMap = initIfMap(layerNo, binInput);
+	wt_data_t* WtMap = initWtMap(layerNo, binInput);
+	std::cout << "Reached HERE2!" << std::endl;
+	convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
+	std::cout << "Reached HERE3!" << std::endl;
+	#if defined(WTMAP_WIDEN)
+		wt_reorder(WtMap, WtMap_reordered, layerNo);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		wt_data_t_port* WtMap_port = WtMap;
+	#endif
+	std::cout << "Reached HERE4!" << std::endl;
+	#if defined(FMAP_WIDEN)
+		pack<px_data_t_port>(IfMap, IfMap_port, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
+		std::cout << "Reached HERE5!" << std::endl;
+		ConvLayer(IfMap_port, WtMap_port, OfMap_port);
+		unpack<px_data_t_port>(OfMap_port, OfMap, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
+	#else
+		ConvLayer(IfMap, WtMap_port, OfMap);
+	#endif
+	std::cout << "Reached HERE!" << std::endl;
+	printcheck = 0;
+	// Compare Output Feature Maps
+	int error_count = 0, error_positions[20], error_values[20], error_values_synth[20], error_values_tb[20];
+	for(int i=0;i<FMAP_MEMSIZE;i++){
+		Compared_OfMap[i] = OfMap[i] - OfMap_golden[i];
+		if(OfMap[i] != OfMap_golden[i]){
+			check = 1; printcheck = 1;
+			if(error_count<20){
+				error_positions[error_count] = i;
+				error_values[error_count] = Compared_OfMap[i];
+				error_values_synth[error_count] = OfMap[i];
+				error_values_tb[error_count] = OfMap_golden[i];
+			}
+			error_count++;
+		}
+	}
+
+	int outofrange_synth = 0, outofrange_synth_positions[20], outofrange_synth_values[20];
+	int outofrange_tb = 0, outofrange_tb_positions[20], outofrange_tb_values[20];
+	for(int i=0;i<FMAP_MEMSIZE;i++){
+		if(OfMap[i] < -HW_EMUL_SYMM_RANGE || OfMap[i] > HW_EMUL_SYMM_RANGE){
+			if(outofrange_synth<20){
+				outofrange_synth_positions[outofrange_synth] = i;
+				outofrange_synth_values[outofrange_synth] = OfMap[i];
+			}
+			outofrange_synth++;
+		}
+		if(OfMap_golden[i] < -HW_EMUL_SYMM_RANGE || OfMap_golden[i] > HW_EMUL_SYMM_RANGE){
+			if(outofrange_tb<20){
+				outofrange_tb_positions[outofrange_tb] = i;
+				outofrange_tb_values[outofrange_tb] = OfMap_golden[i];
+			}
+			outofrange_tb++;
+		}
+	}
+
+	// Print Debugging Info
+	if(debug){
+		if(printcheck){
+			std::cout << "\nNumber of errors is  " << error_count << std::endl;
+			std::cout << "\nPositions of errors (first 20) are:\n";
+			for(int i=0;i<error_count && i<20;i++){
+				std::cout << error_positions[i] << "   ";
+			}
+			std::cout << "\nValues of errors (first 20) for synth module are:\n";
+			for(int i=0;i<error_count && i<20;i++){
+				std::cout << error_values_synth[i] << "   ";
+			}
+			std::cout << "\nValues of errors (first 20) for tb module are:\n";
+			for(int i=0;i<error_count && i<20;i++){
+				std::cout << error_values_tb[i] << "   ";
+			}
+		}
+		if(outofrange_synth){
+			std::cout << "\nNumber of out of range synth values are:" << outofrange_synth << std::endl;
+			std::cout << "\nPositions of out of range values (first 20) for synth module are:\n";
+			for(int i=0;i<outofrange_synth && i<20;i++){
+				std::cout << outofrange_synth_positions[i] << "   ";
+			}
+			std::cout << "\nValues out of range (first 20) for synth module are:\n";
+			for(int i=0;i<outofrange_synth && i<20;i++){
+				std::cout << outofrange_synth_values[i] << "   ";
+			}
+		}
+		if(outofrange_tb){
+			std::cout << "Number of out of range tb values are:" << outofrange_tb << std::endl;
+			std::cout << "\nPositions of out of range values (first 20) for TB are:\n";
+			for(int i=0;i<outofrange_tb && i<20;i++){
+				std::cout << outofrange_tb_positions[i] << "   ";
+			}
+
+			std::cout << "\nValues out of range (first 20) for TB are:\n";
+			for(int i=0;i<outofrange_tb && i<20;i++){
+				std::cout << outofrange_tb_values[i] << "   ";
+			}
+		}
+		std::cout << "\n";
+	}
+	if(verbose || printErrorOnly*printcheck || (printLayer && printLayer == layerNo+1)){
+		std::cout << "Printing IfMap of Layer" << layerNo+1 << std::endl;
+		printIfMap(layerNo, IfMap, minPrint);
+		std::cout << "Printing WtMap of Layer" << layerNo+1 << std::endl;
+		printWtMap(layerNo, WtMap, minPrint);
+		#if defined(WTMAP_WIDEN)
+		std::cout << "Printing WtMap reordered of Layer" << layerNo+1 << std::endl;
+		printWtMap(layerNo, WtMap_reordered, minPrint);
+		#endif
+		std::cout << "Printing OfMap under test before max pool of Layer" << layerNo+1 << std::endl;
+		printOfMap(layerNo, OfMap_golden_tmp, minPrint);
+		std::cout << "Printing OfMap under test of Layer" << layerNo+1 << std::endl;
+		printIfMap(layerNo+1, OfMap, minPrint);
+		std::cout << "Printing Golden OfMap of Layer" << layerNo+1 << std::endl;
+		printIfMap(layerNo+1, OfMap_golden, minPrint);
+		std::cout << "Printing Compared OfMap of Layer " << layerNo+1 << std::endl;
+		printOfMap(layerNo+1, Compared_OfMap, minPrint);
+	}
+
+	layerNo = 1;
+
+	std::cout << "*****  Layer " << layerNo+1 << "  *****" << std::endl;
+	// Initialize Memories
+	IfMap = initIfMap(layerNo, binInput);
+	WtMap = initWtMap(layerNo, binInput);
+	std::cout << "Reached HERE2!" << std::endl;
+	convLayer_software(layerNo, IfMap, WtMap, OfMap_golden_tmp, biasReLuTrue);
+	maxPool(OfMap_golden_tmp, 64, 112, 112, OfMap_golden);
+	std::cout << "Reached HERE3!" << std::endl;
+	#if defined(WTMAP_WIDEN)
+		wt_reorder(WtMap, WtMap_reordered, layerNo);
+		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
+	#else
+		WtMap_port = WtMap;
+	#endif
+	std::cout << "Reached HERE4!" << std::endl;
+	#if defined(FMAP_WIDEN)
+		pack<px_data_t_port>(IfMap, IfMap_port, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
+		std::cout << "Reached HERE5!" << std::endl;
+		ConvLayer(IfMap_port, WtMap_port, OfMap_port);
+		unpack<px_data_t_port>(OfMap_port, OfMap, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
+	#else
+		ConvLayer(IfMap, WtMap_port, OfMap);
+	#endif
+	std::cout << "Reached HERE!" << std::endl;
+	printcheck = 0;
+	// Compare Output Feature Maps
+	error_count = 0;
+	for(int i=0;i<FMAP_MEMSIZE;i++){
+		Compared_OfMap[i] = OfMap[i] - OfMap_golden[i];
+		if(OfMap[i] != OfMap_golden[i]){
+			check = 1; printcheck = 1;
+			if(error_count<20){
+				error_positions[error_count] = i;
+				error_values[error_count] = Compared_OfMap[i];
+				error_values_synth[error_count] = OfMap[i];
+				error_values_tb[error_count] = OfMap_golden[i];
+			}
+			error_count++;
+		}
+	}
+
+	outofrange_synth = 0;
+	outofrange_tb = 0;
+	for(int i=0;i<FMAP_MEMSIZE;i++){
+		if(OfMap[i] < -HW_EMUL_SYMM_RANGE || OfMap[i] > HW_EMUL_SYMM_RANGE){
+			if(outofrange_synth<20){
+				outofrange_synth_positions[outofrange_synth] = i;
+				outofrange_synth_values[outofrange_synth] = OfMap[i];
+			}
+			outofrange_synth++;
+		}
+		if(OfMap_golden[i] < -HW_EMUL_SYMM_RANGE || OfMap_golden[i] > HW_EMUL_SYMM_RANGE){
+			if(outofrange_tb<20){
+				outofrange_tb_positions[outofrange_tb] = i;
+				outofrange_tb_values[outofrange_tb] = OfMap_golden[i];
+			}
+			outofrange_tb++;
+		}
+	}
+
+	// Print Debugging Info
+	if(debug){
+		if(printcheck){
+			std::cout << "\nNumber of errors is  " << error_count << std::endl;
+			std::cout << "\nPositions of errors (first 20) are:\n";
+			for(int i=0;i<error_count && i<20;i++){
+				std::cout << error_positions[i] << "   ";
+			}
+			std::cout << "\nValues of errors (first 20) for synth module are:\n";
+			for(int i=0;i<error_count && i<20;i++){
+				std::cout << error_values_synth[i] << "   ";
+			}
+			std::cout << "\nValues of errors (first 20) for tb module are:\n";
+			for(int i=0;i<error_count && i<20;i++){
+				std::cout << error_values_tb[i] << "   ";
+			}
+		}
+		if(outofrange_synth){
+			std::cout << "\nNumber of out of range synth values are:" << outofrange_synth << std::endl;
+			std::cout << "\nPositions of out of range values (first 20) for synth module are:\n";
+			for(int i=0;i<outofrange_synth && i<20;i++){
+				std::cout << outofrange_synth_positions[i] << "   ";
+			}
+			std::cout << "\nValues out of range (first 20) for synth module are:\n";
+			for(int i=0;i<outofrange_synth && i<20;i++){
+				std::cout << outofrange_synth_values[i] << "   ";
+			}
+		}
+		if(outofrange_tb){
+			std::cout << "Number of out of range tb values are:" << outofrange_tb << std::endl;
+			std::cout << "\nPositions of out of range values (first 20) for TB are:\n";
+			for(int i=0;i<outofrange_tb && i<20;i++){
+				std::cout << outofrange_tb_positions[i] << "   ";
+			}
+
+			std::cout << "\nValues out of range (first 20) for TB are:\n";
+			for(int i=0;i<outofrange_tb && i<20;i++){
+				std::cout << outofrange_tb_values[i] << "   ";
+			}
+		}
+		std::cout << "\n";
+	}
+	if(verbose || printErrorOnly*printcheck || (printLayer && printLayer == layerNo+1)){
+		std::cout << "Printing IfMap of Layer" << layerNo+1 << std::endl;
+		printIfMap(layerNo, IfMap, minPrint);
+		std::cout << "Printing WtMap of Layer" << layerNo+1 << std::endl;
+		printWtMap(layerNo, WtMap, minPrint);
+		#if defined(WTMAP_WIDEN)
+		std::cout << "Printing WtMap reordered of Layer" << layerNo+1 << std::endl;
+		printWtMap(layerNo, WtMap_reordered, minPrint);
+		#endif
+		std::cout << "Printing OfMap under test before max pool of Layer" << layerNo+1 << std::endl;
+		printOfMap(layerNo, OfMap_golden_tmp, minPrint);
+		std::cout << "Printing OfMap under test of Layer" << layerNo+1 << std::endl;
+		printOfMap(layerNo, OfMap, minPrint);
+		std::cout << "Printing Golden OfMap of Layer" << layerNo+1 << std::endl;
+		printOfMap(layerNo, OfMap_golden, minPrint);
+		std::cout << "Printing Compared OfMap of Layer " << layerNo+1 << std::endl;
+		printOfMap(layerNo, Compared_OfMap, minPrint);
+	}
+
+
+	// Verification Print
+	if(check){
+		std::cout << "*****  Convolutional Layer ";
+		if(biasReLuTrue){
+			std::cout << "with ";
+		}
+		else{
+			std::cout << "without ";
+		}
+		std::cout << " bias + ReLu test failed!  ******\n" << std::endl;
+	}
+	else{
+		std::cout << "Printing first 20 elements of last output layer" << std::endl;
+		for(int i=0;i<20;i++){
+			std::cout << std::setw(8) << OfMap[i];
+		}
+		std::cout << "\n\n*****  ConvLayer Test ";
+		if(biasReLuTrue){
+			std::cout << "with ";
+		}
+		else{
+			std::cout << "without ";
+		}
+		std::cout << "bias + ReLu Passed!  ******\n" << std::endl;
+	}
+	return check;
+}
+
+
 // *****  Software Functions  *****
 
 /*

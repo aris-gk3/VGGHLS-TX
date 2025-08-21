@@ -272,7 +272,6 @@ Reached HERE!1
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:0
 Loaded parameters in loadBiasTile, layer:0
 Loaded parameters in tileClc, layer:0
@@ -1265,7 +1264,6 @@ Printing Compared OfMap of Layer 1
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:1
 Loaded parameters in loadBiasTile, layer:1
 Loaded parameters in tileClc, layer:1
@@ -2498,7 +2496,6 @@ Printing Compared OfMap of Layer 2
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:2
 Loaded parameters in loadBiasTile, layer:2
 Loaded parameters in tileClc, layer:2
@@ -3711,7 +3708,6 @@ Printing Compared OfMap of Layer 3
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:3
 Loaded parameters in loadBiasTile, layer:3
 Loaded parameters in tileClc, layer:3
@@ -4924,7 +4920,6 @@ Printing Compared OfMap of Layer 4
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:4
 Loaded parameters in loadBiasTile, layer:4
 Loaded parameters in tileClc, layer:4
@@ -6127,7 +6122,6 @@ Printing Compared OfMap of Layer 5
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:5
 Loaded parameters in loadBiasTile, layer:5
 Loaded parameters in tileClc, layer:5
@@ -7330,7 +7324,6 @@ Printing Compared OfMap of Layer 6
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:6
 Loaded parameters in loadBiasTile, layer:6
 Loaded parameters in tileClc, layer:6
@@ -8533,7 +8526,6 @@ Printing Compared OfMap of Layer 7
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:7
 Loaded parameters in loadBiasTile, layer:7
 Loaded parameters in tileClc, layer:7
@@ -9746,7 +9738,6 @@ Printing Compared OfMap of Layer 8
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:8
 Loaded parameters in loadBiasTile, layer:8
 Loaded parameters in tileClc, layer:8
@@ -10959,7 +10950,6 @@ Printing Compared OfMap of Layer 9
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:9
 Loaded parameters in loadBiasTile, layer:9
 Loaded parameters in tileClc, layer:9
@@ -12172,7 +12162,6 @@ Printing Compared OfMap of Layer 10
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:10
 Loaded parameters in loadBiasTile, layer:10
 Loaded parameters in tileClc, layer:10
@@ -13257,7 +13246,6 @@ Printing Compared OfMap of Layer 11
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:11
 Loaded parameters in loadBiasTile, layer:11
 Loaded parameters in tileClc, layer:11
@@ -14342,7 +14330,6 @@ Printing Compared OfMap of Layer 12
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
-Reached HERE5!
 Loaded parameters in mem2Buf, layer:12
 Loaded parameters in loadBiasTile, layer:12
 Loaded parameters in tileClc, layer:12
@@ -15587,7 +15574,7 @@ For this tile, bit shift is 10
 Finished tileClc tile:7
 Finished tile:7
 Weights: min=-52, max=70
-Conv1: min=0, max=102
+Conv1: min=0, max=90
 After maxpool1: min=0, max=90
 Loaded parameters in mem2Buf, layer:2
 Loaded parameters in loadBiasTile, layer:2
@@ -15689,7 +15676,7 @@ For this tile, bit shift is 8
 Finished tileClc tile:1
 Finished tile:1
 Weights: min=-43, max=95
-Conv6: min=0, max=66
+Conv6: min=0, max=98
 After maxpool3: min=0, max=66
 Loaded parameters in mem2Buf, layer:7
 Loaded parameters in loadBiasTile, layer:7
@@ -15768,7 +15755,7 @@ For this tile, bit shift is 8
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-55, max=112
-Conv9: min=0, max=48
+Conv9: min=0, max=54
 After maxpool4: min=0, max=42
 Loaded parameters in mem2Buf, layer:10
 Loaded parameters in loadBiasTile, layer:10
@@ -15847,7 +15834,7 @@ For this tile, bit shift is 7
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-28, max=87
-Conv12: min=0, max=20
+Conv12: min=0, max=49
  After maxpool5: min=0, max=16
 19) After gap: min=0, max=3
 Weights: min=-62, max=68
@@ -15877,4 +15864,4 @@ INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the d
 ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value.
 INFO: [SIM 211-3] *************** CSIM finish ***************
 ERROR: 4
-INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 2 seconds. Total elapsed time: 10046.1 seconds; peak allocated memory: 138.613 MB.
+INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 2 seconds. Total elapsed time: 6614.21 seconds; peak allocated memory: 139.207 MB.

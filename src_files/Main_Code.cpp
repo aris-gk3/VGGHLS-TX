@@ -1451,6 +1451,7 @@ void loadWtMap(
 #endif
 
 
+#if not defined(MAXPOOL_INTEGRATION)
 void storeMap(
 		// Parameter Loading State
 		data_bool layerCnfg,
@@ -1559,6 +1560,188 @@ void storeMap(
 		tileCount++;
 	}
 }
+#endif
+
+
+#if defined(MAXPOOL_INTEGRATION)
+void maxPoolTree(px_data_t tmp1[POX], px_data_t tmp2[POX], px_data_t tmp3[POX], 
+			px_data_t tmp4[POX], px_data_t max[POX]){
+	px_data_t maxTmp[POX*2];
+	#pragma HLS ARRAY_PARTITION variable=maxTmp complete dim=1
+	for(int i=0;i<POX;i++){
+	#pragma HLS UNROLL
+		maxTmp[i    ] = (tmp1[i]>tmp3[i]) ? tmp1[i] : tmp3[i];
+		maxTmp[i+POX] = (tmp2[i]>tmp4[i]) ? tmp2[i] : tmp4[i];
+	}
+	for(int i=0;i<POX;i++){
+		max[i] = (maxTmp[2*i]>maxTmp[2*i+1]) ? maxTmp[2*i] : maxTmp[2*i+1];
+	}
+}
+#endif
+
+#if defined(MAXPOOL_INTEGRATION)
+void storeMap(
+		// Parameter Loading State
+		data_bool layerCnfg,
+		// Inputs
+		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		// Output
+		px_data_t_port *OfMap
+	){
+	#pragma HLS INLINE off
+	static Noy_dt Noy;
+	static Noy_dt Noy_map;
+	static Tof_dt Tof;
+	static Toy_dt Toy;
+	static Toy_dt Toy_map;
+	static Tox_dt Tox;
+	static Tox_dt Tox_map;
+	static Tox_step_dt wrd_1rowOut;
+	static int tileCount;				// Count iterations of tiles for current layer
+	static data_bool NofFirst;			// Boolean value for loop order
+	static layerNo_dt layerNo = 0; 		// "State" for layer
+
+	int ofBase, yBase;
+	int base_addr, addr;
+
+	px_data_t tmp1[POX], tmp2[POX], tmp3[POX], tmp4[POX], max[POX];
+
+	row_outbuf_i_dt wrdMap, wrdY, wrdX;
+	outbufnum_i_dt OutBufNum_i;
+	Pox_i_dt Pox_i;
+
+	if(layerCnfg){
+		Noy = Noy_rom[layerNo];
+		if(layerNo==0 || layerNo==2 || layerNo==4 || layerNo==5 ||
+			layerNo==7 || layerNo==8 || layerNo==10 || layerNo==11){
+			Noy_map = Noy_rom[layerNo];
+			Toy_map = Toy_rom[layerNo];
+
+			Tox_map = Tox_rom[layerNo];
+			// #if not defined(FMAP_WIDEN)
+			// 	Tox_map = Tox_rom[layerNo];
+			// #elif defined(FMAP_WIDEN)
+			// 	Tox_map = Tox_rom[layerNo]/FMAP_WIDTHFACTOR;
+			// #endif
+		}
+		else{
+			Noy_map = Noy_rom[layerNo]/2;
+			Toy_map = Toy_rom[layerNo]/2;
+
+			Tox_map = Tox_rom[layerNo]/2;
+			// #if not defined(FMAP_WIDEN)
+			// 	Tox_map = Tox_rom[layerNo]/2;
+			// #elif defined(FMAP_WIDEN)
+			// 	Tox_map = Tox_rom[layerNo]/(2*FMAP_WIDTHFACTOR);
+			// #endif
+		}
+		Tof = Tof_rom[layerNo];
+		Toy = Toy_rom[layerNo];
+		// #if not defined(FMAP_WIDEN)
+		// 	Tox = Tox_rom[layerNo];
+		// 	// wrd_1rowOut = tox_step_rom[layerNo];
+		// #elif defined(FMAP_WIDEN)
+		// 	Tox = Tox_rom[layerNo]/FMAP_WIDTHFACTOR;
+		// 	// wrd_1rowOut = tox_step_rom[layerNo]/FMAP_WIDTHFACTOR;
+		// #endif
+		Tox = Tox_rom[layerNo];
+		wrd_1rowOut = tox_step_rom[layerNo];
+		tileCount = 0;
+		NofFirst = nofFirst[layerNo];
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		if(NofFirst){
+			ofBase = 0;
+			yBase = tileCount;
+		}
+		else{
+			ofBase = tileCount;
+			yBase = 0;
+		}
+
+		base_addr = ofBase*Tof*Noy_map*Tox_map/7 + yBase*Toy_map*Tox_map/7;
+		
+		Loop_Tof_ii: for(int Tof_ii=0; Tof_ii<Tof/OUTBUF_NUM;Tof_ii++){
+		#pragma HLS LOOP_TRIPCOUNT min=(TOF_TRIPCOUNT/OUTBUF_NUM) max=(TOF_TRIPCOUNT/OUTBUF_NUM)
+			Loop_OutBufNum: for(int OutBufNum_i=0; OutBufNum_i<OUTBUF_NUM;OutBufNum_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=OUTBUF_NUM max=OUTBUF_NUM
+				addr = base_addr;
+
+				Loop_Toy_step: for(int Toy_i=0; Toy_i<Toy_map;Toy_i++){
+				#pragma HLS LOOP_TRIPCOUNT min=(TOY_TRIPCOUNT/2) max=(TOY_TRIPCOUNT/2)
+
+					Loop_Tox_step: for(int Tox_step_i=0; Tox_step_i<Tox_map/POX;Tox_step_i++){
+					#pragma HLS LOOP_TRIPCOUNT min=(TOX_TRIPCOUNT/2*POX) max=(TOX_TRIPCOUNT/2*POX)
+						#if not defined(FMAP_WIDEN)
+							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
+								layerNo==8 || layerNo==9 || layerNo==11 || layerNo==12){
+								Loop_POX0: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+									OfMap[addr] =
+										OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + Toy_i*wrd_1rowOut + Tox_step_i][Pox_i];
+									addr++;
+								}
+							}
+							else{
+								Loop_POX: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS UNROLL
+									tmp1[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut +  2*Toy_i   *wrd_1rowOut + 2*Tox_step_i  ][Pox_i];
+									tmp2[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut +  2*Toy_i   *wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
+									tmp3[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i  ][Pox_i];
+									tmp4[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
+								}
+								maxPoolTree(tmp1, tmp2, tmp3, tmp4, max);
+								Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+									OfMap[addr] =
+										max[Pox_i];
+									addr++;
+								}
+							}
+						#elif defined(FMAP_WIDEN)
+							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
+								layerNo==8 || layerNo==9 || layerNo==11 || layerNo==12){
+								Loop_POX0: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+									OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
+										OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + Toy_i*wrd_1rowOut + Tox_step_i][Pox_i];
+								}
+								addr++;
+							}
+							else{
+								Loop_POX: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS UNROLL
+									tmp1[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut +  2*Toy_i   *wrd_1rowOut + 2*Tox_step_i  ][Pox_i];
+									tmp2[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut +  2*Toy_i   *wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
+									tmp3[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i  ][Pox_i];
+									tmp4[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
+								}
+								maxPoolTree(tmp1, tmp2, tmp3, tmp4, max);
+								Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+									OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
+										max[Pox_i];
+								}
+								addr++;
+							}
+						#endif
+					}
+
+				}
+				base_addr += Noy_map*Tox_map/7;
+
+			}
+		}
+		tileCount++;
+	}
+}
+#endif
 
 
 void mem2Buf(
@@ -2302,7 +2485,11 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	convChoice(Map1, WtMap, Map2, 0);
 	WtMap += WtMapOffsetConv[0];
 	convChoice(Map2, WtMap, Map1, 1);
-	maxPool(Map1, 64, 112, 112, Map2);
+	#if defined(MAXPOOL_INTEGRATION)
+		swapPointers(Map1, Map2);
+	#else
+		maxPool(Map1, 64, 112, 112, Map2);
+	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(Map2, 64*112*112, min, max);
 		std::cout << "After maxpool1: min=" << min << ", max=" << max << "\n";
@@ -2313,7 +2500,11 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	convChoice(Map2, WtMap, Map1, 2);
 	WtMap += WtMapOffsetConv[2];
 	convChoice(Map1, WtMap, Map2, 3);
-	maxPool(Map2, 128, 56, 56, Map1);
+	#if defined(MAXPOOL_INTEGRATION)
+		swapPointers(Map2, Map1);
+	#else
+		maxPool(Map2, 128, 56, 56, Map1);
+	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(Map1, 128*56*56, min, max);
 		std::cout << "After maxpool2: min=" << min << ", max=" << max << "\n";
@@ -2326,7 +2517,11 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	convChoice(Map2, WtMap, Map1, 5);
 	WtMap += WtMapOffsetConv[5];
 	convChoice(Map1, WtMap, Map2, 6);
-	maxPool(Map2, 256, 28, 28, Map1);
+	#if defined(MAXPOOL_INTEGRATION)
+		swapPointers(Map2, Map1);
+	#else
+		maxPool(Map2, 256, 28, 28, Map1);
+	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(Map1, 256*28*28, min, max);
 		std::cout << "After maxpool3: min=" << min << ", max=" << max << "\n";
@@ -2339,7 +2534,11 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	convChoice(Map2, WtMap, Map1, 8);
 	WtMap += WtMapOffsetConv[8];
 	convChoice(Map1, WtMap, Map2, 9);
-	maxPool(Map2, 512, 14, 14, Map1);
+	#if defined(MAXPOOL_INTEGRATION)
+		swapPointers(Map2, Map1);
+	#else
+		maxPool(Map2, 512, 14, 14, Map1);
+	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(Map1, 512*14*14, min, max);
 		std::cout << "After maxpool4: min=" << min << ", max=" << max << "\n";
@@ -2352,7 +2551,11 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	convChoice(Map2, WtMap, Map1, 11);
 	WtMap += WtMapOffsetConv[11];
 	convChoice(Map1, WtMap, Map2, 12);
-	maxPool(Map2, 512, 7, 7, Map1);
+	#if defined(MAXPOOL_INTEGRATION)
+		swapPointers(Map2, Map1);
+	#else
+		maxPool(Map2, 512, 7, 7, Map1);
+	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(Map1, 512*7*7, min, max);
 		std::cout << " After maxpool5: min=" << min << ", max=" << max << "\n";
@@ -2418,4 +2621,10 @@ void convChoice(px_data_t *IfMap, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		delete[] WtMap_port;
 		WtMap_port = nullptr;
 	#endif
+}
+
+void swapPointers(px_data_t *&a, px_data_t *&b){
+    px_data_t *temp = a;
+    a = b;
+    b = temp;
 }

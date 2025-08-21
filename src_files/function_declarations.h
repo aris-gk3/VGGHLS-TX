@@ -163,6 +163,9 @@ int convLayer_test(int verbose, int debug, int minPrint,
 int convLayer_test(int verbose, int debug, int minPrint,
 					int printErrorOnly, int printLayer, int biasReLuTrue,
 					int binInput);
+int convLayer_test_experimental(int verbose, int debug, int minPrint,
+					int printErrorOnly, int printLayer, int biasReLuTrue,
+					int binInput);
 int loadIfMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep);
 int loadWtMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep, int printProgress);
 int storeMaps_test(int verbose, int printLayer, int printNofStep, int printNoyStep);
@@ -270,6 +273,7 @@ void wtMemInitBin(wt_data_t*& WtMapCNN, wt_data_t**& WtMapConv, wt_data_t**& WtM
 int MemInitBin_test();
 
 // Misc Functions
+void swapPointers(px_data_t *&a, px_data_t *&b);
 #if defined(FMAP_WIDEN) || defined(WTMAP_WIDEN)
 template <typename data_t_widened>
 void pack(px_data_t *Map, data_t_widened *Map_widened,
