@@ -82,7 +82,7 @@ px_data_t* imgLoadFromBin_wrapper(){
 
 
     int8_t* imgMem = imgLoadFromBin(path() + REL_PATH + BIN_FILENAME);
-    px_data_t* imgMem_bw = new px_data_t[MAP_SIZE];
+    px_data_t* imgMem_bw = new px_data_t[FMAP_MEMSIZE];
     // px_data_t* imgMem_bw = new px_data_t[224*224*3];
     for(int i=0;i<224*224*3;i++){
         imgMem_bw[i] = imgMem[i];

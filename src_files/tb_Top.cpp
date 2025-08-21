@@ -90,7 +90,7 @@ int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
 	wt_data_t** WtMapFC = nullptr;
     wtMemInitBin(WtMapCNN, WtMapConv, WtMapFC);
 	px_data_t* IfMap = initIfMap(0, 1);
-	px_data_t* Map2 = new px_data_t[MAP_SIZE];
+	px_data_t* Map2 = new px_data_t[FMAP_MEMSIZE];
 
     oxfordFlowers_software(IfMap, WtMapConv, WtMapFC, finalOut_golden, biasReLuTrue);
 	std::cout << "Computed SW C sim of Oxford Flowers Model" << std::endl;
@@ -164,9 +164,9 @@ int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
 
 
 void minimalRunSynth(int layerNo){
-	static px_data_t_port IfMap[MAP_SIZE] = {0};
-	static wt_data_t_port WtMap[WTMAP_MEMSIZE] = {0};
-	static px_data_t OfMap[MAP_SIZE] = {0};
+	static px_data_t_port IfMap[FMAP_MEMSIZE_WIDENED] = {0};
+	static wt_data_t_port WtMap[WTMAP_MEMSIZE_WIDENED] = {0};
+	static px_data_t_port OfMap[FMAP_MEMSIZE_WIDENED] = {0};
 
 	ConvLayer(IfMap, WtMap, OfMap);
 }
@@ -181,16 +181,16 @@ void vgg16_software(px_data_t* IfMap,
                     px_data_t* finalOut,
                     int biasReLuTrue){
 
-	static px_data_t Map1[MAP_SIZE], Map2[MAP_SIZE];
+	static px_data_t Map1[FMAP_MEMSIZE], Map2[FMAP_MEMSIZE];
 
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		Map1[i] = 0; Map2[i] = 0;
 	}
 
 	convLayer_software(0, IfMap, WtMapConv[0], Map1, biasReLuTrue);
 
 	int max = 0, tmp;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -203,7 +203,7 @@ void vgg16_software(px_data_t* IfMap,
 	convLayer_software(1, Map1, WtMapConv[1], Map2, biasReLuTrue);
 
 	max = 0;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -216,7 +216,7 @@ void vgg16_software(px_data_t* IfMap,
 	maxPool(Map2, 64, 112, 112, Map1);
 
 	max = 0;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -229,7 +229,7 @@ void vgg16_software(px_data_t* IfMap,
 	convLayer_software(2, Map1, WtMapConv[2], Map2, biasReLuTrue);
 
 	max = 0;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -242,7 +242,7 @@ void vgg16_software(px_data_t* IfMap,
 	convLayer_software(3, Map2, WtMapConv[3], Map1, biasReLuTrue);
 
 	max = 0;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -257,7 +257,7 @@ void vgg16_software(px_data_t* IfMap,
 	convLayer_software(4, Map2, WtMapConv[4], Map1, biasReLuTrue);
 
 	max = 0;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -268,7 +268,7 @@ void vgg16_software(px_data_t* IfMap,
 	std::cout << "6) Max here is :" << max << "\n";
 	convLayer_software(5, Map1, WtMapConv[5], Map2, biasReLuTrue);
 	max = 0;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -279,7 +279,7 @@ void vgg16_software(px_data_t* IfMap,
 	std::cout << "7) Max here is :" << max << "\n";
 	convLayer_software(6, Map2, WtMapConv[6], Map1, biasReLuTrue);
 	max = 0;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -304,7 +304,7 @@ void vgg16_software(px_data_t* IfMap,
 	fcLayer(Map2, WtMapFC[0], 25088, 4096, 0, Map1);
 
 	max = 0;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -317,7 +317,7 @@ void vgg16_software(px_data_t* IfMap,
 	fcLayer(Map1, WtMapFC[1], 4096, 4096, 1, Map2);
 
 	max = 0;
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		tmp = (Map1[i]>Map2[i]) ? Map1[i] : Map2[i];
 		max = (max>tmp) ? max : tmp;
 		if( (Map1[i] > 2047483647) || (Map2[i] > 2047483647)
@@ -336,12 +336,12 @@ void oxfordFlowers_software(px_data_t* IfMap,
                     wt_data_t** WtMapFC,
                     px_data_t* finalOut,
                     int biasReLuTrue){
-	// static px_data_t Map1[MAP_SIZE], Map2[MAP_SIZE];
-    px_data_t* Map1 = new px_data_t[MAP_SIZE];
-    px_data_t* Map2 = new px_data_t[MAP_SIZE];
+	// static px_data_t Map1[FMAP_MEMSIZE], Map2[FMAP_MEMSIZE];
+    px_data_t* Map1 = new px_data_t[FMAP_MEMSIZE];
+    px_data_t* Map2 = new px_data_t[FMAP_MEMSIZE];
 	int min, max, minWt, maxWt;
 
-	for(int i=0;i<MAP_SIZE;i++){
+	for(int i=0;i<FMAP_MEMSIZE;i++){
 		Map1[i] = 0; Map2[i] = 0;
 	}
 	findMinMax(IfMap, 3*224*224, min, max);
@@ -493,8 +493,8 @@ void MemInit(
         WtMapFC[i] = new wt_data_t[WtMapOffsetFC[i]];
     }
 
-    IfMap = new px_data_t[MAP_SIZE];
-    Map2 = new px_data_t[MAP_SIZE];
+    IfMap = new px_data_t[FMAP_MEMSIZE];
+    Map2 = new px_data_t[FMAP_MEMSIZE];
 
     // Initialize weights
     long int wtMapAddress = 0;
@@ -520,7 +520,7 @@ void MemInit(
     }
 
     // Initialize IfMap
-    for (int i = 0; i < MAP_SIZE; i++) {
+    for (int i = 0; i < FMAP_MEMSIZE; i++) {
         IfMap[i] = rand() % 5 - 2;
     }
 }

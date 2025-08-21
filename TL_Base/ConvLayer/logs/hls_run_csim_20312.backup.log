@@ -716,5 +716,5 @@ Class found in DUT is number 0
 INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 2 seconds. Total elapsed time: 2901.51 seconds; peak allocated memory: 138.527 MB.
-INFO: [vitis-run 60-791] Total elapsed time: 0h 48m 27s
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 1 seconds. Total elapsed time: 3499.82 seconds; peak allocated memory: 139.082 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 58m 25s

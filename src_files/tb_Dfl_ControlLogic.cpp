@@ -314,41 +314,42 @@ int convLayer_test(int verbose, int debug, int minPrint,
 					int printErrorOnly, int printLayer, int biasReLuTrue,
 					int binInput){
 	// Memory Data
-	static px_data_t IfMap[IFMAP_MEMSIZE*7] = {0};
-	#if defined(IFMAP_FACTOR7)
-		static px_data_t_port IfMap2[MAP_SIZE] = {0};
+	static px_data_t IfMap[FMAP_MEMSIZE*2] = {0};
+	#if defined(FMAP_WIDEN)
+		static px_data_t_port IfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
+		static px_data_t_port OfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
 	#endif
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+	#if defined(WTMAP_WIDEN)
 		wt_data_t* WtMap_reordered = nullptr;
 		WtMap_reordered = new wt_data_t[WTMAP_MEMSIZE];
 		wt_data_t_port* WtMap_port = nullptr;
 		WtMap_port = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
 	#endif
-	static wt_data_t WtMap[MAP_SIZE] = {0};
-	static px_data_t OfMap[OFMAP_MEMSIZE] = {0}, OfMap_golden[OFMAP_MEMSIZE] = {0};
-	static px_data_t Compared_OfMap[OFMAP_MEMSIZE];
+	static wt_data_t WtMap[WTMAP_MEMSIZE] = {0};
+	static px_data_t OfMap[FMAP_MEMSIZE] = {0}, OfMap_golden[FMAP_MEMSIZE] = {0};
+	static px_data_t Compared_OfMap[FMAP_MEMSIZE];
 	int check = 0, printcheck;
 	std::cout << "Reached HERE!1" << std::endl;
 	for(int layerNo=0;layerNo<1;layerNo++){
 		std::cout << "*****  Layer " << layerNo+1 << "  *****" << std::endl;
 		// Initialize Memories
 		px_data_t* IfMap = initIfMap(layerNo, binInput);
-		// datapackIfMap(IfMap, IfMap_widened);
 		wt_data_t* WtMap = initWtMap(layerNo, binInput);
 		std::cout << "Reached HERE2!" << std::endl;
 		convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
 		std::cout << "Reached HERE3!" << std::endl;
-		#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+		#if defined(WTMAP_WIDEN)
 			wt_reorder(WtMap, WtMap_reordered, layerNo);
 			pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
 		#else
 			wt_data_t_port* WtMap_port = WtMap;
 		#endif
 		std::cout << "Reached HERE4!" << std::endl;
-		#if defined(IFMAP_FACTOR7)
-			pack<px_data_t_port>(IfMap, IfMap2, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
+		#if defined(FMAP_WIDEN)
+			pack<px_data_t_port>(IfMap, IfMap_port, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
 			std::cout << "Reached HERE5!" << std::endl;
-			ConvLayer(IfMap2, WtMap_port, OfMap);
+			ConvLayer(IfMap_port, WtMap_port, OfMap_port);
+			unpack<px_data_t_port>(OfMap_port, OfMap, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
 		#else
 			ConvLayer(IfMap, WtMap_port, OfMap);
 		#endif
@@ -356,7 +357,7 @@ int convLayer_test(int verbose, int debug, int minPrint,
 		printcheck = 0;
 		// Compare Output Feature Maps
 		int error_count = 0, error_positions[20], error_values[20], error_values_synth[20], error_values_tb[20];
-		for(int i=0;i<OFMAP_MEMSIZE;i++){
+		for(int i=0;i<FMAP_MEMSIZE;i++){
 			Compared_OfMap[i] = OfMap[i] - OfMap_golden[i];
 			if(OfMap[i] != OfMap_golden[i]){
 				check = 1; printcheck = 1;
@@ -372,7 +373,7 @@ int convLayer_test(int verbose, int debug, int minPrint,
 
 		int outofrange_synth = 0, outofrange_synth_positions[20], outofrange_synth_values[20];
 		int outofrange_tb = 0, outofrange_tb_positions[20], outofrange_tb_values[20];
-		for(int i=0;i<OFMAP_MEMSIZE;i++){
+		for(int i=0;i<FMAP_MEMSIZE;i++){
 			if(OfMap[i] < -HW_EMUL_SYMM_RANGE || OfMap[i] > HW_EMUL_SYMM_RANGE){
 				if(outofrange_synth<20){
 					outofrange_synth_positions[outofrange_synth] = i;
@@ -436,7 +437,7 @@ int convLayer_test(int verbose, int debug, int minPrint,
 			printIfMap(layerNo, IfMap, minPrint);
 			std::cout << "Printing WtMap of Layer" << layerNo+1 << std::endl;
 			printWtMap(layerNo, WtMap, minPrint);
-			#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+			#if defined(WTMAP_WIDEN)
 			std::cout << "Printing WtMap reordered of Layer" << layerNo+1 << std::endl;
 			printWtMap(layerNo, WtMap_reordered, minPrint);
 			#endif
@@ -615,7 +616,7 @@ void convLayer_software(int layerNo,
 
 	parameterCalculation(Noy_rom, Tof_rom, Toy_rom, Tox_rom, layerNo,
 		&Noy_step, &Niy, &Tof_step, &Toy_step, &Tox_step, &Tiy, &Tix, &row_1map, &wrd_1row);
-    static px_data_t IfMap_wpad[IFMAP_MEMSIZE*2] = {0};
+    static px_data_t IfMap_wpad[FMAP_MEMSIZE*2] = {0};
     // Add zero padding to Input Feature Maps
     for(int ni=0;ni<Nif_rom[layerNo];ni++){ // Loop-4
         for(int y=0;y<Noy_rom[layerNo]+2;y++){ // Loop-3.1
@@ -703,15 +704,15 @@ px_data_t* initIfMap(int layerNo, int binInput){
 			imgMem = imgLoadFromBin_wrapper();
 		}
 		else{
-			imgMem = new px_data_t[IFMAP_MEMSIZE];
-			for(int i=0;i<IFMAP_MEMSIZE;i++){
+			imgMem = new px_data_t[FMAP_MEMSIZE];
+			for(int i=0;i<FMAP_MEMSIZE;i++){
 				imgMem[i] = rand()%50;
 			}
 		}
 	}
 	else{
-		imgMem = new px_data_t[IFMAP_MEMSIZE];
-		for(int i=0;i<IFMAP_MEMSIZE;i++){
+		imgMem = new px_data_t[FMAP_MEMSIZE];
+		for(int i=0;i<FMAP_MEMSIZE;i++){
 			imgMem[i] = rand()%128;
 		}
 	}
@@ -731,35 +732,4 @@ wt_data_t* initWtMap(int layerNo, int binInput){
 		}
 	}
 	return WtMap;
-}
-
-
-void datapackIfMap(px_data_t *IfMap, px_data_t_port *IfMap_widened){
-	for(int i=0;i<IFMAP_MEMSIZE;i++){
-		#if DATA_TYPE==1 // 8 bits
-			IfMap_widened[i].range(7,0) = IfMap[i*7+0];
-			IfMap_widened[i].range(15,8) = IfMap[i*7+1];
-			IfMap_widened[i].range(23,16) = IfMap[i*7+2];
-			IfMap_widened[i].range(31,24) = IfMap[i*7+3];
-			IfMap_widened[i].range(39,32) = IfMap[i*7+4];
-			IfMap_widened[i].range(47,40) = IfMap[i*7+5];
-			IfMap_widened[i].range(55,48) = IfMap[i*7+6];
-		#elif DATA_TYPE==2 // 16 bits
-			IfMap_widened[i].range(15,0) = IfMap[i*7+0];
-			IfMap_widened[i].range(31,16) = IfMap[i*7+1];
-			IfMap_widened[i].range(47,32) = IfMap[i*7+2];
-			IfMap_widened[i].range(63,48) = IfMap[i*7+3];
-			IfMap_widened[i].range(79,64) = IfMap[i*7+4];
-			IfMap_widened[i].range(95,80) = IfMap[i*7+5];
-			IfMap_widened[i].range(111,96) = IfMap[i*7+6];
-		#elif DATA_TYPE==3 // 32 bits
-			IfMap_widened[i].range(31, 0)    = IfMap[i*7 + 0];
-			IfMap_widened[i].range(63, 32)   = IfMap[i*7 + 1];
-			IfMap_widened[i].range(95, 64)   = IfMap[i*7 + 2];
-			IfMap_widened[i].range(127, 96)  = IfMap[i*7 + 3];
-			IfMap_widened[i].range(159, 128) = IfMap[i*7 + 4];
-			IfMap_widened[i].range(191, 160) = IfMap[i*7 + 5];
-			IfMap_widened[i].range(223, 192) = IfMap[i*7 + 6];
-		#endif
-	}
 }

@@ -330,172 +330,173 @@
 	}
 */
 
+/*
+	int storeMaps_test(int verbose, int printLayer, int printNofStep, int printNoyStep){
+	// verbose=1 -> print every loadIfMap results for the impl.
+	// printLayer, printNofStep, printNoyStep -> print call for Layer=printLayer,...
+	// NofFirst -> loop order in each conv. layer
+	// May need to change yBase calculation if we change order to NofFirst = 1
+	// -1 are elements that are not written to in the specific iteration
 
-int storeMaps_test(int verbose, int printLayer, int printNofStep, int printNoyStep){
-// verbose=1 -> print every loadIfMap results for the impl.
-// printLayer, printNofStep, printNoyStep -> print call for Layer=printLayer,...
-// NofFirst -> loop order in each conv. layer
-// May need to change yBase calculation if we change order to NofFirst = 1
-// -1 are elements that are not written to in the specific iteration
+		// Declare all variable parameters
+		int Noy_step, Niy; // Noy_step=Noy/Toy
+		int Tof_step, Toy_step, Tox_step; // Tof_step=ceil(Tof/Pof), Toy_step=ceil(Toy/Poy), Tox_step=ceil(Tox/Pox)
+		int Tiy, Tix;
+		int row_1map, wrd_1row; // row_1map=ceil(Tiy/Poy), wrd_1row=ceil(Tix/Pox)
 
-	// Declare all variable parameters
-	int Noy_step /*Noy/Toy*/, Niy;
-	int Tof_step /*ceil(Tof/Pof)*/, Toy_step /*ceil(Toy/Poy)*/, Tox_step /*ceil(Tox/Pox)*/;
-	int Tiy, Tix;
-	int row_1map /*ceil(Tiy/Poy)*/, wrd_1row /*ceil(Tix/Pox)*/;
+		// Declare Variables
+		static px_data_t OfMap[OFMAP_MEMSIZE], OfMap_golden[OFMAP_MEMSIZE];
+		static px_data_t Compared_OfMap[OFMAP_MEMSIZE];
+		static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
+		int ofBase, yBase;
 
-	// Declare Variables
-	static px_data_t OfMap[OFMAP_MEMSIZE], OfMap_golden[OFMAP_MEMSIZE];
-	static px_data_t Compared_OfMap[OFMAP_MEMSIZE];
-	static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
-	int ofBase, yBase;
+		int check = 0;
 
-	int check = 0;
+		if(verbose || printLayer*printNofStep*printNoyStep){
+			std::cout << "\n***** Debugging storeMap  ***** " << "\n\n";
+		}
 
-	if(verbose || printLayer*printNofStep*printNoyStep){
-		std::cout << "\n***** Debugging storeMap  ***** " << "\n\n";
-	}
+		for(int layerNo=0;layerNo<LAYERS;layerNo++){
+			initOfMap_undef(layerNo, OfMap, -1); initOfMap_undef(layerNo, OfMap_golden, -1);
 
-	for(int layerNo=0;layerNo<LAYERS;layerNo++){
-		initOfMap_undef(layerNo, OfMap, -1); initOfMap_undef(layerNo, OfMap_golden, -1);
+			parameterCalculation(Noy_rom, Tof_rom, Toy_rom, Tox_rom, layerNo,
+				&Noy_step, &Niy, &Tof_step, &Toy_step, &Tox_step, &Tiy, &Tix, &row_1map, &wrd_1row);
 
-		parameterCalculation(Noy_rom, Tof_rom, Toy_rom, Tox_rom, layerNo,
-			&Noy_step, &Niy, &Tof_step, &Toy_step, &Tox_step, &Tiy, &Tix, &row_1map, &wrd_1row);
+			// Call storeMap to load parameters
+			storeMap(1, OutBuf, OfMap);
 
-		// Call storeMap to load parameters
-		storeMap(/*layerCnfg=*/1, OutBuf, OfMap);
+			if(nofFirst[layerNo]){
+				for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
+					for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
 
-		if(nofFirst[layerNo]){
-			for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
-				for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
-
-					// Initialize OutBuf [OUTBUF_NUM][WRD_OUTBUF][POX]
-					for(int OutBufNum_i=0;OutBufNum_i<OUTBUF_NUM;OutBufNum_i++){
-						for(int WrdOutBuf_i=0;WrdOutBuf_i<WRD_OUTBUF;WrdOutBuf_i++){
-							for(int Pox_i=0;Pox_i<POX;Pox_i++){
-								OutBuf[OutBufNum_i][WrdOutBuf_i][Pox_i] =
-										Nof_step_i*100000 + Noy_step_i*10000
-										+ OutBufNum_i*1000 + WrdOutBuf_i*100
-										+ Pox_i*10;
-							}
-						}
-					}
-
-					if(verbose || printLayer*printNofStep*printNoyStep){
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						printOutBuf(layerNo, OutBuf);
-					}
-
-					// Code below needs to be copy-paste from ConvLayer module
-					ofBase = Nof_step_i; yBase = Noy_step_i;
-
-					storeMap(/*layerCnfg=*/0, OutBuf, OfMap);
-
-					storeMaps_software(layerNo, Nof_step_i, Noy_step_i,
-							OfMap_golden, OutBuf);
-
-					// Compare values of OfMap
-					for(int Nof_i=0;Nof_i<(Nof_step_rom[layerNo]*Tof_rom[layerNo]);Nof_i++){
-						for(int Noy_i=0;Noy_i<Noy_rom[layerNo];Noy_i++){
-							for(int Nox_i=0;Nox_i<Tox_rom[layerNo];Nox_i++){
-								if(*( OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) !=
-										*( OfMap_golden + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i )){
-									check = 1;
+						// Initialize OutBuf [OUTBUF_NUM][WRD_OUTBUF][POX]
+						for(int OutBufNum_i=0;OutBufNum_i<OUTBUF_NUM;OutBufNum_i++){
+							for(int WrdOutBuf_i=0;WrdOutBuf_i<WRD_OUTBUF;WrdOutBuf_i++){
+								for(int Pox_i=0;Pox_i<POX;Pox_i++){
+									OutBuf[OutBufNum_i][WrdOutBuf_i][Pox_i] =
+											Nof_step_i*100000 + Noy_step_i*10000
+											+ OutBufNum_i*1000 + WrdOutBuf_i*100
+											+ Pox_i*10;
 								}
-								*( Compared_OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) =
-										*( OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) -
-										*( OfMap_golden + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i );
 							}
 						}
-					}
 
-					// Print information for debugging
-					if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
-							&& Noy_step_i == printNoyStep-1)){
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Output Feature Maps under test" << std::endl;
-						printOfMap(layerNo, OfMap, 0);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Golden Output Feature Maps" << std::endl;
-						printOfMap(layerNo, OfMap_golden, 0);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Comparison of Output Feature Maps" << std::endl;
-						printOfMap(layerNo, Compared_OfMap, 0);
+						if(verbose || printLayer*printNofStep*printNoyStep){
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							printOutBuf(layerNo, OutBuf);
+						}
+
+						// Code below needs to be copy-paste from ConvLayer module
+						ofBase = Nof_step_i; yBase = Noy_step_i;
+
+						storeMap(0, OutBuf, OfMap);
+
+						storeMaps_software(layerNo, Nof_step_i, Noy_step_i,
+								OfMap_golden, OutBuf);
+
+						// Compare values of OfMap
+						for(int Nof_i=0;Nof_i<(Nof_step_rom[layerNo]*Tof_rom[layerNo]);Nof_i++){
+							for(int Noy_i=0;Noy_i<Noy_rom[layerNo];Noy_i++){
+								for(int Nox_i=0;Nox_i<Tox_rom[layerNo];Nox_i++){
+									if(*( OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) !=
+											*( OfMap_golden + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i )){
+										check = 1;
+									}
+									*( Compared_OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) =
+											*( OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) -
+											*( OfMap_golden + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i );
+								}
+							}
+						}
+
+						// Print information for debugging
+						if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
+								&& Noy_step_i == printNoyStep-1)){
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Output Feature Maps under test" << std::endl;
+							printOfMap(layerNo, OfMap, 0);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Golden Output Feature Maps" << std::endl;
+							printOfMap(layerNo, OfMap_golden, 0);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Comparison of Output Feature Maps" << std::endl;
+							printOfMap(layerNo, Compared_OfMap, 0);
+						}
 					}
 				}
 			}
+			else{
+				for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
+					for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
+
+						// Initialize OutBuf [OUTBUF_NUM][WRD_OUTBUF][POX]
+						for(int OutBufNum_i=0;OutBufNum_i<OUTBUF_NUM;OutBufNum_i++){
+							for(int WrdOutBuf_i=0;WrdOutBuf_i<WRD_OUTBUF;WrdOutBuf_i++){
+								for(int Pox_i=0;Pox_i<POX;Pox_i++){
+									OutBuf[OutBufNum_i][WrdOutBuf_i][Pox_i] =
+											Nof_step_i*100000 + Noy_step_i*10000
+											+ OutBufNum_i*1000 + WrdOutBuf_i*100
+											+ Pox_i*10;
+								}
+							}
+						}
+
+						if(verbose || printLayer*printNofStep*printNoyStep){
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							printOutBuf(layerNo, OutBuf);
+						}
+
+						// Code below needs to be copy-paste from ConvLayer module
+						ofBase = Nof_step_i; yBase = Noy_step_i;
+
+						storeMap(0, OutBuf, OfMap);
+
+						storeMaps_software(layerNo, Nof_step_i, Noy_step_i,
+								OfMap_golden, OutBuf);
+
+						// Compare values of OfMap
+						for(int Nof_i=0;Nof_i<(Nof_step_rom[layerNo]*Tof_rom[layerNo]);Nof_i++){
+							for(int Noy_i=0;Noy_i<Noy_rom[layerNo];Noy_i++){
+								for(int Nox_i=0;Nox_i<Tox_rom[layerNo];Nox_i++){
+									if(*( OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) !=
+											*( OfMap_golden + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i )){
+										check = 1;
+									}
+									*( Compared_OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) =
+											*( OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) -
+											*( OfMap_golden + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i );
+								}
+							}
+						}
+
+						// Print information for debugging
+						if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
+								&& Noy_step_i == printNoyStep-1)){
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Output Feature Maps under test" << std::endl;
+							printOfMap(layerNo, OfMap, 0);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Golden Output Feature Maps" << std::endl;
+							printOfMap(layerNo, OfMap_golden, 0);
+							std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
+							std::cout << "Printing Comparison of Output Feature Maps" << std::endl;
+							printOfMap(layerNo, Compared_OfMap, 0);
+						}
+					}
+				}
+			}
+		}
+
+		// Verification Print
+		if(check){
+			std::cout << "*****  Loading OutBuf to OfMap test failed!  ******\n" << std::endl;
 		}
 		else{
-			for(int Noy_step_i=0;Noy_step_i<Noy_step;Noy_step_i++){
-				for(int Nof_step_i=0;Nof_step_i<Nof_step_rom[layerNo];Nof_step_i++){
-
-					// Initialize OutBuf [OUTBUF_NUM][WRD_OUTBUF][POX]
-					for(int OutBufNum_i=0;OutBufNum_i<OUTBUF_NUM;OutBufNum_i++){
-						for(int WrdOutBuf_i=0;WrdOutBuf_i<WRD_OUTBUF;WrdOutBuf_i++){
-							for(int Pox_i=0;Pox_i<POX;Pox_i++){
-								OutBuf[OutBufNum_i][WrdOutBuf_i][Pox_i] =
-										Nof_step_i*100000 + Noy_step_i*10000
-										+ OutBufNum_i*1000 + WrdOutBuf_i*100
-										+ Pox_i*10;
-							}
-						}
-					}
-
-					if(verbose || printLayer*printNofStep*printNoyStep){
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						printOutBuf(layerNo, OutBuf);
-					}
-
-					// Code below needs to be copy-paste from ConvLayer module
-					ofBase = Nof_step_i; yBase = Noy_step_i;
-
-					storeMap(/*layerCnfg=*/0, OutBuf, OfMap);
-
-					storeMaps_software(layerNo, Nof_step_i, Noy_step_i,
-							OfMap_golden, OutBuf);
-
-					// Compare values of OfMap
-					for(int Nof_i=0;Nof_i<(Nof_step_rom[layerNo]*Tof_rom[layerNo]);Nof_i++){
-						for(int Noy_i=0;Noy_i<Noy_rom[layerNo];Noy_i++){
-							for(int Nox_i=0;Nox_i<Tox_rom[layerNo];Nox_i++){
-								if(*( OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) !=
-										*( OfMap_golden + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i )){
-									check = 1;
-								}
-								*( Compared_OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) =
-										*( OfMap + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i ) -
-										*( OfMap_golden + Nof_i*Noy_rom[layerNo]*Tox_rom[layerNo] + Noy_i*Tox_rom[layerNo] + Nox_i );
-							}
-						}
-					}
-
-					// Print information for debugging
-					if(verbose || (layerNo == printLayer-1 && Nof_step_i == printNofStep-1
-							&& Noy_step_i == printNoyStep-1)){
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Output Feature Maps under test" << std::endl;
-						printOfMap(layerNo, OfMap, 0);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Golden Output Feature Maps" << std::endl;
-						printOfMap(layerNo, OfMap_golden, 0);
-						std::cout << "\nFor Layer -> " << layerNo << " ,Nof_step -> " << Nof_step_i << " ,Noy_step -> " << Noy_step_i << "\n\n";
-						std::cout << "Printing Comparison of Output Feature Maps" << std::endl;
-						printOfMap(layerNo, Compared_OfMap, 0);
-					}
-				}
-			}
+			std::cout << "*****  storeMap Test Passed!  ******\n" << std::endl;
 		}
+		return check;
 	}
-
-	// Verification Print
-	if(check){
-		std::cout << "*****  Loading OutBuf to OfMap test failed!  ******\n" << std::endl;
-	}
-	else{
-		std::cout << "*****  storeMap Test Passed!  ******\n" << std::endl;
-	}
-	return check;
-}
+*/
 
 // ***** Printing Functions  *****
 

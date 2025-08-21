@@ -92,20 +92,20 @@ void loadBiasTile(data_bool layerCnfg,
 void loadIfMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ data_bool northTile, data_bool southTile,
-		Niy_dt yBase_in, const px_data_t_port IfMap[IFMAP_MEMSIZE],//[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
+		Niy_dt yBase_in, const px_data_t_port *IfMap,//[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
 		/* Output */ px_data_t InBuf[POY][WRD_INBUF][POX]);
 void loadWtMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t WtMap[WTMAP_MEMSIZE],
-		/* Output */ wt_data_t_port WtBuf[WRD_WTBUF][POF]);
+		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t_port *WtMap,
+		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]);
 void storeMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
-		/* Output */ px_data_t OfMap[OFMAP_MEMSIZE]);
+		/* Output */ px_data_t_port *OfMap);
 void mem2Buf(
 		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ const px_data_t_port IfMap[IFMAP_MEMSIZE],
-		const wt_data_t_port WtMap[WTMAP_MEMSIZE],
+		/* Inputs */ const px_data_t_port *IfMap,
+		const wt_data_t_port *WtMap,
 		/* Outputs */ px_data_t InBuf[POY][WRD_INBUF][POX],
 		wt_data_t WtBuf[WRD_WTBUF][POF]);
 void ConvLayer_Dfl(
@@ -115,13 +115,16 @@ void ConvLayer_Dfl(
 		wt_data_t_port WtBuf1[WRD_WTBUF][POF], wt_data_t WtBuf2[WRD_WTBUF][POF],
 		px_data_t_port OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
 		b_data_t BiasBuf1[BIASBUF_LENGTH], b_data_t BiasBuf2[BIASBUF_LENGTH],
-		/* Inputs */ px_data_t_port IfMap[IFMAP_MEMSIZE],
-		wt_data_t WtMap[WTMAP_MEMSIZE],
-		/* Output */ px_data_t OfMap[OFMAP_MEMSIZE]);
+		/* Inputs */ px_data_t_port *IfMap,
+		wt_data_t_port *WtMap,
+		/* Output */ px_data_t_port *OfMap);
 void ConvLayer(
-		/*Inputs*/ const px_data_t_port IfMap[IFMAP_MEMSIZE], // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
-		const wt_data_t_port WtMap[WTMAP_MEMSIZE], // [NOF][NIF][NKY][NKX]
-		/*Output*/ px_data_t OfMap[OFMAP_MEMSIZE]);
+		//Inputs
+		const px_data_t_port *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
+		const wt_data_t_port *WtMap, 	// [NOF][NIF][NKY][NKX]
+		//Output
+		px_data_t_port *OfMap 	// [NOF][NOY][NOX]
+	);
 void ConvLayer_module(data_bool layerCnfg, int test, int loop_limit_1, int loop_limit_2,
 		px_data_t *IfMap,  // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
 		wt_data_t *WtMap,  // [NOF][NIF][NKY][NKX]
@@ -267,7 +270,7 @@ void wtMemInitBin(wt_data_t*& WtMapCNN, wt_data_t**& WtMapConv, wt_data_t**& WtM
 int MemInitBin_test();
 
 // Misc Functions
-#if defined(IFMAP_FACTOR7) || defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16)|| defined(WTMAP_FACTOR32)
+#if defined(FMAP_WIDEN) || defined(WTMAP_WIDEN)
 template <typename data_t_widened>
 void pack(px_data_t *Map, data_t_widened *Map_widened,
             int factor, int mem_size_widened){
@@ -279,21 +282,20 @@ void pack(px_data_t *Map, data_t_widened *Map_widened,
     }
 }
 #endif
-
-
-#if defined(IFMAP_FACTOR7) || defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+#if defined(FMAP_WIDEN) || defined(WTMAP_WIDEN)
 template <typename data_t_widened>
 void unpack(data_t_widened *Map_widened, px_data_t *Map, 
 			int factor, int mem_size_widened){
 	for(int i=0;i<mem_size_widened;i++){
 		for(int factor_i=0;factor_i<factor;factor_i++){
-			Map [i*factor+factor_i] = 
+			Map[i*factor+factor_i] = 
 				Map_widened[i].range(SYNTH_BITS*(factor_i+1)-1,SYNTH_BITS*factor_i);
 		}
 	}
 }
 #endif
-
 void wt_reorder(wt_data_t *Map, wt_data_t *Map_reordered, int layerNo);
+void convChoice(px_data_t *IfMap, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
+		px_data_t *OfMap, int layerNo);
 
 #endif // FUNCTION_DECLARATIONS_H

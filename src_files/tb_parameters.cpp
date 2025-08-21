@@ -38,9 +38,9 @@ int Print_Check_Parameters(int verbose){
 		std::cout << "Row size of Input Pixel Buffer -> " << WRD_INBUF << "  Row size of Weight Buffer -> " << WRD_WTBUF << std::endl;
 		std::cout << "Row size of Output Pixel Buffer -> " << WRD_OUTBUF << "  Bank Number of Output Pixel Buffer -> " << OUTBUF_NUM << std::endl;
 		std::cout << " *** Memory Sizing:" << std::endl;
-		std::cout << "Memory Size for Input Feature Maps -> " << IFMAP_MEMSIZE << std::endl;
+		std::cout << "Memory Size for Input Feature Maps -> " << FMAP_MEMSIZE << std::endl;
 		std::cout << "Memory Size for Weight Maps -> " << WTMAP_MEMSIZE << std::endl;
-		std::cout << "Memory Size for Output Feature Maps -> " << OFMAP_MEMSIZE << std::endl;
+		std::cout << "Memory Size for Output Feature Maps -> " << FMAP_MEMSIZE << std::endl;
 		std::cout << " *** Secondary Parameters:" << std::endl;
 		std::cout << "  Pof step in OutBuf banks -> " << POFBANK_STEP << std::endl;
 		std::cout << " ** Variable Parameters" << std::endl;
@@ -113,9 +113,9 @@ int Print_Check_Parameters(int verbose){
 			check = 1;
 		}
 		// 5. Memory Size is enough for feature maps.
-		if(IFMAP_MEMSIZE < Nif_rom[layerNo]*niy_rom[layerNo]*(tix_rom[layerNo]-2) ||
+		if(FMAP_MEMSIZE < Nif_rom[layerNo]*niy_rom[layerNo]*(tix_rom[layerNo]-2) ||
 				WTMAP_MEMSIZE < Nif_rom[layerNo]*Nof_step_rom[layerNo]*Tof_rom[layerNo]*NKY*NKX ||
-				OFMAP_MEMSIZE < Nof_step_rom[layerNo]*Tof_rom[layerNo]*Noy_rom[layerNo]*Tox_rom[layerNo]){
+				FMAP_MEMSIZE < Nof_step_rom[layerNo]*Tof_rom[layerNo]*Noy_rom[layerNo]*Tox_rom[layerNo]){
 			std::cout << "Memory size is not enough." << std::endl;
 			std::cout << "Error in layer " << layerNo << std::endl;
 			check = 1;

@@ -18,14 +18,14 @@
 #if (DATA_TYPE == 0)
 	constexpr int SYNTH_BITS=32;
 	typedef int px_data_t;
-	#if defined(IFMAP_FACTOR7)
+	#if defined(FMAP_WIDEN)
 		typedef ap_int<224> px_data_t_port;
 	#else
 		typedef px_data_t px_data_t_port;
 	#endif
 	typedef int acc_data_t;
 	typedef int wt_data_t;
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+	#if defined(WTMAP_WIDEN)
 		typedef ap_int<(32*WTMAP_WIDTHFACTOR)> wt_data_t_port;
 	#else
 		typedef wt_data_t wt_data_t_port;
@@ -37,14 +37,14 @@
 #elif (DATA_TYPE == 1)
 	constexpr int SYNTH_BITS=8;
 	typedef ap_int<8> px_data_t;
-	#if defined(IFMAP_FACTOR7)
+	#if defined(FMAP_WIDEN)
 		typedef ap_int<56> px_data_t_port;
 	#else
 		typedef px_data_t px_data_t_port;
 	#endif
 	typedef ap_int<18> acc_data_t;
 	typedef ap_int<8> wt_data_t;
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+	#if defined(WTMAP_WIDEN)
 		typedef ap_int<(SYNTH_BITS*WTMAP_WIDTHFACTOR)> wt_data_t_port;
 	#else
 		typedef wt_data_t wt_data_t_port;
@@ -56,14 +56,14 @@
 #elif (DATA_TYPE == 2)
 	constexpr int SYNTH_BITS=16;
 	typedef ap_int<16> px_data_t;
-	#if defined(IFMAP_FACTOR7)
+	#if defined(FMAP_WIDEN)
 		typedef ap_int<112> px_data_t_port;
 	#else
 		typedef px_data_t px_data_t_port;
 	#endif
 	typedef ap_int<32> acc_data_t;
 	typedef ap_int<16> wt_data_t;
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+	#if defined(WTMAP_WIDEN)
 		typedef ap_int<(SYNTH_BITS*WTMAP_WIDTHFACTOR)> wt_data_t_port;
 	#else
 		typedef wt_data_t wt_data_t_port;
@@ -75,14 +75,14 @@
 #elif (DATA_TYPE == 3)
 	constexpr int SYNTH_BITS=32;
 	typedef ap_int<32> px_data_t;
-	#if defined(IFMAP_FACTOR7)
+	#if defined(FMAP_WIDEN)
 		typedef ap_int<224> px_data_t_port;
 	#else
 		typedef px_data_t px_data_t_port;
 	#endif
 	typedef ap_int<32> acc_data_t;
 	typedef ap_int<32> wt_data_t;
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
+	#if defined(WTMAP_WIDEN)
 		typedef ap_int<(SYNTH_BITS*WTMAP_WIDTHFACTOR)> wt_data_t_port;
 	#else
 		typedef wt_data_t wt_data_t_port;

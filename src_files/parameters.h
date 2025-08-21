@@ -21,7 +21,7 @@
 // 7 -> VGG-16 Parameters (*)
 // 8 -> VGG-Base
 // 9 -> Model from Trasfer Learning
-#define SOLUTION 2
+#define SOLUTION 1
 // 0 -> VGG-16 Parameters Solution 1 -> Pof=32, Poy=Pox=7
 // 1 -> VGG-16 Parameters Solution 2 -> Pof=16, Poy=Pox=7 (*)
 // 2 -> VGG-16 Parameters Solution 3 -> Pof=8 , Poy=Pox=7 (*)
@@ -174,20 +174,10 @@
 	constexpr int fulBufPx[LAYERS] = {0, 1};
 	constexpr int bit_shift_rom[LAYERS] = {0, 0};
 	// Software Parameters
-	#define IFMAP_MEMSIZE 4056
-	#if defined(IFMAP_FACTOR7)
-		#define IFMAP_MEMSIZE_WIDENED (4056/7)
-	#elif defined(IFMAP_FACTOR1)
-		#define IFMAP_MEMSIZE_WIDENED 4056
-	#endif
+	#define FMAP_MEMSIZE 4056
+	#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 	#define WTMAP_MEMSIZE 270
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-	#elif defined(WTMAP_FACTOR1)
-		#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-	#endif
-	#define OFMAP_MEMSIZE 4056
-	#define MAP_SIZE 4056
+	#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 	// Parameters that are calculated from necessary parameters
 	constexpr int noy_step_rom[LAYERS] = {2, 1};
 	constexpr int nofy_step_rom[LAYERS] = {2, 1}; // max of Nof_step, Noy_step
@@ -302,20 +292,10 @@
 	constexpr int fulBufPx[LAYERS] = {0, 0};
 	constexpr int bit_shift_rom[LAYERS] = {0, 0};
 	// Software Parameters
-	#define IFMAP_MEMSIZE 1008
-	#if defined(IFMAP_FACTOR7)
-		#define IFMAP_MEMSIZE_WIDENED (1008/7)
-	#elif defined(IFMAP_FACTOR1)
-		#define IFMAP_MEMSIZE_WIDENED 1008
-	#endif
+	#define FMAP_MEMSIZE 1008
+	#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 	#define WTMAP_MEMSIZE 243
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-	#elif defined(WTMAP_FACTOR1)
-		#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-	#endif
-	#define OFMAP_MEMSIZE 1296
-	#define MAP_SIZE 1296
+	#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 	// Parameters that are calculated from necessary parameters
 	constexpr int noy_step_rom[LAYERS] = {2, 3};
 	constexpr int nofy_step_rom[LAYERS] = {2, 3}; // max of Nof_step, Noy_step
@@ -431,20 +411,10 @@
 	constexpr int fulBufPx[LAYERS] = {0, 1};
 	constexpr int bit_shift_rom[LAYERS] = {0, 0};
 	// Software Parameters
-	#define IFMAP_MEMSIZE 183600
-	#if defined(IFMAP_FACTOR7)
-		#define IFMAP_MEMSIZE_WIDENED (183600/7+1)
-	#elif defined(IFMAP_FACTOR1)
-		#define IFMAP_MEMSIZE_WIDENED 183600
-	#endif
+	#define FMAP_MEMSIZE 183600
+	#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 	#define WTMAP_MEMSIZE 49572
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-	#elif defined(WTMAP_FACTOR1)
-		#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-	#endif
-	#define OFMAP_MEMSIZE 388800
-	#define MAP_SIZE 388800
+	#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 	// Parameters that are calculated from necessary parameters
 	constexpr int noy_step_rom[LAYERS] = {4, 1};
 	constexpr int nofy_step_rom[LAYERS] = {4, 6}; // max of Nof_step, Noy_step
@@ -559,20 +529,10 @@
 	constexpr int fulBufPx[LAYERS] = {0, 1};
 	constexpr int bit_shift_rom[LAYERS] = {0, 0};
 	// Software Parameters
-	#define IFMAP_MEMSIZE 1204224
-	#if defined(IFMAP_FACTOR7)
-		#define IFMAP_MEMSIZE_WIDENED (1204224/7)
-	#elif defined(IFMAP_FACTOR1)
-		#define IFMAP_MEMSIZE_WIDENED 1204224
-	#endif
+	#define FMAP_MEMSIZE 1204224
+	#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 	#define WTMAP_MEMSIZE 165888
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-	#elif defined(WTMAP_FACTOR1)
-		#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-	#endif
-	#define OFMAP_MEMSIZE 2408448
-	#define MAP_SIZE 2408448
+	#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 	// Parameters that are calculated from necessary parameters
 	constexpr int noy_step_rom[LAYERS] = {8, 1};
 	constexpr int nofy_step_rom[LAYERS] = {8, 6}; // max of Nof_step, Noy_step
@@ -687,20 +647,10 @@
 	constexpr int fulBufPx[LAYERS] = {0, 1};
 	constexpr int bit_shift_rom[LAYERS] = {0, 0};
 	// Software Parameters
-	#define IFMAP_MEMSIZE 1728
-	#if defined(IFMAP_FACTOR7)
-		#define IFMAP_MEMSIZE_WIDENED (1728/7+1)
-	#elif defined(IFMAP_FACTOR1)
-		#define IFMAP_MEMSIZE_WIDENED 1728
-	#endif
+	#define FMAP_MEMSIZE 1728
+	#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 	#define WTMAP_MEMSIZE 1296
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-	#elif defined(WTMAP_FACTOR1)
-		#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-	#endif
-	#define OFMAP_MEMSIZE 1728
-	#define MAP_SIZE 1728
+	#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 	// Parameters that are calculated from necessary parameters
 	constexpr int noy_step_rom[LAYERS] = {2, 1};
 	constexpr int nofy_step_rom[LAYERS] = {2, 2}; // max of Nof_step, Noy_step
@@ -816,20 +766,10 @@
 	constexpr int fulBufPx[LAYERS] = {0, 0};
 	constexpr int bit_shift_rom[LAYERS] = {0, 0};
 	// Software Parameters
-	#define IFMAP_MEMSIZE 3211264
-	#if defined(IFMAP_FACTOR7)
-		#define IFMAP_MEMSIZE_WIDENED (3211264/7)
-	#elif defined(IFMAP_FACTOR1)
-		#define IFMAP_MEMSIZE_WIDENED 3211264
-	#endif
+	#define FMAP_MEMSIZE 3211264
+	#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 	#define WTMAP_MEMSIZE 36864
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-	#elif defined(WTMAP_FACTOR1)
-		#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-	#endif
-	#define OFMAP_MEMSIZE 3211264
-	#define MAP_SIZE 3211264 // should be max of IFMAP_MEMSIZE and OFMAP_MEMSIZE
+	#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 	// Parameters that are calculated from necessary parameters
 	constexpr int noy_step_rom[LAYERS] = {8, 8};
 	constexpr int nofy_step_rom[LAYERS] = {8, 8}; // max of Nof_step, Noy_step
@@ -945,20 +885,10 @@
 	constexpr int fulBufPx[LAYERS] = {1, 1};
 	constexpr int bit_shift_rom[LAYERS] = {0, 0};
 	// Software Parameters
-	#define IFMAP_MEMSIZE 401408
-	#if defined(IFMAP_FACTOR7)
-		#define IFMAP_MEMSIZE_WIDENED (401408/7)
-	#elif defined(IFMAP_FACTOR1)
-		#define IFMAP_MEMSIZE_WIDENED 401408
-	#endif
+	#define FMAP_MEMSIZE 401408
+	#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 	#define WTMAP_MEMSIZE 2359296
-	#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-	#elif defined(WTMAP_FACTOR1)
-		#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-	#endif
-	#define OFMAP_MEMSIZE 401408
-	#define MAP_SIZE 401408 // should be max of IFMAP_MEMSIZE and OFMAP_MEMSIZE
+	#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 	// Parameters that are calculated from necessary parameters
 	constexpr int noy_step_rom[LAYERS] = {1, 1};
 	constexpr int nofy_step_rom[LAYERS] = {4, 4}; // max of Nof_step, Noy_step
@@ -1089,20 +1019,10 @@
 		constexpr int fulBufPx[LAYERS] = 		{ 0,  0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1};
 		constexpr int bit_shift_rom[LAYERS] = 	{10, 10, 9, 9, 8, 8, 8, 8, 7, 8, 8, 8, 7};
 		// Software Parameters
-		#define IFMAP_MEMSIZE 3211264
-		#if defined(IFMAP_FACTOR7)
-			#define IFMAP_MEMSIZE_WIDENED 458752
-		#elif defined(IFMAP_FACTOR1)
-			#define IFMAP_MEMSIZE_WIDENED 3211264
-		#endif
+		#define FMAP_MEMSIZE 3211264
+		#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 		#define WTMAP_MEMSIZE 2359296
-		#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-			#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-		#elif defined(WTMAP_FACTOR1)
-			#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-		#endif	
-		#define OFMAP_MEMSIZE 3211264
-		#define MAP_SIZE 3211264 // should be max of IFMAP_MEMSIZE and OFMAP_MEMSIZE
+		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 		// Parameters that are calculated from necessary parameters
 		constexpr int noy_step_rom[LAYERS] = {8, 8, 4, 4, 2, 2, 2, 1, 1, 1, 1, 1, 1};
 		constexpr int nofy_step_rom[LAYERS] = {8, 8, 4, 4, 2, 2, 2, 4, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
@@ -1226,20 +1146,10 @@
 		constexpr int fulBufPx[LAYERS] = 		{ 0,  0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1};
 		constexpr int bit_shift_rom[LAYERS] = 	{10, 10, 9, 9, 8, 8, 8, 8, 7, 8, 8, 8, 7};
 		// Software Parameters
-		#define IFMAP_MEMSIZE 3211264
-		#if defined(IFMAP_FACTOR7)
-			#define IFMAP_MEMSIZE_WIDENED 458752
-		#elif defined(IFMAP_FACTOR1)
-			#define IFMAP_MEMSIZE_WIDENED 3211264
-		#endif
+		#define FMAP_MEMSIZE 3211264
+		#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 		#define WTMAP_MEMSIZE 2359296
-		#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-			#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-		#elif defined(WTMAP_FACTOR1)
-			#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-		#endif	
-		#define OFMAP_MEMSIZE 3211264
-		#define MAP_SIZE 3211264 // should be max of IFMAP_MEMSIZE and OFMAP_MEMSIZE
+		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 		// Parameters that are calculated from necessary parameters
 		constexpr int noy_step_rom[LAYERS] = {8, 8, 4, 4, 2, 2, 2, 1, 1, 1, 1, 1, 1};
 		constexpr int nofy_step_rom[LAYERS] = {8, 8, 4, 4, 2, 2, 2, 4, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
@@ -1363,20 +1273,10 @@
 		constexpr int fulBufPx[LAYERS] = 		{ 0,  0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1};
 		constexpr int bit_shift_rom[LAYERS] = 	{10, 10, 9, 9, 8, 8, 8, 8, 7, 8, 8, 8, 7};
 		// Software Parameters
-		#define IFMAP_MEMSIZE 3211264
-		#if defined(IFMAP_FACTOR7)
-			#define IFMAP_MEMSIZE_WIDENED 458752
-		#elif defined(IFMAP_FACTOR1)
-			#define IFMAP_MEMSIZE_WIDENED 3211264
-		#endif
+		#define FMAP_MEMSIZE 3211264
+		#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
 		#define WTMAP_MEMSIZE 2359296
-		#if defined(WTMAP_FACTOR8) || defined(WTMAP_FACTOR16) || defined(WTMAP_FACTOR32)
-			#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
-		#elif defined(WTMAP_FACTOR1)
-			#define WTMAP_MEMSIZE_WIDENED WTMAP_MEMSIZE
-		#endif
-		#define OFMAP_MEMSIZE 3211264
-		#define MAP_SIZE 3211264 // should be max of IFMAP_MEMSIZE and OFMAP_MEMSIZE
+		#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 		// Parameters that are calculated from necessary parameters
 		constexpr int noy_step_rom[LAYERS] = {8, 8, 4, 4, 2, 2, 2, 1, 1, 1, 1, 1, 1};
 		constexpr int nofy_step_rom[LAYERS] = {8, 8, 4, 4, 2, 2, 2, 4, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step

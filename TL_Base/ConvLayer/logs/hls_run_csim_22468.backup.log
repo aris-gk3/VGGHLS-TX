@@ -382,7 +382,7 @@ For this tile, bit shift is 10
 Finished tileClc tile:7
 Finished tile:7
 Weights: min=-101, max=91
-Conv0: min=0, max=102
+01) After block1_conv1: min=0, max=102
 Loaded parameters in mem2Buf, layer:1
 Loaded parameters in loadBiasTile, layer:1
 Loaded parameters in tileClc, layer:1
@@ -428,8 +428,8 @@ For this tile, bit shift is 10
 Finished tileClc tile:7
 Finished tile:7
 Weights: min=-52, max=70
-Conv1: min=0, max=90
-After maxpool1: min=0, max=90
+02) After block1_conv2: min=0, max=90
+03) After maxpool1: min=0, max=90
 Loaded parameters in mem2Buf, layer:2
 Loaded parameters in loadBiasTile, layer:2
 Loaded parameters in tileClc, layer:2
@@ -455,7 +455,7 @@ For this tile, bit shift is 9
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-85, max=105
-Conv2: min=0, max=84
+04) After block2_conv1: min=0, max=84
 Loaded parameters in mem2Buf, layer:3
 Loaded parameters in loadBiasTile, layer:3
 Loaded parameters in tileClc, layer:3
@@ -481,8 +481,8 @@ For this tile, bit shift is 9
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-64, max=97
-Conv3: min=0, max=95
-After maxpool2: min=0, max=95
+05) After block2_conv2: min=0, max=95
+06) After maxpool2: min=0, max=95
 Loaded parameters in mem2Buf, layer:4
 Loaded parameters in loadBiasTile, layer:4
 Loaded parameters in tileClc, layer:4
@@ -498,7 +498,7 @@ For this tile, bit shift is 8
 Finished tileClc tile:1
 Finished tile:1
 Weights: min=-40, max=118
-Conv4: min=0, max=98
+07) After block3_conv1: min=0, max=98
 Loaded parameters in mem2Buf, layer:5
 Loaded parameters in loadBiasTile, layer:5
 Loaded parameters in tileClc, layer:5
@@ -514,7 +514,7 @@ For this tile, bit shift is 8
 Finished tileClc tile:1
 Finished tile:1
 Weights: min=-40, max=104
-Conv5: min=0, max=73
+08) After block3_conv2: min=0, max=73
 Loaded parameters in mem2Buf, layer:6
 Loaded parameters in loadBiasTile, layer:6
 Loaded parameters in tileClc, layer:6
@@ -530,8 +530,8 @@ For this tile, bit shift is 8
 Finished tileClc tile:1
 Finished tile:1
 Weights: min=-43, max=95
-Conv6: min=0, max=66
-After maxpool3: min=0, max=66
+09) After block3_conv3: min=0, max=66
+10) After maxpool3: min=0, max=66
 Loaded parameters in mem2Buf, layer:7
 Loaded parameters in loadBiasTile, layer:7
 Loaded parameters in tileClc, layer:7
@@ -557,7 +557,7 @@ For this tile, bit shift is 8
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-43, max=109
-Conv7: min=0, max=58
+11) After block4_conv1: min=0, max=58
 Loaded parameters in mem2Buf, layer:8
 Loaded parameters in loadBiasTile, layer:8
 Loaded parameters in tileClc, layer:8
@@ -583,7 +583,7 @@ For this tile, bit shift is 7
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-23, max=73
-Conv8: min=0, max=58
+12) After block4_conv2: min=0, max=58
 Loaded parameters in mem2Buf, layer:9
 Loaded parameters in loadBiasTile, layer:9
 Loaded parameters in tileClc, layer:9
@@ -609,8 +609,8 @@ For this tile, bit shift is 8
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-55, max=112
-Conv9: min=0, max=42
-After maxpool4: min=0, max=42
+13) After block4_conv3: min=0, max=42
+14) After maxpool4: min=0, max=42
 Loaded parameters in mem2Buf, layer:10
 Loaded parameters in loadBiasTile, layer:10
 Loaded parameters in tileClc, layer:10
@@ -636,7 +636,7 @@ For this tile, bit shift is 8
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-45, max=75
-Conv10: min=0, max=49
+15) After block5_conv1: min=0, max=49
 Loaded parameters in mem2Buf, layer:11
 Loaded parameters in loadBiasTile, layer:11
 Loaded parameters in tileClc, layer:11
@@ -662,7 +662,7 @@ For this tile, bit shift is 8
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-60, max=89
-Conv11: min=0, max=20
+16) After block5_conv2: min=0, max=20
 Loaded parameters in mem2Buf, layer:12
 Loaded parameters in loadBiasTile, layer:12
 Loaded parameters in tileClc, layer:12
@@ -688,8 +688,8 @@ For this tile, bit shift is 7
 Finished tileClc tile:3
 Finished tile:3
 Weights: min=-28, max=87
-Conv12: min=0, max=16
- After maxpool5: min=0, max=16
+17) After block5_conv3: min=0, max=16
+18) After maxpool5: min=0, max=16
 19) After gap: min=0, max=3
 Weights: min=-62, max=68
 20) After fc1: min=0, max=9
@@ -716,5 +716,5 @@ Class found in DUT is number 0
 INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 2 seconds. Total elapsed time: 2901.51 seconds; peak allocated memory: 138.527 MB.
-INFO: [vitis-run 60-791] Total elapsed time: 0h 48m 27s
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 1 seconds. Total elapsed time: 3330.66 seconds; peak allocated memory: 139.359 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 55m 35s

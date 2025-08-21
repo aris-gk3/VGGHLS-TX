@@ -7,12 +7,13 @@
 #define MAXPOOL
 #define HEAD
 // **Interface**
-// IfMap: IFMAP_FACTOR1, IFMAP_FACTOR7
-// WtMap: WTMAP_FACTOR1, WTMAP_FACTOR8, WTMAP_FACTOR16, WTMAP_FACTOR32
-#define IFMAP_FACTOR7
-#define IFMAP_WIDTHFACTOR 7
-#define WTMAP_FACTOR1
-#define WTMAP_WIDTHFACTOR 1
+// IfMap, OfMap: are widened if FMAP_WIDEN is declared (7)
+// WtMap: is widened if WTMAP_WIDEN is declared (8, 16, 32)
+// If not widened, width factor is declared 1
+#define FMAP_WIDEN
+#define FMAP_WIDTHFACTOR 7
+#define WTMAP_WIDEN
+#define WTMAP_WIDTHFACTOR 8
 // **Scheduling**
 // Region1: 
 
