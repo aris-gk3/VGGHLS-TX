@@ -1,0 +1,36 @@
+MODULES & LOOPS,ISSUE,VIOLATION TYPE,LATENCY(NS),ITERATION LATENCY,INTERVAL,TRIP COUNT,PIPELINED,STRUCTURE,BRAM,DSP,FF,LUT,URAM
+ConvLayer (5),,,7.165E6,,"716,547",,no,function,"3,172","1,622","63,767","86,523",0
+mem2Buf (2),,,5.251E4,,"5,251",,no,function,0,21,"2,953","11,117",0
+loadIfMap (5),,,3.503E4,,"3,503",,no,function,0,13,"1,647","7,105",0
+loadIfMap_Pipeline_If_Nif_If_Tiy_If_Nix (1),,,3.252E4,,"3,241",,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,9,"1,027","1,517",0
+If_Nif_If_Tiy_If_Nix,,,3.250E4,12,1,"3,240",yes,loop,,,,,
+loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd (1),,,1.030E3,,100,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,1,50,177,0
+NorthPad_Nif_NorthPad_wrd,,,1.010E3,4,1,99,yes,loop,,,,,
+loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd (1),,,1.030E3,,100,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,1,50,193,0
+SouthPad_Nif_SouthPad_wrd,,,1.010E3,4,1,99,yes,loop,,,,,
+loadIfMap_Pipeline_WestPad_Line (1),,,170.000,,16,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,0,31,107,0
+WestPad_Line,,,150.000,1,1,15,yes,loop,,,,,
+loadIfMap_Pipeline_EastPad_Line (1),,,170.000,,16,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,0,28,139,0
+EastPad_Line,,,150.000,1,1,15,yes,loop,,,,,
+loadWtMap (1),,,1.744E4,,"1,744",,no,function,0,6,"1,142","2,256",0
+loadWtMap_Pipeline_WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx (1),,,1.742E4,,"1,729",,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,1,973,"2,026",0
+WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx,,,1.740E4,14,1,"1,728",yes,loop,,,,,
+loadBiasTile (1),,,710.000,,71,,no,function,1,1,696,"2,814",0
+loadBiasTile_Pipeline_BiasLoop_Tof (1),,,660.000,,65,,loop auto-rewind stp (delay=0 clock cycles(s)),function,1,0,20,90,0
+BiasLoop_Tof,,,640.000,2,1,64,yes,loop,,,,,
+tileClc (1),,,7.880E5,,"78,849",,no,function,0,"1,571","55,165","57,724",0
+Region2 (3),,,7.880E5,77,-,"1,024",no,loop,,,,,
+wndClc_ctrl,,,0.0,,0,,no,function,0,2,129,390,0
+wndClc_Dfl (1),,,390.000,,39,,no,function,0,"1,568","36,332","48,650",0
+wndClc_Dfl_Pipeline_Region1 (1),,,360.000,,28,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,"1,568","32,054","45,750",0
+Region1,,,340.000,9,1,27,yes,loop,,,,,
+Pe2Buf (1),,,340.000,,34,,no,function,0,1,"1,827","8,467",0
+Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy (1),,,320.000,,29,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,1,"1,647","7,570",0
+loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy (1),,,300.000,4,1,28,yes,loop,,,,,
+bias_ReLu,,,0.0,,1,,yes,function,0,0,65,"5,002",0
+storeMap (1),,,5.920E5,,"59,203",,no,function,0,29,"2,237","10,020",0
+Loop_Tof_ii (1),,,5.920E5,"1,850",-,32,no,loop,,,,,
+Loop_OutBufNum (1),,,1.848E4,924,-,2,no,perfect loop,,,,,
+storeMap_Pipeline_Loop_Toy_step_Loop_Tox_step (1),,,9.050E3,,898,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,2,"1,109","3,908",0
+Loop_Toy_step_Loop_Tox_step,,Resource Limitation,9.030E3,10,2,448,yes,loop,,,,,
+Nofy_step_loop,,,5.732E6,"143,309",-,4,no,loop,,,,,

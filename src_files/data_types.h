@@ -80,7 +80,7 @@
 	#else
 		typedef px_data_t px_data_t_port;
 	#endif
-	typedef ap_int<32> acc_data_t;
+	typedef ap_int<64> acc_data_t;
 	typedef ap_int<32> wt_data_t;
 	#if defined(WTMAP_WIDEN)
 		typedef ap_int<(SYNTH_BITS*WTMAP_WIDTHFACTOR)> wt_data_t_port;
@@ -90,7 +90,6 @@
 	typedef ap_int<32> b_data_t;
 	typedef ap_int<32> bfc_data_t;
 	typedef ap_int<32> mul_data_t;
-	typedef ap_int<32> acc_data_t;
 #endif // Data types
 
 // Parameters

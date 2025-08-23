@@ -582,7 +582,7 @@ void Pe2Buf(
 	static Tof_step_i_dt Tof_step_i = 0; // To track iteration (3)
 	static row_outbuf_i_dt rowStep = 0;
 	row_outbuf_i_dt row;
-	px_data_t pxSerial[OUTBUF_NUM][POX];
+	acc_data_t pxSerial[OUTBUF_NUM][POX];
 	#pragma HLS ARRAY_PARTITION dim=1 type=complete variable=pxSerial
 	#pragma HLS ARRAY_PARTITION dim=2 type=complete variable=pxSerial
 	px_data_t ReLuOut[OUTBUF_NUM][POX];
@@ -1595,7 +1595,7 @@ void storeMap(
 	static Toy_dt Toy;
 	static Toy_dt Toy_map;
 	static Tox_dt Tox;
-	static Tox_dt Tox_map;
+	static Tox_dt Tox_map;				// Tox variable for OfMap (was not used as it should)
 	static Tox_step_dt wrd_1rowOut;
 	static int tileCount;				// Count iterations of tiles for current layer
 	static data_bool NofFirst;			// Boolean value for loop order
@@ -1603,6 +1603,14 @@ void storeMap(
 
 	int ofBase, yBase;
 	int base_addr, addr;
+	#if defined(HEAD_INTEGRATION)
+		acc_data_t acc;
+		int addr_gap;
+		const acc_data_t reciprocal = (1 << RECIPROCAL_BITS) / (7 * 7); // fixed-point reciprocal
+	#endif
+	#if defined(FMAP_WIDEN)
+		static ap_uint<3> state;
+	#endif
 
 	px_data_t tmp1[POX], tmp2[POX], tmp3[POX], tmp4[POX], max[POX];
 
@@ -1616,37 +1624,21 @@ void storeMap(
 			layerNo==7 || layerNo==8 || layerNo==10 || layerNo==11){
 			Noy_map = Noy_rom[layerNo];
 			Toy_map = Toy_rom[layerNo];
-
 			Tox_map = Tox_rom[layerNo];
-			// #if not defined(FMAP_WIDEN)
-			// 	Tox_map = Tox_rom[layerNo];
-			// #elif defined(FMAP_WIDEN)
-			// 	Tox_map = Tox_rom[layerNo]/FMAP_WIDTHFACTOR;
-			// #endif
 		}
 		else{
 			Noy_map = Noy_rom[layerNo]/2;
 			Toy_map = Toy_rom[layerNo]/2;
-
 			Tox_map = Tox_rom[layerNo]/2;
-			// #if not defined(FMAP_WIDEN)
-			// 	Tox_map = Tox_rom[layerNo]/2;
-			// #elif defined(FMAP_WIDEN)
-			// 	Tox_map = Tox_rom[layerNo]/(2*FMAP_WIDTHFACTOR);
-			// #endif
 		}
 		Tof = Tof_rom[layerNo];
 		Toy = Toy_rom[layerNo];
-		// #if not defined(FMAP_WIDEN)
-		// 	Tox = Tox_rom[layerNo];
-		// 	// wrd_1rowOut = tox_step_rom[layerNo];
-		// #elif defined(FMAP_WIDEN)
-		// 	Tox = Tox_rom[layerNo]/FMAP_WIDTHFACTOR;
-		// 	// wrd_1rowOut = tox_step_rom[layerNo]/FMAP_WIDTHFACTOR;
-		// #endif
 		Tox = Tox_rom[layerNo];
 		wrd_1rowOut = tox_step_rom[layerNo];
 		tileCount = 0;
+		#if defined(FMAP_WIDEN)
+			state = 0;
+		#endif
 		NofFirst = nofFirst[layerNo];
 		if(layerNo == LAYERS-1){
 			layerNo = 0;
@@ -1665,14 +1657,20 @@ void storeMap(
 			yBase = 0;
 		}
 
-		base_addr = ofBase*Tof*Noy_map*Tox_map/7 + yBase*Toy_map*Tox_map/7;
+		base_addr = ofBase*Tof*Noy_map*Tox_map/FMAP_WIDTHFACTOR + yBase*Toy_map*Tox_map/FMAP_WIDTHFACTOR;
 		
+		#if defined(HEAD_INTEGRATION)
+			addr_gap = tileCount*Tof/FMAP_WIDTHFACTOR;
+		#endif
+
 		Loop_Tof_ii: for(int Tof_ii=0; Tof_ii<Tof/OUTBUF_NUM;Tof_ii++){
 		#pragma HLS LOOP_TRIPCOUNT min=(TOF_TRIPCOUNT/OUTBUF_NUM) max=(TOF_TRIPCOUNT/OUTBUF_NUM)
 			Loop_OutBufNum: for(int OutBufNum_i=0; OutBufNum_i<OUTBUF_NUM;OutBufNum_i++){
 			#pragma HLS LOOP_TRIPCOUNT min=OUTBUF_NUM max=OUTBUF_NUM
 				addr = base_addr;
-
+				#if defined(HEAD_INTEGRATION)
+					acc = 0;
+				#endif
 				Loop_Toy_step: for(int Toy_i=0; Toy_i<Toy_map;Toy_i++){
 				#pragma HLS LOOP_TRIPCOUNT min=(TOY_TRIPCOUNT/2) max=(TOY_TRIPCOUNT/2)
 
@@ -1697,12 +1695,28 @@ void storeMap(
 									tmp4[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
 								}
 								maxPoolTree(tmp1, tmp2, tmp3, tmp4, max);
-								Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
-								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
-									OfMap[addr] =
-										max[Pox_i];
-									addr++;
-								}
+								#if not defined(HEAD_INTEGRATION)
+									Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+									#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+										OfMap[addr] =
+											max[Pox_i];
+										addr++;
+									}
+								#else
+									if(layerNo==0){
+										for(int Pox_i=0;Pox_i<POX;Pox_i++){
+											acc += max[Pox_i];
+										}
+									}
+									else{
+										Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+										#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+											OfMap[addr] =
+												max[Pox_i];
+											addr++;
+										}
+									}
+								#endif
 							}
 						#elif defined(FMAP_WIDEN)
 							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
@@ -1723,19 +1737,55 @@ void storeMap(
 									tmp4[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
 								}
 								maxPoolTree(tmp1, tmp2, tmp3, tmp4, max);
-								Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
-								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
-									OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
-										max[Pox_i];
-								}
-								addr++;
+								#if not defined(HEAD_INTEGRATION)
+									Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+									#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+										OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
+											max[Pox_i];
+									}
+									addr++;
+								#else
+									if(layerNo==0){
+										for(int Pox_i=0;Pox_i<POX;Pox_i++){
+											acc += max[Pox_i];
+										}
+									}
+									else{
+										Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+										#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+											OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
+												max[Pox_i];
+										}
+										addr++;
+									}
+								#endif
 							}
 						#endif
 					}
 
 				}
-				base_addr += Noy_map*Tox_map/7;
-
+				
+				base_addr += Noy_map*Tox_map/FMAP_WIDTHFACTOR;
+				#if defined(HEAD_INTEGRATION)
+					if(layerNo==0){
+						acc *= reciprocal;
+						#if defined(FMAP_WIDEN)
+							OfMap[addr_gap].range(SYNTH_BITS*(state+1)-1, SYNTH_BITS*state) = (acc >> RECIPROCAL_BITS);
+							if(state==6){
+								addr_gap++;
+								state = 0;
+							}
+							else{
+								state++;
+							}
+							acc = 0;
+						#else
+							OfMap[addr_gap] = (acc >> RECIPROCAL_BITS);
+							addr_gap++;
+							acc = 0;
+						#endif
+					}
+				#endif
 			}
 		}
 		tileCount++;
@@ -1891,6 +1941,7 @@ void ConvLayer(
 	#ifndef __SYNTHESIS__
 		std::cout << "Loaded parameters, layer:" << layerNo << std::endl;
 	#endif
+
 	data_bool layerCnfg = 0;
 
 	Nofy_step_loop: for(int i=0;i<nofy_step_rom[layerNo];i++){
@@ -1943,6 +1994,7 @@ void ConvLayer(
 	else{
 		layerNo++;
 	}
+
 }
 
 
@@ -2034,7 +2086,7 @@ void ConvLayer_module(data_bool layerCnfg, int test, int loop_limit_1, int loop_
 void gap(px_data_t *in, px_data_t *out){
 	// int input[512 * 7 * 7]; // CHW format
 	// int output[512];        // GAP output
-	ap_int<16> reciprocal = (1 << 16) / (7 * 7); // fixed-point reciprocal
+	const ap_int<32> reciprocal = (1 << RECIPROCAL_BITS) / (7 * 7); // fixed-point reciprocal
 
 	gap_c: for (int c = 0; c < 512; c++) {
 		acc_data_t sum = 0;
@@ -2042,7 +2094,7 @@ void gap(px_data_t *in, px_data_t *out){
 		gap_xy: for (int i = 0; i < 7 * 7; i++) {
 			sum += in[offset + i];
 		}
-		out[c] = (sum * reciprocal) >> 16; // Tranformed division to mul and right bit shift
+		out[c] = (sum * reciprocal) >> RECIPROCAL_BITS; // Tranformed division to mul and right bit shift
 	}
 }
 
@@ -2123,7 +2175,7 @@ void maxPool(
 	px_data_t maxval, maxval1, maxval2;
 	int yDim_in, xDim_in;
 	yDim_in = yDim_out*2; xDim_in = xDim_out*2;
-	int point1, point2, point3, point4;
+	px_data_t point1, point2, point3, point4;
 
 	for(int c = 0; c < channels; c++){
 		for(int h = 0; h < yDim_out; h++){
@@ -2562,6 +2614,11 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	gap(Map1, Map2);
+	#if defined(HEAD_INTEGRATION)
+		swapPointers(Map1, Map2);
+	#else
+		gap(Map1, Map2);
+	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(Map2, 512, min, max);
 		std::cout << "19) After gap: min=" << min << ", max=" << max << "\n";

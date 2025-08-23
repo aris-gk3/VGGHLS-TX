@@ -166,6 +166,9 @@ int convLayer_test(int verbose, int debug, int minPrint,
 int convLayer_test_experimental(int verbose, int debug, int minPrint,
 					int printErrorOnly, int printLayer, int biasReLuTrue,
 					int binInput);
+int convLayer_test_experimental_new(int verbose, int debug, int minPrint,
+					int printErrorOnly, int printLayer, int biasReLuTrue,
+					int binInput);
 int loadIfMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep);
 int loadWtMap_test(int verbose, int printLayer, int printNofStep, int printNoyStep, int printProgress);
 int storeMaps_test(int verbose, int printLayer, int printNofStep, int printNoyStep);
