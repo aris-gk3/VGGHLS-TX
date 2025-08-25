@@ -10,7 +10,7 @@
 #define HW_EMUL_NUM_BITS 8
 #define HW_EMUL_SYMM_RANGE 127
 
-#define MODEL 9
+#define MODEL 40
 // 0 -> Toy Example 1
 // 1 -> Toy Example 2
 // 2 -> Toy Example 3
@@ -654,6 +654,125 @@
 	// Parameters that are calculated from necessary parameters
 	constexpr int noy_step_rom[LAYERS] = {2, 1};
 	constexpr int nofy_step_rom[LAYERS] = {2, 2}; // max of Nof_step, Noy_step
+	constexpr int niy_rom[LAYERS] = {12, 12};
+	constexpr int tof_step_rom[LAYERS] = {2, 1};
+	constexpr int toy_step_rom[LAYERS] = {2, 4};
+	constexpr int tox_step_rom[LAYERS] = {4, 4};
+	constexpr int tiy_rom[LAYERS] = {8, 14};
+	constexpr int tix_rom[LAYERS] = {14, 14};
+	constexpr int row_1map_rom[LAYERS] = {3, 5};
+	constexpr int wrd_1row_rom[LAYERS] = {5, 5};
+	// pe_loop_limit = Nif*NKX*NKY-1
+	constexpr int pe_loop_limit_rom[LAYERS] = {26, 107};
+	// wtbuf2pe_loop_limit = Tof_step*Nif*NKY*NKX-1
+	constexpr int wtbuf2pe_loop_limit_rom[LAYERS] = {53, 107};
+	// wndclc_loop_limit_rom = Nif*Nky*Nkx
+	constexpr int wndclc_loop_limit_rom[LAYERS] = {27, 108};
+	// tileclc_loop_limit_rom = Tof_step*Toy_step*Tox_step
+	constexpr int tileclc_loop_limit_rom[LAYERS] = {16, 16};
+	// POY*Tox_step - (Tox_step-1) - (Tof_step-1)*(POF/OUTBUF_NUM)*Toy*Tox_step
+	constexpr int pe2buf_addr_offset1_rom[LAYERS] = {-63, 9};
+	// (Tof_step-1)*(POF/OUTBUF_NUM)*Toy*Tox_step
+	constexpr int pe2buf_addr_offset2_rom[LAYERS] = {72, 0};
+	// (POF/OUTBUF_NUM)*Toy*Tox_step
+	constexpr int pe2buf_addr_offset3_rom[LAYERS] = {72, 144};
+	// Binary Length of variables
+	#if (DATA_WIDTH == 1)
+		#define LAYER_B           1
+		#define NKY_B             2
+		#define NKX_B             2
+
+		#define NIF_B             4
+		#define NIF_I_B           4
+		#define NIY_B             4
+		#define NOY_B             4
+		#define NOF_STEP_B        2
+		#define NOF_STEP_I_B      1
+		#define NOY_STEP_B        2
+		#define NOY_STEP_I_B      1
+		#define NOFY_STEP_B       2
+		#define NOFY_STEP_I_B     1 // Max of Nof_step_i & Noy_step_i
+
+		#define TIY_B             4
+		#define TIX_B             4
+		#define TOF_B             4
+		#define TOY_B             4
+		#define TOX_B             4
+		#define TOF_STEP_B        2
+		#define TOF_STEP_I_B      1
+		#define TOY_STEP_B        3
+		#define TOY_STEP_I_B      2
+		#define TOX_STEP_B        3
+		#define TOX_STEP_I_B      2
+
+		#define POF_B             3
+		#define POF_I_B           3
+		#define POY_B             2
+		#define POY_I_B           2
+		#define POX_B             2
+		#define POX_I_B           2
+		#define POFBANK_STEP_I_B  2
+
+		#define WRD_1ROW_B        3
+		#define ROW_1MAP_B        3
+
+		#define CONV_LOOP_B       2 // bigger of Noy_step, Nof_step
+		#define TILE_LOOP_B       5 // Tof_step*Toy_step*Tox_step
+		#define WND_LOOP_B        7 // Nif*NKY*NKX
+		#define WTBUF2PE_LOOP_B   7 // Tof_step*Nif*NKY*NKX-1
+
+		#define ROW_INBUF_I_B     9 // based on WRD_INBUF
+		#define WRD_WTBUF_I_B     8 // based on WRD_WTBUF
+		#define WRD_OUTBUF_I_B    8 // based on WRD_OUTBUF
+		#define WRD_BIASBUF_I_B   4 // based on BIASBUF_LENGTH
+		#define OUTBUFNUM_I_B     1 // based on OUTBUF_NUM
+	// If I add new binary length, I should add it to Check_Binary_Lengths function
+	#endif // For length of variables
+#elif ( MODEL == 40 ) // Toy Example 5A (variable nofy_step)
+	// *****  Toy Example   *****
+	// 3x12x12 -> 24x12x12 -> 24x12x12
+	#define LAYERS 2
+	#define NKX 3
+	#define NKY 3
+	#define PIF 1
+	#define POF 6
+	#define POY 3
+	#define POX 3
+	#define PIY POY
+	#define PIX POX
+	#define S 1
+	#define ZERO_PAD 1
+	// Necessary Parameters
+	constexpr int Nof_step_rom[LAYERS] = {1, 4};/*Nof/Tof*/
+	constexpr int Nif_rom[LAYERS] = {3, 12};
+	constexpr int Noy_rom[LAYERS] = {12, 12};
+	constexpr int Tof_rom[LAYERS] = {12, 6};
+	constexpr int Toy_rom[LAYERS] = {6, 12};
+	constexpr int Tox_rom[LAYERS] = {12, 12};
+	// Buffer Sizing
+	constexpr int WRD_INBUF = 300; // Should be able to fit input pixels for all layers
+		// WRD_INBUF = max(WRD_INBUF = WRD_1ROW[layer_no] * ROWS_1MAP[layer_no] * TIF[layer_no]), for every layer_no
+	constexpr int WRD_WTBUF = 216; // Should be able to fit weights for all layers
+		// WRD_WTBUF = max(NKX * NKY * TIF[layer_no] * my_ceil(TOF[layer_no],POF)), for every layer_no
+	constexpr int WRD_OUTBUF = 144; // Should be able to fit output pixels for all layers
+		// WRD_OUTBUF =   max(my_ceil(Tox[layerNo],POX)*Toy*my_ceil(TOF,OUTBUF_NUM))
+	#define OUTBUF_NUM 2 // Number of Output Buffer Banks
+	// Secondary Parameters
+	#define BIASMEM_LENGTH 24 // Sum of Nof
+	#define BIASBUF_LENGTH 12 // Max Tof
+	constexpr int POFBANK_STEP = my_ceil(POF, OUTBUF_NUM);
+	constexpr int nofFirst[LAYERS] = {1, 0}; // I execute first the loop with one iteration, if there is one
+	constexpr int fulBufWt[LAYERS] = {1, 0};
+	constexpr int fulBufPx[LAYERS] = {0, 1};
+	constexpr int bit_shift_rom[LAYERS] = {0, 0};
+	// Software Parameters
+	#define FMAP_MEMSIZE 1728
+	#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
+	#define WTMAP_MEMSIZE 1296
+	#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
+	// Parameters that are calculated from necessary parameters
+	constexpr int noy_step_rom[LAYERS] = {2, 1};
+	constexpr int nofy_step_rom[LAYERS] = {2, 4}; // max of Nof_step, Noy_step
 	constexpr int niy_rom[LAYERS] = {12, 12};
 	constexpr int tof_step_rom[LAYERS] = {2, 1};
 	constexpr int toy_step_rom[LAYERS] = {2, 4};

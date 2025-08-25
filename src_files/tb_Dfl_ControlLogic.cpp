@@ -345,6 +345,7 @@ int convLayer_test(int verbose, int debug, int minPrint,
 			wt_data_t_port* WtMap_port = WtMap;
 		#endif
 		std::cout << "Reached HERE4!" << std::endl;
+		std::cout << "Reached HERE4aqwe!" << std::endl;
 		#if defined(FMAP_WIDEN)
 			pack<px_data_t_port>(IfMap, IfMap_port, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
 			std::cout << "Reached HERE5!" << std::endl;

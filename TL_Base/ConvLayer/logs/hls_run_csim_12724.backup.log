@@ -37,7 +37,6 @@ INFO: [HLS 200-1505] Using flow_target 'vivado'
 Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
 INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(1)
 INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
-INFO: [HLS 200-1465] Applying config ini 'csim.argv=-v' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(22)
 INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(21)
 INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(5)
 INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
@@ -272,8 +271,13 @@ Reached HERE!1
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
+Reached HERE4aqwe!
+A456 HERE!
+iS465 HERE!
+AM HERE!
+iS HERE!
 @E Simulation failed: SIGSEGV.
 ERROR: [SIM 211-100] CSim failed with errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
 ERROR: 4
-INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 4 seconds. Total elapsed time: 86.855 seconds; peak allocated memory: 142.414 MB.
+INFO: [HLS 200-112] Total CPU user time: 3 seconds. Total CPU system time: 5 seconds. Total elapsed time: 81.246 seconds; peak allocated memory: 142.508 MB.

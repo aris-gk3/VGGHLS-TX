@@ -28,5 +28,6 @@
 
 // **Misc**
 #define RECIPROCAL_BITS 30
+#define CASE_AB
 
 #endif // IMPL_CHOICE_H

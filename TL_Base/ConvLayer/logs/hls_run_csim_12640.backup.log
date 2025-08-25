@@ -272,8 +272,9 @@ Reached HERE!1
 Reached HERE2!
 Reached HERE3!
 Reached HERE4!
+Reached HERE4aqwe!
 @E Simulation failed: SIGSEGV.
 ERROR: [SIM 211-100] CSim failed with errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
 ERROR: 4
-INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 4 seconds. Total elapsed time: 86.855 seconds; peak allocated memory: 142.414 MB.
+INFO: [HLS 200-112] Total CPU user time: 4 seconds. Total CPU system time: 6 seconds. Total elapsed time: 110.582 seconds; peak allocated memory: 141.410 MB.

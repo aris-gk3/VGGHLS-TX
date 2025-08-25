@@ -32,7 +32,7 @@ int main(){
 	// check += loadIfMap_test(/*Verbose=*/0, /*printLayer=*/0, /*printNofStep=*/0, /*printNoyStep=*/0);
 	// check += loadWtMap_test(/*Verbose=*/0, /*printLayer=*/0, /*printNofStep=*/0, /*printNoyStep=*/0, /*printProgress=*/1);
 	// check += storeMaps_test(/*Verbose=*/0, /*printLayer=*/0, /*printNofStep=*/0, /*printNoyStep=*/0);
-	// check += convLayer_test(/*Verbose=*/1, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
+	check += convLayer_test(/*Verbose=*/1, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
 	// int convLayer_test_experimental(int verbose, int debug, int minPrint,
 	// 				int printErrorOnly, int printLayer, int biasReLuTrue,
 	// 				int binInput);
@@ -43,7 +43,7 @@ int main(){
 	// Has random input, therefore we don't check for range
 	// check += vgg16_test(/*Verbose=*/1, /*minPrint=*/1, /*biasReLuTrue=*/1);
 	// check += oxfordFlowers_test(/*Verbose=*/0, /*debug=*/1, /*minPrint=*/1, /*biasReLuTrue=*/1);
-	minimalRunSynth(/*layerNo=*/0);
+	// minimalRunSynth(/*layerNo=*/0);
 
 	std::cout << "************************************************************************"
 				"*********  Verification Complete. *********************"

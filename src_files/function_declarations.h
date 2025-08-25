@@ -89,6 +89,7 @@ void tileClc_Dfl(
 		/* Output */ px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]);
 void loadBiasTile(data_bool layerCnfg,
 		b_data_t BiasBuf[BIASBUF_LENGTH]);
+#if not defined(CASE_AB)
 void loadIfMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ data_bool northTile, data_bool southTile,
@@ -98,6 +99,16 @@ void loadWtMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t_port *WtMap,
 		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]);
+#elif defined(CASE_AB)
+void loadIfMap(
+		const px_data_t_port *IfMap, //[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
+		px_data_t InBuf[POY][WRD_INBUF][POX]
+	);
+void loadWtMap(
+		const wt_data_t_port *WtMap,
+		wt_data_t WtBuf[WRD_WTBUF][POF]
+	);
+#endif
 void storeMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
@@ -134,6 +145,40 @@ void ConvLayer_module(data_bool layerCnfg, int test, int loop_limit_1, int loop_
 		px_data_t *IfMap,  // [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
 		wt_data_t *WtMap,  // [NOF][NIF][NKY][NKX]
 		px_data_t *OfMap);
+		void ConvLayerScdl(
+		// Parameter Loading State
+		data_bool nofFirst,
+		Noy_step_dt Noy_step,
+		Nofy_step_dt nofy_step,
+		Tiy_dt Tiy,
+		// Intermediate (Buffered) Data
+		px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF],
+		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		b_data_t BiasBuf[BIASBUF_LENGTH],
+		// Inputs
+		const px_data_t_port *IfMap,
+		const wt_data_t_port *WtMap,
+		// Output
+		px_data_t_port *OfMap
+	);
+void ConvLayerScdl(
+		// Parameter Loading State
+		data_bool nofFirst,
+		Noy_step_dt Noy_step,
+		Nofy_step_dt nofy_step,
+		Tiy_dt Tiy,
+		// Intermediate (Buffered) Data
+		px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF],
+		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		b_data_t BiasBuf[BIASBUF_LENGTH],
+		// Inputs
+		const px_data_t_port *IfMap,
+		const wt_data_t_port *WtMap,
+		// Output
+		px_data_t_port *OfMap
+	);
 void gap(px_data_t *in, px_data_t *out);
 void fcLayers(px_data_t *IfMap, wt_data_t *WtMap, px_data_t finalOut[1000]);
 void fcLayer(/*Inputs*/ px_data_t *inPx, wt_data_t *WtMap, int inLength, int outLength, int layerNo,
