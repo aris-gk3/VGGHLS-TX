@@ -1456,7 +1456,7 @@ void storeMap(
 		// Parameter Loading State
 		data_bool layerCnfg,
 		// Inputs
-		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
 		// Output
 		px_data_t_port *OfMap
 	){
@@ -1584,7 +1584,7 @@ void storeMap(
 		// Parameter Loading State
 		data_bool layerCnfg,
 		// Inputs
-		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
 		// Output
 		px_data_t_port *OfMap
 	){
@@ -1869,7 +1869,7 @@ void mem2Buf(
 
 void ConvLayer_Dfl(
 		// Parameter Loading State
-		data_bool layerCnfg,
+		int layerNo,
 		int loop_limit,
 		// Intermediate (Buffered) Data
 		px_data_t InBuf1[POY][WRD_INBUF][POX], px_data_t InBuf2[POY][WRD_INBUF][POX],
@@ -1882,20 +1882,33 @@ void ConvLayer_Dfl(
 		// Output
 		px_data_t_port *OfMap
 	){
-	#pragma HLS INLINE
-	mem2Buf(/*layerCnfg=*/layerCnfg,
+	#pragma HLS INLINE off
+	mem2Buf(/*layerCnfg=*/1,
 			/*normal operation*/ IfMap, WtMap, InBuf1, WtBuf1);
-	loadBiasTile(/*layerCnfg=*/layerCnfg, /*normal operation*/ BiasBuf1);
-	tileClc(/*layerCnfg=*/layerCnfg,
+	loadBiasTile(/*layerCnfg=*/1, /*normal operation*/ BiasBuf1);
+	tileClc(/*layerCnfg=*/1,
 			/*normal operation*/ InBuf1, WtBuf1, BiasBuf1, OutBuf1);
-	storeMap(/*layerCnfg=*/layerCnfg, /*normal operation*/ OutBuf1, OfMap);
+	storeMap(/*layerCnfg=*/1, /*normal operation*/ OutBuf1, OfMap);
 
-	mem2Buf(/*layerCnfg=*/layerCnfg,
-			/*normal operation*/ IfMap, WtMap, InBuf2, WtBuf2);
-	loadBiasTile(/*layerCnfg=*/layerCnfg, /*normal operation*/ BiasBuf2);
-	tileClc(/*layerCnfg=*/layerCnfg,
-			/*normal operation*/ InBuf2, WtBuf2, BiasBuf2, OutBuf2);
-	storeMap(/*layerCnfg=*/layerCnfg, /*normal operation*/ OutBuf2, OfMap);
+	for(int i=0;i<loop_limit;i++){
+		mem2Buf(/*layerCnfg=*/0,
+			/*normal operation*/ IfMap, WtMap, InBuf1, WtBuf1);
+		loadBiasTile(/*layerCnfg=*/0, /*normal operation*/ BiasBuf1);
+		tileClc(/*layerCnfg=*/0,
+				/*normal operation*/ InBuf1, WtBuf1, BiasBuf1, OutBuf1);
+		
+
+		mem2Buf(/*layerCnfg=*/0,
+				/*normal operation*/ IfMap, WtMap, InBuf2, WtBuf2);
+		loadBiasTile(/*layerCnfg=*/0, /*normal operation*/ BiasBuf2);
+
+		storeMap(/*layerCnfg=*/0, /*normal operation*/ OutBuf1, OfMap);
+
+		tileClc(/*layerCnfg=*/0,
+				/*normal operation*/ InBuf2, WtBuf2, BiasBuf2, OutBuf2);
+		storeMap(/*layerCnfg=*/0, /*normal operation*/ OutBuf2, OfMap);
+	}
+
 }
 
 
@@ -1911,82 +1924,170 @@ void ConvLayer(
 	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED
 	static layerNo_dt layerNo = 0; 				// State of number of convolutional layer
 
+	// // Intermediate (Buffered) Data
+	// static px_data_t InBuf[POY][WRD_INBUF][POX];
+	// #pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
+	// #pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
+	// static wt_data_t WtBuf[WRD_WTBUF][POF];
+	// #pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
+	// static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
+	// #pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
+	// #pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
+	// b_data_t BiasBuf[BIASBUF_LENGTH];
+	// #pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
+
+	// mem2Buf(/*layerCnfg=*/1,
+	// 		/*normal operation*/ IfMap, WtMap, InBuf, WtBuf);
+	// #ifndef __SYNTHESIS__
+	// 	std::cout << "Loaded parameters in mem2Buf, layer:" << layerNo << std::endl;
+	// #endif
+	// loadBiasTile(/*layerCnfg=*/1, /*normal operation*/ BiasBuf);
+	// #ifndef __SYNTHESIS__
+	// 	std::cout << "Loaded parameters in loadBiasTile, layer:" << layerNo << std::endl;
+	// #endif
+	// tileClc(/*layerCnfg=*/1,
+	// 		/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
+	// #ifndef __SYNTHESIS__
+	// 	std::cout << "Loaded parameters in tileClc, layer:" << layerNo << std::endl;
+	// #endif
+	// storeMap(/*layerCnfg=*/1, /*normal operation*/ OutBuf, OfMap);
+	// #ifndef __SYNTHESIS__
+	// 	std::cout << "Loaded parameters, layer:" << layerNo << std::endl;
+	// #endif
+
+	// data_bool layerCnfg = 0;
+
+// Original
+	// Nofy_step_loop: for(int i=0;i<nofy_step_rom[layerNo];i++){
+	// #pragma HLS UNROLL
+	// #pragma HLS LOOP_TRIPCOUNT min=NOFYSTEP_TRIPCOUNT max=NOFYSTEP_TRIPCOUNT
+	// 	mem2Buf(/*layerCnfg=*/layerCnfg,
+	// 			/*normal operation*/ IfMap, WtMap, InBuf, WtBuf);
+	// 	#ifndef __SYNTHESIS__
+	// 		std::cout << "Finished mem2Buf tile:" << i << std::endl;
+	// 	#endif	
+	// 	loadBiasTile(/*layerCnfg=*/layerCnfg, /*normal operation*/ BiasBuf);
+	// 	#ifdef DEBUG_PRINTS
+	// 		std:: cout << "Below is the synth bias array" << std::endl;
+	// 		for(int counter=0;counter<256;counter++){
+	// 			if(counter%16==0){
+	// 				std::cout << std::endl;
+	// 			}
+	// 			std:: cout << std::setw(5) << BiasBuf[counter];
+	// 		}
+	// 	#endif
+	// 	#ifndef __SYNTHESIS__
+	// 		std::cout << "Finished loadBiasTile tile:" << i << std::endl;
+	// 	#endif
+	// 	tileClc(/*layerCnfg=*/layerCnfg,
+	// 			/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
+	// 	#ifndef __SYNTHESIS__
+	// 		std::cout << "Finished tileClc tile:" << i << std::endl;
+	// 	#endif
+	// 	storeMap(/*layerCnfg=*/layerCnfg, /*normal operation*/ OutBuf, OfMap);
+	// 	#ifndef __SYNTHESIS__
+	// 		std::cout << "Finished tile:" << i << std::endl;
+	// 	#endif
+	// }
+
+// Late Pipeline
+	// mem2Buf(/*layerCnfg=*/0,
+	// 		/*normal operation*/ IfMap, WtMap, InBuf, WtBuf);
+	// #ifndef __SYNTHESIS__
+	// 	std::cout << "Finished mem2Buf tile:" << 0 << std::endl;
+	// #endif
+	// loadBiasTile(/*layerCnfg=*/0, /*normal operation*/ BiasBuf);
+	// #ifdef DEBUG_PRINTS
+	// 	std:: cout << "Below is the synth bias array" << std::endl;
+	// 	for(int counter=0;counter<256;counter++){
+	// 		if(counter%16==0){
+	// 			std::cout << std::endl;
+	// 		}
+	// 		std:: cout << std::setw(5) << BiasBuf[counter];
+	// 	}
+	// #endif
+	// #ifndef __SYNTHESIS__
+	// 	std::cout << "Finished loadBiasTile tile:" << 0 << std::endl;
+	// #endif
+	// tileClc(/*layerCnfg=*/0,
+	// 		/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
+	// #ifndef __SYNTHESIS__
+	// 	std::cout << "Finished tileClc tile:" << 0 << std::endl;
+	// #endif
+	// Nofy_step_loop: for(int i=0;i<nofy_step_rom[layerNo]-1;i++){
+	// #pragma HLS LOOP_TRIPCOUNT min=NOFYSTEP_TRIPCOUNT max=NOFYSTEP_TRIPCOUNT
+	// 	mem2Buf(/*layerCnfg=*/0,
+	// 			/*normal operation*/ IfMap, WtMap, InBuf, WtBuf);
+	// 	#ifndef __SYNTHESIS__
+	// 		std::cout << "Finished mem2Buf tile:" << i << std::endl;
+	// 	#endif	
+	// 	loadBiasTile(/*layerCnfg=*/0, /*normal operation*/ BiasBuf);
+	// 	#ifndef __SYNTHESIS__
+	// 		#ifdef DEBUG_PRINTS
+	// 			std:: cout << "Below is the synth bias array" << std::endl;
+	// 			for(int counter=0;counter<256;counter++){
+	// 				if(counter%16==0){
+	// 					std::cout << std::endl;
+	// 				}
+	// 				std:: cout << std::setw(5) << BiasBuf[counter];
+	// 			}
+	// 		#endif
+	// 	#endif
+	// 	#ifndef __SYNTHESIS__
+	// 		std::cout << "Finished loadBiasTile tile:" << i << std::endl;
+	// 	#endif
+
+	// 	storeMap(/*layerCnfg=*/0, /*normal operation*/ OutBuf, OfMap);
+	// 	#ifndef __SYNTHESIS__
+	// 		std::cout << "Finished tile:" << i << std::endl;
+	// 	#endif
+
+	// 	tileClc(/*layerCnfg=*/0,
+	// 			/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
+	// 	#ifndef __SYNTHESIS__
+	// 		std::cout << "Finished tileClc tile:" << i << std::endl;
+	// 	#endif
+	// }
+	// storeMap(/*layerCnfg=*/0, /*normal operation*/ OutBuf, OfMap);
+	// #ifndef __SYNTHESIS__
+	// 	std::cout << "Finished tile:" << 12 << std::endl;
+	// #endif
+
+// Double Buffering
+
 	// Intermediate (Buffered) Data
-	static px_data_t InBuf[POY][WRD_INBUF][POX];
-	#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
-	#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
-	static wt_data_t WtBuf[WRD_WTBUF][POF];
-	#pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
-	static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
-	#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
-	#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
-	b_data_t BiasBuf[BIASBUF_LENGTH];
-	#pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
+	static px_data_t InBuf1[POY][WRD_INBUF][POX];
+	#pragma HLS ARRAY_PARTITION variable=InBuf1 complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=InBuf1 complete dim=3
+	static wt_data_t WtBuf1[WRD_WTBUF][POF];
+	#pragma HLS ARRAY_PARTITION variable=WtBuf1 complete dim=2
+	static px_data_t OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX];
+	#pragma HLS ARRAY_PARTITION variable=OutBuf1 complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=OutBuf1 complete dim=3
+	b_data_t BiasBuf1[BIASBUF_LENGTH];
+	#pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf1
+	static px_data_t InBuf2[POY][WRD_INBUF][POX];
+	#pragma HLS ARRAY_PARTITION variable=InBuf2 complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=InBuf2 complete dim=3
+	static wt_data_t WtBuf2[WRD_WTBUF][POF];
+	#pragma HLS ARRAY_PARTITION variable=WtBuf2 complete dim=2
+	static px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX];
+	#pragma HLS ARRAY_PARTITION variable=OutBuf2 complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=OutBuf2 complete dim=3
+	b_data_t BiasBuf2[BIASBUF_LENGTH];
+	#pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf2
 
-	mem2Buf(/*layerCnfg=*/1,
-			/*normal operation*/ IfMap, WtMap, InBuf, WtBuf);
-	#ifndef __SYNTHESIS__
-		std::cout << "Loaded parameters in mem2Buf, layer:" << layerNo << std::endl;
-	#endif
-	loadBiasTile(/*layerCnfg=*/1, /*normal operation*/ BiasBuf);
-	#ifndef __SYNTHESIS__
-		std::cout << "Loaded parameters in loadBiasTile, layer:" << layerNo << std::endl;
-	#endif
-	tileClc(/*layerCnfg=*/1,
-			/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
-	#ifndef __SYNTHESIS__
-		std::cout << "Loaded parameters in tileClc, layer:" << layerNo << std::endl;
-	#endif
-	storeMap(/*layerCnfg=*/1, /*normal operation*/ OutBuf, OfMap);
-	#ifndef __SYNTHESIS__
-		std::cout << "Loaded parameters, layer:" << layerNo << std::endl;
-	#endif
-
-	data_bool layerCnfg = 0;
-
-	Nofy_step_loop: for(int i=0;i<nofy_step_rom[layerNo];i++){
-	#pragma HLS LOOP_TRIPCOUNT min=NOFYSTEP_TRIPCOUNT max=NOFYSTEP_TRIPCOUNT
-		mem2Buf(/*layerCnfg=*/layerCnfg,
-				/*normal operation*/ IfMap, WtMap, InBuf, WtBuf);
-
-		// std::cout << "***  Printing Input Buffers  ***" << std::endl;
-		// for(int Wrd_InBuf_i=0;Wrd_InBuf_i<50;Wrd_InBuf_i++){
-		// 	// std::cout << std::setw(4) << Wrd_InBuf_i << " :   "; // Print line number for debugging
-		// 	for(int Poy_i=0;Poy_i<POY;Poy_i++){
-		// 		for(int Pox_i=0;Pox_i<POX;Pox_i++){
-		// 			std::cout << std::setw(4) << InBuf[Poy_i][Wrd_InBuf_i][Pox_i] << "  ";
-		// 		}
-		// 		std::cout << "|  ";
-		// 	}
-		// 	std::cout << " " << std::endl;
-		// }
-		
-		#ifndef __SYNTHESIS__
-			std::cout << "Finished mem2Buf tile:" << i << std::endl;
-		#endif	
-		loadBiasTile(/*layerCnfg=*/layerCnfg, /*normal operation*/ BiasBuf);
-		#ifdef DEBUG_PRINTS
-			std:: cout << "Below is the synth bias array" << std::endl;
-			for(int counter=0;counter<256;counter++){
-				if(counter%16==0){
-					std::cout << std::endl;
-				}
-				std:: cout << std::setw(5) << BiasBuf[counter];
-			}
-		#endif
-		#ifndef __SYNTHESIS__
-			std::cout << "Finished loadBiasTile tile:" << i << std::endl;
-		#endif
-		tileClc(/*layerCnfg=*/layerCnfg,
-				/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
-		#ifndef __SYNTHESIS__
-			std::cout << "Finished tileClc tile:" << i << std::endl;
-		#endif
-		storeMap(/*layerCnfg=*/layerCnfg, /*normal operation*/ OutBuf, OfMap);
-		#ifndef __SYNTHESIS__
-			std::cout << "Finished tile:" << i << std::endl;
-		#endif
-	}
+	ConvLayer_Dfl(
+		layerNo,
+		nofy_step_rom[layerNo]/2,
+		InBuf1, InBuf2,
+		WtBuf1, WtBuf2,
+		OutBuf1, OutBuf2,
+		BiasBuf1, BiasBuf2,
+		IfMap,
+		WtMap,
+		OfMap
+	);
 
 	if(layerNo == LAYERS - 1){
 		layerNo = 0;
@@ -2192,336 +2293,6 @@ void maxPool(
 		}
 	}
 }
-
-
-// void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
-// 		px_data_t *Map2, px_data_t finalOut[17]
-// 	){
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_data_t* WtMap_reordered = nullptr;
-// 		WtMap_reordered = new wt_data_t[WTMAP_MEMSIZE];
-// 		wt_data_t_port* WtMap_port = nullptr;
-// 		WtMap_port = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
-// 	#else
-// 		wt_data_t_port* WtMap_port;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		static px_data_t_port IfMap_port[MAP_SIZE] = {0};
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		int min, max, minWt, maxWt;
-// 		findMinMax(Map1, 3*224*224, min, max);
-// 		std::cout << "Input Range : min=" << min << " ,max=" << max << "\n";
-// 	#endif
-	
-// 	// First Conv. Block
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 0);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map2);
-// 	#else
-// 		ConvLayer(Map1, WtMap_port, Map2);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 3*64*3*3, minWt, maxWt);
-// 		findMinMax(Map2, 64*224*224, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "01) After block1_conv1: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	WtMap += WtMapOffsetConv[0];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 1);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map1);
-// 	#else
-// 		ConvLayer(Map2, WtMap_port, Map1);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 64*64*3*3, minWt, maxWt);
-// 		findMinMax(Map1, 64*224*224, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "02) After block1_conv2: min=" << min << ", max=" << max << "\n";
-// 	#endif
-	
-// 	maxPool(Map1, 64, 112, 112, Map2);
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(Map2, 64*112*112, min, max);
-// 		std::cout << "03) After maxpool1: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	// Second Conv. Block
-// 	WtMap += WtMapOffsetConv[1];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 2);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map1);
-// 	#else
-// 		ConvLayer(Map2, WtMap_port, Map1);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 64*128*3*3, minWt, maxWt);
-// 		findMinMax(Map1, 128*112*112, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "04) After block2_conv1: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	WtMap += WtMapOffsetConv[2];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 3);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map2);
-// 	#else
-// 		ConvLayer(Map1, WtMap_port, Map2);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 128*128*3*3, minWt, maxWt);
-// 		findMinMax(Map2, 128*112*112, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "05) After block2_conv2: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	maxPool(Map2, 128, 56, 56, Map1);
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(Map1, 128*56*56, min, max);
-// 		std::cout << "06) After maxpool2: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	// Third Conv. Block
-// 	WtMap += WtMapOffsetConv[3];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 4);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map2);
-// 	#else
-// 		ConvLayer(Map1, WtMap_port, Map2);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 128*256*3*3, minWt, maxWt);
-// 		findMinMax(Map2, 256*56*56, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "07) After block3_conv1: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	WtMap += WtMapOffsetConv[4];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 5);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map1);
-// 	#else
-// 		ConvLayer(Map2, WtMap_port, Map1);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 256*256*3*3, minWt, maxWt);
-// 		findMinMax(Map1, 256*56*56, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "08) After block3_conv2: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	WtMap += WtMapOffsetConv[5];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 6);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map2);
-// 	#else
-// 		ConvLayer(Map1, WtMap_port, Map2);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 256*256*3*3, minWt, maxWt);
-// 		findMinMax(Map2, 256*56*56, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "09) After block3_conv3: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	maxPool(Map2, 256, 28, 28, Map1);
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(Map1, 256*28*28, min, max);
-// 		std::cout << "10) After maxpool3: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	// Fourth Conv. Block
-// 	WtMap += WtMapOffsetConv[6];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 7);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map2);
-// 	#else
-// 		ConvLayer(Map1, WtMap_port, Map2);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 256*512*3*3, minWt, maxWt);
-// 		findMinMax(Map2, 512*28*28, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "11) After block4_conv1: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	WtMap += WtMapOffsetConv[7];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 8);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map1);
-// 	#else
-// 		ConvLayer(Map2, WtMap_port, Map1);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
-// 		findMinMax(Map1, 512*28*28, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "12) After block4_conv2: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	WtMap += WtMapOffsetConv[8];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 9);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map2);
-// 	#else
-// 		ConvLayer(Map1, WtMap_port, Map2);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
-// 		findMinMax(Map2, 512*28*28, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "13) After block4_conv3: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	maxPool(Map2, 512, 14, 14, Map1);
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(Map1, 512*14*14, min, max);
-// 		std::cout << "14) After maxpool4: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	// Fifth Conv. Block
-// 	WtMap += WtMapOffsetConv[9];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 10);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map2);
-// 	#else
-// 		ConvLayer(Map1, WtMap_port, Map2);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
-// 		findMinMax(Map2, 512*14*14, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "15) After block5_conv1: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	WtMap += WtMapOffsetConv[10];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 11);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map2, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map1);
-// 	#else
-// 		ConvLayer(Map2, WtMap_port, Map1);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
-// 		findMinMax(Map1, 512*14*14, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "16) After block5_conv2: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	WtMap += WtMapOffsetConv[11];
-// 	#if defined(WTMAP_WIDEN)
-// 		wt_reorder(WtMap, WtMap_reordered, 12);
-// 		pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
-// 	#else
-// 		WtMap_port = WtMap;
-// 	#endif
-// 	#if defined(FMAP_WIDEN)
-// 		pack<px_data_t_port>(Map1, IfMap_port, IFMAP_WIDTHFACTOR, IFMAP_MEMSIZE_WIDENED);
-// 		ConvLayer(IfMap_port, WtMap_port, Map2);
-// 	#else
-// 		ConvLayer(Map1, WtMap_port, Map2);
-// 	#endif
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(WtMap, 512*512*3*3, minWt, maxWt);
-// 		findMinMax(Map2, 512*14*14, min, max);
-// 		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
-// 		std::cout << "17) After block5_conv3: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	maxPool(Map2, 512, 7, 7, Map1);
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(Map1, 512*7*7, min, max);
-// 		std::cout << "18) After maxpool5: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	gap(Map1, Map2);
-// 	#ifndef __SYNTHESIS__
-// 		findMinMax(Map2, 512, min, max);
-// 		std::cout << "19) After gap: min=" << min << ", max=" << max << "\n";
-// 	#endif
-
-// 	WtMap += WtMapOffsetConv[12];
-// 	fcLayersOF(Map2, WtMap, finalOut);
-// 	#ifndef __SYNTHESIS__
-// 		std::cout << "Finished all fc layers!" << std::endl;
-// 	#endif
-	
-// }
-
 
 
 void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]

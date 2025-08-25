@@ -100,7 +100,7 @@ void loadWtMap(
 		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]);
 void storeMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		/* Inputs */ const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
 		/* Output */ px_data_t_port *OfMap);
 void mem2Buf(
 		/* Parameter Loading State */ data_bool layerCnfg,
@@ -109,15 +109,20 @@ void mem2Buf(
 		/* Outputs */ px_data_t InBuf[POY][WRD_INBUF][POX],
 		wt_data_t WtBuf[WRD_WTBUF][POF]);
 void ConvLayer_Dfl(
-		/* Parameter Loading State */ data_bool layerCnfg,
+		// Parameter Loading State
+		int layerNo,
 		int loop_limit,
-		/* Intermediate (Buffered) Data */ px_data_t InBuf1[POY][WRD_INBUF][POX], px_data_t InBuf2[POY][WRD_INBUF][POX],
-		wt_data_t_port WtBuf1[WRD_WTBUF][POF], wt_data_t WtBuf2[WRD_WTBUF][POF],
-		px_data_t_port OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
+		// Intermediate (Buffered) Data
+		px_data_t InBuf1[POY][WRD_INBUF][POX], px_data_t InBuf2[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf1[WRD_WTBUF][POF], wt_data_t WtBuf2[WRD_WTBUF][POF],
+		px_data_t OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
 		b_data_t BiasBuf1[BIASBUF_LENGTH], b_data_t BiasBuf2[BIASBUF_LENGTH],
-		/* Inputs */ px_data_t_port *IfMap,
-		wt_data_t_port *WtMap,
-		/* Output */ px_data_t_port *OfMap);
+		// Inputs
+		const px_data_t_port *IfMap,
+		const wt_data_t_port *WtMap,
+		// Output
+		px_data_t_port *OfMap
+	);
 void ConvLayer(
 		//Inputs
 		const px_data_t_port *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]

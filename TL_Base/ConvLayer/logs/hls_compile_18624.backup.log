@@ -1,0 +1,660 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Programming_Files/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.argv=-v' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(22)
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 5.131 seconds; current allocated memory: 137.836 MB.
+INFO: [HLS 200-10] Analyzing design file '../src_files/Main_Code.cpp' ... 
+WARNING: [HLS 207-5292] unused parameter 'loop_limit' (../src_files/Main_Code.cpp:1873:7)
+WARNING: [HLS 207-5292] unused parameter 'layerNo' (../src_files/Main_Code.cpp:2625:25)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 11.696 seconds; current allocated memory: 142.648 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 6,365 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 11,503 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 7,489 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 7,598 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 7,046 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 10,731 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 8,691 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 8,691 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 8,691 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 9,026 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 8,600 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 8,485 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 8,524 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 8,122 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 8,169 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 7,457 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'InBuf2Pe(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> (*) [3], hls::stream<ap_int<32>, 4> (*) [3])' into 'InBuf2Pe_wrapper(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> (*) [3])' (../src_files/Main_Code.cpp:215:2)
+INFO: [HLS 214-131] Inlining function 'Pe(ap_int<32> (*) [3], ap_int<32>*, ap_int<64> (*) [3][3])' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:498:3)
+INFO: [HLS 214-131] Inlining function 'WtBuf2Pe(ap_int<32> const (*) [6], int, ap_int<32>*)' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:497:3)
+INFO: [HLS 214-131] Inlining function 'InBuf2Pe_wrapper(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> (*) [3])' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:489:3)
+INFO: [HLS 214-131] Inlining function 'WtBuf2Pe_ctrl(int, int*)' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:488:3)
+INFO: [HLS 214-131] Inlining function 'InBuf2Pe_ctrl(int, int, int, int*, int*, int*, int*, int*, int*)' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:481:2)
+INFO: [HLS 214-131] Inlining function 'ReLu(ap_int<32>, ap_int<32>*)' into 'bias_ReLu(int, int, ap_int<32>*, ap_int<64> (*) [3], ap_int<32> (*) [3])' (../src_files/Main_Code.cpp:48:4)
+INFO: [HLS 214-131] Inlining function 'tileClc_Dfl(int, int, int, int, int, int, int, int, int, int, int, int, int, int, ap_int<32> (*) [300][3], ap_int<32> (*) [6], ap_int<32>*, ap_int<32> (*) [144][3])' into 'tileClc(int, ap_int<32> (*) [300][3], ap_int<32> (*) [6], ap_int<32>*, ap_int<32> (*) [144][3])' (../src_files/Main_Code.cpp:756:3)
+INFO: [HLS 214-291] Loop 'Loop_Tof' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1504:13)
+INFO: [HLS 214-291] Loop 'Loop_Toy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1507:14)
+INFO: [HLS 214-291] Loop 'Loop_Tox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1511:16)
+INFO: [HLS 214-291] Loop 'Region2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:796:11)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_PofBankStep' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:654:27)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:655:20)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_OutBufNum_Load' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:658:30)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_Pox_Load' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:660:24)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_OutBufNum_Store' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:671:33)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_Pox_Store' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:673:25)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_37_1' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:37:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_39_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:39:19)
+INFO: [HLS 214-291] Loop 'loop_read_Pof_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:500:21)
+INFO: [HLS 214-291] Loop 'loop_read_Poy_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:502:21)
+INFO: [HLS 214-291] Loop 'loop_read_Pox_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:504:21)
+INFO: [HLS 214-291] Loop 'Region1' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:467:11)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_rdPx_Poy_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:257:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_rdPx_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:248:27)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_rdPx_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:250:26)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Poy_3' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:287:30)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_3' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:289:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Poy_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:276:31)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:278:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:267:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:269:27)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_5' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:304:30)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_4' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:298:30)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_out_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:312:25)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_out_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:314:25)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrFIFO_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:332:28)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrFIFO_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:334:28)
+INFO: [HLS 214-291] Loop 'loop_WtBuf2Pe' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:371:17)
+INFO: [HLS 214-291] Loop 'loop_Pe_Pof_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:96:19)
+INFO: [HLS 214-291] Loop 'loop_Pe_Poy_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:98:19)
+INFO: [HLS 214-291] Loop 'loop_Pe_Pox_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:100:19)
+INFO: [HLS 214-291] Loop 'loop_init_Pof_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:442:21)
+INFO: [HLS 214-291] Loop 'loop_init_Poy_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:444:21)
+INFO: [HLS 214-291] Loop 'loop_init_Pox_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:446:21)
+INFO: [HLS 214-291] Loop 'BiasLoop_Tof' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1155:17)
+INFO: [HLS 214-291] Loop 'WtLoop_Tof' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1369:15)
+INFO: [HLS 214-291] Loop 'WtLoop_Nif' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1371:14)
+INFO: [HLS 214-291] Loop 'WtLoop_Nky' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1374:14)
+INFO: [HLS 214-291] Loop 'WtLoop_Nkx' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1376:14)
+INFO: [HLS 214-291] Loop 'EastPad_Line' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1333:17)
+INFO: [HLS 214-291] Loop 'EastPad_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1335:15)
+INFO: [HLS 214-291] Loop 'WestPad_Line' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1325:17)
+INFO: [HLS 214-291] Loop 'WestPad_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1327:15)
+INFO: [HLS 214-291] Loop 'SouthPad_Nif' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1313:18)
+INFO: [HLS 214-291] Loop 'SouthPad_wrd' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1315:16)
+INFO: [HLS 214-291] Loop 'SouthPad_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1317:16)
+INFO: [HLS 214-291] Loop 'NorthPad_Nif' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1300:18)
+INFO: [HLS 214-291] Loop 'NorthPad_wrd' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1302:16)
+INFO: [HLS 214-291] Loop 'NorthPad_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1304:16)
+INFO: [HLS 214-291] Loop 'If_Nif' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1221:11)
+INFO: [HLS 214-291] Loop 'If_Tiy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1224:12)
+INFO: [HLS 214-291] Loop 'If_Nix' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:1271:14)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_PofBankStep' (../src_files/Main_Code.cpp:654:27) in function 'Pe2Buf' completely with a factor of 3 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_Poy' (../src_files/Main_Code.cpp:655:20) in function 'Pe2Buf' completely with a factor of 3 (../src_files/Main_Code.cpp:571:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'loop_Pe2Buf_Poy' (../src_files/Main_Code.cpp:655:20) in function 'Pe2Buf' has been removed because the loop is unrolled completely (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_OutBufNum_Store' (../src_files/Main_Code.cpp:671:33) in function 'Pe2Buf' completely with a factor of 2 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_Pox_Store' (../src_files/Main_Code.cpp:673:25) in function 'Pe2Buf' completely with a factor of 3 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_OutBufNum_Load' (../src_files/Main_Code.cpp:658:30) in function 'Pe2Buf' completely with a factor of 2 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_Pox_Load' (../src_files/Main_Code.cpp:660:24) in function 'Pe2Buf' completely with a factor of 3 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_37_1' (../src_files/Main_Code.cpp:37:19) in function 'bias_ReLu' completely with a factor of 2 (../src_files/Main_Code.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_39_2' (../src_files/Main_Code.cpp:39:19) in function 'bias_ReLu' completely with a factor of 3 (../src_files/Main_Code.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_read_Pof_MAC' (../src_files/Main_Code.cpp:500:21) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_read_Poy_MAC' (../src_files/Main_Code.cpp:502:21) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_read_Pox_MAC' (../src_files/Main_Code.cpp:504:21) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_rdPx_Poy_2' (../src_files/Main_Code.cpp:257:29) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_rdPx_Poy' (../src_files/Main_Code.cpp:248:27) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_rdPx_Pox' (../src_files/Main_Code.cpp:250:26) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Poy_3' (../src_files/Main_Code.cpp:287:30) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_3' (../src_files/Main_Code.cpp:289:29) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Poy_2' (../src_files/Main_Code.cpp:276:31) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_2' (../src_files/Main_Code.cpp:278:29) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Poy' (../src_files/Main_Code.cpp:267:29) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox' (../src_files/Main_Code.cpp:269:27) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_5' (../src_files/Main_Code.cpp:304:30) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_4' (../src_files/Main_Code.cpp:298:30) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_out_Poy' (../src_files/Main_Code.cpp:312:25) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_out_Pox' (../src_files/Main_Code.cpp:314:25) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrFIFO_Poy' (../src_files/Main_Code.cpp:332:28) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrFIFO_Pox' (../src_files/Main_Code.cpp:334:28) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_WtBuf2Pe' (../src_files/Main_Code.cpp:371:17) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe_Pof_MAC' (../src_files/Main_Code.cpp:96:19) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe_Poy_MAC' (../src_files/Main_Code.cpp:98:19) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe_Pox_MAC' (../src_files/Main_Code.cpp:100:19) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_init_Pof_MAC' (../src_files/Main_Code.cpp:442:21) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_init_Poy_MAC' (../src_files/Main_Code.cpp:444:21) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_init_Pox_MAC' (../src_files/Main_Code.cpp:446:21) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'WtLoop_Nky' (../src_files/Main_Code.cpp:1374:14) in function 'loadWtMap' completely with a factor of 3 (../src_files/Main_Code.cpp:1349:0)
+INFO: [HLS 214-186] Unrolling loop 'WtLoop_Nkx' (../src_files/Main_Code.cpp:1376:14) in function 'loadWtMap' completely with a factor of 3 (../src_files/Main_Code.cpp:1349:0)
+INFO: [HLS 214-186] Unrolling loop 'EastPad_Poy' (../src_files/Main_Code.cpp:1335:15) in function 'loadIfMap' completely with a factor of 3 (../src_files/Main_Code.cpp:1178:0)
+INFO: [HLS 214-186] Unrolling loop 'WestPad_Poy' (../src_files/Main_Code.cpp:1327:15) in function 'loadIfMap' completely with a factor of 3 (../src_files/Main_Code.cpp:1178:0)
+INFO: [HLS 214-186] Unrolling loop 'SouthPad_Pox' (../src_files/Main_Code.cpp:1317:16) in function 'loadIfMap' completely with a factor of 3 (../src_files/Main_Code.cpp:1178:0)
+INFO: [HLS 214-186] Unrolling loop 'NorthPad_Pox' (../src_files/Main_Code.cpp:1304:16) in function 'loadIfMap' completely with a factor of 3 (../src_files/Main_Code.cpp:1178:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'IfMap'. (../src_files/Main_Code.cpp:1806:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'WtMap'. (../src_files/Main_Code.cpp:1806:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12Internal_Reg': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:238:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ16InBuf2Pe_wrapperiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_E8FIFO_arr': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:211:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf': Complete partitioning on dimension 1. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:1920:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E5WtBuf': Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:1918:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E5InBuf': Complete partitioning on dimension 1. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:1915:0)
+INFO: [HLS 214-248] Applying array_partition to 'Buff_read.i.i': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:243:12)
+INFO: [HLS 214-248] Applying array_partition to 'pxSerial': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:585:13)
+INFO: [HLS 214-248] Applying array_partition to 'ReLuOut': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:588:12)
+INFO: [HLS 214-248] Applying array_partition to 'px_toBuf.i': Complete partitioning on dimension 1. Complete partitioning on dimension 2. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:807:13)
+INFO: [HLS 214-248] Applying array_partition to 'BiasBuf': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:1923:11)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL22tileclc_loop_limit_rom' completely based on array size. (../src_files/parameters.h:672:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL21wndclc_loop_limit_rom' completely based on array size. (../src_files/parameters.h:670:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL23wtbuf2pe_loop_limit_rom' completely based on array size. (../src_files/parameters.h:668:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7Nif_rom' completely based on array size. (../src_files/parameters.h:628:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7Toy_rom' completely based on array size. (../src_files/parameters.h:631:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL12toy_step_rom' completely based on array size. (../src_files/parameters.h:659:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL12tox_step_rom' completely based on array size. (../src_files/parameters.h:660:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL12tof_step_rom' completely based on array size. (../src_files/parameters.h:658:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL12wrd_1row_rom' completely based on array size. (../src_files/parameters.h:664:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL12row_1map_rom' completely based on array size. (../src_files/parameters.h:663:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL23pe2buf_addr_offset1_rom' completely based on array size. (../src_files/parameters.h:674:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL23pe2buf_addr_offset2_rom' completely based on array size. (../src_files/parameters.h:676:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL23pe2buf_addr_offset3_rom' completely based on array size. (../src_files/parameters.h:678:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL13bit_shift_rom' completely based on array size. (../src_files/parameters.h:648:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL12Nof_step_rom' completely based on array size. (../src_files/parameters.h:627:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7Tof_rom' completely based on array size. (../src_files/parameters.h:630:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7niy_rom' completely based on array size. (../src_files/parameters.h:657:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7tiy_rom' completely based on array size. (../src_files/parameters.h:661:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7tix_rom' completely based on array size. (../src_files/parameters.h:662:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7Noy_rom' completely based on array size. (../src_files/parameters.h:629:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL7Tox_rom' completely based on array size. (../src_files/parameters.h:632:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL8nofFirst' completely based on array size. (../src_files/parameters.h:645:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL12noy_step_rom' completely based on array size. (../src_files/parameters.h:655:0)
+INFO: [HLS 214-421] Automatically partitioning small array '_ZL13nofy_step_rom' completely based on array size. (../src_files/parameters.h:656:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'Nof_step_rom' due to pipeline pragma (../src_files/parameters.h:627:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'noy_step_rom' due to pipeline pragma (../src_files/parameters.h:655:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'row_1map_rom' due to pipeline pragma (../src_files/parameters.h:663:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'tof_step_rom' due to pipeline pragma (../src_files/parameters.h:658:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'tox_step_rom' due to pipeline pragma (../src_files/parameters.h:660:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'toy_step_rom' due to pipeline pragma (../src_files/parameters.h:659:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'wrd_1row_rom' due to pipeline pragma (../src_files/parameters.h:664:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'bit_shift_rom' due to pipeline pragma (../src_files/parameters.h:648:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'nofy_step_rom' due to pipeline pragma (../src_files/parameters.h:656:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'wndclc_loop_limit_rom' due to pipeline pragma (../src_files/parameters.h:670:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'tileclc_loop_limit_rom' due to pipeline pragma (../src_files/parameters.h:672:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'pe2buf_addr_offset1_rom' due to pipeline pragma (../src_files/parameters.h:674:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'pe2buf_addr_offset2_rom' due to pipeline pragma (../src_files/parameters.h:676:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'pe2buf_addr_offset3_rom' due to pipeline pragma (../src_files/parameters.h:678:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'wtbuf2pe_loop_limit_rom' due to pipeline pragma (../src_files/parameters.h:668:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'Nif_rom' due to pipeline pragma (../src_files/parameters.h:628:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'Noy_rom' due to pipeline pragma (../src_files/parameters.h:629:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'Tof_rom' due to pipeline pragma (../src_files/parameters.h:630:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'Tox_rom' due to pipeline pragma (../src_files/parameters.h:632:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'Toy_rom' due to pipeline pragma (../src_files/parameters.h:631:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'niy_rom' due to pipeline pragma (../src_files/parameters.h:657:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'tix_rom' due to pipeline pragma (../src_files/parameters.h:662:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'tiy_rom' due to pipeline pragma (../src_files/parameters.h:661:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'nofFirst' due to pipeline pragma (../src_files/parameters.h:645:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL8nofFirst': Complete partitioning on dimension 1. (../src_files/parameters.h:645:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7tiy_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:661:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7tix_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:662:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7niy_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:657:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7Toy_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:631:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7Tox_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:632:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7Tof_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:630:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7Noy_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:629:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL7Nif_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:628:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL23wtbuf2pe_loop_limit_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:668:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL23pe2buf_addr_offset3_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:678:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL23pe2buf_addr_offset2_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:676:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL23pe2buf_addr_offset1_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:674:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL22tileclc_loop_limit_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:672:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL21wndclc_loop_limit_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:670:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL13nofy_step_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:656:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL13bit_shift_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:648:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL12wrd_1row_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:664:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL12toy_step_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:659:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL12tox_step_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:660:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL12tof_step_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:658:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL12row_1map_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:663:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL12noy_step_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:655:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZL12Nof_step_rom': Complete partitioning on dimension 1. (../src_files/parameters.h:627:0)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:1224:12)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:1371:14)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 32 has been inferred on bundle 'gmem'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:1507:14)
+WARNING: [HLS 214-187] Cannot unroll loop 'Loop_Tof' (../src_files/Main_Code.cpp:1504:13) in function 'storeMap' as it has a variable trip count (../src_files/Main_Code.cpp:1504:13)
+WARNING: [HLS 214-187] Cannot unroll loop 'Loop_Toy' (../src_files/Main_Code.cpp:1507:14) in function 'storeMap' as it has a variable trip count (../src_files/Main_Code.cpp:1507:14)
+WARNING: [HLS 214-187] Cannot unroll loop 'Loop_Tox' (../src_files/Main_Code.cpp:1511:16) in function 'storeMap' as it has a variable trip count (../src_files/Main_Code.cpp:1511:16)
+WARNING: [HLS 214-187] Cannot unroll loop 'Region2' (../src_files/Main_Code.cpp:796:11) in function 'tileClc' as it has a variable trip count (../src_files/Main_Code.cpp:796:11)
+WARNING: [HLS 214-187] Cannot unroll loop 'Region1' (../src_files/Main_Code.cpp:467:11) in function 'wndClc_Dfl' as it has a variable trip count (../src_files/Main_Code.cpp:467:11)
+WARNING: [HLS 214-187] Cannot unroll loop 'BiasLoop_Tof' (../src_files/Main_Code.cpp:1155:17) in function 'loadBiasTile' as it has a variable trip count (../src_files/Main_Code.cpp:1155:17)
+WARNING: [HLS 214-187] Cannot unroll loop 'WtLoop_Tof' (../src_files/Main_Code.cpp:1369:15) in function 'loadWtMap' as it has a variable trip count (../src_files/Main_Code.cpp:1369:15)
+WARNING: [HLS 214-187] Cannot unroll loop 'WtLoop_Nif' (../src_files/Main_Code.cpp:1371:14) in function 'loadWtMap' as it has a variable trip count (../src_files/Main_Code.cpp:1371:14)
+WARNING: [HLS 214-187] Cannot unroll loop 'EastPad_Line' (../src_files/Main_Code.cpp:1333:17) in function 'loadIfMap' as it has a variable trip count (../src_files/Main_Code.cpp:1333:17)
+WARNING: [HLS 214-187] Cannot unroll loop 'WestPad_Line' (../src_files/Main_Code.cpp:1325:17) in function 'loadIfMap' as it has a variable trip count (../src_files/Main_Code.cpp:1325:17)
+WARNING: [HLS 214-187] Cannot unroll loop 'SouthPad_Nif' (../src_files/Main_Code.cpp:1313:18) in function 'loadIfMap' as it has a variable trip count (../src_files/Main_Code.cpp:1313:18)
+WARNING: [HLS 214-187] Cannot unroll loop 'SouthPad_wrd' (../src_files/Main_Code.cpp:1315:16) in function 'loadIfMap' as it has a variable trip count (../src_files/Main_Code.cpp:1315:16)
+WARNING: [HLS 214-187] Cannot unroll loop 'NorthPad_Nif' (../src_files/Main_Code.cpp:1300:18) in function 'loadIfMap' as it has a variable trip count (../src_files/Main_Code.cpp:1300:18)
+WARNING: [HLS 214-187] Cannot unroll loop 'NorthPad_wrd' (../src_files/Main_Code.cpp:1302:16) in function 'loadIfMap' as it has a variable trip count (../src_files/Main_Code.cpp:1302:16)
+WARNING: [HLS 214-187] Cannot unroll loop 'If_Nif' (../src_files/Main_Code.cpp:1221:11) in function 'loadIfMap' as it has a variable trip count (../src_files/Main_Code.cpp:1221:11)
+WARNING: [HLS 214-187] Cannot unroll loop 'If_Tiy' (../src_files/Main_Code.cpp:1224:12) in function 'loadIfMap' as it has a variable trip count (../src_files/Main_Code.cpp:1224:12)
+WARNING: [HLS 214-187] Cannot unroll loop 'If_Nix' (../src_files/Main_Code.cpp:1271:14) in function 'loadIfMap' as it has a variable trip count (../src_files/Main_Code.cpp:1271:14)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 23.352 seconds; current allocated memory: 151.457 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.004 seconds; current allocated memory: 151.457 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.239 seconds; current allocated memory: 160.590 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.271 seconds; current allocated memory: 165.371 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:468:9) to (../src_files/Main_Code.cpp:177:6) in function 'wndClc_Dfl'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:221:18) to (../src_files/Main_Code.cpp:265:5) in function 'wndClc_Dfl'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:1832:6) to (../src_files/Main_Code.cpp:1855:7) in function 'mem2Buf'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:1135:6) to (../src_files/Main_Code.cpp:1153:2) in function 'loadBiasTile'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.681 seconds; current allocated memory: 190.312 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.772 seconds; current allocated memory: 298.082 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'ConvLayer' ...
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadWtMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'loadWtMap': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.441 seconds; current allocated memory: 305.176 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.063 seconds; current allocated memory: 306.344 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadIfMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln1221_2) to 3 in order to utilize available DSP registers.
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'loadIfMap': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.175 seconds; current allocated memory: 308.777 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.082 seconds; current allocated memory: 309.035 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'mem2Buf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for function 'mem2Buf': contains subfunction 'loadWtMap' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.102 seconds; current allocated memory: 309.156 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 309.289 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadBiasTile' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add14) to 3 in order to utilize available DSP registers.
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'loadBiasTile': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.061 seconds; current allocated memory: 309.820 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.053 seconds; current allocated memory: 309.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'wndClc_ctrl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'wndClc_ctrl'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, function 'wndClc_ctrl'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.063 seconds; current allocated memory: 310.355 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.018 seconds; current allocated memory: 310.355 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'wndClc_Dfl_Pipeline_Region1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'wndClc_Dfl_Pipeline_Region1': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'Region1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 6, loop 'Region1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.501 seconds; current allocated memory: 317.922 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 317.965 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'wndClc_Dfl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for function 'wndClc_Dfl': contains subfunction 'wndClc_Dfl_Pipeline_Region1' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.245 seconds; current allocated memory: 318.094 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.056 seconds; current allocated memory: 318.336 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'bias_ReLu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'bias_ReLu'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, function 'bias_ReLu'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 318.496 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.057 seconds; current allocated memory: 318.531 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Pe2Buf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'Pe2Buf'.
+WARNING: [HLS 200-880] The II Violation in module 'Pe2Buf' (function 'Pe2Buf'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_1_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0' and 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'Pe2Buf' (function 'Pe2Buf'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_2_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0' and 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'Pe2Buf' (function 'Pe2Buf'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_3_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0' and 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'Pe2Buf' (function 'Pe2Buf'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_4_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0' and 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'Pe2Buf' (function 'Pe2Buf'): Unable to enforce a carried dependence constraint (II = 7, distance = 1, offset = 1) between 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_7_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0' and 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'Pe2Buf' (function 'Pe2Buf'): Unable to enforce a carried dependence constraint (II = 8, distance = 1, offset = 1) between 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_8_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0' and 'store' operation 0 bit ('p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_addr_write_ln675', ../src_files/Main_Code.cpp:675) of variable 'ReLuOut', ../src_files/Main_Code.cpp:668 on array 'p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 9, Depth = 9, function 'Pe2Buf'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 2.03 seconds; current allocated memory: 321.609 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.098 seconds; current allocated memory: 321.738 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'tileClc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'tileClc': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.152 seconds; current allocated memory: 321.984 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.061 seconds; current allocated memory: 322.238 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'storeMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'storeMap': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.146 seconds; current allocated memory: 323.148 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.041 seconds; current allocated memory: 323.332 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ConvLayer_Pipeline_Nofy_step_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for loop 'Nofy_step_loop': contains subfunction 'mem2Buf' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.062 seconds; current allocated memory: 323.488 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.066 seconds; current allocated memory: 323.953 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ConvLayer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.074 seconds; current allocated memory: 324.230 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.048 seconds; current allocated memory: 324.645 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadWtMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_33s_43_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_4ns_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadWtMap'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.241 seconds; current allocated memory: 327.973 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_4ns_4ns_32s_33_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_32ns_36_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_33s_32ns_62_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_3ns_3ns_6_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_3ns_4ns_7_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_6ns_4ns_9_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.496 seconds; current allocated memory: 334.164 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'mem2Buf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_5s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'mem2Buf'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.583 seconds; current allocated memory: 341.539 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadBiasTile' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_5s_4ns_5ns_5_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_5ns_2ns_6_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadBiasTile'.
+INFO: [RTMG 210-279] Implementing memory 'ConvLayer_loadBiasTile_bias_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.261 seconds; current allocated memory: 343.727 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'wndClc_ctrl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_3ns_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'wndClc_ctrl'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.198 seconds; current allocated memory: 345.918 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'wndClc_Dfl_Pipeline_Region1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'wndClc_Dfl_Pipeline_Region1' pipeline 'Region1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_64_1_1': 54 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_32_1_1': 12 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'wndClc_Dfl_Pipeline_Region1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.465 seconds; current allocated memory: 351.992 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'wndClc_Dfl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_3ns_3ns_6_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'wndClc_Dfl'.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_E8FIFO_arr_0_0_U(ConvLayer_fifo_w32_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_E8FIFO_arr_0_1_U(ConvLayer_fifo_w32_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_E8FIFO_arr_0_2_U(ConvLayer_fifo_w32_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_E8FIFO_arr_1_0_U(ConvLayer_fifo_w32_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_E8FIFO_arr_1_1_U(ConvLayer_fifo_w32_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_E8FIFO_arr_1_2_U(ConvLayer_fifo_w32_d4_S)' using Shift Registers.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.557 seconds; current allocated memory: 374.562 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'bias_ReLu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_13_4_8_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'bias_ReLu'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.259 seconds; current allocated memory: 378.828 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Pe2Buf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_3ns_4ns_7_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Pe2Buf'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.278 seconds; current allocated memory: 380.773 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'tileClc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'tileClc'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.74 seconds; current allocated memory: 392.570 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'storeMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_33s_4ns_37_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_37s_4ns_41_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_3ns_4ns_7_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_4ns_32s_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_4ns_4ns_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'storeMap'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.386 seconds; current allocated memory: 398.047 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ConvLayer_Pipeline_Nofy_step_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ConvLayer_Pipeline_Nofy_step_loop'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.342 seconds; current allocated memory: 402.684 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ConvLayer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvLayer/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvLayer/IfMap' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvLayer/WtMap' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvLayer/OfMap' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'ConvLayer' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'tileCount_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'NofFirst_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Noy_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tiy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nif_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Niy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tiy_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tix' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'row_1map_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wrd_1row_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'TiyRem' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'TixRem' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nif_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nof_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'addressBase' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_step_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nof_step_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'tileclc_loop_limit' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wndclc_loop_limit' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wtbuf2pe_loop_limit' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nif' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Toy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Toy_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tox_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wrd_1row' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'row_1map' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pe2buf_addr_offset1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pe2buf_addr_offset2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pe2buf_addr_offset3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Toy_step_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tox_step_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_step_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'row_wtlocal' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12In_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12In' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12In_8' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12In_7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12In_6' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12In_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12In_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12In_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12In_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'guard_variable_for_InBuf2Pe_wrapper_int_int_int_int_int_int_ap_int_const_300' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nky_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nif_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nkx_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Toy_step_i_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tox_step_i_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_step_i_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'rowStep' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'POFBANK_STEP_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Poy_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Noy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Toy_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tox' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wrd_1rowOut' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'tileCount' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'NofFirst' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_6' is power-on initialization.
+INFO: [RTGEN 206-100] Bundling port 'IfMap', 'WtMap' and 'OfMap' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ConvLayer'.
+INFO: [RTMG 210-278] Implementing memory 'ConvLayer_p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E5InBuf_0_0_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'ConvLayer_ConvLayer_ap_int_32_const_ap_int_32_const_ap_int_32_WtBuf_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'ConvLayer_p_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf_0_0_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 2.199 seconds; current allocated memory: 411.344 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.832 seconds; current allocated memory: 420.020 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 2.944 seconds; current allocated memory: 432.391 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for ConvLayer.
+INFO: [VLOG 209-307] Generating Verilog RTL for ConvLayer.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-112] Total CPU user time: 14 seconds. Total CPU system time: 5 seconds. Total elapsed time: 63.525 seconds; peak allocated memory: 432.434 MB.
+INFO: [v++ 60-791] Total elapsed time: 0h 1m 9s

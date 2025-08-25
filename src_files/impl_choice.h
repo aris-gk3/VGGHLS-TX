@@ -4,8 +4,8 @@
 // **Module Integrations**
 // Max pool: MAXPOOL_INTEGRATION, Head: HEAD_INTEGRATION
 // Head integration is only defined if max pool integration is defined
-#define MAXPOOL_INTEGRATION
-#define HEAD_INTEGRATION
+// #define MAXPOOL_INTEGRATION
+// #define HEAD_INTEGRATION
 
 // **Interface**
 // IfMap, OfMap: are widened if FMAP_WIDEN is declared (7)

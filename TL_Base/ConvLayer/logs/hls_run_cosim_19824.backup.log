@@ -1,0 +1,102 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Programming_Files/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1465] Applying config ini 'csim.argv=-v' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(22)
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "C:/Xilinx/2025.1/Vitis/win64/tools/vcxx/libexec/clang++"
+   Compiling tb_loadbin.cpp_pre.cpp.tb.cpp
+   Compiling apatb_ConvLayer.cpp
+   Compiling tb_Mem2Buf.cpp_pre.cpp.tb.cpp
+   Compiling tb_gap.cpp_pre.cpp.tb.cpp
+   Compiling Main_Code.cpp_pre.cpp.tb.cpp
+   Compiling tb_parameters.cpp_pre.cpp.tb.cpp
+   Compiling Auxiliary_Calculations.cpp_pre.cpp.tb.cpp
+   Compiling tb_fcLayer.cpp_pre.cpp.tb.cpp
+   Compiling tb_Buf2Pe.cpp_pre.cpp.tb.cpp
+   Compiling main_tb.cpp_pre.cpp.tb.cpp
+   Compiling tb_port_widening.cpp_pre.cpp.tb.cpp
+   Compiling tb_maxPool.cpp_pre.cpp.tb.cpp
+   Compiling tb_Top.cpp_pre.cpp.tb.cpp
+   Compiling tb_Dfl_ControlLogic.cpp_pre.cpp.tb.cpp
+   Compiling apatb_ConvLayer_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+*********************************************************************************  Starting Verification. ************************************************************************************
+Reached HERE!1
+*****  Layer 1  *****
+Reached HERE2!
+Reached HERE3!
+Reached HERE4!
+For this tile, bit shift is 0
+For this tile, bit shift is 0
+Reached HERE!
+
+Number of errors is  636
+
+Positions of errors (first 20) are:
+73   75   76   77   78   79   81   82   83   85   86   87   93   95   98   100   102   103   104   105   
+Values of errors (first 20) for synth module are:
+0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   
+Values of errors (first 20) for tb module are:
+7094   25828   3500   26189   31445   6118   4388   15801   27020   43351   329   28629   16233   25304   1335   28314   14013   23437   20430   2691   
+Number of out of range synth values are:413
+
+Positions of out of range values (first 20) for synth module are:
+12   14   16   18   20   22   23   25   26   27   28   29   30   31   34   35   37   39   43   44   
+Values out of range (first 20) for synth module are:
+17627   2259   2607   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   12786   5759   30996   17028   2402   35290   18074   Number of out of range tb values are:854
+
+Positions of out of range values (first 20) for TB are:
+12   14   16   18   20   22   23   25   26   27   28   29   30   31   34   35   37   39   43   44   
+Values out of range (first 20) for TB are:
+17627   2259   2607   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   12786   5759   30996   17028   2402   35290   18074   
+*****  Convolutional Layer with  bias + ReLu test failed!  ******
+
+*********************************************************************************  Verification Complete. ************************************************************************************
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
+ERROR: [COSIM 212-359] Aborting co-simulation: C TB simulation failed, nonzero return value '1'.
+ERROR: [COSIM 212-320] C TB testing failed, stop generating test vectors. Please check C TB or re-run cosim.
+ERROR: [COSIM 212-5] *** C/RTL co-simulation file generation failed. ***
+ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***
+ERROR: 
+INFO: [HLS 200-112] Total CPU user time: 9 seconds. Total CPU system time: 3 seconds. Total elapsed time: 91.785 seconds; peak allocated memory: 225.027 MB.

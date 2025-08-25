@@ -434,7 +434,7 @@ Built simulation snapshot ConvLayer
   **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
   **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
   **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-  **** Start of session at: Sun Aug 24 14:29:23 2025
+  **** Start of session at: Sun Aug 24 13:45:21 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -741,14 +741,14 @@ UVM_INFO C:/Xilinx/2025.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv
 // RTL Simulation : 1 / 1 [100.00%] @ "36061595000"
 ////////////////////////////////////////////////////////////////////////////////////
 $finish called at time : 36061645 ns : File "C:/Xilinx/2025.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
-run: Time (s): cpu = 00:00:00 ; elapsed = 00:22:26 . Memory (MB): peak = 210.789 ; gain = 0.000
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:31:01 . Memory (MB): peak = 210.699 ; gain = 0.000
 ## quit
-INFO: xsimkernel Simulation Memory Usage: 11283192 KB (Peak: 11283192 KB), Simulation CPU Usage: 1296483 ms
-INFO: [Common 17-206] Exiting xsim at Sun Aug 24 14:52:39 2025...
+INFO: xsimkernel Simulation Memory Usage: 12700012 KB (Peak: 12700012 KB), Simulation CPU Usage: 1682233 ms
+INFO: [Common 17-206] Exiting xsim at Sun Aug 24 14:17:47 2025...
 INFO: [COSIM 212-316] Starting C post checking ...
 *********************************************************************************  Starting Verification. ************************************************************************************
 *********************************************************************************  Verification Complete. ************************************************************************************
 INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
 INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
-INFO: [HLS 200-112] Total CPU user time: 8 seconds. Total CPU system time: 3 seconds. Total elapsed time: 1568.36 seconds; peak allocated memory: 242.078 MB.
-INFO: [vitis-run 60-791] Total elapsed time: 0h 26m 15s
+INFO: [HLS 200-112] Total CPU user time: 12 seconds. Total CPU system time: 4 seconds. Total elapsed time: 2205.16 seconds; peak allocated memory: 242.320 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 36m 51s
