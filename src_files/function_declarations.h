@@ -67,13 +67,7 @@ void Pe2Buf(
 		bit_shift_dt bit_shift,
 		/* Inputs */ acc_data_t px_stream[POF][POY][POX], b_data_t BiasBuf[BIASBUF_LENGTH],
 		/* Output */ px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]);
-void tileClc(
-		/* Parameters*/
-		data_bool layerCnfg,
-		/* Inputs */ px_data_t InBuf[POY][WRD_INBUF][POX],
-		wt_data_t WtBuf[WRD_WTBUF][POF],
-		b_data_t BiasBuf[BIASBUF_LENGTH],
-		/* Output */ px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]);
+
 void tileClc_Dfl(
 		/* Parameters*/ tile_loop_dt tileclc_loop_limit_in, wnd_loop_dt wndclc_loop_limit_in,
 		wtbuf2pe_loop_dt wtbuf2pe_loop_limit_in,
@@ -87,9 +81,7 @@ void tileClc_Dfl(
 		wt_data_t WtBuf[WRD_WTBUF][POF],
 		b_data_t BiasBuf[BIASBUF_LENGTH],
 		/* Output */ px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]);
-void loadBiasTile(data_bool layerCnfg,
-		b_data_t BiasBuf[BIASBUF_LENGTH]);
-#if not defined(CASE_AB)
+#if not defined(SET_CONFIG_LAYER)
 void loadIfMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ data_bool northTile, data_bool southTile,
@@ -99,7 +91,30 @@ void loadWtMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t_port *WtMap,
 		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]);
-#elif defined(CASE_AB)
+void mem2Buf(
+		// Parameter Loading State
+		data_bool layerCnfg,
+		// Inputs
+		const px_data_t_port *IfMap,
+		const wt_data_t_port *WtMap,
+		// Outputs
+		px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF]
+	);
+void loadBiasTile(data_bool layerCnfg,
+		b_data_t BiasBuf[BIASBUF_LENGTH]);
+void tileClc(
+		/* Parameters*/
+		data_bool layerCnfg,
+		/* Inputs */ px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF],
+		b_data_t BiasBuf[BIASBUF_LENGTH],
+		/* Output */ px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]);
+void storeMap(
+		/* Parameter Loading State */ data_bool layerCnfg,
+		/* Inputs */ const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		/* Output */ px_data_t_port *OfMap);
+#elif defined(SET_CONFIG_LAYER)
 void loadIfMap(
 		const px_data_t_port *IfMap, //[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
 		px_data_t InBuf[POY][WRD_INBUF][POX]
@@ -108,17 +123,26 @@ void loadWtMap(
 		const wt_data_t_port *WtMap,
 		wt_data_t WtBuf[WRD_WTBUF][POF]
 	);
-#endif
-void storeMap(
-		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
-		/* Output */ px_data_t_port *OfMap);
 void mem2Buf(
-		/* Parameter Loading State */ data_bool layerCnfg,
-		/* Inputs */ const px_data_t_port *IfMap,
+		const px_data_t_port *IfMap,
 		const wt_data_t_port *WtMap,
-		/* Outputs */ px_data_t InBuf[POY][WRD_INBUF][POX],
-		wt_data_t WtBuf[WRD_WTBUF][POF]);
+		px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF]
+	);
+void loadBiasTile(
+		b_data_t BiasBuf[BIASBUF_LENGTH]
+	);
+void tileClc(
+		px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF],
+		b_data_t BiasBuf[BIASBUF_LENGTH],
+		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]
+	);
+void storeMap(
+		const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		px_data_t_port *OfMap
+	);
+#endif
 void ConvLayer_Dfl(
 		// Parameter Loading State
 		int layerNo,
@@ -299,6 +323,7 @@ int returnMax(px_data_t *Map, const int NUM_ELEMENTS);
 void findMinMax(const px_data_t *Map, const int NUM_ELEMENTS, int &minVal, int &maxVal);
 
 // Parameter Verification Functions
+void printDesignChoice();
 int Print_Check_Parameters(int verbose);
 int Check_Binary_Lengths();
 

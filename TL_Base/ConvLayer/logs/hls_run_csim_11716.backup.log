@@ -1,0 +1,1579 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Programming_Files/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../src_files/tb_port_widening.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Top.cpp in debug mode
+   Compiling ../../../../../src_files/tb_parameters.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Mem2Buf.cpp in debug mode
+   Compiling ../../../../../src_files/tb_maxPool.cpp in debug mode
+   Compiling ../../../../../src_files/tb_loadbin.cpp in debug mode
+   Compiling ../../../../../src_files/tb_gap.cpp in debug mode
+   Compiling ../../../../../src_files/tb_fcLayer.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Dfl_ControlLogic.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Buf2Pe.cpp in debug mode
+   Compiling ../../../../../src_files/main_tb.cpp in debug mode
+   Compiling ../../../../../src_files/Auxiliary_Calculations.cpp in debug mode
+   Compiling ../../../../../src_files/Main_Code.cpp in debug mode
+   Generating csim.exe
+In file included from ../../../../../src_files/tb_port_widening.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Top.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_parameters.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Mem2Buf.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_maxPool.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_loadbin.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_gap.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_fcLayer.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Dfl_ControlLogic.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Buf2Pe.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/main_tb.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Auxiliary_Calculations.cpp:2:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Main_Code.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+*********************************************************************************  Starting Verification. ************************************************************************************
+No integration of max pooling or network head in the convolutional layer.
+No port widening applied.
+Sequential scheduling for middle region (2) was applied.
+Reached HERE!1
+*****  Layer 1  *****
+Reached HERE2!
+Reached HERE3!
+Reached HERE4!
+Reached HERE4aqwe!
+For this tile, bit shift is 0
+For this tile, bit shift is 0
+Reached HERE!
+
+Number of out of range synth values are:854
+
+Positions of out of range values (first 20) for synth module are:
+12   14   16   18   20   22   23   25   26   27   28   29   30   31   34   35   37   39   43   44   
+Values out of range (first 20) for synth module are:
+17627   2259   2607   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   12786   5759   30996   17028   2402   35290   18074   Number of out of range tb values are:854
+
+Positions of out of range values (first 20) for TB are:
+12   14   16   18   20   22   23   25   26   27   28   29   30   31   34   35   37   39   43   44   
+Values out of range (first 20) for TB are:
+17627   2259   2607   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   12786   5759   30996   17028   2402   35290   18074   
+Printing IfMap of Layer1
+***  Printing Input Feature Map for Layer 0  ***
+1 Map
+  41  35  62   4  97 108  86  46  82  16  73 113 
+ 113  59 105 107  51  38  91  60   7  12  62  25 
+  36  94  13  28   6  55  71  94  51  18  77  72 
+  67  59  11  38  31   3  90 125   9  56  37  31 
+  93  84  75 124  22 117  69  59  19  13   9  10 
+  28  91  46  50  32  26  80 110  64 120  54 125 
+  18  73  50 118  30 125  73  92  45  79  20 114 
+  68  64 102  80 107  68  48  55  50  59  33  34 
+ 118  34  17  29  97  11  31  90  48  74  25   2 
+  57 114  29  73  44   0 126  69  25  85 105   0 
+  50 106  73  76  83  63 103  86  63  20  86 126 
+  45  92  14 102   3 111  87  73  97 127 105  15 
+2 Map
+  97  77  81  30  29  28  22 114 114 102  29 112 
+   4  79  74 119   2  87 104  57  44  83  75  73 
+  18  30  51 116  30  12 116  85  84  31  84  36 
+  89 126  53  79  50  34 116  76  79  83  16  45 
+  72  83  15 117 102  89  29  42 101  64 119  43 
+ 120   1   7  68  14  95  80   0  84  97  13  62 
+ 123   5  21   7  59  51   2  31  24 112  18  90 
+ 100  84  78  49   5  62 105  21 120  70 106   4 
+  22 115  14  89  22  47 103 104  84 119  74  74 
+  80  87 104 118 122  22  59  17  45  46  36   8 
+ 121 126  82  91  37  67 101  60 116  69  83  88 
+  40  78  11 117  69  96  89  61  23  39  10  89 
+3 Map
+ 118  45  80  66  73  77 104  84  73 106 121  37 
+   8  97  64  20  49  59 106  37  17  40  65  12 
+  86  41  11   7  23  12  47 113  21  29  26  21 
+  65  27  97  64 126 105  40  26  39   6  66  53 
+  84  63  26 103  89  35  81  85  16  56  40  81 
+  89 108  33 102  94  78  97  48  28 126  89 113 
+  31  98  37  98  12  27  52  71 101  56  42  70 
+   9  41   2 121 122 118 120  66  99  49  38  95 
+  90  41 109  62  98  96  22  18  52  63  57  38 
+  63   9  94 113 109  14  99 108  40  33  30  32 
+  29  75  66   3  63  65   7   4  15  20   5 101 
+  27  40  97  73  69 103  44  14  70  54   8  92 
+Printing WtMap of Layer1
+***  Printing Weight Kernel Maps for Layer 0  ***
+
+* Printing Weight Kernels for 0 OfMap *
+  70    63   -76  |    38    27   -72  |     3    93   -64  |   
+ -13   116   -71  |    79   -53    53  |  -117   -71     0  |   
+  46   -15   -59  |   -72    39  -124  |   100    57   109  |   
+* Printing Weight Kernels for 1 OfMap *
+ 100  -102   105  |   123   -45    74  |    28   -95    70  |   
+-103    39  -115  |  -118    55    24  |    76    96    88  |   
+  54   -59   -24  |    -9    80   -94  |   -98  -100    -6  |   
+* Printing Weight Kernels for 2 OfMap *
+ -39  -118  -105  |   -17   -84    47  |  -100    74   -41  |   
+ -76   -34   -70  |   -88    98  -117  |   -99    26   -77  |   
+ -61    15    -5  |     4    12   -21  |  -112   -49   119  |   
+* Printing Weight Kernels for 3 OfMap *
+  71   -69    64  |   -63  -119  -108  |   -67    53   -76  |   
+  59   -33    81  |     6    14   -72  |   -32   -12   119  |   
+  83    39    56  |    13    17   -57  |   -54   -83   104  |   
+* Printing Weight Kernels for 4 OfMap *
+ 120   110  -127  |   -76   -40   -35  |   -37     4   -53  |   
+ 113   108    15  |   -74     8   113  |   -89   100    83  |   
+  63   -95    43  |   -36     6     1  |     3   -20    68  |   
+* Printing Weight Kernels for 5 OfMap *
+  70  -122  -116  |    33   117   -45  |   -55   -95   -59  |   
+ -66     1   114  |   -96   108    20  |  -119   -44  -125  |   
+ -44  -117  -111  |   -74   105  -106  |  -103   -72   -97  |   
+* Printing Weight Kernels for 6 OfMap *
+-107  -118   -18  |   -71   -81  -116  |   116    66    73  |   
+  93    76    73  |   -45   -44   -64  |  -123   -49  -123  |   
+ -78   102   -92  |    27    50    30  |    81   -38   125  |   
+* Printing Weight Kernels for 7 OfMap *
+ 122    52    -2  |    31    38   -98  |    38   -89     2  |   
+  88    10   -63  |  -107    76   103  |   113     6   -83  |   
+ -60   -26    89  |    74   -32    24  |    34  -125   118  |   
+* Printing Weight Kernels for 8 OfMap *
+-100    39    91  |   -32   -91   108  |   121   103   -45  |   
+ -79    58    17  |   -50   -40    -8  |    66    41   -73  |   
+  56  -127   100  |   -53   -96    55  |   105    21    -9  |   
+* Printing Weight Kernels for 9 OfMap *
+  67   114    61  |     9    91   104  |   113    39   105  |   
+ 103    82   109  |    51   -56   123  |    65   -46   -62  |   
+-125   105   105  |   -46   113   123  |    23   -49   -59  |   
+* Printing Weight Kernels for 10 OfMap *
+ 107   120   -49  |   -22   102    77  |   -92    26    46  |   
+  32   125   -60  |    -3   -94   -87  |    67   -67   104  |   
+-107   -64    17  |    61   -78   -21  |    15    -7    63  |   
+* Printing Weight Kernels for 11 OfMap *
+  74    13   -38  |  -108    -4    90  |    -1    74   -61  |   
+ -74   -94   -42  |   122   -82   -40  |  -103    63   -50  |   
+  35   -48    83  |   -34   -97   -23  |   -33   -16   -40  |   
+Printing OfMap under test of Layer1
+***  Printing Output Feature Map  ***
+1 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+17627     0  2259     0  2607     0  8391     0  19116     0  3964  17409  |  
+   0  16664  1196  33548  27274   735  8542  12786     0     0  5759  30996  |  
+   0  17028     0  2402     0     0     0  35290  18074     0  17948  8562  |  
+12382  4365  25078  20608  2454  11435  6160  6317  6557  21262  11908  26601  |  
+   0  11268     0  1995  7030     0  4910  29992     0  18300     0  17255  |  
+   0  7094     0  25828  3500  26189  31445  6118     0  4388  15801  27020  |  
+   0  43351   329  28629     0     0     0     0     0  16233     0  25304  |  
+   0     0  1335     0  28314     0  14013  23437  20430  2691  14114  17317  |  
+   0  15533     0     0     0     0     0     0     0     0  10876  11385  |  
+   0  21008     0  18585  34641     0  9042  35590  3209  8759  25095  32977  |  
+   0  12209  6205     0     0     0   239  3646  9327     0     0  17818  |  
+2 Map
+3428     0     0     0     0     0     0     0  6738     0     0  11796  |  
+   0  6807     0  27211     0  6562  14484     0  6838  19409  16481     0  |  
+   0  19334     0     0     0     0     0  5679  14846     0     0     0  |  
+   0     0     0  6694  20095  8828  7897     0     0  13746     0  6089  |  
+9998     0     0  22772     0  7558     0     0  23648     0  1280     0  |  
+16787     0  32587     0  37934  21834  11992     0     0  16010     0  15038  |  
+4634     0  14151     0     0     0     0   869  16265     0  21128     0  |  
+   0     0     0     0  18347  5390  20663  2708  21835     0  32850     0  |  
+6148  17857  14602  5018  14481  4685     0  5609     0  17430  6820  5350  |  
+   0  7137  1328  25162  1045     0  26154  9755  30927     0  8757     0  |  
+ 481  12886     0     0     0  12960     0     0     0     0     0  15331  |  
+13717  27000  17995  52355  9213  30025  6229  14254   779  23185  25172     0  |  
+3 Map
+7293     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+4 Map
+14002  20295  7316  34198  21204  27159  7456  11207  8791  25856     0  1902  |  
+   0     0     0  8139     0  5214  2320     0     0     0     0     0  |  
+   0   924     0     0     0     0     0     0     0     0     0     0  |  
+1238  2476  8705     0  8523     0     0     0     0     0     0     0  |  
+   0     0  6798     0     0     0     0     0  15771     0  12725     0  |  
+15212     0  6335     0     0     0  19743     0     0     0  1577     0  |  
+10716   225  28791  6144     0     0  4198     0     0     0  14559     0  |  
+   0  11569  8706  24086  8886     0  6854  2294  4403     0  3506     0  |  
+   0  14274     0  10441     0     0     0     0     0     0     0  1051  |  
+   0     0  4684  2046     0  7553     0     0     0     0     0     0  |  
+ 364     0     0     0     0     0     0  14377  8331  4719  19933  8137  |  
+   0     0     0     0  3353     0     0     0     0     0     0     0  |  
+5 Map
+28368  21503  15019  11836  24040  44621  38200  31057  31397  26581  15638  11420  |  
+24366  16625  28433     0  14024  34869  34925     0  3515    35     0  5255  |  
+15168  16813  12015  13984    48  11115  26319  22475  9780     0  7867  7828  |  
+18193  24387  27444  7398  15711   368  8139  20421  25907     0  16538  8742  |  
+33224  1958  27442  35743  16713   450  8836  27862  23267  1610  15765     0  |  
+22378  1226  20870  24544  15215  5279  19881  28974  39880  18321  20505  1885  |  
+   0  6581  20392  35797  10654  9640  17324  34447  28225  10355  10030  24476  |  
+   0  24289  15152  56972  23036  47365  22827  21920  25970  11962     0  13043  |  
+28571  9770  20837  6001  17564  33822     0  5220  29993  8749   168   221  |  
+32570  24685  26529  12437  6066  4212  7101  16218   687  11349  17617     0  |  
+18884  24805  18975     0  38670     0  11483  41029  15061   266  43516  39715  |  
+ 385  10860  25623  14661  21475  19564  14139  17672  32952  9505  15000  36578  |  
+6 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0  1288     0     0     0  |  
+7 Map
+5740     0     0   959     0  8138  1041     0     0     0     0   739  |  
+   0  6978     0  9575     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0  1182     0     0  |  
+1328     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0  2172  3876     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0  6525  |  
+   0     0  13399  4318  19254  21679  11874     0     0     0     0     0  |  
+5055  10749  1344     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0   222     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0   588  6941  |  
+   0     0     0  6318     0  13370  2341  1629     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+8 Map
+24963  7061  11742  1948  5839  16233  18486  28582  17860  10549  7471  26367  |  
+   0  15824  24033  19389  12043  40484  21356  15497  19548  22438  4461  28674  |  
+   0  31751  32823  46339     0  10342  22193  29842  20566  11154  8259  11965  |  
+8335  16303  27610  4199  13401  26525  23558  8571  42001  4136  10754  27099  |  
+   0  28433  12573  18544  22339  1182  11720  46309  44760  12353  26218     0  |  
+   0  17559  37460     0  31245  35151  15260  14446  24122     0  28296  8231  |  
+1939     0  33733  18707  23577     0  6870  33697  23022  37802  19703  16376  |  
+7519  7965  15702  2823  30705  31472  40920  29402  27118  28547  9312  3481  |  
+9283  39508  21432  26507     0  63340  30890     0  15924  26248  20495  1899  |  
+8232  39248  3003  31370  25311     0     0  31941  19217  17340  39659     0  |  
+10516  18585  27798   657  29201  30420  17411  37093  30378  6071  20400   257  |  
+   0  8502  17011  39945  10455  13305  34270  9853  8197  17687  19350  30657  |  
+9 Map
+   0  2905  2208     0  10124  7457     0     0     0     0    97   686  |  
+20536  9094  17069     0  11106  12815  19803  10195  2479  4646  35154     0  |  
+14496  6100  23450     0     0  40575  9476     0  4951     0  12959     0  |  
+14962  5228  9363     0  11375  14758  15147  15231     0  2092     0     0  |  
+16005     0  18202  5207  14522  47625  15357  10546  3103     0  18735     0  |  
+6813  9500  34342  3147  36568     0  15251  25045  8415     0  9243     0  |  
+   0  21204  7198  12094  32516  34759  14507  34571  8638  9257  7213  19447  |  
+   0  10692  9867  20807  8609  20130  13785     0  24787     0  2853  3118  |  
+16292     0     0  1411  23556  42384  3070  29193  18222  10927     0  12415  |  
+28246     0  2509  9977  8433  24165  19681     0     0  10483     0     0  |  
+19442     0  17171  4207  14543  13270  16599  4381  9831  9124     0     0  |  
+13877   646  4460  5140     0  26338  5279     0     0  9812  1314     0  |  
+10 Map
+25123  37695  39535  32309  15658  47287  52278  31060  25435  31833  54644  18747  |  
+64531  90107  90177  73948  74288  95438  100516  103110  81500  71812  93051  52907  |  
+78958  78494  86078  60436  43836  94145  107381  81037  56778  71168  47037  40873  |  
+69138  58802  66653  51444  30073  82750  76340  91051  81594  50214  58382  23929  |  
+68455  75867  80541  67167  80321  88058  94097  85723  68440  55131  27704  33363  |  
+52408  67772  86955  72139  93003  83102  59664  85644  80124  59528  81383  44355  |  
+62879  73275  85127  55582  83607  77389  80358  73195  111312  77947  97825  36138  |  
+69818  57420  67744  69357  76131  66067  87244  99706  78986  92013  50011  41136  |  
+87850  70267  76723  79633  77671  99317  94973  70843  90692  86983  58257  4986  |  
+96884  100797  72786  83822  63977  95984  79999  89243  88198  86141  85279  33690  |  
+76401  87501  98929  115537  74102  112290  91263  92928  71206  79888  60236  20633  |  
+62648  60744  82602  56984  71130  71363  83034  68862  65862  64352  82367  37255  |  
+11 Map
+   0     0     0     0  3005  9231     0     0     0     0     0  3074  |  
+36357     0  2224  5702  16997  15938  12306  20720  14448  5070     0  13334  |  
+3325  32083  12360  23621  17411  21140  10695     0  6099  4700  12717  10129  |  
+   0  5587  8342  3725     0     0  18243  24364     0  14744  15298  20906  |  
+16998  33410  17579  7272  2384  10654  19548  22828  8237     0  8982     0  |  
+14212  33202  31923  36780  7691  6169  15481  22540  10097  11092  26811     0  |  
+2242     0  21817  20558  5905  14376  11780  34381  13080  32442  4216  26480  |  
+   0     0  24043  27676  30435  14698  14453  21604   141  6661  8248  19943  |  
+13094  22067  9418  23979  21752  30273     0     0  7575  8382  1391     0  |  
+ 832  25327     0     0  7839  4596  4909  21110  11285  23232  31113     0  |  
+   0  19111  26583  21237  17585     0  7564  8860     0     0  10149     0  |  
+19026  46285  14893  24925  19120  15544  24278  38673  35578  25214  43147  24911  |  
+12 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0  10382     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0    77  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0  3359  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0   271     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+Printing Golden OfMap of Layer1
+***  Printing Output Feature Map  ***
+1 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+17627     0  2259     0  2607     0  8391     0  19116     0  3964  17409  |  
+   0  16664  1196  33548  27274   735  8542  12786     0     0  5759  30996  |  
+   0  17028     0  2402     0     0     0  35290  18074     0  17948  8562  |  
+12382  4365  25078  20608  2454  11435  6160  6317  6557  21262  11908  26601  |  
+   0  11268     0  1995  7030     0  4910  29992     0  18300     0  17255  |  
+   0  7094     0  25828  3500  26189  31445  6118     0  4388  15801  27020  |  
+   0  43351   329  28629     0     0     0     0     0  16233     0  25304  |  
+   0     0  1335     0  28314     0  14013  23437  20430  2691  14114  17317  |  
+   0  15533     0     0     0     0     0     0     0     0  10876  11385  |  
+   0  21008     0  18585  34641     0  9042  35590  3209  8759  25095  32977  |  
+   0  12209  6205     0     0     0   239  3646  9327     0     0  17818  |  
+2 Map
+3428     0     0     0     0     0     0     0  6738     0     0  11796  |  
+   0  6807     0  27211     0  6562  14484     0  6838  19409  16481     0  |  
+   0  19334     0     0     0     0     0  5679  14846     0     0     0  |  
+   0     0     0  6694  20095  8828  7897     0     0  13746     0  6089  |  
+9998     0     0  22772     0  7558     0     0  23648     0  1280     0  |  
+16787     0  32587     0  37934  21834  11992     0     0  16010     0  15038  |  
+4634     0  14151     0     0     0     0   869  16265     0  21128     0  |  
+   0     0     0     0  18347  5390  20663  2708  21835     0  32850     0  |  
+6148  17857  14602  5018  14481  4685     0  5609     0  17430  6820  5350  |  
+   0  7137  1328  25162  1045     0  26154  9755  30927     0  8757     0  |  
+ 481  12886     0     0     0  12960     0     0     0     0     0  15331  |  
+13717  27000  17995  52355  9213  30025  6229  14254   779  23185  25172     0  |  
+3 Map
+7293     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+4 Map
+14002  20295  7316  34198  21204  27159  7456  11207  8791  25856     0  1902  |  
+   0     0     0  8139     0  5214  2320     0     0     0     0     0  |  
+   0   924     0     0     0     0     0     0     0     0     0     0  |  
+1238  2476  8705     0  8523     0     0     0     0     0     0     0  |  
+   0     0  6798     0     0     0     0     0  15771     0  12725     0  |  
+15212     0  6335     0     0     0  19743     0     0     0  1577     0  |  
+10716   225  28791  6144     0     0  4198     0     0     0  14559     0  |  
+   0  11569  8706  24086  8886     0  6854  2294  4403     0  3506     0  |  
+   0  14274     0  10441     0     0     0     0     0     0     0  1051  |  
+   0     0  4684  2046     0  7553     0     0     0     0     0     0  |  
+ 364     0     0     0     0     0     0  14377  8331  4719  19933  8137  |  
+   0     0     0     0  3353     0     0     0     0     0     0     0  |  
+5 Map
+28368  21503  15019  11836  24040  44621  38200  31057  31397  26581  15638  11420  |  
+24366  16625  28433     0  14024  34869  34925     0  3515    35     0  5255  |  
+15168  16813  12015  13984    48  11115  26319  22475  9780     0  7867  7828  |  
+18193  24387  27444  7398  15711   368  8139  20421  25907     0  16538  8742  |  
+33224  1958  27442  35743  16713   450  8836  27862  23267  1610  15765     0  |  
+22378  1226  20870  24544  15215  5279  19881  28974  39880  18321  20505  1885  |  
+   0  6581  20392  35797  10654  9640  17324  34447  28225  10355  10030  24476  |  
+   0  24289  15152  56972  23036  47365  22827  21920  25970  11962     0  13043  |  
+28571  9770  20837  6001  17564  33822     0  5220  29993  8749   168   221  |  
+32570  24685  26529  12437  6066  4212  7101  16218   687  11349  17617     0  |  
+18884  24805  18975     0  38670     0  11483  41029  15061   266  43516  39715  |  
+ 385  10860  25623  14661  21475  19564  14139  17672  32952  9505  15000  36578  |  
+6 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0  1288     0     0     0  |  
+7 Map
+5740     0     0   959     0  8138  1041     0     0     0     0   739  |  
+   0  6978     0  9575     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0  1182     0     0  |  
+1328     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0  2172  3876     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0  6525  |  
+   0     0  13399  4318  19254  21679  11874     0     0     0     0     0  |  
+5055  10749  1344     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0   222     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0   588  6941  |  
+   0     0     0  6318     0  13370  2341  1629     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+8 Map
+24963  7061  11742  1948  5839  16233  18486  28582  17860  10549  7471  26367  |  
+   0  15824  24033  19389  12043  40484  21356  15497  19548  22438  4461  28674  |  
+   0  31751  32823  46339     0  10342  22193  29842  20566  11154  8259  11965  |  
+8335  16303  27610  4199  13401  26525  23558  8571  42001  4136  10754  27099  |  
+   0  28433  12573  18544  22339  1182  11720  46309  44760  12353  26218     0  |  
+   0  17559  37460     0  31245  35151  15260  14446  24122     0  28296  8231  |  
+1939     0  33733  18707  23577     0  6870  33697  23022  37802  19703  16376  |  
+7519  7965  15702  2823  30705  31472  40920  29402  27118  28547  9312  3481  |  
+9283  39508  21432  26507     0  63340  30890     0  15924  26248  20495  1899  |  
+8232  39248  3003  31370  25311     0     0  31941  19217  17340  39659     0  |  
+10516  18585  27798   657  29201  30420  17411  37093  30378  6071  20400   257  |  
+   0  8502  17011  39945  10455  13305  34270  9853  8197  17687  19350  30657  |  
+9 Map
+   0  2905  2208     0  10124  7457     0     0     0     0    97   686  |  
+20536  9094  17069     0  11106  12815  19803  10195  2479  4646  35154     0  |  
+14496  6100  23450     0     0  40575  9476     0  4951     0  12959     0  |  
+14962  5228  9363     0  11375  14758  15147  15231     0  2092     0     0  |  
+16005     0  18202  5207  14522  47625  15357  10546  3103     0  18735     0  |  
+6813  9500  34342  3147  36568     0  15251  25045  8415     0  9243     0  |  
+   0  21204  7198  12094  32516  34759  14507  34571  8638  9257  7213  19447  |  
+   0  10692  9867  20807  8609  20130  13785     0  24787     0  2853  3118  |  
+16292     0     0  1411  23556  42384  3070  29193  18222  10927     0  12415  |  
+28246     0  2509  9977  8433  24165  19681     0     0  10483     0     0  |  
+19442     0  17171  4207  14543  13270  16599  4381  9831  9124     0     0  |  
+13877   646  4460  5140     0  26338  5279     0     0  9812  1314     0  |  
+10 Map
+25123  37695  39535  32309  15658  47287  52278  31060  25435  31833  54644  18747  |  
+64531  90107  90177  73948  74288  95438  100516  103110  81500  71812  93051  52907  |  
+78958  78494  86078  60436  43836  94145  107381  81037  56778  71168  47037  40873  |  
+69138  58802  66653  51444  30073  82750  76340  91051  81594  50214  58382  23929  |  
+68455  75867  80541  67167  80321  88058  94097  85723  68440  55131  27704  33363  |  
+52408  67772  86955  72139  93003  83102  59664  85644  80124  59528  81383  44355  |  
+62879  73275  85127  55582  83607  77389  80358  73195  111312  77947  97825  36138  |  
+69818  57420  67744  69357  76131  66067  87244  99706  78986  92013  50011  41136  |  
+87850  70267  76723  79633  77671  99317  94973  70843  90692  86983  58257  4986  |  
+96884  100797  72786  83822  63977  95984  79999  89243  88198  86141  85279  33690  |  
+76401  87501  98929  115537  74102  112290  91263  92928  71206  79888  60236  20633  |  
+62648  60744  82602  56984  71130  71363  83034  68862  65862  64352  82367  37255  |  
+11 Map
+   0     0     0     0  3005  9231     0     0     0     0     0  3074  |  
+36357     0  2224  5702  16997  15938  12306  20720  14448  5070     0  13334  |  
+3325  32083  12360  23621  17411  21140  10695     0  6099  4700  12717  10129  |  
+   0  5587  8342  3725     0     0  18243  24364     0  14744  15298  20906  |  
+16998  33410  17579  7272  2384  10654  19548  22828  8237     0  8982     0  |  
+14212  33202  31923  36780  7691  6169  15481  22540  10097  11092  26811     0  |  
+2242     0  21817  20558  5905  14376  11780  34381  13080  32442  4216  26480  |  
+   0     0  24043  27676  30435  14698  14453  21604   141  6661  8248  19943  |  
+13094  22067  9418  23979  21752  30273     0     0  7575  8382  1391     0  |  
+ 832  25327     0     0  7839  4596  4909  21110  11285  23232  31113     0  |  
+   0  19111  26583  21237  17585     0  7564  8860     0     0  10149     0  |  
+19026  46285  14893  24925  19120  15544  24278  38673  35578  25214  43147  24911  |  
+12 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0  10382     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0    77  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0  3359  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0   271     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+Printing Compared OfMap of Layer 1
+***  Printing Output Feature Map  ***
+1 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+2 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+3 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+4 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+5 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+6 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+7 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+8 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+9 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+10 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+11 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+12 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+*****  Layer 2  *****
+Reached HERE2!
+Reached HERE3!
+Reached HERE4!
+Reached HERE4aqwe!
+For this tile, bit shift is 0
+For this tile, bit shift is 0
+For this tile, bit shift is 0
+Reached HERE!
+
+Number of errors is  1218
+
+Positions of errors (first 20) are:
+0   3   6   8   9   12   13   14   16   17   18   20   22   23   25   26   27   28   29   30   
+Values of errors (first 20) for synth module are:
+0   0   0   0   0   17627   0   2259   2607   0   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   
+Values of errors (first 20) for tb module are:
+4377   2434   12191   7894   213   0   18970   1862   0   3164   0   0   0   0   0   0   0   0   4727   0   
+Number of out of range synth values are:823
+
+Positions of out of range values (first 20) for synth module are:
+12   14   16   18   20   22   23   25   26   27   28   29   30   31   34   35   37   39   43   44   
+Values out of range (first 20) for synth module are:
+17627   2259   2607   8391   19116   3964   17409   16664   1196   33548   27274   735   8542   12786   5759   30996   17028   2402   35290   18074   Number of out of range tb values are:798
+
+Positions of out of range values (first 20) for TB are:
+0   3   6   8   9   13   14   17   29   37   39   40   42   44   45   47   50   52   53   55   
+Values out of range (first 20) for TB are:
+4377   2434   12191   7894   213   18970   1862   3164   4727   7770   5521   213   12291   7282   1100   9506   5474   1645   1147   6405   
+Printing IfMap of Layer2
+***  Printing Input Feature Map for Layer 1  ***
+1 Map
+  51  61  82  39  92  86   9  54  80  81  79   7 
+  57  68  44  13  10 101  80  78   5 124  49 114 
+   0  24 118  25 104   1  20 114   6 111  55  10 
+   1 121  99  97  37  80  91  67  98  45  66  85 
+  24   8   0 111  18  11 103  41  80  70  23  57 
+   9  36  30 124 112  30 100  82  55  46  71  47 
+  81   7   2 111 125   3  83 106   0  93  93  73 
+  49  32  75  24  59  95  54  28  31  39  72 102 
+ 120  50  34  40   3  93 124  72  94  92  11  51 
+  16  45  40 116  74  74  46   5 109  35  36 100 
+  75  75  28 106  50 114  90  89  39  19  57  52 
+ 111 110  75  83  84  57  64  54  37  19   9  26 
+2 Map
+ 127  57  61  74  75 124  59  56   8 115  17  76 
+  75 109  28 124   3  41 113  29   2  74 124 120 
+  57   5 103  33  67  29  61   4  38  17  80  65 
+  85  20  88  58 121  61  92 105 112   0  86 120 
+  22  93  18  11  68  87  87  97  23  40  73  27 
+ 115  51  14  91  71  58  48  17  18  81  66  18 
+  38  18  71 107  44  19  79 116 104  21  99  40 
+  62 126  35  51 117  10  46  77  60  61  66  71 
+ 106  28  37  99  10  28  67 105  23  91  24 119 
+   4  14  80  25 127  58  45  25 119  40  42  25 
+  92  19  94  94  38  35  34 111  24  31 118  95 
+  70  94  33 103  85 126  24  56   2  89  33  14 
+3 Map
+ 101  53  56   9 119  59  50  57  83  43  32 119 
+  57  77 118 124  88  43 109  44  77 125  37  51 
+ 103 101  15  83  45  92  10 124  34 108  76  30 
+  71  33   4  59  98  58  61  64 126  35   6  21 
+  51  40  80 115  39  99  23 118  85 118  69 115 
+  13   0  83  11  60  73  49   0 110  64 104  72 
+  17  40 126  96 124  14  25  99  48 126 104  91 
+  93 118  63  87  40  27   1  62  43  43  67  98 
+  61  51  46  88 116   2  37   8 105  93  40   0 
+  59 116 121  14  87  21 125  13 118  32 100 127 
+ 103  59  13  92  14  70  35  42  45  18  13  78 
+  98  77   5  34 113  65   6  71  68  63 108  61 
+4 Map
+  48  85  87  48 122  71  80  21  26  61  47 118 
+  62  58  59  10  18  77  20   9  63  11  78  62 
+  49  60  95  94  30  85  59  24  68  39  61 109 
+ 114  85  73  66  73  11  48  52  68 109  83  43 
+ 118  78  12  50  19  35  73   6  50  55 122 108 
+  81  32  46  72  26 113 120 108 101  49  24  46 
+ 125  12  87  61  39  73  51  53  96 124  60 112 
+ 103 125  62  32 123  24  32  26 102   6  12 117 
+  58  28  81  84  91  67   5   0  61  40 110  58 
+ 111  53  35  79  89  63 110 108  66   1 117  52 
+  21  73  25  16 100 113  31  70  45  17  13  78 
+  92 115  87  97  18  71  59  82  37  24 106  33 
+5 Map
+ 104 127 104  78  44  23  53 107   6  48  45 117 
+  83  72  45 100 122  55 119   1 113  41  88 120 
+   3  81   8  46  80  92  81  84  21  36 115  61 
+  45  39  72 108  88  55  36 114  60 115 127 119 
+  41 117  86  22  33  77  78 110  24  46  27 117 
+ 120 104  32  16 104  22  87  97  78  25 116  96 
+  18  69  69  46  38  89  93  38  67  53 113  52 
+ 117  71   2 106  89  71  60  80  37  36  31 124 
+ 106  62  92  99  22  85   2 111  61  65  89  82 
+  25 100  14  25  79  94  17   4 115 127  60  21 
+  79   2  53 103  96 120  21  65  34   2  74 107 
+  14  67  58  64  96  21  40   5  29 123  92 121 
+6 Map
+  85  88 126  45  37  94  68  22   1  72  77  97 
+  48  76  76   6  24  75 104  32  60  76  99 124 
+   3  40 122 112  59   6  13 110  93  10   0  88 
+  19  74  97  22 119   2  75 103  30   8  10 116 
+  85   2 127  43  42  86  70  74  47  98  23  58 
+ 122 110 106  31 112  94  95  45  68  44  92  61 
+  58  22 120  32  49  20  24  51  96  13  87  51 
+  96  74  44  83 106  43  71  12  99  25  59  53 
+  21  59  98  83  64 109 125  50  81 110  28  53 
+ 113  88  62 106  65  86  56  97 100  17  91  63 
+  63 107  81  14 124 112  72  87  85   9  83 115 
+  15 115  12  30  68 112 127  77 102  61  67  66 
+7 Map
+   1  67 106  93  64  17  28  53  51  10 126 103 
+  79  91  88  46  55  49 120  52  58  40  81  40 
+  28   6 104  17  25  41 113  98  39  62  52  78 
+ 124  52  54  93  80 112  22  64 100  67  53  98 
+  67  25  25  63  71 115  20 121  96  23  32  40 
+  17   5  14 114  59  46  96  93  30  97 115  96 
+  29   6  97  64  65  14  37  26   1  42   0  59 
+  65  59  28  56  24  10 112  60  86  58  99  28 
+  70 123  52  49  48   0  25 102  34  50  38  16 
+ 112  38 113 126 122  76 116  81  45 106  50  14 
+  77  73  30 114 113  47  56   6  79  12 121 115 
+  57 120 113  22 104  93  47  87 121 113  97  55 
+8 Map
+  53 104  60  41  21 103  30  35   5  59 114 116 
+ 105  75  85  88  94  75 118  74  66  51  67  25 
+ 118 112  66  62  98  89  60 109  58 100  33 106 
+   0  26  40  30  75  72  54 106  70 120   1  59 
+ 123  31 117  95  82  24  87  23  84  81  40 109 
+  53  69  76  71  18  42 107  61 119 107  24  40 
+  36  88  48 123  17  29   5  87  47 112  60  89 
+ 113  15 116  55  11 106  41  11 122  28  87 110 
+  68  32  98  73   1  66  53 104  26  83  41  80 
+  81  33  41  83   1  39  21  97  39   0  99  33 
+  34  34  12  64  55  72  38  10  88  48  77  55 
+  38   7  72   7  52  34 106  17  14 110  53  87 
+9 Map
+ 122  42  70  31 125  83 109 126  33  96  27  54 
+ 118  48   1  66  87  65 118  46 110  34  25  44 
+ 123  43  56 101  80 107 113  13  32  98  23  58 
+ 122 112  88 118  17  14  28  18  62  60  47  62 
+  72  58  35  87  98 123 112   0 117  87  94 116 
+  32   0  37  27 126  55  82  91  39  64 108  48 
+ 121  19  88 127  24  84 122  39  51   5  29  90 
+   9 123  21  43  44  14  34 103   5  21  24  41 
+  25  18  61  41  10  41 115  85  97  87  23  35 
+  10  96  40  37  32   9  44  94 108   8  79  84 
+  40  57  78 102   8  18  19  96 123  89  34  77 
+  46  20  51  12  81  66  32  38  31  72   2  95 
+10 Map
+  24  46  23  11  17  11 104  35 111  62  40  24 
+  48  95  94 103  43 118  71 110  24 106 117 126 
+  82  60  61  49  92 116  80 126  34  92  40  10 
+   2 109  38  65  11   7 121  38   5 101  65 103 
+  49  79 116  53  82  17   1  82 107  45  52 108 
+  75  77  90  41  71 123  37   3  71  20  82  86 
+   4 122   8  55  15  10   4   8  22  78 115  73 
+  99 115  31  49  37 125  78 126 115  57 103   9 
+  14 115  87  29 102 106  51   9  96   1  31 116 
+  87  55 110 113  97  89  11  84  83 119  23  67 
+   7  20  83  16  92  33  65  70 127  45   6   1 
+ 105  86  19   3  41   3   4   5 100  85  72  75 
+11 Map
+  26  90   3 123  42   4  48  47  25  90  11  73 
+  15 110  46   7  34  15 122  87  87  63  56 108 
+ 102 104   0  17  62  74  90  61  73  56  36 104 
+ 113   4  52  30  99  56  62  82  19   6 119 116 
+   0   2 122  70  57  15 107 107  32  23  91  64 
+ 110   0 108 112 119  91  54  67  48  94 105  55 
+ 110  20  51  82 112  83 100  54  32 111  80 118 
+  22  45 116  40  94 122  93  60 123  93  70  12 
+  43  43   1  51 109 122  24  35  65  87  51 114 
+  47  60  60 117  10  60  66  16 118   1  27  76 
+  40 120  78  42 109  75  48  56 110  16  76  97 
+  50  64   8   9 100 106   6  90  87  40  73  88 
+12 Map
+  71  83  25  60  98 115  40 127   6 121 117  53 
+  77  49 113  28  71 114  97 117   6  24   3  18 
+  96  51 116  49 112   1  81   8  94  26  28  33 
+  96 107  98 104   1 101  27   3  34 118  82  97 
+  62  57   6  22 114 106  79 102  60  28  69  31 
+   3  46  29  45  87 123  21 104 123  81  19  48 
+  32  37   8  60 116   4  27  47  91  77   4 108 
+ 124  30  53  44   0  12  64  78  22  23 117 110 
+  59  92  74  56  56  13   1 126 108  31   4   9 
+  75  66  20  45  39  22  34  32  47  28 125  13 
+  53 107  46  99  52  36  32 115  17  39   5  58 
+  33   7 116 123 108  60  87  18  48  24   4   4 
+Printing WtMap of Layer2
+***  Printing Weight Kernel Maps for Layer 1  ***
+
+* Printing Weight Kernels for 0 OfMap *
+-117   -67   -57  |    20    67    86  |     5   -44   -72  |    51  -119    71  |   -43   126    20  |    79   -94    47  |   113   118    15  |    87    87     6  |    70   -58   110  |    33    18    23  |   -79   -54  -117  |   -28   -77    54  |   
+ -19   -11   -57  |   -30    73    49  |   -83   111   112  |   -42   107    72  |   -24  -114   -16  |     8    21    41  |    -2   -80   -24  |   123    46    93  |   -87   -76    38  |   105   -48    60  |   -88   110    81  |    87   -81  -121  |   
+ -47    72    34  |   -94    13   -80  |    60    41    -1  |   107   -50   -93  |   -24  -117  -126  |   110   -86   104  |    59    86   105  |   -65    60    97  |  -122    54  -103  |   -70   -42   -20  |    17    29   -67  |  -112     9   -73  |   
+* Printing Weight Kernels for 1 OfMap *
+  11   -73   -65  |    38   -88    87  |    81   -75     5  |  -118    55    42  |     9    29    97  |    41   112    48  |   -36    45    32  |    70    53    99  |   -19   -35    36  |   -88   -58    -7  |  -116    51    31  |    14   112   102  |   
+ -78   119    87  |    97   -95    33  |   -92   -42    26  |   -61   -67  -114  |   -13   -66   -47  |   -90   -98    18  |   -56   127   116  |    30    58   -20  |   -42    18    -4  |   -41   -55    60  |    61   -49   -27  |    41    67    29  |   
+ -42   -90  -107  |   -98   -60   116  |   -16    60  -121  |  -112   -60   -35  |    32    41    55  |    33   116   115  |   121    87   -12  |   -66   118   -36  |   -24    78   -26  |   124   -59    -9  |   112  -121   109  |    -8    70    64  |   
+* Printing Weight Kernels for 2 OfMap *
+  93   110   -97  |    66   -76   -19  |   -43    46   -96  |    14   -67   -12  |  -109   -94    57  |   -26   -29  -114  |    68     4   -92  |    62  -122  -124  |   -36   -98     9  |    12    27    35  |    47    -8   -52  |   -14   122   -47  |   
+ -53   -84   -69  |   -44  -117  -121  |   -12    98    99  |    47  -108   -66  |   -51   -46   -25  |   108   -72    96  |  -126    94    38  |   -40    64    44  |   -48    70    20  |    43   -56   -19  |  -108   -44   113  |   -33  -102    58  |   
+  20   -29   -42  |    76   -77   -29  |    26   -84    97  |    60     3    -3  |   -42   100    53  |    57    26   -55  |    47   -54    25  |   -50     6    99  |    38     6   -66  |     4   119    67  |    64    74   -78  |   -77  -119    30  |   
+* Printing Weight Kernels for 3 OfMap *
+ -40    65   -23  |   -42    74   -72  |   -61   -90   -85  |    40   103    87  |   102   -16   -11  |   105   -76  -103  |   113    48    13  |    54     6    -1  |  -118   110    67  |   -47   -83   -73  |    67    -3   -96  |    38   -69   105  |   
+  11    73    23  |   -73    48    56  |    -9   123   117  |    98    67   -80  |  -101   -10   126  |   -95    34   -36  |   -27   -89  -118  |    56    92    34  |   -30   127   118  |    10    18    38  |     3  -121   -12  |   -47   -53   -29  |   
+   6    13  -114  |    -9    92    16  |   118   -27    58  |   -66    89    51  |    96   -72    55  |    18    55    84  |  -108    31   122  |  -106  -112   118  |   -82    85   -51  |  -113    29    81  |  -118   -98   -38  |   119   -97   -40  |   
+* Printing Weight Kernels for 4 OfMap *
+ -51    65  -120  |   -59   127   125  |    18    -4   -39  |   -54    15  -113  |   105    83  -126  |   -96   115   105  |   -94   109     5  |    -5   110   -84  |    47    69    92  |   -25   116    -5  |    66   -97    94  |   108   -38   -97  |   
+ -84  -121   -57  |   122   -52   -59  |   -41   -87   115  |   -79    -4  -111  |   -11    30   -30  |   104   -11   123  |    18   -35    40  |    -2    47  -123  |    96   -77   -73  |   -89   -63    86  |    -7   -44   -64  |    43    31   -91  |   
+  82   -42    -3  |  -123    35    95  |    36    47     9  |  -105   -12    29  |   -72   113   109  |   -47  -117    11  |  -111    80    74  |   -23     1    94  |   -84   -75   -19  |  -127    58    31  |   -65  -106  -126  |    47   -50    68  |   
+* Printing Weight Kernels for 5 OfMap *
+  -6    33    92  |    30   107   -35  |    70    -3    15  |    11   -87    67  |   -75   -23    10  |   -32   -56   -57  |    13    31  -121  |   107    19   101  |    36   -82   -78  |   -27   -76   -10  |   -17     0  -120  |  -102   126    88  |   
+ -72   -28   -65  |   -44    71  -122  |   -49   -80    97  |   -60   -99   103  |     1     9   -14  |   117    44   -80  |    -5   -42    56  |   -47   -15   120  |  -123   -15   -93  |    98  -115   -14  |   104    53    56  |   119  -101    87  |   
+-121  -122    43  |   103   -32   106  |    97   -79   -14  |    20  -116     4  |    27    -9  -109  |    38   -98   -74  |  -102     7   -56  |   -75   -81     0  |   124   127   113  |   -66    39     4  |     8    18    88  |   -28    17  -122  |   
+* Printing Weight Kernels for 6 OfMap *
+-103    45   -22  |    -6  -116   -44  |    65    12   -57  |   109   110    80  |    37   -98   117  |  -117     4    28  |    68   -31  -112  |    30   119     2  |  -126    37   -75  |    66    27    12  |    48    58   -63  |   -53  -101   -75  |   
+  89  -103   -27  |    23   111   105  |   -70    99    94  |    46    55   106  |    63    93     8  |    39    32   112  |   -24   -92  -105  |    53   -83    68  |   103   -11    66  |   103   -81   100  |    93    91     4  |    46   -14    52  |   
+-120   104     3  |  -127   -71    52  |    73   -22    58  |  -127   -83    36  |   -36  -125   -98  |    -9   -60    33  |    42   -51    18  |    37    92    -1  |    17   121   127  |  -118    59    50  |    10    -5   -57  |    36   -62    44  |   
+* Printing Weight Kernels for 7 OfMap *
+  76    43    -6  |   111    64     2  |   -70   -13   -98  |   -91   110    60  |    41    -5   -14  |    31    85  -107  |    55   -87    50  |    -8    -4  -113  |  -110   110     1  |   -94   -31   116  |    70   -46   -35  |   -61   -78   -20  |   
+   2    35  -105  |   106  -116   -76  |    26    -8    84  |   126   119    70  |    15     4  -108  |    20   -19   -13  |     9    63   -24  |    91  -109    88  |   -25    86   119  |   -74   111    66  |  -126    30   -32  |   -90   124   109  |   
+ 112   -31    12  |  -126   -37    37  |   -68    43   -15  |    -4    56   -28  |   104   -69   113  |    61    95   -17  |   -36     6   -68  |    53   -10   -72  |  -112   -88    -1  |   -89    -3   -10  |    -9   -29     7  |    -9   -62   124  |   
+* Printing Weight Kernels for 8 OfMap *
+ -46  -122   -79  |   118   -82    51  |    31   -27    53  |  -124   -60   -53  |   114   -68    34  |   -59    33   -64  |   -23    85    85  |  -105     0    -8  |  -105   -19    23  |   -29  -125    46  |    71  -118   -45  |    29    74   -85  |   
+ -21   -95   -43  |    13   -69   -53  |    27   -14   -18  |   118    55   -43  |    85   -85    64  |   -93   119    11  |    94    82   120  |     9   103    95  |    32    10   -88  |    64   119    73  |   117   -44   -34  |   -39     4   -83  |   
+ 112   -12    53  |    58  -120    15  |    99   -86    -2  |   -98   -35  -105  |   -31    55    73  |    63   -84    -2  |   -75    41  -127  |    46  -114    -7  |   -76   -62   -84  |   119    32    94  |    42    50     1  |  -123   -30    93  |   
+* Printing Weight Kernels for 9 OfMap *
+  32  -104  -126  |    21  -120   -98  |   120  -108    95  |   -33   -46   110  |   125   -26    60  |   125   -47   -51  |    35   -58    95  |    45    67   -82  |     7   -80    78  |   -12   -68   -68  |    77   117   113  |  -104   -16    58  |   
+ 103    83   -30  |    17    95   -40  |    74   -28    -6  |    35   100    76  |   -46   -91    11  |    47    29  -117  |   -28    30    52  |   -85     3    66  |    92    33    56  |  -106  -113  -120  |    84    63   -75  |   -29    14    44  |   
+  -5   114   -50  |   -23   -88    56  |  -120   -48    67  |   -16  -100  -103  |   -85   -48   -85  |  -124   -35   -89  |   -92    -8  -108  |    69   -28    23  |   -44   -15   -39  |    78    17    79  |   -79   114   -26  |   126    32   -41  |   
+* Printing Weight Kernels for 10 OfMap *
+ -32   115   -41  |    48   -86    96  |  -122   124   -78  |  -119   -66  -107  |    23   107  -100  |     6    38   -49  |    52   -41   -72  |    47    90   -21  |   -89   -63    58  |    30  -124    95  |    59   -25  -100  |   -92   116   109  |   
+-107  -118   -79  |   -52   -95    76  |     5    30  -117  |   101  -107  -126  |  -102     5    25  |   -60    60    25  |   -61   -52   -33  |   -38   -27    81  |    -6   102   -41  |   -84    94    31  |   -52   -71  -122  |    43   116   -44  |   
+  78  -111    47  |   -42    63    24  |  -122    99   124  |   117    36   120  |   121    82   -75  |  -120    88   -49  |    92   -72   117  |   -32  -111   -79  |    -3  -100   -22  |    56   111    63  |   111   -30   -23  |    -2     1   -77  |   
+* Printing Weight Kernels for 11 OfMap *
+ -20  -118     7  |   100   104   -79  |    50    57   120  |   -53  -122    12  |    80  -121    30  |    29   -42  -114  |   126    88   -64  |   -34   109    50  |   -74    82   -90  |    88   -93  -105  |  -103  -119    82  |    20    95    11  |   
+  60    82   127  |    73    35    13  |    79  -104  -124  |    59    93   -57  |    44   -77    55  |     7    27   -13  |    11   -66    87  |   -22   -50   107  |   -66    88   -65  |   -43    76  -115  |  -121   -45  -101  |   -92    -8     5  |   
+ -96  -111    37  |  -126     0   -34  |    55    26     3  |   -66  -116   116  |   -80  -123    21  |    49   -27  -118  |   101    14    37  |   -69     2   -58  |   126   115    31  |   118    43    14  |    71    77    18  |   -47    17    42  |   
+Printing OfMap under test of Layer2
+***  Printing Output Feature Map  ***
+1 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+17627     0  2259     0  2607     0  8391     0  19116     0  3964  17409  |  
+   0  16664  1196  33548  27274   735  8542  12786     0     0  5759  30996  |  
+   0  17028     0  2402     0     0     0  35290  18074     0  17948  8562  |  
+12382  4365  25078  20608  2454  11435  6160  6317  6557  21262  11908  26601  |  
+   0  11268     0  1995  7030     0  4910  29992     0  18300     0  17255  |  
+   0  7094     0  25828  3500  26189  31445  6118     0  4388  15801  27020  |  
+   0  43351   329  28629     0     0     0     0     0  16233     0  25304  |  
+   0     0  1335     0  28314     0  14013  23437  20430  2691  14114  17317  |  
+   0  15533     0     0     0     0     0     0     0     0  10876  11385  |  
+   0  21008     0  18585  34641     0  9042  35590  3209  8759  25095  32977  |  
+   0  12209  6205     0     0     0   239  3646  9327     0     0  17818  |  
+2 Map
+10575     0     0     0     0  2718     0     0     0     0     0     0  |  
+11824     0     0  16594     0  1593     0     0     0     0     0     0  |  
+25535  4303     0     0     0     0  1837  3784  12282  21496   733     0  |  
+5340     0  13473  13334     0     0  29310     0     0     0     0  3318  |  
+20796  14647     0  8730     0     0     0     0  2191  1949     0     0  |  
+11297  8267  3515  5972     0  4701     0     0  2068     0     0     0  |  
+22698  5324  8980  9639  6956  27563  22719  29138  17760  2486  27258  18727  |  
+8512     0     0     0  8314     0     0  1114     0  2144     0     0  |  
+32460  3985  18943  28662  18754  12171     0  5822  5859  7401     0     0  |  
+2048     0     0     0     0     0  13848     0     0     0     0     0  |  
+31555  12897     0  9508     0     0     0     0     0     0  2910     0  |  
+21157     0  5999     0     0   632  5139     0     0  14861     0  11439  |  
+3 Map
+22658  5284  8940  9599  6916  27523  22679  29098  17720  2446  27218  18687  |  
+8472     0     0     0  8274     0     0  1074     0  2104     0     0  |  
+32420  3945  18903  28622  18714  12131     0  5782  5819  7361     0     0  |  
+2008     0     0     0     0     0  13808     0     0     0     0     0  |  
+31515  12857     0  9468     0     0     0     0     0     0  2870     0  |  
+21117     0  5959     0     0   592  5099     0     0  14821     0  11399  |  
+1384   431     0  2646     0     0     0  17548  10760  7384     0     0  |  
+   0     0     0     0     0  17136     0     0  15569  17678  9845  21692  |  
+   0     0  19157  21260  22646  3877  20823  13997  27078  31385  8038  3107  |  
+   0  18594  3543  15960   253  18650  7572     0  13965     0  3981  4554  |  
+   0     0     0     0  23207  11898    85  5310  16690  7777  8012     0  |  
+   0  14251  9623  6497     0  30901     0  32902  7769   686  18914  4754  |  
+4 Map
+1279   326     0  2541     0     0     0  17443  10655  7279     0     0  |  
+   0     0     0     0     0  17031     0     0  15464  17573  9740  21587  |  
+   0     0  19052  21155  22541  3772  20718  13892  26973  31280  7933  3002  |  
+   0  18489  3438  15855   148  18545  7467     0  13860     0  3876  4449  |  
+   0     0     0     0  23102  11793     0  5205  16585  7672  7907     0  |  
+   0  14146  9518  6392     0  30796     0  32797  7664   581  18809  4649  |  
+17049  41879  14578  28812  21772  34050  31136  31316     0  42110  46574  3556  |  
+32729  42937  39996  81294  59568  51383  52863  32007  40015  58051  34404  10389  |  
+44584  43901  58329  48017  29319  53818  64153  44126  45709  14269  34774  27547  |  
+17147  22227  31897  15673  32694  26504  20515  29631  20017  18031  20251     0  |  
+24313  30787  55162  56676  33444  43142  46401  56708  19657  60081  15446  32302  |  
+35509  11620  46049  26982  33145  29326  34022  14598  49608  37731  38206  21078  |  
+5 Map
+17105  41935  14634  28868  21828  34106  31192  31372     0  42166  46630  3612  |  
+32785  42993  40052  81350  59624  51439  52919  32063  40071  58107  34460  10445  |  
+44640  43957  58385  48073  29375  53874  64209  44182  45765  14325  34830  27603  |  
+17203  22283  31953  15729  32750  26560  20571  29687  20073  18087  20307     0  |  
+24369  30843  55218  56732  33500  43198  46457  56764  19713  60137  15502  32358  |  
+35565  11676  46105  27038  33201  29382  34078  14654  49664  37787  38262  21134  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+1231     0  6278     0     0  13102     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+6 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+1286     0  6333     0     0  13157     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0  1246     0     0  2711     0     0     0     0  |  
+2274     0     0     0     0     0     0     0     0   781     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0  8354     0     0     0  1306     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0  4656     0     0     0     0     0     0     0     0     0  |  
+7 Map
+   0     0     0     0  1361     0     0  2826     0     0     0     0  |  
+2389     0     0     0     0     0     0     0     0   896     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0  8469     0     0     0  1421     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0  4771     0     0     0     0     0     0     0     0     0  |  
+8052     0     0     0     0  11603  8248     0     0     0     0     0  |  
+29077  2900  13160  18481  22227     0     0  3429     0     0     0     0  |  
+   0     0     0     0     0  9741   805  6774     0   275     0     0  |  
+44780  36509  13891  5972  5460    39  11190     0     0  10039     0     0  |  
+3700     0     0     0     0     0     0     0     0     0     0     0  |  
+21062  21753  21071  8792     0  10026  10038     0  14417  4276     0     0  |  
+8 Map
+8143     0     0     0     0  11694  8339     0     0     0     0     0  |  
+29168  2991  13251  18572  22318     0     0  3520     0    61     0     0  |  
+   0     0     0     0     0  9832   896  6865     0   366     0     0  |  
+44871  36600  13982  6063  5551   130  11281     0     0  10130     0     0  |  
+3791     0     0     0     0     0     0     0     0     0     0     0  |  
+21153  21844  21162  8883     0  10117  10129     0  14508  4367     0     0  |  
+34210  51525  25551  32388  34406  44311  44127  59110  43194  37795  45428  20239  |  
+41883  33690  28607  46214  54569  52575  28829  41520  31393  52518  51093  23249  |  
+28831  40565  59960  53916  54942  31841  60801  48237  41249  51392  25198  21518  |  
+43514  62707  40291  40734  40908  27945  46654  42626  39797  28410  30231  18950  |  
+20305  20907  23717  40379  20807  32175  41661  37832  30240  28496  18591  31698  |  
+49642  27429  44736  56033  45759  49667  47283  50760  36098  50345  37301  38084  |  
+9 Map
+34210  51525  25551  32388  34406  44311  44127  59110  43194  37795  45428  20239  |  
+41883  33690  28607  46214  54569  52575  28829  41520  31393  52518  51093  23249  |  
+28831  40565  59960  53916  54942  31841  60801  48237  41249  51392  25198  21518  |  
+43514  62707  40291  40734  40908  27945  46654  42626  39797  28410  30231  18950  |  
+20305  20907  23717  40379  20807  32175  41661  37832  30240  28496  18591  31698  |  
+49642  27429  44736  56033  45759  49667  47283  50760  36098  50345  37301  38084  |  
+22267  18568  36986  21227  50083  29293  48706  28870  28344  21166  25796  15666  |  
+19414  18167  21754  40701  27482  35051  22189  24105  46457     0  33707  10441  |  
+19152  10488  12234  30342  23414  25787  28281  15843  8894  24428  10756     0  |  
+47222  25925  18846  13615  43998  13459  14137  40112  9849  38912  27392     0  |  
+11136  13716  28817  8258  14543  27495  15969  34630  19755  17519  22727  13388  |  
+25139  47264  26467  22778  24902  31032  23643  17168  52026     0  41041  3169  |  
+10 Map
+22267  18568  36986  21227  50083  29293  48706  28870  28344  21166  25796  15666  |  
+19414  18167  21754  40701  27482  35051  22189  24105  46457     0  33707  10441  |  
+19152  10488  12234  30342  23414  25787  28281  15843  8894  24428  10756     0  |  
+47222  25925  18846  13615  43998  13459  14137  40112  9849  38912  27392     0  |  
+11136  13716  28817  8258  14543  27495  15969  34630  19755  17519  22727  13388  |  
+25139  47264  26467  22778  24902  31032  23643  17168  52026     0  41041  3169  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0  7482     0  6793  |  
+   0     0     0     0     0     0     0  11414     0  4432  10424     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0  10748     0     0     0     0     0  6889     0     0     0  5400  |  
+11 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0  7482     0  6793  |  
+   0     0     0     0     0     0     0  11414     0  4432  10424     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0  10748     0     0     0     0     0  6889     0     0     0  5400  |  
+   0     0     0     0     0  8181     0     0     0     0     0     0  |  
+ 596     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0  3709     0  8655  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0  8729  11969     0     0     0     0     0     0  |  
+12 Map
+   0     0     0     0     0  8181     0     0     0     0     0     0  |  
+ 596     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0  3709     0  8655  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0  8729  11969     0     0     0     0     0     0  |  
+   0   860  8778   809  4377     0     0  2434     0     0  12191     0  |  
+7894   213     0     0     0  18970  1862     0     0  3164     0     0  |  
+   0     0     0     0     0     0     0     0     0  4727     0     0  |  
+   0     0     0     0     0  7770     0  5521   213     0  12291     0  |  
+7282  1100     0  9506     0     0  5474     0  1645  1147     0  6405  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+Printing Golden OfMap of Layer2
+***  Printing Output Feature Map  ***
+1 Map
+4377     0     0  2434     0     0  12191     0  7894   213     0     0  |  
+   0  18970  1862     0     0  3164     0     0     0     0     0     0  |  
+   0     0     0     0     0  4727     0     0     0     0     0     0  |  
+   0  7770     0  5521   213     0  12291     0  7282  1100     0  9506  |  
+   0     0  5474     0  1645  1147     0  6405     0     0     0     0  |  
+   0     0     0     0     0     0     0     0  7156  3876  4389  4691  |  
+   0     0  1845     0     0  3447  15417     0  3332     0  25392  8640  |  
+18957     0  1953     0  15918  7276     0     0   224  13625  3009     0  |  
+   0  14607  7196     0  1504     0  6704  1802     0     0     0  17397  |  
+   0  1380  21386     0     0  19527     0     0  8093     0  5796  8266  |  
+2365  12791  8617  5579  3938     0  15472     0     0  16606  3355  6268  |  
+12383     0  13670  13686     0  9791  15502  9733  7156  3876  4389  4691  |  
+2 Map
+   0     0  1845     0     0  3447  15417     0  3332     0  25392  8640  |  
+18957     0  1953     0  15918  7276     0     0   224  13625  3009     0  |  
+   0  14607  7196     0  1504     0  6704  1802     0     0     0  17397  |  
+   0  1380  21386     0     0  19527     0     0  8093     0  5796  8266  |  
+2365  12791  8617  5579  3938     0  15472     0     0  16606  3355  6268  |  
+12383     0  13670  13686     0  9791  15502  9733  2478  22690  47423     0  |  
+76607  13405  37955  72724  13437  20865  65020  84786  41831  64918  10665  14764  |  
+40564     0  97592  17625     0  43340  64878  37274  63561  74664  45364     0  |  
+111476  52845  31861  24844  39548     0  62285  59095  37583     0  63744     0  |  
+56712  73657  45657  91169  25514  15632  26749  51026  31451  52233  70659     0  |  
+65820  12405  42674  67179     0  40648  45015  32590  18794  94742  62117  9120  |  
+44418  35710  21898  30464  74390     0  33228  26473  10360     0  22671     0  |  
+3 Map
+   0     0  8204     0     0     0     0  3034  1084     0  15307  6707  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0  10660     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0  20037     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0  3310     0     0     0     0     0     0     0  |  
+   0     0     0  14057     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0  15746     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+4 Map
+89060  18417  6940  12314  34475  82650  24762  8056  6819  41354  35497     0  |  
+56155     0  101770  97203  71369  52721  43961     0  23715  33375  25252  32821  |  
+54153  12061  27390  92119  42138     0  59503  15280  21142  16173     0  6554  |  
+29015  35984  48941  16246     0  6556  42038  18835  60625  30126  37644     0  |  
+111974  58894  42565  18016  29794  54152     0     0  73364  64666  61219  36576  |  
+67802     0     0  43465     0  2897  28001  14881  68184  41886  28939     0  |  
+49250  59206  43490  36232  60152  4110  58406  88386  25603  16407  52415     0  |  
+93308  32082  34914  68239  20652  1579  43475     0  4349   911  37770  23150  |  
+12637  33462  50784  8715  10940  44569  76946  40351     0  52039  10404  37078  |  
+50596  46578  2752  22747  21009     0  29664  76088  43526     0  49540  25666  |  
+35319  14517     0  1907  26561  42737  47943  58060  43847  36731  16335     0  |  
+23698  10691  20178  33505     0  14877  17037     0  26026  9093  7913  49956  |  
+5 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0  13388  24574     0     0  13055     0     0     0     0  10002     0  |  
+29130     0     0     0     0     0  44487     0     0  15657     0     0  |  
+   0     0     0     0     0  15941     0  20996     0     0     0     0  |  
+   0     0     0     0     0     0  21828     0     0     0     0  2481  |  
+5694  41353     0     0     0  1933     0     0     0     0     0     0  |  
+39638  8233     0  6514     0     0     0     0     0  9923     0     0  |  
+20036     0  27616     0     0     0     0  1969     0     0     0     0  |  
+51613     0     0  15484     0     0     0  2358  12782     0     0     0  |  
+21674     0     0     0     0     0     0     0     0     0  7797     0  |  
+16296  4530     0     0     0     0     0     0     0     0     0     0  |  
+1661     0     0  8906     0     0  33282  38979  23395  6093  36349  6922  |  
+6 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0  7524     0     0     0     0     0  13701     0     0     0  |  
+   0     0     0     0     0  5925     0     0     0     0     0     0  |  
+   0  13066     0     0     0  3256  20416     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0  30993     0     0  16269  4427     0  10852     0  |  
+   0     0  1778     0     0     0     0     0     0  28489     0     0  |  
+   0  8772     0     0     0     0     0     0     0  4678     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0  16855     0     0  |  
+7 Map
+83746  73036  44775  83882  99825  113601  56391  68163  77012  72237  48152     0  |  
+46838  99342  91095  14524  76467  50050  42086  45193  64718  84511  53102  23581  |  
+38906  90318  53768  61844  31515  55768  38579  35357  50261  28528  58862     0  |  
+82773  32266  81697  102453  93524  40784  79829  76488  99426  70485  92343  62556  |  
+   0  60036  20936  43511  31163  64091  58948  68589  55931  95380  83136  14847  |  
+97124  79627  61010  94454  46890  60403  43124  24646  62097  57145  64664  32033  |  
+63076  45713  67489  26951  28770  32764  88381  91688  52780  69863  95741  18372  |  
+94090  56569  53803  54591  48201  58841  64434  73180  43191  84296  45360  49021  |  
+21402  68201  101123  109327  44529  40265  38235  79608  71138  53202  84653  38770  |  
+15742  72051  78864  7439  77146  49354  73772     0  41082  106128  61724  23123  |  
+73701  15719  18070  75917  49054  54312  80613  94367  53429  15527  41578  51391  |  
+2243  56050  11915  55545  81970  104034  47062  34165  46103  56839  54955  26160  |  
+8 Map
+1400  18093  11915  50925  20971  40022  47515  15949  13951  25984  41263  1737  |  
+18293  8348  58022  25982  36169  48931     0  24470     0     0     0  40640  |  
+41724     0  39614  3773  51212     0  26833     0  39701  8843  32053  30498  |  
+58779  1277  1703  50031     0  26683     0     0  26932  39781     0  4633  |  
+48423  45006  46986  30624  26062  11069  8638  50830  76206  44913  20115  29078  |  
+20546     0     0     0  24277  14546  6861  74539  35737  13135  30807  11283  |  
+54383  24151  6016  24998  68343     0  35145     0  15542  2095  46198  29329  |  
+60579  31571  17920     0  15450  19674  44969  26185  9964     0  22929  11889  |  
+42284  46875     0  20638  72051     0  6516  41787  19479     0     0  30106  |  
+54301  44477  12055     0   774  37891  113599  11469   356  28016  40535  35017  |  
+  57  34874     0  25002  28577  9263  33514  62661  57536     0     0  10718  |  
+6915  59633  42296  35570  29068  37224  27062  59237  49146     0  13870  70763  |  
+9 Map
+   0  15711  56330     0  32336  8949     0  15590  24689  9773  88483  38010  |  
+   0  1018  15229     0     0  9383     0     0  9572     0  28789     0  |  
+   0     0  29184     0     0  29207     0  35792  14049     0     0     0  |  
+   0     0     0     0     0     0     0     0  4353     0     0  9711  |  
+ 897  3349     0  18008     0     0     0  1213     0     0     0  36236  |  
+15010     0     0     0     0  34390     0     0  42046     0     0  11578  |  
+   0  2716     0     0     0     0     0     0     0  27928     0  2697  |  
+   0  6965  16639     0   848  29753     0  24555  4352     0     0     0  |  
+   0     0     0     0  1435     0     0     0     0  12494     0     0  |  
+   0  28925  19376     0  6069     0  21453   681     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0  4701  6095     0  |  
+   0  37516     0     0     0     0     0     0  37467  32098  32425  35700  |  
+10 Map
+   0     0     0     0     0  2058  13797     0     0     0     0     0  |  
+   0     0     0  14258     0     0     0     0     0     0     0     0  |  
+   0     0  7414     0     0     0     0  18177     0     0     0  5477  |  
+   0     0  17340     0  8468     0     0     0  43882     0     0  9749  |  
+   0     0     0     0  7497     0     0     0     0  13492     0     0  |  
+   0     0     0     0  27080     0  40663     0     0   953     0     0  |  
+   0     0     0  14281     0  7428  29565  43100  18466     0     0  31379  |  
+   0     0     0     0     0  20907     0     0     0     0     0  11426  |  
+   0     0     0     0     0     0  9256     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0  75396  55060  13254  37879  58065  63707  5663  25090  19996     0  4116  |  
+11 Map
+   0     0     0     0     0     0     0     0     0  14295     0  8501  |  
+   0     0     0     0  1090     0     0     0     0     0     0     0  |  
+   0     0  7643     0  45653     0  8851     0     0     0     0  25153  |  
+   0  11172     0     0     0     0     0  1269     0     0     0     0  |  
+7831  6070     0     0   944  45206     0     0  19469     0     0  29904  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+30324  24840     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0   854  |  
+   0     0     0     0   559  28686  18105     0     0     0   415  20686  |  
+7338     0     0     0     0     0     0  2666     0     0     0     0  |  
+   0  5079     0     0     0     0     0     0  3243     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0  13514  |  
+12 Map
+8266  15741  5636  11776  20381     0  26568  7914     0  51951     0     0  |  
+30682     0     0     0  10355  29943     0   775     0  13728  23131  25316  |  
+10157  3273  30367  38622  4638     0     0     0     0     0     0     0  |  
+33686     0  9483  37459  35644     0  32268     0  49853  55580  11797  12920  |  
+   0     0     0   489  17576  24069  11187     0  13508     0     0  12487  |  
+2736     0  34344  6251     0  53961  24410     0  19200     0     0     0  |  
+   0     0     0     0     0     0  13157  13810  16748  10745     0  3752  |  
+   0     0  23563  5184  3863  1608     0     0     0     0     0     0  |  
+   0  57272  36736     0     0     0  8964  3853  22591     0  27443  32660  |  
+   0     0  49479  40228     0     0     0  24969  18716  41685     0     0  |  
+   0     0  9602     0     0  14687     0     0     0  48545  28408  1085  |  
+8863  29653  14514  17001     0     0     0     0     0     0     0  22738  |  
+Printing Compared OfMap of Layer 2
+***  Printing Output Feature Map  ***
+1 Map
+-4377     0     0  -2434     0     0  -12191     0  -7894  -213     0     0  |  
+17627  -18970   397     0  2607  -3164  8391     0  19116     0  3964  17409  |  
+   0  16664  1196  33548  27274  -3992  8542  12786     0     0  5759  30996  |  
+   0  9258     0  -3119  -213     0  -12291  35290  10792  -1100  17948  -944  |  
+12382  4365  19604  20608   809  10288  6160   -88  6557  21262  11908  26601  |  
+   0  11268     0  1995  7030     0  4910  29992  -7156  14424  -4389  12564  |  
+   0  7094  -1845  25828  3500  22742  16028  6118  -3332  4388  -9591  18380  |  
+-18957  43351  -1624  28629  -15918  -7276     0     0  -224  2608  -3009  25304  |  
+   0  -14607  -5861     0  26810     0  7309  21635  20430  2691  14114   -80  |  
+   0  14153  -21386     0     0  -19527     0     0  -8093     0  5080  3119  |  
+-2365  8217  -8617  13006  30703     0  -6430  35590  3209  -7847  21740  26709  |  
+-12383  12209  -7465  -13686     0  -9791  -15263  -6087  2171  -3876  -4389  13127  |  
+2 Map
+10575     0  -1845     0     0  -729  -15417     0  -3332     0  -25392  -8640  |  
+-7133     0  -1953  16594  -15918  -5683     0     0  -224  -13625  -3009     0  |  
+25535  -10304  -7196     0  -1504     0  -4867  1982  12282  21496   733  -17397  |  
+5340  -1380  -7913  13334     0  -19527  29310     0  -8093     0  -5796  -4948  |  
+18431  1856  -8617  3151  -3938     0  -15472     0  2191  -14657  -3355  -6268  |  
+-1086  8267  -10155  -7714     0  -5090  -15502  -9733  -410  -22690  -47423     0  |  
+-53909  -8081  -28975  -63085  -6481  6698  -42301  -55648  -24071  -62432  16593  3963  |  
+-32052     0  -97592  -17625  8314  -43340  -64878  -36160  -63561  -72520  -45364     0  |  
+-79016  -48860  -12918  3818  -20794  12171  -62285  -53273  -31724  7401  -63744     0  |  
+-54664  -73657  -45657  -91169  -25514  -15632  -12901  -51026  -31451  -52233  -70659     0  |  
+-34265   492  -42674  -57671     0  -40648  -45015  -32590  -18794  -94742  -59207  -9120  |  
+-23261  -35710  -15899  -30464  -74390   632  -28089  -26473  -10360  14861  -22671  11439  |  
+3 Map
+22658  5284   736  9599  6916  27523  22679  26064  16636  2446  11911  11980  |  
+8472     0     0     0  8274     0     0  1074     0  2104     0     0  |  
+32420  3945  18903  28622  18714  12131     0  -4878  5819  7361     0     0  |  
+2008     0     0     0     0     0  13808     0     0     0     0     0  |  
+31515  -7180     0  9468     0     0     0     0     0     0  2870     0  |  
+21117     0  5959     0     0   592  5099     0     0  14821     0  11399  |  
+1384   431     0  2646     0     0     0  17548  10760  7384     0     0  |  
+   0     0     0     0  -3310  17136     0     0  15569  17678  9845  21692  |  
+   0     0  19157  7203  22646  3877  20823  13997  27078  31385  8038  3107  |  
+   0  18594  3543  15960   253  18650  7572     0  13965     0  3981  4554  |  
+   0     0     0     0  23207  11898    85  5310   944  7777  8012     0  |  
+   0  14251  9623  6497     0  30901     0  32902  7769   686  18914  4754  |  
+4 Map
+-87781  -18091  -6940  -9773  -34475  -82650  -24762  9387  3836  -34075  -35497     0  |  
+-56155     0  -101770  -97203  -71369  -35690  -43961     0  -8251  -15802  -15512  -11234  |  
+-54153  -12061  -8338  -70964  -19597  3772  -38785  -1388  5831  15107  7933  -3552  |  
+-29015  -17495  -45503  -391   148  11989  -34571  -18835  -46765  -30126  -33768  4449  |  
+-111974  -58894  -42565  -18016  -6692  -42359     0  5205  -56779  -56994  -53312  -36576  |  
+-67802  14146  9518  -37073     0  27899  -28001  17916  -60520  -41305  -10130  4649  |  
+-32201  -17327  -28912  -7420  -38380  29940  -27270  -57070  -25603  25703  -5841  3556  |  
+-60579  10855  5082  13055  38916  49804  9388  32007  35666  57140  -3366  -12761  |  
+31947  10439  7545  39302  18379  9249  -12793  3775  45709  -37770  24370  -9531  |  
+-33449  -24351  29145  -7074  11685  26504  -9149  -46457  -23509  18031  -29289  -25666  |  
+-11006  16270  55162  54769  6883   405  -1542  -1352  -24190  23350  -889  32302  |  
+11811   929  25871  -6523  33145  14449  16985  14598  23582  28638  30293  -28878  |  
+5 Map
+17105  41935  14634  28868  21828  34106  31192  31372     0  42166  46630  3612  |  
+32785  29605  15478  81350  59624  38384  52919  32063  40071  58107  24458  10445  |  
+15510  43957  58385  48073  29375  53874  19722  44182  45765  -1332  34830  27603  |  
+17203  22283  31953  15729  32750  10619  20571  8691  20073  18087  20307     0  |  
+24369  30843  55218  56732  33500  43198  24629  56764  19713  60137  15502  29877  |  
+29871  -29677  46105  27038  33201  27449  34078  14654  49664  37787  38262  21134  |  
+-39638  -8233     0  -6514     0     0     0     0     0  -9923     0     0  |  
+-20036     0  -27616     0     0     0     0  -1969     0     0     0     0  |  
+-51613     0     0  -15484     0     0     0  -2358  -12782     0     0     0  |  
+-21674     0     0     0     0     0     0     0     0     0  -7797     0  |  
+-15065  -4530  6278     0     0  13102     0     0     0     0     0     0  |  
+-1661     0     0  -8906     0     0  -33282  -38979  -23395  -6093  -36349  -6922  |  
+6 Map
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0  -7524     0     0     0     0     0  -13701     0     0     0  |  
+1286     0  6333     0     0  7232     0     0     0     0     0     0  |  
+   0  -13066     0     0     0  -3256  -20416     0     0     0     0     0  |  
+   0     0     0     0  1246     0     0  2711     0     0     0     0  |  
+2274     0     0     0  -30993     0     0  -16269  -4427   781  -10852     0  |  
+   0     0  -1778     0     0     0     0     0     0  -28489     0     0  |  
+   0  -418     0     0     0  1306     0     0     0  -4678     0     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0     0  4656     0     0     0     0     0     0  -16855     0     0  |  
+7 Map
+-83746  -73036  -44775  -83882  -98464  -113601  -56391  -65337  -77012  -72237  -48152     0  |  
+-44449  -99342  -91095  -14524  -76467  -50050  -42086  -45193  -64718  -83615  -53102  -23581  |  
+-38906  -90318  -53768  -61844  -31515  -55768  -38579  -35357  -50261  -28528  -58862     0  |  
+-82773  -23797  -81697  -102453  -93524  -39363  -79829  -76488  -99426  -70485  -92343  -62556  |  
+   0  -60036  -20936  -43511  -31163  -64091  -58948  -68589  -55931  -95380  -83136  -14847  |  
+-97124  -79627  -56239  -94454  -46890  -60403  -43124  -24646  -62097  -57145  -64664  -32033  |  
+-55024  -45713  -67489  -26951  -28770  -21161  -80133  -91688  -52780  -69863  -95741  -18372  |  
+-65013  -53669  -40643  -36110  -25974  -58841  -64434  -69751  -43191  -84296  -45360  -49021  |  
+-21402  -68201  -101123  -109327  -44529  -30524  -37430  -72834  -71138  -52927  -84653  -38770  |  
+29038  -35542  -64973  -1467  -71686  -49315  -62582     0  -41082  -96089  -61724  -23123  |  
+-70001  -15719  -18070  -75917  -49054  -54312  -80613  -94367  -53429  -15527  -41578  -51391  |  
+18819  -34297  9156  -46753  -81970  -94008  -37024  -34165  -31686  -52563  -54955  -26160  |  
+8 Map
+6743  -18093  -11915  -50925  -20971  -28328  -39176  -15949  -13951  -25984  -41263  -1737  |  
+10875  -5357  -44771  -7410  -13851  -48931     0  -20950     0    61     0  -40640  |  
+-41724     0  -39614  -3773  -51212  9832  -25937  6865  -39701  -8477  -32053  -30498  |  
+-13908  35323  12279  -43968  5551  -26553  11281     0  -26932  -29651     0  -4633  |  
+-44632  -45006  -46986  -30624  -26062  -11069  -8638  -50830  -76206  -44913  -20115  -29078  |  
+ 607  21844  21162  8883  -24277  -4429  3268  -74539  -21229  -8768  -30807  -11283  |  
+-20173  27374  19535  7390  -33937  44311  8982  59110  27652  35700  -770  -9090  |  
+-18696  2119  10687  46214  39119  32901  -16140  15335  21429  52518  28164  11360  |  
+-13453  -6310  59960  33278  -17109  31841  54285  6450  21770  51392  25198  -8588  |  
+-10787  18230  28236  40734  40134  -9946  -66945  31157  39441   394  -10304  -16067  |  
+20248  -13967  23717  15377  -7770  22912  8147  -24829  -27296  28496  18591  20980  |  
+42727  -32204  2440  20463  16691  12443  20221  -8477  -13048  50345  23431  -32679  |  
+9 Map
+34210  35814  -30779  32388  2070  35362  44127  43520  18505  28022  -43055  -17771  |  
+41883  32672  13378  46214  54569  43192  28829  41520  21821  52518  22304  23249  |  
+28831  40565  30776  53916  54942  2634  60801  12445  27200  51392  25198  21518  |  
+43514  62707  40291  40734  40908  27945  46654  42626  35444  28410  30231  9239  |  
+19408  17558  23717  22371  20807  32175  41661  36619  30240  28496  18591  -4538  |  
+34632  27429  44736  56033  45759  15277  47283  50760  -5948  50345  37301  26506  |  
+22267  15852  36986  21227  50083  29293  48706  28870  28344  -6762  25796  12969  |  
+19414  11202  5115  40701  26634  5298  22189  -450  42105     0  33707  10441  |  
+19152  10488  12234  30342  21979  25787  28281  15843  8894  11934  10756     0  |  
+47222  -3000  -530  13615  37929  13459  -7316  39431  9849  38912  27392     0  |  
+11136  13716  28817  8258  14543  27495  15969  34630  19755  12818  16632  13388  |  
+25139  9748  26467  22778  24902  31032  23643  17168  14559  -32098  8616  -32531  |  
+10 Map
+22267  18568  36986  21227  50083  27235  34909  28870  28344  21166  25796  15666  |  
+19414  18167  21754  26443  27482  35051  22189  24105  46457     0  33707  10441  |  
+19152  10488  4820  30342  23414  25787  28281  -2334  8894  24428  10756  -5477  |  
+47222  25925  1506  13615  35530  13459  14137  40112  -34033  38912  27392  -9749  |  
+11136  13716  28817  8258  7046  27495  15969  34630  19755  4027  22727  13388  |  
+25139  47264  26467  22778  -2178  31032  -17020  17168  52026  -953  41041  3169  |  
+   0     0     0  -14281     0  -7428  -29565  -43100  -18466     0     0  -31379  |  
+   0     0     0     0     0  -20907     0     0     0     0     0  -11426  |  
+   0     0     0     0     0     0  -9256     0     0  7482     0  6793  |  
+   0     0     0     0     0     0     0  11414     0  4432  10424     0  |  
+   0     0     0     0     0     0     0     0     0     0     0     0  |  
+   0  -64648  -55060  -13254  -37879  -58065  -63707  1226  -25090  -19996     0  1284  |  
+11 Map
+   0     0     0     0     0     0     0     0     0  -14295     0  -8501  |  
+   0     0     0     0  -1090     0     0     0     0     0     0     0  |  
+   0     0  -7643     0  -45653     0  -8851     0     0  7482     0  -18360  |  
+   0  -11172     0     0     0     0     0  10145     0  4432  10424     0  |  
+-7831  -6070     0     0  -944  -45206     0     0  -19469     0     0  -29904  |  
+   0  10748     0     0     0     0     0  6889     0     0     0  5400  |  
+-30324  -24840     0     0     0  8181     0     0     0     0     0     0  |  
+ 596     0     0     0     0     0     0     0     0     0     0  -854  |  
+   0     0     0     0  -559  -28686  -18105     0     0     0  -415  -20686  |  
+-7338     0     0     0     0     0     0  -2666     0  3709     0  8655  |  
+   0  -5079     0     0     0     0     0     0  -3243     0     0     0  |  
+   0     0     0     0  8729  11969     0     0     0     0     0  -13514  |  
+12 Map
+-8266  -15741  -5636  -11776  -20381  8181  -26568  -7914     0  -51951     0     0  |  
+-30086     0     0     0  -10355  -29943     0  -775     0  -13728  -23131  -25316  |  
+-10157  -3273  -30367  -38622  -4638     0     0     0     0     0     0     0  |  
+-33686     0  -9483  -37459  -35644     0  -32268     0  -49853  -51871  -11797  -4265  |  
+   0     0     0  -489  -17576  -24069  -11187     0  -13508     0     0  -12487  |  
+-2736     0  -34344  -6251  8729  -41992  -24410     0  -19200     0     0     0  |  
+   0   860  8778   809  4377     0  -13157  -11376  -16748  -10745  12191  -3752  |  
+7894   213  -23563  -5184  -3863  17362  1862     0     0  3164     0     0  |  
+   0  -57272  -36736     0     0     0  -8964  -3853  -22591  4727  -27443  -32660  |  
+   0     0  -49479  -40228     0  7770     0  -19448  -18503  -41685  12291     0  |  
+7282  1100  -9602  9506     0  -14687  5474     0  1645  -47398  -28408  5320  |  
+-8863  -29653  -14514  -17001     0     0     0     0     0     0     0  -22738  |  
+*****  Convolutional Layer with  bias + ReLu test failed!  ******
+
+*********************************************************************************  Verification Complete. ************************************************************************************
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
+@E Simulation failed: Function 'main' returns nonzero value '1'.
+ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+ERROR: 4
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 2 seconds. Total elapsed time: 55.943 seconds; peak allocated memory: 139.281 MB.

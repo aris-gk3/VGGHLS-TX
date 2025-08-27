@@ -3,6 +3,68 @@
 #include <iomanip>
 #include <cmath>
 
+void printDesignChoice(){
+	// Conv. Block Integrations
+	#if not (defined(MAXPOOL_INTEGRATION) && defined(HEAD_INTEGRATION))
+		std::cout << "No integration of max pooling or network head in the convolutional layer."
+			<< std::endl;
+	#else
+		#if(defined(MAXPOOL_INTEGRATION))
+			std::cout << "Max pooling was integrated in the convolutional layer."
+				<< std::endl;
+		#endif
+		#if(defined(HEAD_INTEGRATION))
+			std::cout << "Neural network head was integrated in the convolutional layer."
+				<< std::endl;
+		#endif
+	#endif
+	// Port Widening
+	#if not (defined(FMAP_WIDEN) && defined(WTMAP_WIDEN))
+		std::cout << "No port widening applied."
+			<< std::endl;
+	#else
+		#if(defined(FMAP_WIDEN))
+			std::cout << "Port widening of factor " << FMAP_WIDTHFACTOR << " was implemented for feature map data."
+				<< std::endl;
+		#endif
+		#if(defined(WTMAP_WIDEN))
+			std::cout << "Port widening of factor " << WTMAP_WIDTHFACTOR << " was implemented for weight data."
+				<< std::endl;
+		#endif
+	#endif
+	// Schediling (Outer Region)
+		// #if (defined(REGION3_SEQ))
+		// 	std::cout << "Sequential scheduling for outer region (3) was applied."
+		// 		<< std::endl;
+		// #else
+		// 	std::cout << "Sequential scheduling for outer region (3) was applied."
+		// 		<< std::endl;
+		// #endif
+	// Schediling (Middle Region)
+	#if (defined(REGION2_SEQ))
+		std::cout << "Sequential scheduling for middle region (2) was applied."
+			<< std::endl;
+	#elif (defined(REGION2_DFL))
+		std::cout << "Dataflow scheduling for middle region (2) was applied."
+			<< std::endl;
+	#elif (defined(REGION2_MNLSCHEDULE_2BUF))
+		std::cout << "Manual scheduling with double buffering for middle region (2) was applied."
+			<< std::endl;
+	#elif (defined(REGION2_PPL))
+		std::cout << "Pipeline scheduling for middle region (2) was applied."
+			<< std::endl;
+	#endif
+	// Miscellaneous
+	#if not (defined(SET_CONFIG_LAYER))
+		std::cout << "layerCnfg is an internal state."
+				<< std::endl;
+	#else
+		std::cout << "layerCnfg signal is passed as input."
+				<< std::endl;		
+	#endif
+}
+
+
 int Print_Check_Parameters(int verbose){
 	// Checking Convolutional Layer parameters.
 	// Print parameters that are same for all layers.
@@ -164,6 +226,7 @@ int Print_Check_Parameters(int verbose){
 	std::cout << "*****  Rules of Convolutional Parameters Verified!  *****\n" << std::endl;
 	return check;
 }
+
 
 int Check_Binary_Lengths(){
 	int Nif_max = 0, Niy_max = 0, Noy_max = 0, Nof_step_max = 0 , Noy_step_max = 0, Nofy_step_max = 0;

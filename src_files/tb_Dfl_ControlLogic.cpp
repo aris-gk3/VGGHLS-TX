@@ -314,7 +314,6 @@ int convLayer_test(int verbose, int debug, int minPrint,
 					int printErrorOnly, int printLayer, int biasReLuTrue,
 					int binInput){
 	// Memory Data
-	static px_data_t IfMap[FMAP_MEMSIZE*2] = {0};
 	#if defined(FMAP_WIDEN)
 		static px_data_t_port IfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
 		static px_data_t_port OfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
@@ -325,12 +324,11 @@ int convLayer_test(int verbose, int debug, int minPrint,
 		wt_data_t_port* WtMap_port = nullptr;
 		WtMap_port = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
 	#endif
-	static wt_data_t WtMap[WTMAP_MEMSIZE] = {0};
 	static px_data_t OfMap[FMAP_MEMSIZE] = {0}, OfMap_golden[FMAP_MEMSIZE] = {0};
 	static px_data_t Compared_OfMap[FMAP_MEMSIZE];
 	int check = 0, printcheck;
 	std::cout << "Reached HERE!1" << std::endl;
-	for(int layerNo=0;layerNo<1;layerNo++){
+	for(int layerNo=0;layerNo<2;layerNo++){
 		std::cout << "*****  Layer " << layerNo+1 << "  *****" << std::endl;
 		// Initialize Memories
 		px_data_t* IfMap = initIfMap(layerNo, binInput);

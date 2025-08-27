@@ -701,74 +701,6 @@ void Pe2Buf(
 }
 
 
-void tileClc(
-		// Parameters
-		data_bool layerCnfg,
-		// Inputs
-		px_data_t InBuf[POY][WRD_INBUF][POX],
-		wt_data_t WtBuf[WRD_WTBUF][POF],
-		b_data_t BiasBuf[BIASBUF_LENGTH],
-		// Output
-		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]
-	){
-	static layerNo_dt layerNo = 0; 					// Layer "state"
-	static tile_loop_dt tileclc_loop_limit; 		// tileClc Pe iteration bound
-	static wnd_loop_dt wndclc_loop_limit; 			// Pe iteration bound
-	static wtbuf2pe_loop_dt wtbuf2pe_loop_limit;	// WtBuf2Pe Iteration bound
-	static wnd_loop_dt pe_loop_limit; 				// wndClc Iteration bound
-	static Nif_dt Nif;           		  			// Variable Parameter Stored Locally (1)
-	static Toy_dt Toy;								// Variable Parameter Stored Locally (2)
-	static Toy_step_dt Toy_step; 					// Variable Parameter Stored Locally (3)
-	static Tox_step_dt Tox_step; 					// Variable Parameter Stored Locally (4)
-	static Tof_step_dt Tof_step; 					// Variable Parameter Stored Locally (5)
-	static wrd_1row_dt wrd_1row; 					// Variable Parameter Stored Locally (6)
-	static row_1map_dt row_1map; 					// Variable Parameter Stored Locally (7)
-	static row_outbuf_i_dt pe2buf_addr_offset1;		// Variable Parameter Stored Locally (8)
-	static row_outbuf_i_dt pe2buf_addr_offset2;		// Variable Parameter Stored Locally (9)
-	static row_outbuf_i_dt pe2buf_addr_offset3;		// Variable Parameter Stored Locally (10)
-	static bit_shift_dt bit_shift;					// Variable Parameter Stored Locally (11)
-
-	if(layerCnfg){
-		tileclc_loop_limit = tileclc_loop_limit_rom[layerNo];
-		wndclc_loop_limit = wndclc_loop_limit_rom[layerNo];
-		wtbuf2pe_loop_limit = wtbuf2pe_loop_limit_rom[layerNo]; // Tof_step*Nif*NKY*NKX-1
-		pe_loop_limit = pe_loop_limit_rom[layerNo];
-		Nif = Nif_rom[layerNo];
-		Toy = Toy_rom[layerNo];
-		Toy_step = toy_step_rom[layerNo];
-		Tox_step = tox_step_rom[layerNo];
-		Tof_step = tof_step_rom[layerNo];
-		wrd_1row = wrd_1row_rom[layerNo];
-		row_1map = row_1map_rom[layerNo];
-		pe2buf_addr_offset1 = pe2buf_addr_offset1_rom[layerNo];
-		pe2buf_addr_offset2 = pe2buf_addr_offset2_rom[layerNo];
-		pe2buf_addr_offset3 = pe2buf_addr_offset3_rom[layerNo];
-		bit_shift = bit_shift_rom[layerNo];
-
-		if(layerNo==LAYERS-1){
-			layerNo = 0;
-		}
-		else{
-			layerNo++;
-		}
-	}
-	else{
-		tileClc_Dfl(
-				/* Parameters*/ tileclc_loop_limit, wndclc_loop_limit,
-				wtbuf2pe_loop_limit,
-				Nif, Toy,
-				Toy_step, Tox_step, Tof_step,
-				wrd_1row, row_1map, pe2buf_addr_offset1,
-				pe2buf_addr_offset2, pe2buf_addr_offset3,
-				bit_shift,
-				/* Inputs */ InBuf, WtBuf, BiasBuf,
-				/* Output */ OutBuf);
-	}
-
-
-}
-
-
 // Dev for macros (all versions of region 2)
 void tileClc_Dfl(
 		// Parameters
@@ -1113,60 +1045,8 @@ void tileClc_Dfl(
 	}
 */
 
-void loadBiasTile(
-		data_bool layerCnfg,
-		b_data_t BiasBuf[BIASBUF_LENGTH]
-	){
-#pragma HLS PIPELINE off
-	#pragma HLS INLINE off
-	// Based on Nof_step, Noy_step and layerNo, we load
-	// the correct Tof biases to the corresponding buffer
-	// bias[] is stored locally in this module, has the biases for all layers of the CNN.
-
-	static row_biasbuf_i_dt  addressBase = 0; 	// Address base for each layer
-	static Nof_step_dt   Nof_step;        		// Locally store variables (1)
-	static Tof_dt        Tof;       			// Locally store variables (2)
-	static Tof_step_dt   Tof_step;      		// Locally store variables (3)
-	static Nof_step_i_dt Nof_step_i = 0;  		// Locally stored counter
-	static layerNo_dt layerNo = 0;          	// Layer "state"
-	static Nofy_step_dt Nofy_step;				// convLayer module loop tripcount
-
-	if(layerCnfg){
-		if(layerNo != 0){
-			addressBase += Nof_step*Tof_step*POF; // this needs to be fixed!!!
-		}
-		else{
-			addressBase = 0;
-		}
-		Nof_step = Nof_step_rom[layerNo];
-		// Nofy_step = nofy_step_rom[layerNo];
-		Tof = Tof_rom[layerNo];
-		Tof_step = tof_step_rom[layerNo];
-		Nof_step_i = 0;
-		// tileCount = 0;
-		if(layerNo == LAYERS-1){
-			layerNo = 0;
-		}
-		else{
-			layerNo++;
-		}
-	}
-	else{
-		BiasLoop_Tof: for(int Tof_i=0;Tof_i<Tof;Tof_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
-			BiasBuf[Tof_i] = bias[addressBase + Nof_step_i*Tof + Tof_i];
-		}
-		if(Nof_step_i == Nof_step-1){
-			Nof_step_i = 0;
-		}
-		else{
-			Nof_step_i++;
-		}
-	}
-
-}
-
-#if not defined(CASE_AB)
+// ******  Sequential Case Region 3  *****
+#if not defined(SET_CONFIG_LAYER)
 void loadIfMap(
 		// Parameter Loading State
 		data_bool layerCnfg,
@@ -1449,7 +1329,203 @@ void loadWtMap(
 	}
 }
 #endif
-#endif
+
+
+void mem2Buf(
+		// Parameter Loading State
+		data_bool layerCnfg,
+		// Inputs
+		const px_data_t_port *IfMap,
+		const wt_data_t_port *WtMap,
+		// Outputs
+		px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF]
+	){
+	#pragma HLS INLINE off
+	static data_bool NofFirst;
+	static Noy_step_dt Noy_step; 		// convLayer module loop tripcount
+	static Tiy_dt Tiy;					// Tile dimension variable
+	static layerNo_dt layerNo = 0; 		// "State" for layer
+	static Nofy_step_dt tileCount;
+	data_bool northTile, southTile; 	// Flags for tile position (for zero padding)
+	Niy_dt yBase;  // (Niy offset) 		// y offset address for tile of IfMap to be loaded
+	Nofy_step_dt ofBase; 				// map offset address for tile of OfMap to be stored
+
+	if(layerCnfg){
+		NofFirst = nofFirst[layerNo];
+		Noy_step = noy_step_rom[layerNo];
+		Tiy = tiy_rom[layerNo];
+		tileCount = 0;
+		loadIfMap(/*layerCnfg=*/1, /*normal operation*/ 0, 0, 0, IfMap, InBuf);
+		loadWtMap(/*layerCnfg=*/1, /*normal operation*/ 0, WtMap, WtBuf);
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		if(NofFirst == 1){
+			ofBase = 0;
+			yBase = tileCount*(Tiy - 2) -1;
+			if(tileCount == 0){
+				northTile = 1;
+			}
+			else{
+				northTile = 0;
+			}
+			if(tileCount == Noy_step - 1){
+				southTile = 1;
+			}
+			else{
+				southTile = 0;
+			}
+		}
+		else{
+			ofBase = tileCount; // loadWtMap, storeMap Input
+			yBase = 0;
+			northTile = 1;
+			southTile = 1;
+		}
+
+		if( tileCount == 0 ){
+			loadIfMap(/*layerCnfg=*/0, /*normal operation*/ northTile, southTile, 0, IfMap, InBuf);
+			loadWtMap(/*layerCnfg=*/0, /*normal operation*/ ofBase, WtMap, WtBuf);
+		}
+		else if( NofFirst == 0 ){
+			loadWtMap(/*layerCnfg=*/0, /*normal operation*/ ofBase, WtMap, WtBuf);
+		}
+		else{
+			loadIfMap(/*layerCnfg=*/0, /*normal operation*/ northTile, southTile, yBase, IfMap, InBuf);
+		}
+		tileCount++;
+	}
+}
+
+
+void loadBiasTile(
+		data_bool layerCnfg,
+		b_data_t BiasBuf[BIASBUF_LENGTH]
+	){
+#pragma HLS PIPELINE off
+	#pragma HLS INLINE off
+	// Based on Nof_step, Noy_step and layerNo, we load
+	// the correct Tof biases to the corresponding buffer
+	// bias[] is stored locally in this module, has the biases for all layers of the CNN.
+
+	static row_biasbuf_i_dt  addressBase = 0; 	// Address base for each layer
+	static Nof_step_dt   Nof_step;        		// Locally store variables (1)
+	static Tof_dt        Tof;       			// Locally store variables (2)
+	static Tof_step_dt   Tof_step;      		// Locally store variables (3)
+	static Nof_step_i_dt Nof_step_i = 0;  		// Locally stored counter
+	static layerNo_dt layerNo = 0;          	// Layer "state"
+	static Nofy_step_dt Nofy_step;				// convLayer module loop tripcount
+
+	if(layerCnfg){
+		if(layerNo != 0){
+			addressBase += Nof_step*Tof_step*POF; // this needs to be fixed!!!
+		}
+		else{
+			addressBase = 0;
+		}
+		Nofy_step = nofy_step_rom[layerNo];
+		Nof_step = Nof_step_rom[layerNo];
+		// Nofy_step = nofy_step_rom[layerNo];
+		Tof = Tof_rom[layerNo];
+		Tof_step = tof_step_rom[layerNo];
+		Nof_step_i = 0;
+		// tileCount = 0;
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		BiasLoop_Tof: for(int Tof_i=0;Tof_i<Tof;Tof_i++){
+		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
+			BiasBuf[Tof_i] = bias[addressBase + Nof_step_i*Tof + Tof_i];
+		}
+		if(Nof_step_i == Nof_step-1){
+			Nof_step_i = 0;
+		}
+		else{
+			Nof_step_i++;
+		}
+	}
+
+}
+
+
+void tileClc(
+		// Parameters
+		data_bool layerCnfg,
+		// Inputs
+		px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF],
+		b_data_t BiasBuf[BIASBUF_LENGTH],
+		// Output
+		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]
+	){
+	static layerNo_dt layerNo = 0; 					// Layer "state"
+	static tile_loop_dt tileclc_loop_limit; 		// tileClc Pe iteration bound
+	static wnd_loop_dt wndclc_loop_limit; 			// Pe iteration bound
+	static wtbuf2pe_loop_dt wtbuf2pe_loop_limit;	// WtBuf2Pe Iteration bound
+	static wnd_loop_dt pe_loop_limit; 				// wndClc Iteration bound
+	static Nif_dt Nif;           		  			// Variable Parameter Stored Locally (1)
+	static Toy_dt Toy;								// Variable Parameter Stored Locally (2)
+	static Toy_step_dt Toy_step; 					// Variable Parameter Stored Locally (3)
+	static Tox_step_dt Tox_step; 					// Variable Parameter Stored Locally (4)
+	static Tof_step_dt Tof_step; 					// Variable Parameter Stored Locally (5)
+	static wrd_1row_dt wrd_1row; 					// Variable Parameter Stored Locally (6)
+	static row_1map_dt row_1map; 					// Variable Parameter Stored Locally (7)
+	static row_outbuf_i_dt pe2buf_addr_offset1;		// Variable Parameter Stored Locally (8)
+	static row_outbuf_i_dt pe2buf_addr_offset2;		// Variable Parameter Stored Locally (9)
+	static row_outbuf_i_dt pe2buf_addr_offset3;		// Variable Parameter Stored Locally (10)
+	static bit_shift_dt bit_shift;					// Variable Parameter Stored Locally (11)
+
+	if(layerCnfg){
+		tileclc_loop_limit = tileclc_loop_limit_rom[layerNo];
+		wndclc_loop_limit = wndclc_loop_limit_rom[layerNo];
+		wtbuf2pe_loop_limit = wtbuf2pe_loop_limit_rom[layerNo]; // Tof_step*Nif*NKY*NKX-1
+		pe_loop_limit = pe_loop_limit_rom[layerNo];
+		Nif = Nif_rom[layerNo];
+		Toy = Toy_rom[layerNo];
+		Toy_step = toy_step_rom[layerNo];
+		Tox_step = tox_step_rom[layerNo];
+		Tof_step = tof_step_rom[layerNo];
+		wrd_1row = wrd_1row_rom[layerNo];
+		row_1map = row_1map_rom[layerNo];
+		pe2buf_addr_offset1 = pe2buf_addr_offset1_rom[layerNo];
+		pe2buf_addr_offset2 = pe2buf_addr_offset2_rom[layerNo];
+		pe2buf_addr_offset3 = pe2buf_addr_offset3_rom[layerNo];
+		bit_shift = bit_shift_rom[layerNo];
+
+		if(layerNo==LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		tileClc_Dfl(
+				/* Parameters*/ tileclc_loop_limit, wndclc_loop_limit,
+				wtbuf2pe_loop_limit,
+				Nif, Toy,
+				Toy_step, Tox_step, Tof_step,
+				wrd_1row, row_1map, pe2buf_addr_offset1,
+				pe2buf_addr_offset2, pe2buf_addr_offset3,
+				bit_shift,
+				/* Inputs */ InBuf, WtBuf, BiasBuf,
+				/* Output */ OutBuf);
+	}
+
+
+}
+
 
 #if not defined(MAXPOOL_INTEGRATION)
 void storeMap(
@@ -1563,322 +1639,6 @@ void storeMap(
 #endif
 
 
-#if defined(CASE_AB)
-void loadIfMap(
-		const px_data_t_port *IfMap, //[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
-		px_data_t InBuf[POY][WRD_INBUF][POX]
-	){
-	#pragma HLS INLINE off
-	static layerNo_dt layerNo = 0; 	// "State" for layer
-	static data_bool layerCnfg = 1;	// State for loading layer confiduration data
-	static Nif_dt Nif;           	// Parameters stored locally (1)
-	static Niy_dt Niy;           	// Parameters stored locally (2)
-	static Nofy_step_dt Noy_step; 	// Parameters stored locally (3)
-	static Tiy_dt Tiy;           	// Parameters stored locally (4)
-	static Tix_dt Tix;           	// Parameters stored locally (5)
-	static row_1map_dt row_1map; 	// Parameters stored locally (6)
-	static wrd_1row_dt wrd_1row; 	// Parameters stored locally (7)
-	static Poy_i_dt TiyRem;      	// Parameters stored locally (8)
-	static Pox_i_dt TixRem;      	// Parameters stored locally (9)
-	static data_bool NofFirst; 		// Parameters stored locally (10)
-	static int yTileCount; 			// Parameters stored locally (11)
-
-	data_bool northTile, southTile;
-	Niy_dt yBase;
-	Tiy_dt yTile;				 	// Number of pixels for y dimension to be loaded
-	Tix_dt xTile; 				 	// Number of pixels for x dimension to be loaded
-	row_inbuf_i_dt wrd_i; 			// Variables for addressing of InBuf (1)
-	row_inbuf_i_dt wrdMap; 			// Variables for addressing of InBuf (2)
-	row_inbuf_i_dt wrdY, wrdX; 		// Variables for addressing of InBuf (3)
-	Poy_i_dt Poy_i;
-	Pox_i_dt Pox_i;
-
-	if(layerCnfg){
-		NofFirst = nofFirst[layerNo];
-		Nif = Nif_rom[layerNo];
-		Niy = niy_rom[layerNo];
-		Noy_step = noy_step_rom[layerNo];
-		Tiy = tiy_rom[layerNo]; // Contains zero padding
-		Tix = tix_rom[layerNo]; // Contains zero padding
-		row_1map = row_1map_rom[layerNo];
-		wrd_1row = wrd_1row_rom[layerNo];
-		TiyRem = (Tiy-1)%POY;
-		TixRem = (Tix-1)%POX; 	// find position of last element of x row of IfMap -> mapped to InBuf
-		yTileCount = 0;
-		if(layerNo == LAYERS-1){
-			layerNo = 0;
-			layerCnfg = 1;
-		}
-		else{
-			layerNo++;
-			layerCnfg = 0;
-		}
-	}
-	else{
-		// Calculate Input Parameters
-		if(yTileCount == 0){
-			northTile = 1;
-		}
-		else{
-			northTile = 0;
-		}
-		if(yTileCount == Noy_step - 1){
-			southTile = 1;
-		}
-		else{
-			southTile = 0;
-		}
-		if(yTileCount == 0){
-			yBase = 0;
-		}
-		else{
-			yBase = yTileCount*(Tiy - 2) -1;
-		}
-		yTile = Tiy - northTile - southTile; xTile = Tix - 2;
-		wrdMap = 0;
-		If_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
-			Poy_i = northTile; wrdY = 0;
-			If_Tiy: for(int yTile_i=0;yTile_i<yTile;yTile_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=TIY_TRIPCOUNT max=TIY_TRIPCOUNT
-				#if defined(FMAP_WIDEN)
-					wrdX = 0;
-					// std::cout << "calling if_nix" << Poy_i << std::endl;
-					If_Nix: for(int xTile_i=0;xTile_i<xTile/7;xTile_i++){
-					#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
-						wrd_i = wrdMap + wrdY + wrdX;
-						InBuf[Poy_i][wrd_i  ][1] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS-1,0);
-						InBuf[Poy_i][wrd_i  ][2] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*2-1,SYNTH_BITS);
-						InBuf[Poy_i][wrd_i  ][3] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*3-1,SYNTH_BITS*2);
-						InBuf[Poy_i][wrd_i  ][4] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*4-1,SYNTH_BITS*3);
-						InBuf[Poy_i][wrd_i  ][5] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*5-1,SYNTH_BITS*4);
-						InBuf[Poy_i][wrd_i  ][6] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*6-1,SYNTH_BITS*5);
-						InBuf[Poy_i][wrd_i+1][0] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*7-1,SYNTH_BITS*6);
-						// std::cout << "Packed hex value:";
-						// std::cout << IfMap[Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i].to_string(16) << std::endl; // prints in hexadecimal << std::endl;
-						// std::cout << std::setw(8) << InBuf[Poy_i][wrd_i][1];
-						// std::cout << std::setw(8) << InBuf[Poy_i][wrd_i][2];
-						// std::cout << std::setw(8) << InBuf[Poy_i][wrd_i][3];
-						// std::cout << std::setw(8) << InBuf[Poy_i][wrd_i][4];
-						// std::cout << std::setw(8) << InBuf[Poy_i][wrd_i][5];
-						// std::cout << std::setw(8) << InBuf[Poy_i][wrd_i][6];
-						// std::cout << std::setw(8) << InBuf[Poy_i][wrd_i+1][0] << std::endl;
-						
-						// if(Pox_i == POX-1){
-						// 	wrdX++;
-						// 	Pox_i = 0;
-						// }
-						// else{
-						// 	Pox_i++;
-						// }
-						// std::cout << "Calling wrd_i: " << wrd_i;
-						wrdX++;
-					}
-					// std::cout << "\n";
-					if(Poy_i == POY-1){
-						Poy_i = 0;
-						wrdY += wrd_1row; // ceil(Tix,Pox)
-					}
-					else{
-						Poy_i++;
-					}
-					// std::this_thread::sleep_for(std::chrono::seconds(5));
-				#else
-					Pox_i = 1; wrdX = 0;
-					// std::cout << "calling if_nix" << Poy_i << std::endl;
-					If_Nix: for(int xTile_i=0;xTile_i<xTile;xTile_i++){
-					#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
-						wrd_i = wrdMap + wrdY + wrdX;
-						InBuf[Poy_i][wrd_i][Pox_i] = *(IfMap + Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i);
-						// std::cout << "Calling wrd_i: " << wrd_i;
-						if(Pox_i == POX-1){
-							wrdX++;
-							Pox_i = 0;
-						}
-						else{
-							Pox_i++;
-						}
-					}
-					// std::cout << "\n";
-					if(Poy_i == POY-1){
-						Poy_i = 0;
-						wrdY += wrd_1row; // ceil(Tix,Pox)
-					}
-					else{
-						Poy_i++;
-					}
-				#endif
-				// std::this_thread::sleep_for(std::chrono::seconds(5));
-			}
-			wrdMap += row_1map * wrd_1row; // ceil(Tiy,Poy)*ceil(Tix,POY)
-		}
-
-		yTileCount++;
-
-		// North Zero Padding
-		if(northTile){
-			NorthPad_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
-				NorthPad_wrd: for(int wrd_1row_i=0;wrd_1row_i<wrd_1row;wrd_1row_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=WRD1ROW_TRIPCOUNT max=WRD1ROW_TRIPCOUNT
-					NorthPad_Pox: for(int Pox_i=0;Pox_i<POX;Pox_i++){
-					#pragma HLS UNROLL
-						InBuf[0][Nif_i*row_1map*wrd_1row + wrd_1row_i][Pox_i] = 0;
-					}
-				}
-			}
-		}
-		// South Zero Padding
-		if(southTile){
-			SouthPad_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
-				SouthPad_wrd: for(int wrd_1row_i=0;wrd_1row_i<wrd_1row;wrd_1row_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=WRD1ROW_TRIPCOUNT max=WRD1ROW_TRIPCOUNT
-					SouthPad_Pox: for(int Pox_i=0;Pox_i<POX;Pox_i++){
-					#pragma HLS UNROLL
-						InBuf[TiyRem][Nif_i*row_1map*wrd_1row + (row_1map-1)*wrd_1row+ wrd_1row_i][Pox_i] = 0;
-					}
-				}
-			}
-		}
-		// West Zero Padding
-		WestPad_Line: for(int nxtLine_i=0;nxtLine_i<Nif*row_1map;nxtLine_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=ROW1MAPNIF_TRIPCOUNT max=ROW1MAPNIF_TRIPCOUNT
-			WestPad_Poy: for(int Poy_i=0;Poy_i<POY;Poy_i++){
-			#pragma HLS UNROLL
-				InBuf[Poy_i][nxtLine_i*wrd_1row][0] = 0;
-			}
-		}
-		// East Zero Padding
-		EastPad_Line: for(int nxtLine_i=0;nxtLine_i<Nif*row_1map;nxtLine_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=ROW1MAPNIF_TRIPCOUNT max=ROW1MAPNIF_TRIPCOUNT
-			EastPad_Poy: for(int Poy_i=0;Poy_i<POY;Poy_i++){
-			#pragma HLS UNROLL
-				InBuf[Poy_i][nxtLine_i*wrd_1row + wrd_1row-1][TixRem] = 0;
-			}
-		}
-	}
-}
-
-
-#if not defined(WTMAP_WIDEN)
-void loadWtMap(
-		const wt_data_t_port *WtMap,
-		wt_data_t WtBuf[WRD_WTBUF][POF]
-	){
-	#pragma HLS INLINE off
-	static layerNo_dt layerNo = 0;  	// "State" for layer
-	static data_bool layerCnfg = 1;		// State for loading layer confiduration data
-	static Nif_dt Nif; 					// Parameters stored locally (1)
-	static Tof_dt Tof; 					// Parameters stored locally (2)
-	static int fTileCount; 				// Parameters stored locally (3)
-	Pof_i_dt Pof_i;
-	row_wtbuf_i_dt wrdMap;
-	Nofy_step_dt ofBase;
-
-	if(layerCnfg){
-		Nif = Nif_rom[layerNo];
-		Tof = Tof_rom[layerNo];
-		fTileCount = 0;
-		if(layerNo == LAYERS-1){
-			layerNo = 0;
-			layerCnfg = 1;
-		}
-		else{
-			layerNo++;
-			layerCnfg = 0;
-		}
-	}
-	else{
-		Pof_i = 0; wrdMap = 0;
-		ofBase = fTileCount;
-		WtLoop_Tof: for(int Tof_i=0;Tof_i<Tof;Tof_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
-			WtLoop_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
-			
-				WtLoop_Nky: for(int Nky_i=0;Nky_i<NKY;Nky_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=NKY max=NKY
-					WtLoop_Nkx: for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
-					#pragma HLS LOOP_TRIPCOUNT min=NKX max=NKX
-						WtBuf[wrdMap + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][Pof_i] = 
-							*(WtMap + (Tof_i+ofBase*Tof)*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i);
-					}
-				}
-			}
-			if(Pof_i == POF-1){
-				Pof_i = 0;
-				wrdMap += Nif*NKY*NKX;
-			}
-			else{
-				Pof_i++;
-			}
-		}
-		fTileCount++;
-	}
-
-}
-#endif
-
-#if defined(WTMAP_WIDEN)
-void loadWtMap(
-		/* Inputs */ Nofy_step_dt ofBase, const wt_data_t_port *WtMap,
-		/* Output */ wt_data_t WtBuf[WRD_WTBUF][POF]
-	){
-	#pragma HLS INLINE off
-	static layerNo_dt layerNo = 0;  	// "State" for layer
-	static data_bool layerCnfg = 1;		// State for loading layer confiduration data
-	static Nif_dt Nif; 					// Parameters stored locally (1)
-	static Tof_step_dt Tof_step; 		// Parameters stored locally (2)
-	static int fTileCount; 				// Parameters stored locally (3)
-	Nofy_step_dt ofBase;
-
-	if(layerCnfg){
-		Nif = Nif_rom[layerNo];
-		Tof_step = tof_step_rom[layerNo];
-		if(layerNo == LAYERS-1){
-			layerNo = 0;
-		}
-		else{
-			layerNo++;
-		}
-	}
-	else{
-		WtLoop_Tof: for(int Tof_step_i=0;Tof_step_i<Tof_step;Tof_step_i++){
-		#pragma HLS LOOP_TRIPCOUNT min=TOF_STEP_TRIPCOUNT max=TOF_STEP_TRIPCOUNT
-			WtLoop_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
-			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
-				WtLoop_Nky: for(int Nky_i=0;Nky_i<NKY;Nky_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=NKY max=NKY
-					WtLoop_Nkx: for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
-					#pragma HLS LOOP_TRIPCOUNT min=NKX max=NKX
-						WtLoop_Pof: for (int i = 0; i < (POF/WTMAP_WIDTHFACTOR); i++) {
-						#pragma HLS UNROLL
-							for (int chunk = 0; chunk < WTMAP_WIDTHFACTOR; chunk++) {
-								int idx = i*WTMAP_WIDTHFACTOR + chunk;
-								int bit_start = chunk * SYNTH_BITS;
-								int bit_end   = bit_start + SYNTH_BITS - 1;
-
-								WtBuf[Tof_step_i*Nif*NKY*NKX 
-									+ Nif_i*NKY*NKX 
-									+ Nky_i*NKX 
-									+ Nkx_i][idx] =
-									WtMap[(Tof_step_i + ofBase*Tof_step) * Nif*NKY*NKX*(POF/WTMAP_WIDTHFACTOR)
-										+ Nif_i*NKY*NKX*(POF/WTMAP_WIDTHFACTOR)
-										+ Nky_i*NKX*(POF/WTMAP_WIDTHFACTOR)
-										+ Nkx_i*(POF/WTMAP_WIDTHFACTOR)
-										+ i].range(bit_end, bit_start);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-#endif
-#endif
-
 #if defined(MAXPOOL_INTEGRATION)
 void maxPoolTree(px_data_t tmp1[POX], px_data_t tmp2[POX], px_data_t tmp3[POX], 
 			px_data_t tmp4[POX], px_data_t max[POX]){
@@ -1894,6 +1654,7 @@ void maxPoolTree(px_data_t tmp1[POX], px_data_t tmp2[POX], px_data_t tmp3[POX],
 	}
 }
 #endif
+
 
 #if defined(MAXPOOL_INTEGRATION)
 void storeMap(
@@ -2108,35 +1869,52 @@ void storeMap(
 	}
 }
 #endif
-
-
-void mem2Buf(
-		// Parameter Loading State
-		data_bool layerCnfg,
-		// Inputs
-		const px_data_t_port *IfMap,
-		const wt_data_t_port *WtMap,
-		// Outputs
-		px_data_t InBuf[POY][WRD_INBUF][POX],
-		wt_data_t WtBuf[WRD_WTBUF][POF]
+#endif
+// ******  Sequential Case Region 3 END  *****
+// ********  Overlap Case Region 3  *******
+#if defined(SET_CONFIG_LAYER)
+void loadIfMap(
+		const px_data_t_port *IfMap, //[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
+		px_data_t InBuf[POY][WRD_INBUF][POX]
 	){
 	#pragma HLS INLINE off
-	static data_bool NofFirst;
-	static Noy_step_dt Noy_step; 		// convLayer module loop tripcount
-	static Tiy_dt Tiy;					// Tile dimension variable
-	static layerNo_dt layerNo = 0; 		// "State" for layer
-	static Nofy_step_dt tileCount;
-	data_bool northTile, southTile; 	// Flags for tile position (for zero padding)
-	Niy_dt yBase;  // (Niy offset) 		// y offset address for tile of IfMap to be loaded
-	Nofy_step_dt ofBase; 				// map offset address for tile of OfMap to be stored
+	static layerNo_dt layerNo = 0; 	// "State" for layer
+	static data_bool layerCnfg = 1;	// State for loading layer confiduration data
+	static Nif_dt Nif;           	// Parameters stored locally (1)
+	static Niy_dt Niy;           	// Parameters stored locally (2)
+	static Noy_step_dt Noy_step; 	// Parameters stored locally (3)
+	static Tiy_dt Tiy;           	// Parameters stored locally (4)
+	static Tix_dt Tix;           	// Parameters stored locally (5)
+	static row_1map_dt row_1map; 	// Parameters stored locally (6)
+	static wrd_1row_dt wrd_1row; 	// Parameters stored locally (7)
+	static Poy_i_dt TiyRem;      	// Parameters stored locally (8)
+	static Pox_i_dt TixRem;      	// Parameters stored locally (9)
+	static data_bool NofFirst; 		// Parameters stored locally (10)
+	static int yTileCount; 			// Parameters stored locally (11)
+
+	data_bool northTile, southTile;
+	Niy_dt yBase;
+	Tiy_dt yTile;				 	// Number of pixels for y dimension to be loaded
+	Tix_dt xTile; 				 	// Number of pixels for x dimension to be loaded
+	row_inbuf_i_dt wrd_i; 			// Variables for addressing of InBuf (1)
+	row_inbuf_i_dt wrdMap; 			// Variables for addressing of InBuf (2)
+	row_inbuf_i_dt wrdY, wrdX; 		// Variables for addressing of InBuf (3)
+	Poy_i_dt Poy_i;
+	Pox_i_dt Pox_i;
 
 	if(layerCnfg){
 		NofFirst = nofFirst[layerNo];
+		Nif = Nif_rom[layerNo];
+		Niy = niy_rom[layerNo];
 		Noy_step = noy_step_rom[layerNo];
-		Tiy = tiy_rom[layerNo];
-		tileCount = 0;
-		loadIfMap(/*layerCnfg=*/1, /*normal operation*/ 0, 0, 0, IfMap, InBuf);
-		loadWtMap(/*layerCnfg=*/1, /*normal operation*/ 0, WtMap, WtBuf);
+		Tiy = tiy_rom[layerNo]; // Contains zero padding
+		Tix = tix_rom[layerNo]; // Contains zero padding
+		row_1map = row_1map_rom[layerNo];
+		wrd_1row = wrd_1row_rom[layerNo];
+		TiyRem = (Tiy-1)%POY;
+		TixRem = (Tix-1)%POX; 	// find position of last element of x row of IfMap -> mapped to InBuf
+		layerCnfg = 0;
+		yTileCount = 0;
 		if(layerNo == LAYERS-1){
 			layerNo = 0;
 		}
@@ -2145,42 +1923,813 @@ void mem2Buf(
 		}
 	}
 	else{
-		if(NofFirst == 1){
-			ofBase = 0;
-			yBase = tileCount*(Tiy - 2) -1;
-			if(tileCount == 0){
-				northTile = 1;
-			}
-			else{
-				northTile = 0;
-			}
-			if(tileCount == Noy_step - 1){
-				southTile = 1;
-			}
-			else{
-				southTile = 0;
-			}
+		// Calculate Input Parameters
+		if(yTileCount == 0){
+			northTile = 1;
 		}
 		else{
-			ofBase = tileCount; // loadWtMap, storeMap Input
-			yBase = 0;
-			northTile = 1;
+			northTile = 0;
+		}
+		if(yTileCount == Noy_step - 1){
 			southTile = 1;
 		}
-
-		if( tileCount == 0 ){
-			loadIfMap(/*layerCnfg=*/0, /*normal operation*/ northTile, southTile, 0, IfMap, InBuf);
-			loadWtMap(/*layerCnfg=*/0, /*normal operation*/ ofBase, WtMap, WtBuf);
+		else{
+			southTile = 0;
 		}
-		else if( NofFirst == 0 ){
-			loadWtMap(/*layerCnfg=*/0, /*normal operation*/ ofBase, WtMap, WtBuf);
+		if(yTileCount == 0){
+			yBase = 0;
 		}
 		else{
-			loadIfMap(/*layerCnfg=*/0, /*normal operation*/ northTile, southTile, yBase, IfMap, InBuf);
+			yBase = yTileCount*(Tiy - 2) -1;
 		}
-		tileCount++;
+		yTile = Tiy - northTile - southTile; xTile = Tix - 2;
+		wrdMap = 0;
+		If_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
+		#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
+			Poy_i = northTile; wrdY = 0;
+			If_Tiy: for(int yTile_i=0;yTile_i<yTile;yTile_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=TIY_TRIPCOUNT max=TIY_TRIPCOUNT
+				#if defined(FMAP_WIDEN)
+					wrdX = 0;
+					If_Nix: for(int xTile_i=0;xTile_i<xTile/7;xTile_i++){
+					#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
+						wrd_i = wrdMap + wrdY + wrdX;
+						InBuf[Poy_i][wrd_i  ][1] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS-1,0);
+						InBuf[Poy_i][wrd_i  ][2] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*2-1,SYNTH_BITS);
+						InBuf[Poy_i][wrd_i  ][3] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*3-1,SYNTH_BITS*2);
+						InBuf[Poy_i][wrd_i  ][4] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*4-1,SYNTH_BITS*3);
+						InBuf[Poy_i][wrd_i  ][5] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*5-1,SYNTH_BITS*4);
+						InBuf[Poy_i][wrd_i  ][6] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*6-1,SYNTH_BITS*5);
+						InBuf[Poy_i][wrd_i+1][0] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*7-1,SYNTH_BITS*6);
+						wrdX++;
+					}
+					if(Poy_i == POY-1){
+						Poy_i = 0;
+						wrdY += wrd_1row; // ceil(Tix,Pox)
+					}
+					else{
+						Poy_i++;
+					}
+				#else
+					Pox_i = 1; wrdX = 0;
+					If_Nix: for(int xTile_i=0;xTile_i<xTile;xTile_i++){
+					#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
+						wrd_i = wrdMap + wrdY + wrdX;
+						InBuf[Poy_i][wrd_i][Pox_i] =
+						*(IfMap + Nif_i*(Niy)*(Tix-2) + (yBase+yTile_i)*(Tix-2) + xTile_i);
+						if(Pox_i == POX-1){
+							wrdX++;
+							Pox_i = 0;
+						}
+						else{
+							Pox_i++;
+						}
+					}
+					if(Poy_i == POY-1){
+						Poy_i = 0;
+						wrdY += wrd_1row; // ceil(Tix,Pox)
+					}
+					else{
+						Poy_i++;
+					}
+				#endif
+			}
+			wrdMap += row_1map * wrd_1row; // ceil(Tiy,Poy)*ceil(Tix,POY)
+		}
+
+		// North Zero Padding
+		if(northTile){
+			NorthPad_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
+				NorthPad_wrd: for(int wrd_1row_i=0;wrd_1row_i<wrd_1row;wrd_1row_i++){
+				#pragma HLS LOOP_TRIPCOUNT min=WRD1ROW_TRIPCOUNT max=WRD1ROW_TRIPCOUNT
+					NorthPad_Pox: for(int Pox_i=0;Pox_i<POX;Pox_i++){
+					#pragma HLS UNROLL
+						InBuf[0][Nif_i*row_1map*wrd_1row + wrd_1row_i][Pox_i] = 0;
+					}
+				}
+			}
+		}
+		// South Zero Padding
+		if(southTile){
+			SouthPad_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
+				SouthPad_wrd: for(int wrd_1row_i=0;wrd_1row_i<wrd_1row;wrd_1row_i++){
+				#pragma HLS LOOP_TRIPCOUNT min=WRD1ROW_TRIPCOUNT max=WRD1ROW_TRIPCOUNT
+					SouthPad_Pox: for(int Pox_i=0;Pox_i<POX;Pox_i++){
+					#pragma HLS UNROLL
+						InBuf[TiyRem][Nif_i*row_1map*wrd_1row + (row_1map-1)*wrd_1row+ wrd_1row_i][Pox_i] = 0;
+					}
+				}
+			}
+		}
+		// West Zero Padding
+		WestPad_Line: for(int nxtLine_i=0;nxtLine_i<Nif*row_1map;nxtLine_i++){
+		#pragma HLS LOOP_TRIPCOUNT min=ROW1MAPNIF_TRIPCOUNT max=ROW1MAPNIF_TRIPCOUNT
+			WestPad_Poy: for(int Poy_i=0;Poy_i<POY;Poy_i++){
+			#pragma HLS UNROLL
+				InBuf[Poy_i][nxtLine_i*wrd_1row][0] = 0;
+			}
+		}
+		// East Zero Padding
+		EastPad_Line: for(int nxtLine_i=0;nxtLine_i<Nif*row_1map;nxtLine_i++){
+		#pragma HLS LOOP_TRIPCOUNT min=ROW1MAPNIF_TRIPCOUNT max=ROW1MAPNIF_TRIPCOUNT
+			EastPad_Poy: for(int Poy_i=0;Poy_i<POY;Poy_i++){
+			#pragma HLS UNROLL
+				InBuf[Poy_i][nxtLine_i*wrd_1row + wrd_1row-1][TixRem] = 0;
+			}
+		}
+		if(yTileCount == Noy_step - 1){
+			layerCnfg = 1;
+		}
+		else{
+			yTileCount++;
+		}
 	}
 }
+
+
+#if not defined(WTMAP_WIDEN)
+void loadWtMap(
+		const wt_data_t_port *WtMap,
+		wt_data_t WtBuf[WRD_WTBUF][POF]
+	){
+	#pragma HLS INLINE off
+	static layerNo_dt layerNo = 0;  	// "State" for layer
+	static data_bool layerCnfg = 1;		// State for loading layer confiduration data
+	static Nif_dt Nif; 					// Parameters stored locally (1)
+	static Nof_step_dt Nof_step;		// Parameters stored locally (2)
+	static Tof_dt Tof; 					// Parameters stored locally (3)
+	static data_bool NofFirst; 			// Parameters stored locally (4)
+	static int fTileCount; 				// Parameters stored locally (5)
+	Pof_i_dt Pof_i;
+	row_wtbuf_i_dt wrdMap;
+	Nofy_step_dt ofBase;
+
+	if(layerCnfg){
+		Nif = Nif_rom[layerNo];
+		Nof_step = Nof_step_rom[layerNo];
+		Tof = Tof_rom[layerNo];
+		NofFirst = nofFirst[layerNo];
+		layerCnfg = 0;
+		fTileCount = 0;
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		Pof_i = 0; wrdMap = 0;
+		ofBase = fTileCount;
+		WtLoop_Tof: for(int Tof_i=0;Tof_i<Tof;Tof_i++){
+		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
+			WtLoop_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
+			
+				WtLoop_Nky: for(int Nky_i=0;Nky_i<NKY;Nky_i++){
+				#pragma HLS LOOP_TRIPCOUNT min=NKY max=NKY
+					WtLoop_Nkx: for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
+					#pragma HLS LOOP_TRIPCOUNT min=NKX max=NKX
+						WtBuf[wrdMap + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i][Pof_i] = 
+							*(WtMap + (Tof_i+ofBase*Tof)*Nif*NKY*NKX + Nif_i*NKY*NKX + Nky_i*NKX + Nkx_i);
+					}
+				}
+			}
+			if(Pof_i == POF-1){
+				Pof_i = 0;
+				wrdMap += Nif*NKY*NKX;
+			}
+			else{
+				Pof_i++;
+			}
+		}
+		if(fTileCount == Nof_step - 1){
+			layerCnfg = 1;
+			fTileCount = 0;
+		}
+		else{
+			fTileCount++;
+		}
+	}
+
+}
+#endif
+
+#if defined(WTMAP_WIDEN)
+void loadWtMap(
+		const wt_data_t_port *WtMap,
+		wt_data_t WtBuf[WRD_WTBUF][POF]
+	){
+	#pragma HLS INLINE off
+	static layerNo_dt layerNo = 0;  	// "State" for layer
+	static data_bool layerCnfg = 1;		// State for loading layer confiduration data
+	static Nif_dt Nif; 					// Parameters stored locally (1)
+	static Nof_step_dt Nof_step;		// Parameters stored locally (2)
+	static Tof_step_dt Tof_step; 		// Parameters stored locally (3)
+	static data_bool NofFirst; 			// Parameters stored locally (4)
+	static int fTileCount; 				// Parameters stored locally (5)
+	Nofy_step_dt ofBase;
+
+	if(layerCnfg){
+		Nif = Nif_rom[layerNo];
+		Nof_step = Nof_step_rom[layerNo];
+		Tof_step = tof_step_rom[layerNo];
+		NofFirst = nofFirst[layerNo];
+		layerCnfg = 0;
+		fTileCount = 0;
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		ofBase = fTileCount;
+		WtLoop_Tof: for(int Tof_step_i=0;Tof_step_i<Tof_step;Tof_step_i++){
+		#pragma HLS LOOP_TRIPCOUNT min=TOF_STEP_TRIPCOUNT max=TOF_STEP_TRIPCOUNT
+			WtLoop_Nif: for(int Nif_i=0;Nif_i<Nif;Nif_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=NIF_TRIPCOUNT max=NIF_TRIPCOUNT
+				WtLoop_Nky: for(int Nky_i=0;Nky_i<NKY;Nky_i++){
+				#pragma HLS LOOP_TRIPCOUNT min=NKY max=NKY
+					WtLoop_Nkx: for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
+					#pragma HLS LOOP_TRIPCOUNT min=NKX max=NKX
+						WtLoop_Pof: for (int i = 0; i < (POF/WTMAP_WIDTHFACTOR); i++) {
+						#pragma HLS UNROLL
+							for (int chunk = 0; chunk < WTMAP_WIDTHFACTOR; chunk++) {
+								int idx = i*WTMAP_WIDTHFACTOR + chunk;
+								int bit_start = chunk * SYNTH_BITS;
+								int bit_end   = bit_start + SYNTH_BITS - 1;
+
+								WtBuf[Tof_step_i*Nif*NKY*NKX 
+									+ Nif_i*NKY*NKX 
+									+ Nky_i*NKX 
+									+ Nkx_i][idx] =
+									WtMap[(Tof_step_i + ofBase*Tof_step) * Nif*NKY*NKX*(POF/WTMAP_WIDTHFACTOR)
+										+ Nif_i*NKY*NKX*(POF/WTMAP_WIDTHFACTOR)
+										+ Nky_i*NKX*(POF/WTMAP_WIDTHFACTOR)
+										+ Nkx_i*(POF/WTMAP_WIDTHFACTOR)
+										+ i].range(bit_end, bit_start);
+							}
+						}
+					}
+				}
+			}
+		}
+		if(fTileCount == Nof_step - 1){
+			layerCnfg = 1;
+			tileCount = 0;
+		}
+		else{
+			fTileCount++;
+		}
+	}
+}
+#endif
+
+
+void mem2Buf(
+		const px_data_t_port *IfMap,
+		const wt_data_t_port *WtMap,
+		px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF]
+	){
+	#pragma HLS INLINE off
+	static data_bool NofFirst;
+	static Nofy_step_dt nofy_step; 		// convLayer module loop tripcount
+	static layerNo_dt layerNo = 0; 		// "State" for layer
+	static data_bool layerCnfg = 1;		// State for loading layer confiduration data
+	static Nofy_step_dt tileCount;
+
+	if(layerCnfg){
+		NofFirst = nofFirst[layerNo];
+		nofy_step = nofy_step_rom[layerNo];
+		layerCnfg = 0;
+		tileCount = 0;
+		loadIfMap(IfMap, InBuf);
+		loadWtMap(WtMap, WtBuf);
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		if(tileCount == 0){
+			loadIfMap(IfMap, InBuf);
+			loadWtMap(WtMap, WtBuf);
+		}
+		else{
+			if(NofFirst == 1){
+				loadIfMap(IfMap, InBuf);
+			}
+			else{
+				loadWtMap(WtMap, WtBuf);
+			}
+		}
+		if(tileCount == nofy_step-1){
+			layerCnfg = 1;
+			tileCount = 0;
+		}
+		else{
+			tileCount++;
+		}
+	}
+}
+
+
+void loadBiasTile(
+		b_data_t BiasBuf[BIASBUF_LENGTH]
+	){
+#pragma HLS PIPELINE off
+	#pragma HLS INLINE off
+	// Based on Nof_step, Noy_step and layerNo, we load
+	// the correct Tof biases to the corresponding buffer
+	// bias[] is stored locally in this module, has the biases for all layers of the CNN.
+
+	static row_biasbuf_i_dt  addressBase = 0; 	// Address base for each layer
+	static Nof_step_dt   Nof_step;        		// Locally store variables (1)
+	static Tof_dt        Tof;       			// Locally store variables (2)
+	static Tof_step_dt   Tof_step;      		// Locally store variables (3)
+	static Nof_step_i_dt Nof_step_i = 0;  		// Locally stored counter
+	static data_bool layerCnfg = 1;				// State for loading layer confiduration data
+	static layerNo_dt layerNo = 0;          	// Layer "state"
+	static int tileCount; 						// Count of executed tiles
+	static Nofy_step_dt Nofy_step;				// convLayer module loop tripcount
+
+	if(layerCnfg){
+		if(layerNo != 0){
+			addressBase += Nof_step*Tof_step*POF; // this needs to be fixed!!!
+		}
+		else{
+			addressBase = 0;
+		}
+		Nof_step = Nof_step_rom[layerNo];
+		Nofy_step = nofy_step_rom[layerNo];
+		Tof = Tof_rom[layerNo];
+		Tof_step = tof_step_rom[layerNo];
+		Nof_step_i = 0;
+		layerCnfg = 0;
+		tileCount = 0;
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		BiasLoop_Tof: for(int Tof_i=0;Tof_i<Tof;Tof_i++){
+		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
+			BiasBuf[Tof_i] = bias[addressBase + Nof_step_i*Tof + Tof_i];
+		}
+		if(Nof_step_i == Nof_step-1){ // In the case of Nof_step=1, Nof_step_i stays zero
+			Nof_step_i = 0;
+		}
+		else{
+			Nof_step_i++;
+		}
+		if(tileCount == Nofy_step - 1){
+			layerCnfg = 1;
+			tileCount = 0;
+		}
+		else{
+			tileCount++;
+		}
+	}
+
+}
+
+
+void tileClc(
+		px_data_t InBuf[POY][WRD_INBUF][POX],
+		wt_data_t WtBuf[WRD_WTBUF][POF],
+		b_data_t BiasBuf[BIASBUF_LENGTH],
+		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]
+	){
+	static layerNo_dt layerNo = 0; 					// Layer "state"
+	static data_bool layerCnfg = 1;					// State for loading layer confiduration data
+	static int tileCount;							// Count iterations of tiles for current layer
+	static tile_loop_dt tileclc_loop_limit; 		// tileClc Pe iteration bound
+	static wnd_loop_dt wndclc_loop_limit; 			// Pe iteration bound
+	static wtbuf2pe_loop_dt wtbuf2pe_loop_limit;	// WtBuf2Pe Iteration bound
+	static wnd_loop_dt pe_loop_limit; 				// wndClc Iteration bound
+	static Nofy_step_dt Nofy_step;					// Variable Parameter stored locally (1)
+	static Nif_dt Nif;           		  			// Variable Parameter Stored Locally (2)
+	static Toy_dt Toy;								// Variable Parameter Stored Locally (3)
+	static Toy_step_dt Toy_step; 					// Variable Parameter Stored Locally (4)
+	static Tox_step_dt Tox_step; 					// Variable Parameter Stored Locally (5)
+	static Tof_step_dt Tof_step; 					// Variable Parameter Stored Locally (6)
+	static wrd_1row_dt wrd_1row; 					// Variable Parameter Stored Locally (7)
+	static row_1map_dt row_1map; 					// Variable Parameter Stored Locally (8)
+	static row_outbuf_i_dt pe2buf_addr_offset1;		// Variable Parameter Stored Locally (9)
+	static row_outbuf_i_dt pe2buf_addr_offset2;		// Variable Parameter Stored Locally (10)
+	static row_outbuf_i_dt pe2buf_addr_offset3;		// Variable Parameter Stored Locally (11)
+	static bit_shift_dt bit_shift;					// Variable Parameter Stored Locally (12)
+
+	if(layerCnfg){
+		tileclc_loop_limit = tileclc_loop_limit_rom[layerNo];
+		wndclc_loop_limit = wndclc_loop_limit_rom[layerNo];
+		wtbuf2pe_loop_limit = wtbuf2pe_loop_limit_rom[layerNo]; // Tof_step*Nif*NKY*NKX-1
+		pe_loop_limit = pe_loop_limit_rom[layerNo];
+		Nofy_step = nofy_step_rom[layerNo];
+		Nif = Nif_rom[layerNo];
+		Toy = Toy_rom[layerNo];
+		Toy_step = toy_step_rom[layerNo];
+		Tox_step = tox_step_rom[layerNo];
+		Tof_step = tof_step_rom[layerNo];
+		wrd_1row = wrd_1row_rom[layerNo];
+		row_1map = row_1map_rom[layerNo];
+		pe2buf_addr_offset1 = pe2buf_addr_offset1_rom[layerNo];
+		pe2buf_addr_offset2 = pe2buf_addr_offset2_rom[layerNo];
+		pe2buf_addr_offset3 = pe2buf_addr_offset3_rom[layerNo];
+		bit_shift = bit_shift_rom[layerNo];
+		layerCnfg = 0;
+		tileCount = 0;
+		if(layerNo==LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		tileClc_Dfl(
+				/* Parameters*/ tileclc_loop_limit, wndclc_loop_limit,
+				wtbuf2pe_loop_limit,
+				Nif, Toy,
+				Toy_step, Tox_step, Tof_step,
+				wrd_1row, row_1map, pe2buf_addr_offset1,
+				pe2buf_addr_offset2, pe2buf_addr_offset3,
+				bit_shift,
+				/* Inputs */ InBuf, WtBuf, BiasBuf,
+				/* Output */ OutBuf);
+		if(tileCount == Nofy_step - 1){
+			layerCnfg = 1;
+			tileCount = 0;
+		}
+		else{
+			tileCount++;
+		}
+	}
+}
+
+
+#if not defined(MAXPOOL_INTEGRATION)
+void storeMap(
+		const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		px_data_t_port *OfMap
+	){
+	#pragma HLS INLINE off
+	static Nofy_step_dt Nofy_step;
+	static Noy_dt Noy;
+	static Tof_dt Tof;
+	static Toy_dt Toy;
+	static Tox_dt Tox;
+	static Tox_step_dt wrd_1rowOut;
+	static data_bool layerCnfg = 1;		// State for loading layer confiduration data
+	static int tileCount;				// Count iterations of tiles for current layer
+	static data_bool NofFirst;			// Boolean value for loop order
+	static layerNo_dt layerNo = 0; 		// "State" for layer
+
+	int ofBase, yBase;
+
+	row_outbuf_i_dt wrdMap, wrdY, wrdX;
+	outbufnum_i_dt OutBufNum_i;
+	Pox_i_dt Pox_i;
+
+	if(layerCnfg){
+		Nofy_step = nofy_step_rom[layerNo];
+		Noy = Noy_rom[layerNo];
+		Tof = Tof_rom[layerNo];
+		Toy = Toy_rom[layerNo];
+		Tox = Tox_rom[layerNo];
+		wrd_1rowOut = tox_step_rom[layerNo];
+		layerCnfg = 0;
+		tileCount = 0;
+		NofFirst = nofFirst[layerNo];
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		if(NofFirst){
+			ofBase = 0;
+			yBase = tileCount;
+		}
+		else{
+			ofBase = tileCount;
+			yBase = 0;
+		}
+		wrdMap = 0; OutBufNum_i = 0;
+		Loop_Tof: for(int Tof_i=0; Tof_i<Tof;Tof_i++){
+		#pragma HLS LOOP_TRIPCOUNT min=TOF_TRIPCOUNT max=TOF_TRIPCOUNT
+			wrdY = 0;
+			Loop_Toy: for(int Toy_i=0; Toy_i<Toy;Toy_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=TOY_TRIPCOUNT max=TOY_TRIPCOUNT
+				Pox_i = 0; wrdX = 0;
+				#if not defined(FMAP_WIDEN)
+					Loop_Tox: for(int Tox_i=0; Tox_i<Tox;Tox_i++){
+					#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
+						*(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) =
+								OutBuf[OutBufNum_i][wrdMap + wrdY + wrdX][Pox_i];
+						#ifdef DEBUG_MODE
+							if( *(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) >= (1 << HW_EMUL_NUM_BITS)){
+									std::cout << "Value out of range found in " << (Tof_i+ofBase*Tof) << " Map, "
+										<< (Toy_i+yBase*Toy) << " Row, " << Tox_i << " Column\n";
+									std::cout << "Value is " << *(OfMap + (Tof_i+ofBase*Tof)*Noy*Tox + (Toy_i+yBase*Toy)*Tox +Tox_i) << "\n";
+							}
+						#endif
+						if(Pox_i == POX-1){
+							Pox_i = 0;
+							wrdX++;
+						}
+						else{
+							Pox_i++;
+						}
+					}
+				#elif defined(FMAP_WIDEN)
+					Loop_Tox: for(int Tox_i=0; Tox_i<Tox/7;Tox_i++){
+					#pragma HLS LOOP_TRIPCOUNT min=(TOX_TRIPCOUNT/7) max=(TOX_TRIPCOUNT/7)
+						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS-1,0) =
+								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][0];
+						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS*2-1,SYNTH_BITS) =
+								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][1];
+						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS*3-1,SYNTH_BITS*2) =
+								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][2];
+						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS*4-1,SYNTH_BITS*3) =
+								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][3];
+						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS*5-1,SYNTH_BITS*4) =
+								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][4];
+						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS*6-1,SYNTH_BITS*5) =
+								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][5];
+						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS*7-1,SYNTH_BITS*6) =
+								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][6];
+					}	
+				#endif
+				wrdY += wrd_1rowOut;
+			}
+
+			if(OutBufNum_i == OUTBUF_NUM-1){
+				OutBufNum_i = 0;
+				wrdMap += Toy*wrd_1rowOut;
+			}
+			else{
+				OutBufNum_i++;
+			}
+		}
+		if(tileCount == Nofy_step - 1){
+			layerCnfg = 1;
+			tileCount = 0;
+		}
+		else{
+			tileCount++;
+		}
+	}
+}
+#endif
+
+
+#if defined(MAXPOOL_INTEGRATION)
+void maxPoolTree(px_data_t tmp1[POX], px_data_t tmp2[POX], px_data_t tmp3[POX], 
+			px_data_t tmp4[POX], px_data_t max[POX]){
+	px_data_t maxTmp[POX*2];
+	#pragma HLS ARRAY_PARTITION variable=maxTmp complete dim=1
+	for(int i=0;i<POX;i++){
+	#pragma HLS UNROLL
+		maxTmp[i    ] = (tmp1[i]>tmp3[i]) ? tmp1[i] : tmp3[i];
+		maxTmp[i+POX] = (tmp2[i]>tmp4[i]) ? tmp2[i] : tmp4[i];
+	}
+	for(int i=0;i<POX;i++){
+		max[i] = (maxTmp[2*i]>maxTmp[2*i+1]) ? maxTmp[2*i] : maxTmp[2*i+1];
+	}
+}
+#endif
+
+
+#if defined(MAXPOOL_INTEGRATION)
+void storeMap(
+		const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
+		px_data_t_port *OfMap
+	){
+	#pragma HLS INLINE off
+	static layerNo_dt layerNo = 0; 		// "State" for layer
+	static data_bool layerCnfg = 1;		// State for loading layer confiduration data
+	static int tileCount;				// Count iterations of tiles for current layer
+	static data_bool NofFirst;			// Boolean value for loop order
+	static Nofy_step_dt Nofy_step;		// Parameters stored locally (1)
+	static Noy_dt Noy;					// Parameters stored locally (3)
+	static Noy_dt Noy_map;				// Parameters stored locally (3)
+	static Tof_dt Tof;					// Parameters stored locally (4)
+	static Toy_dt Toy;					// Parameters stored locally (5)
+	static Toy_dt Toy_map;				// Parameters stored locally (6)
+	static Tox_dt Tox;					// Parameters stored locally (7)
+	static Tox_dt Tox_map;				// Parameters stored locally (8)
+	static Tox_step_dt wrd_1rowOut;		// Parameters stored locally (9)
+
+	int ofBase, yBase;
+	int base_addr, addr;
+	#if defined(HEAD_INTEGRATION)
+		acc_data_t acc;
+		int addr_gap;
+		const acc_data_t reciprocal = (1 << RECIPROCAL_BITS) / (7 * 7); // fixed-point reciprocal
+	#endif
+	#if defined(FMAP_WIDEN)
+		static ap_uint<3> state;
+	#endif
+	px_data_t tmp1[POX], tmp2[POX], tmp3[POX], tmp4[POX], max[POX];
+	row_outbuf_i_dt wrdMap, wrdY, wrdX;
+	outbufnum_i_dt OutBufNum_i;
+	Pox_i_dt Pox_i;
+
+	if(layerCnfg){
+		Nofy_step = nofy_step_rom[layerNo];
+		Noy = Noy_rom[layerNo];
+		if(layerNo==0 || layerNo==2 || layerNo==4 || layerNo==5 ||
+			layerNo==7 || layerNo==8 || layerNo==10 || layerNo==11){
+			Noy_map = Noy_rom[layerNo];
+			Toy_map = Toy_rom[layerNo];
+			Tox_map = Tox_rom[layerNo];
+		}
+		else{
+			Noy_map = Noy_rom[layerNo]/2;
+			Toy_map = Toy_rom[layerNo]/2;
+			Tox_map = Tox_rom[layerNo]/2;
+		}
+		Tof = Tof_rom[layerNo];
+		Toy = Toy_rom[layerNo];
+		Tox = Tox_rom[layerNo];
+		wrd_1rowOut = tox_step_rom[layerNo];
+		layerCnfg = 0;
+		tileCount = 0;
+		#if defined(FMAP_WIDEN)
+			state = 0;
+		#endif
+		NofFirst = nofFirst[layerNo];
+		if(layerNo == LAYERS-1){
+			layerNo = 0;
+		}
+		else{
+			layerNo++;
+		}
+	}
+	else{
+		if(NofFirst){
+			ofBase = 0;
+			yBase = tileCount;
+		}
+		else{
+			ofBase = tileCount;
+			yBase = 0;
+		}
+
+		base_addr = ofBase*Tof*Noy_map*Tox_map/FMAP_WIDTHFACTOR + yBase*Toy_map*Tox_map/FMAP_WIDTHFACTOR;
+		
+		#if defined(HEAD_INTEGRATION)
+			addr_gap = tileCount*Tof/FMAP_WIDTHFACTOR;
+		#endif
+
+		Loop_Tof_ii: for(int Tof_ii=0; Tof_ii<Tof/OUTBUF_NUM;Tof_ii++){
+		#pragma HLS LOOP_TRIPCOUNT min=(TOF_TRIPCOUNT/OUTBUF_NUM) max=(TOF_TRIPCOUNT/OUTBUF_NUM)
+			Loop_OutBufNum: for(int OutBufNum_i=0; OutBufNum_i<OUTBUF_NUM;OutBufNum_i++){
+			#pragma HLS LOOP_TRIPCOUNT min=OUTBUF_NUM max=OUTBUF_NUM
+				addr = base_addr;
+				#if defined(HEAD_INTEGRATION)
+					acc = 0;
+				#endif
+				Loop_Toy_step: for(int Toy_i=0; Toy_i<Toy_map;Toy_i++){
+				#pragma HLS LOOP_TRIPCOUNT min=(TOY_TRIPCOUNT/2) max=(TOY_TRIPCOUNT/2)
+
+					Loop_Tox_step: for(int Tox_step_i=0; Tox_step_i<Tox_map/POX;Tox_step_i++){
+					#pragma HLS LOOP_TRIPCOUNT min=(TOX_TRIPCOUNT/2*POX) max=(TOX_TRIPCOUNT/2*POX)
+						#if not defined(FMAP_WIDEN)
+							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
+								layerNo==8 || layerNo==9 || layerNo==11 || layerNo==12){
+								Loop_POX0: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+									OfMap[addr] =
+										OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + Toy_i*wrd_1rowOut + Tox_step_i][Pox_i];
+									addr++;
+								}
+							}
+							else{
+								Loop_POX: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS UNROLL
+									tmp1[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut +  2*Toy_i   *wrd_1rowOut + 2*Tox_step_i  ][Pox_i];
+									tmp2[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut +  2*Toy_i   *wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
+									tmp3[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i  ][Pox_i];
+									tmp4[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
+								}
+								maxPoolTree(tmp1, tmp2, tmp3, tmp4, max);
+								#if not defined(HEAD_INTEGRATION)
+									Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+									#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+										OfMap[addr] =
+											max[Pox_i];
+										addr++;
+									}
+								#else
+									if(layerNo==0){
+										for(int Pox_i=0;Pox_i<POX;Pox_i++){
+											acc += max[Pox_i];
+										}
+									}
+									else{
+										Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+										#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+											OfMap[addr] =
+												max[Pox_i];
+											addr++;
+										}
+									}
+								#endif
+							}
+						#elif defined(FMAP_WIDEN)
+							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
+								layerNo==8 || layerNo==9 || layerNo==11 || layerNo==12){
+								Loop_POX0: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+									OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
+										OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + Toy_i*wrd_1rowOut + Tox_step_i][Pox_i];
+								}
+								addr++;
+							}
+							else{
+								Loop_POX: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+								#pragma HLS UNROLL
+									tmp1[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut +  2*Toy_i   *wrd_1rowOut + 2*Tox_step_i  ][Pox_i];
+									tmp2[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut +  2*Toy_i   *wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
+									tmp3[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i  ][Pox_i];
+									tmp4[Pox_i] = OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + (2*Toy_i+1)*wrd_1rowOut + 2*Tox_step_i+1][Pox_i];
+								}
+								maxPoolTree(tmp1, tmp2, tmp3, tmp4, max);
+								#if not defined(HEAD_INTEGRATION)
+									Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+									#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+										OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
+											max[Pox_i];
+									}
+									addr++;
+								#else
+									if(layerNo==0){
+										for(int Pox_i=0;Pox_i<POX;Pox_i++){
+											acc += max[Pox_i];
+										}
+									}
+									else{
+										Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
+										#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+											OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
+												max[Pox_i];
+										}
+										addr++;
+									}
+								#endif
+							}
+						#endif
+					}
+
+				}
+				
+				base_addr += Noy_map*Tox_map/FMAP_WIDTHFACTOR;
+				#if defined(HEAD_INTEGRATION)
+					if(layerNo==0){
+						acc *= reciprocal;
+						#if defined(FMAP_WIDEN)
+							OfMap[addr_gap].range(SYNTH_BITS*(state+1)-1, SYNTH_BITS*state) = (acc >> RECIPROCAL_BITS);
+							if(state==6){
+								addr_gap++;
+								state = 0;
+							}
+							else{
+								state++;
+							}
+							acc = 0;
+						#else
+							OfMap[addr_gap] = (acc >> RECIPROCAL_BITS);
+							addr_gap++;
+							acc = 0;
+						#endif
+					}
+				#endif
+			}
+		}
+		if(tileCount == Nofy_step - 1){
+			layerCnfg = 1;
+			tileCount = 0;
+		}
+		else{
+			tileCount++;
+		}
+	}
+}
+#endif
 
 
 void ConvLayerScdl(
@@ -2201,129 +2750,151 @@ void ConvLayerScdl(
 		px_data_t_port *OfMap
 	){
 	#pragma HLS INLINE off
-	loadIfMap(/*layerCnfg=*/1, /*normal operation*/ 0, 0, 0, IfMap, InBuf);
-	loadWtMap(/*layerCnfg=*/1, /*normal operation*/ 0, WtMap, WtBuf);
-	loadBiasTile(/*layerCnfg=*/1, /*normal operation*/ BiasBuf);
-	tileClc(/*layerCnfg=*/1,
-			/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
-	storeMap(/*layerCnfg=*/1, /*normal operation*/ OutBuf, OfMap);
+	loadIfMap(IfMap, InBuf);
+	loadWtMap(WtMap, WtBuf);
+	loadBiasTile(BiasBuf);
+	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+	storeMap(OutBuf, OfMap);
 
 	if(nofFirst==1){
-		loadWtMap(/*layerCnfg=*/0, /*normal operation*/ 0, WtMap, WtBuf);
-		for(int nofy_step_i=0;nofy_step_i<nofy_step;nofy_step_i++){
-			data_bool northTile, southTile; 	// Flags for tile position (for zero padding)
-			Niy_dt yBase;  // (Niy offset) 		// y offset address for tile of IfMap to be loaded
-			if(nofy_step_i == 0){
-				northTile = 1;
-			}
-			else{
-				northTile = 0;
-			}
-			if(nofy_step_i == Noy_step - 1){
-				southTile = 1;
-			}
-			else{
-				southTile = 0;
-			}
-			if(nofy_step_i == 0){
-				yBase = 0;
-			}
-			else{
-				yBase = nofy_step_i*(Tiy - 2) -1;
-			}
-			loadIfMap(/*layerCnfg=*/0, /*normal operation*/ northTile, southTile, yBase, IfMap, InBuf);
-			loadBiasTile(/*layerCnfg=*/0, /*normal operation*/ BiasBuf);
-			tileClc(/*layerCnfg=*/0,
-					/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
-			storeMap(/*layerCnfg=*/0, /*normal operation*/ OutBuf, OfMap);
+		loadWtMap(WtMap, WtBuf);
+		if(nofy_step==1){
+			loadIfMap(IfMap, InBuf);
+			loadBiasTile(BiasBuf);
+			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			storeMap(OutBuf, OfMap);
 		}
+		else if(nofy_step==2){
+			// Simple Loop
+			for(int nofy_step_i=0;nofy_step_i<2;nofy_step_i++){
+				loadIfMap(IfMap, InBuf);
+				loadBiasTile(BiasBuf);
+				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+				storeMap(OutBuf, OfMap);
+			}
+		}
+		else if(nofy_step==4){
+			loadIfMap(IfMap, InBuf);
+			loadBiasTile(BiasBuf);
+			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
+				loadIfMap(IfMap, InBuf);
+				loadBiasTile(BiasBuf);
+				storeMap(OutBuf, OfMap);
+				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			}
+			storeMap(OutBuf, OfMap);		
+		}
+		else if(nofy_step==8){
+			loadIfMap(IfMap, InBuf);
+			loadBiasTile(BiasBuf);
+			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			for(int nofy_step_i=0;nofy_step_i<7;nofy_step_i++){
+				loadIfMap(IfMap, InBuf);
+				loadBiasTile(BiasBuf);
+				storeMap(OutBuf, OfMap);
+				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			}
+			storeMap(OutBuf, OfMap);			
+		}		
 	}
 	else{
-		loadIfMap(/*layerCnfg=*/0, /*normal operation*/ 1, 1, 0, IfMap, InBuf);
-		for(int nofy_step_i=0;nofy_step_i<nofy_step;nofy_step_i++){
-			Nofy_step_dt ofBase; 				// map offset address for tile of OfMap to be stored
-			ofBase = nofy_step_i; // loadWtMap, storeMap Input
-			loadWtMap(/*layerCnfg=*/0, /*normal operation*/ ofBase, WtMap, WtBuf);
-			loadBiasTile(/*layerCnfg=*/0, /*normal operation*/ BiasBuf);
-			tileClc(/*layerCnfg=*/0,
-					/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
-			storeMap(/*layerCnfg=*/0, /*normal operation*/ OutBuf, OfMap);
+		loadIfMap(IfMap, InBuf);
+		if(nofy_step==1){
+			loadWtMap(WtMap, WtBuf);
+			loadBiasTile(BiasBuf);
+			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			storeMap(OutBuf, OfMap);
+		}
+		else if(nofy_step==2){
+			for(int nofy_step_i=0;nofy_step_i<2;nofy_step_i++){
+				loadWtMap(WtMap, WtBuf);
+				loadBiasTile(BiasBuf);
+				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+				storeMap(OutBuf, OfMap);
+			}
+		}
+		else if(nofy_step==4){
+			loadWtMap(WtMap, WtBuf);
+			loadBiasTile(BiasBuf);
+			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
+				loadWtMap(WtMap, WtBuf);
+				loadBiasTile(BiasBuf);
+				storeMap(OutBuf, OfMap);
+				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			}
+			storeMap(OutBuf, OfMap);		
+		}
+		else if(nofy_step==8){
+			loadWtMap(WtMap, WtBuf);
+			loadBiasTile(BiasBuf);
+			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			for(int nofy_step_i=0;nofy_step_i<7;nofy_step_i++){
+				loadWtMap(WtMap, WtBuf);
+				loadBiasTile(BiasBuf);
+				storeMap(OutBuf, OfMap);
+				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			}
+			storeMap(OutBuf, OfMap);	
 		}
 	}
-
-
 }
+#endif
+// ********  Overlap Case Region 3 END  *******
 
 
-void ConvLayerScdlDB(
-		// Parameter Loading State
-		int layerNo,
-		int loop_limit,
-		// Intermediate (Buffered) Data
-		px_data_t InBuf1[POY][WRD_INBUF][POX], px_data_t InBuf2[POY][WRD_INBUF][POX],
-		wt_data_t WtBuf1[WRD_WTBUF][POF], wt_data_t WtBuf2[WRD_WTBUF][POF],
-		px_data_t OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
-		b_data_t BiasBuf1[BIASBUF_LENGTH], b_data_t BiasBuf2[BIASBUF_LENGTH],
-		// Inputs
-		const px_data_t_port *IfMap,
-		const wt_data_t_port *WtMap,
-		// Output
-		px_data_t_port *OfMap
-	){
-	#pragma HLS INLINE off
-	mem2Buf(/*layerCnfg=*/1,
-			/*normal operation*/ IfMap, WtMap, InBuf1, WtBuf1);
-	loadBiasTile(/*layerCnfg=*/1, /*normal operation*/ BiasBuf1);
-	tileClc(/*layerCnfg=*/1,
-			/*normal operation*/ InBuf1, WtBuf1, BiasBuf1, OutBuf1);
-	storeMap(/*layerCnfg=*/1, /*normal operation*/ OutBuf1, OfMap);
+/*
+	void ConvLayer_Dfl(
+			// Parameter Loading State
+			int layerNo,
+			int loop_limit,
+			// Intermediate (Buffered) Data
+			px_data_t InBuf1[POY][WRD_INBUF][POX], px_data_t InBuf2[POY][WRD_INBUF][POX],
+			wt_data_t WtBuf1[WRD_WTBUF][POF], wt_data_t WtBuf2[WRD_WTBUF][POF],
+			px_data_t OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
+			b_data_t BiasBuf1[BIASBUF_LENGTH], b_data_t BiasBuf2[BIASBUF_LENGTH],
+			// Inputs
+			const px_data_t_port *IfMap,
+			const wt_data_t_port *WtMap,
+			// Output
+			px_data_t_port *OfMap
+		){
+		#pragma HLS INLINE off
+		mem2Buf(1, // layerCnfg
+				IfMap, WtMap, InBuf1, WtBuf1);
+		loadBiasTile(1, // layerCnfg
+						BiasBuf1);
+		tileClc(1, // layerCnfg
+				InBuf1, WtBuf1, BiasBuf1, OutBuf1);
+		storeMap(1, // layerCnfg
+					OutBuf1, OfMap);
 
-}
+		for(int i=0;i<loop_limit;i++){
+			mem2Buf(0, // layerCnfg
+					IfMap, WtMap, InBuf1, WtBuf1);
+			loadBiasTile(0, // layerCnfg
+						BiasBuf1);
+			tileClc(0, // layerCnfg
+						InBuf1, WtBuf1, BiasBuf1, OutBuf1);
+			
 
+			mem2Buf(0, // layerCnfg
+					IfMap, WtMap, InBuf2, WtBuf2);
+			loadBiasTile(0, // layerCnfg
+						BiasBuf2);
 
-void ConvLayer_Dfl(
-		// Parameter Loading State
-		int layerNo,
-		int loop_limit,
-		// Intermediate (Buffered) Data
-		px_data_t InBuf1[POY][WRD_INBUF][POX], px_data_t InBuf2[POY][WRD_INBUF][POX],
-		wt_data_t WtBuf1[WRD_WTBUF][POF], wt_data_t WtBuf2[WRD_WTBUF][POF],
-		px_data_t OutBuf1[OUTBUF_NUM][WRD_OUTBUF][POX], px_data_t OutBuf2[OUTBUF_NUM][WRD_OUTBUF][POX],
-		b_data_t BiasBuf1[BIASBUF_LENGTH], b_data_t BiasBuf2[BIASBUF_LENGTH],
-		// Inputs
-		const px_data_t_port *IfMap,
-		const wt_data_t_port *WtMap,
-		// Output
-		px_data_t_port *OfMap
-	){
-	#pragma HLS INLINE off
-	mem2Buf(/*layerCnfg=*/1,
-			/*normal operation*/ IfMap, WtMap, InBuf1, WtBuf1);
-	loadBiasTile(/*layerCnfg=*/1, /*normal operation*/ BiasBuf1);
-	tileClc(/*layerCnfg=*/1,
-			/*normal operation*/ InBuf1, WtBuf1, BiasBuf1, OutBuf1);
-	storeMap(/*layerCnfg=*/1, /*normal operation*/ OutBuf1, OfMap);
+			storeMap(0, // layerCnfg
+					OutBuf1, OfMap);
 
-	for(int i=0;i<loop_limit;i++){
-		mem2Buf(/*layerCnfg=*/0,
-			/*normal operation*/ IfMap, WtMap, InBuf1, WtBuf1);
-		loadBiasTile(/*layerCnfg=*/0, /*normal operation*/ BiasBuf1);
-		tileClc(/*layerCnfg=*/0,
-				/*normal operation*/ InBuf1, WtBuf1, BiasBuf1, OutBuf1);
-		
+			tileClc(0, // layerCnfg
+					InBuf2, WtBuf2, BiasBuf2, OutBuf2);
+			storeMap(0, // layerCnfg
+					OutBuf2, OfMap);
+		}
 
-		mem2Buf(/*layerCnfg=*/0,
-				/*normal operation*/ IfMap, WtMap, InBuf2, WtBuf2);
-		loadBiasTile(/*layerCnfg=*/0, /*normal operation*/ BiasBuf2);
-
-		storeMap(/*layerCnfg=*/0, /*normal operation*/ OutBuf1, OfMap);
-
-		tileClc(/*layerCnfg=*/0,
-				/*normal operation*/ InBuf2, WtBuf2, BiasBuf2, OutBuf2);
-		storeMap(/*layerCnfg=*/0, /*normal operation*/ OutBuf2, OfMap);
 	}
-
-}
+*/
 
 
 void ConvLayer(
@@ -2333,45 +2904,70 @@ void ConvLayer(
 		//Output
 		px_data_t_port *OfMap 	// [NOF][NOY][NOX]
 	){
-	#pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED
-	#pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED
-	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED
+	#pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED bundle=IFMAP
+	#pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED bundle=WTMAP
+	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED bundle=OFMAP
 	static layerNo_dt layerNo = 0; 				// State of number of convolutional layer
 
 	// // Intermediate (Buffered) Data
-	// static px_data_t InBuf[POY][WRD_INBUF][POX];
-	// #pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
-	// #pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
-	// static wt_data_t WtBuf[WRD_WTBUF][POF];
-	// #pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
-	// static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
-	// #pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
-	// #pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
-	// b_data_t BiasBuf[BIASBUF_LENGTH];
-	// #pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
+		// static px_data_t InBuf[POY][WRD_INBUF][POX];
+		// #pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
+		// #pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
+		// static wt_data_t WtBuf[WRD_WTBUF][POF];
+		// #pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
+		// static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
+		// #pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
+		// #pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
+		// b_data_t BiasBuf[BIASBUF_LENGTH];
+		// #pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
 
-	// mem2Buf(/*layerCnfg=*/1,
-	// 		/*normal operation*/ IfMap, WtMap, InBuf, WtBuf);
-	// #ifndef __SYNTHESIS__
-	// 	std::cout << "Loaded parameters in mem2Buf, layer:" << layerNo << std::endl;
-	// #endif
-	// loadBiasTile(/*layerCnfg=*/1, /*normal operation*/ BiasBuf);
-	// #ifndef __SYNTHESIS__
-	// 	std::cout << "Loaded parameters in loadBiasTile, layer:" << layerNo << std::endl;
-	// #endif
-	// tileClc(/*layerCnfg=*/1,
-	// 		/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
-	// #ifndef __SYNTHESIS__
-	// 	std::cout << "Loaded parameters in tileClc, layer:" << layerNo << std::endl;
-	// #endif
-	// storeMap(/*layerCnfg=*/1, /*normal operation*/ OutBuf, OfMap);
-	// #ifndef __SYNTHESIS__
-	// 	std::cout << "Loaded parameters, layer:" << layerNo << std::endl;
-	// #endif
+		// mem2Buf(/*layerCnfg=*/1,
+		// 		/*normal operation*/ IfMap, WtMap, InBuf, WtBuf);
+		// #ifndef __SYNTHESIS__
+		// 	std::cout << "Loaded parameters in mem2Buf, layer:" << layerNo << std::endl;
+		// #endif
+		// loadBiasTile(/*layerCnfg=*/1, /*normal operation*/ BiasBuf);
+		// #ifndef __SYNTHESIS__
+		// 	std::cout << "Loaded parameters in loadBiasTile, layer:" << layerNo << std::endl;
+		// #endif
+		// tileClc(/*layerCnfg=*/1,
+		// 		/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
+		// #ifndef __SYNTHESIS__
+		// 	std::cout << "Loaded parameters in tileClc, layer:" << layerNo << std::endl;
+		// #endif
+		// storeMap(/*layerCnfg=*/1, /*normal operation*/ OutBuf, OfMap);
+		// #ifndef __SYNTHESIS__
+		// 	std::cout << "Loaded parameters, layer:" << layerNo << std::endl;
+		// #endif
 
-	// data_bool layerCnfg = 0;
+		// data_bool layerCnfg = 0;
 
-// Original
+// Original	static with layerCnfg
+#if not defined(SET_CONFIG_LAYER)
+	px_data_t InBuf[POY][WRD_INBUF][POX];
+	#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
+	static wt_data_t WtBuf[WRD_WTBUF][POF];
+	#pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
+	static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
+	#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
+	b_data_t BiasBuf[BIASBUF_LENGTH];
+	#pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
+	mem2Buf(IfMap, WtMap, InBuf, WtBuf);
+	loadBiasTile(/*layerCnfg=*/1, /*normal operation*/ BiasBuf);
+	tileClc(/*layerCnfg=*/1,
+			/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
+	storeMap(/*layerCnfg=*/1, /*normal operation*/ OutBuf, OfMap);
+	for(int nofy_step_i=0;nofy_step_i<nofy_step_rom[layerNo];nofy_step_i++){
+	// Intermediate (Buffered) Data
+		mem2Buf(IfMap, WtMap, InBuf, WtBuf);
+		loadBiasTile(/*layerCnfg=*/0, /*normal operation*/ BiasBuf);
+		tileClc(/*layerCnfg=*/0,
+				/*normal operation*/ InBuf, WtBuf, BiasBuf, OutBuf);
+		storeMap(/*layerCnfg=*/0, /*normal operation*/ OutBuf, OfMap);
+	}
+#endif
 	// Nofy_step_loop: for(int i=0;i<nofy_step_rom[layerNo];i++){
 	// #pragma HLS UNROLL
 	// #pragma HLS LOOP_TRIPCOUNT min=NOFYSTEP_TRIPCOUNT max=NOFYSTEP_TRIPCOUNT
@@ -2403,6 +2999,31 @@ void ConvLayer(
 	// 		std::cout << "Finished tile:" << i << std::endl;
 	// 	#endif
 	// }
+
+// Original Static without layerCnfg
+#if defined(SET_CONFIG_LAYER)
+	px_data_t InBuf[POY][WRD_INBUF][POX];
+	#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
+	static wt_data_t WtBuf[WRD_WTBUF][POF];
+	#pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
+	static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
+	#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
+	b_data_t BiasBuf[BIASBUF_LENGTH];
+	#pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
+	mem2Buf(IfMap, WtMap, InBuf, WtBuf);
+	loadBiasTile(BiasBuf);
+	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+	storeMap(OutBuf, OfMap);
+	for(int nofy_step_i=0;nofy_step_i<nofy_step_rom[layerNo];nofy_step_i++){
+	// Intermediate (Buffered) Data
+		mem2Buf(IfMap, WtMap, InBuf, WtBuf);
+		loadBiasTile(BiasBuf);
+		tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+		storeMap(OutBuf, OfMap);
+	}
+#endif
 
 // Late Pipeline
 	// mem2Buf(/*layerCnfg=*/0,
@@ -2504,26 +3125,26 @@ void ConvLayer(
 	// );
 
 // Conditional Schedule + Full Buffering outside loop + Configuration outside loops
-	// Intermediate (Buffered) Data
-	static px_data_t InBuf[POY][WRD_INBUF][POX];
-	#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
-	#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
-	static wt_data_t WtBuf[WRD_WTBUF][POF];
-	#pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
-	static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
-	#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
-	#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
-	b_data_t BiasBuf[BIASBUF_LENGTH];
-	#pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
-	ConvLayerScdl(
-		nofFirst[layerNo],
-		noy_step_rom[layerNo],
-		nofy_step_rom[layerNo],
-		tiy_rom[layerNo],
-		InBuf, WtBuf, OutBuf, BiasBuf,
-		// Inputs
-		IfMap, WtMap, OfMap
-	);
+	// // Intermediate (Buffered) Data
+	// static px_data_t InBuf[POY][WRD_INBUF][POX];
+	// #pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
+	// #pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
+	// static wt_data_t WtBuf[WRD_WTBUF][POF];
+	// #pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
+	// static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
+	// #pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
+	// #pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
+	// b_data_t BiasBuf[BIASBUF_LENGTH];
+	// #pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
+	// ConvLayerScdl(
+	// 	nofFirst[layerNo],
+	// 	noy_step_rom[layerNo],
+	// 	nofy_step_rom[layerNo],
+	// 	tiy_rom[layerNo],
+	// 	InBuf, WtBuf, OutBuf, BiasBuf,
+	// 	// Inputs
+	// 	IfMap, WtMap, OfMap
+	// );
 
 	if(layerNo == LAYERS - 1){
 		layerNo = 0;

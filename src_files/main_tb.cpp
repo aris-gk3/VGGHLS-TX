@@ -10,6 +10,7 @@ int main(){
 			"*********  Starting Verification. *********************"
 			"***************************************************************" << std::endl;
 	// ***** Design/TB Helper Functions  *****
+	printDesignChoice();
 	// Auxiliary_Calcultions(/*PerformanceEstimation=*/1, /*MemoryBufferSizing=*/0, /*ParameterCalculation=*/0,
 	// 		/*PrintLoopLimits=*/0, /*PrintAddrOffsets=*/0, /*PrintBinaryLengths=*/0,
 	// 		/*PrintBias=*/0, /*PrintBiasFC=*/0);

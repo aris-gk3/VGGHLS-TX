@@ -10,12 +10,13 @@
 #define HW_EMUL_NUM_BITS 8
 #define HW_EMUL_SYMM_RANGE 127
 
-#define MODEL 40
+#define MODEL 4
 // 0 -> Toy Example 1
 // 1 -> Toy Example 2
 // 2 -> Toy Example 3
 // 3 -> Toy Example 4 (*)
 // 4 -> Toy Example 5 (*)
+// 40-> Toy Example 5A (variable nofy_step)
 // 5 -> First 2 Conv. layers from VGG-16 (*)
 // 6 -> Conv. layers 8,9 from VGG-16 (*)
 // 7 -> VGG-16 Parameters (*)

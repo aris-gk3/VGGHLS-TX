@@ -28,6 +28,6 @@
 
 // **Misc**
 #define RECIPROCAL_BITS 30
-#define CASE_AB
+#define SET_CONFIG_LAYER
 
 #endif // IMPL_CHOICE_H
