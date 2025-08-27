@@ -81,7 +81,7 @@ void tileClc_Dfl(
 		wt_data_t WtBuf[WRD_WTBUF][POF],
 		b_data_t BiasBuf[BIASBUF_LENGTH],
 		/* Output */ px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]);
-#if not defined(SET_CONFIG_LAYER)
+#if not defined(INTERNAL_CONFIG_LAYER)
 void loadIfMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ data_bool northTile, data_bool southTile,
@@ -114,7 +114,7 @@ void storeMap(
 		/* Parameter Loading State */ data_bool layerCnfg,
 		/* Inputs */ const px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX],
 		/* Output */ px_data_t_port *OfMap);
-#elif defined(SET_CONFIG_LAYER)
+#elif defined(INTERNAL_CONFIG_LAYER)
 void loadIfMap(
 		const px_data_t_port *IfMap, //[NIF][NIX-2*ZERO_PAD][NIY-2*ZERO_PAD]
 		px_data_t InBuf[POY][WRD_INBUF][POX]

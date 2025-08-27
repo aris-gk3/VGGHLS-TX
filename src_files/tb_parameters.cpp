@@ -55,7 +55,7 @@ void printDesignChoice(){
 			<< std::endl;
 	#endif
 	// Miscellaneous
-	#if not (defined(SET_CONFIG_LAYER))
+	#if not (defined(INTERNAL_CONFIG_LAYER))
 		std::cout << "layerCnfg is an internal state."
 				<< std::endl;
 	#else

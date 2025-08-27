@@ -21,13 +21,13 @@
 
 // Region2: REGION2_SEQ, REGION2_DFL, REGION2_MNLSCHEDULE_2BUF, REGION2_PPL
 #define REGION2_SEQ
-// Region3: 
-
+// Region3: REG3_SEQ, REG3_OVLP, REG3_FOVLP, REG3_DFL
+#define REG3_FOVLP
 // **Buffer Sizing**
 
 
 // **Misc**
 #define RECIPROCAL_BITS 30
-#define SET_CONFIG_LAYER
+#define INTERNAL_CONFIG_LAYER
 
 #endif // IMPL_CHOICE_H
