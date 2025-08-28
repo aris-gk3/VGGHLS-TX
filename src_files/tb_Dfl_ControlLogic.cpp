@@ -736,6 +736,7 @@ int convLayer_test_experimental(int verbose, int debug, int minPrint,
 			convLayer_software(layerNo, IfMap, WtMap, OfMap_golden, biasReLuTrue);
 		#endif
 		std::cout << "Reached HERE3!" << std::endl;
+		std::cout << "Reached HERE3333!" << std::endl;
 		#if defined(WTMAP_WIDEN)
 			wt_reorder(WtMap, WtMap_reordered, layerNo);
 			pack<wt_data_t_port>(WtMap_reordered, WtMap_port, WTMAP_WIDTHFACTOR, WTMAP_MEMSIZE_WIDENED);
@@ -743,6 +744,7 @@ int convLayer_test_experimental(int verbose, int debug, int minPrint,
 			wt_data_t_port* WtMap_port = WtMap;
 		#endif
 		std::cout << "Reached HERE4!" << std::endl;
+		std::cout << "Reached HERE44!" << std::endl;
 		#if defined(FMAP_WIDEN)
 			pack<px_data_t_port>(IfMap, IfMap_port, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
 			std::cout << "Reached HERE5!" << std::endl;

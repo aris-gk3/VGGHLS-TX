@@ -10,7 +10,7 @@
 #define HW_EMUL_NUM_BITS 8
 #define HW_EMUL_SYMM_RANGE 127
 
-#define MODEL 4
+#define MODEL 9
 // 0 -> Toy Example 1
 // 1 -> Toy Example 2
 // 2 -> Toy Example 3

@@ -33,11 +33,11 @@ int main(){
 	// check += loadIfMap_test(/*Verbose=*/0, /*printLayer=*/0, /*printNofStep=*/0, /*printNoyStep=*/0);
 	// check += loadWtMap_test(/*Verbose=*/0, /*printLayer=*/0, /*printNofStep=*/0, /*printNoyStep=*/0, /*printProgress=*/1);
 	// check += storeMaps_test(/*Verbose=*/0, /*printLayer=*/0, /*printNofStep=*/0, /*printNoyStep=*/0);
-	check += convLayer_test(/*Verbose=*/1, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
+	// check += convLayer_test(/*Verbose=*/1, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
 	// int convLayer_test_experimental(int verbose, int debug, int minPrint,
 	// 				int printErrorOnly, int printLayer, int biasReLuTrue,
 	// 				int binInput);
-	// check += convLayer_test_experimental(/*Verbose=*/1, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
+	check += convLayer_test_experimental(/*Verbose=*/1, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
 	// check += fcLayer_test(/*Verbose=*/1);
 	// check += maxPool_test(/*Verbose=*/1); /* prints max pool for a toy example */
 	

@@ -2180,7 +2180,7 @@ void loadWtMap(
 		}
 		if(fTileCount == Nof_step - 1){
 			layerCnfg = 1;
-			tileCount = 0;
+			fTileCount = 0;
 		}
 		else{
 			fTileCount++;

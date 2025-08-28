@@ -40,30 +40,30 @@ INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
 INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(21)
 INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/hls_config.cfg(5)
 INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 2 seconds. CPU system time: 3 seconds. Elapsed time: 7.375 seconds; current allocated memory: 154.227 MB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 2 seconds. CPU system time: 3 seconds. Elapsed time: 6.795 seconds; current allocated memory: 130.414 MB.
 INFO: [HLS 200-10] Analyzing design file '../src_files/Main_Code.cpp' ... 
 WARNING: [HLS 207-5292] unused parameter 'Noy_step' (../src_files/Main_Code.cpp:2738:15)
 WARNING: [HLS 207-5292] unused parameter 'Tiy' (../src_files/Main_Code.cpp:2740:10)
 WARNING: [HLS 207-5292] unused parameter 'Noy_step' (../src_files/Main_Code.cpp:2848:15)
 WARNING: [HLS 207-5292] unused parameter 'Tiy' (../src_files/Main_Code.cpp:2850:10)
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 15.326 seconds; current allocated memory: 188.859 MB.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 17.967 seconds; current allocated memory: 135.352 MB.
 INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
-INFO: [HLS 200-1995] There were 5,716 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 10,094 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 6,591 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 6,496 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 6,420 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 20,986 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 11,283 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 11,283 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 11,283 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 11,760 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 11,740 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 11,259 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 11,228 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 10,998 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 11,068 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 9,664 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 6,443 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 10,535 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 7,005 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 6,917 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 6,840 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 21,952 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 11,759 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 11,759 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 11,759 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 12,187 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 12,167 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 11,706 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 11,627 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 11,390 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 11,469 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 10,068 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
 INFO: [HLS 214-131] Inlining function 'InBuf2Pe(int, int, int, int, int, int, ap_int<32> const (*) [12800][7], ap_int<32> (*) [7], hls::stream<ap_int<32>, 4> (*) [7])' into 'InBuf2Pe_wrapper(int, int, int, int, int, int, ap_int<32> const (*) [12800][7], ap_int<32> (*) [7])' (../src_files/Main_Code.cpp:215:2)
 INFO: [HLS 214-131] Inlining function 'Pe(ap_int<32> (*) [7], ap_int<32>*, ap_int<64> (*) [7][7])' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [12800][7], ap_int<32> const (*) [8], ap_int<64> (*) [7][7])' (../src_files/Main_Code.cpp:498:3)
 INFO: [HLS 214-131] Inlining function 'WtBuf2Pe(ap_int<32> const (*) [8], int, ap_int<32>*)' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [12800][7], ap_int<32> const (*) [8], ap_int<64> (*) [7][7])' (../src_files/Main_Code.cpp:497:3)
@@ -97,6 +97,8 @@ INFO: [HLS 214-291] Loop 'loop_WtBuf2Pe' is marked as complete unroll implied by
 INFO: [HLS 214-291] Loop 'loop_Pe_Pof_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:96:19)
 INFO: [HLS 214-291] Loop 'loop_Pe_Poy_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:98:19)
 INFO: [HLS 214-291] Loop 'loop_Pe_Pox_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:100:19)
+INFO: [HLS 214-186] Unrolling loop 'Loop_POX' (../src_files/Main_Code.cpp:2664:19) in function 'storeMap' completely with a factor of 7 (../src_files/Main_Code.cpp:2520:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_2504_1' (../src_files/Main_Code.cpp:2504:21) in function 'maxPoolTree' completely with a factor of 7 (../src_files/Main_Code.cpp:2501:0)
 INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_OutBufNum_Load' (../src_files/Main_Code.cpp:658:30) in function 'Pe2Buf' completely with a factor of 2 (../src_files/Main_Code.cpp:571:0)
 INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_Pox_Load' (../src_files/Main_Code.cpp:660:24) in function 'Pe2Buf' completely with a factor of 7 (../src_files/Main_Code.cpp:571:0)
 INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_OutBufNum_Store' (../src_files/Main_Code.cpp:671:33) in function 'Pe2Buf' completely with a factor of 2 (../src_files/Main_Code.cpp:571:0)
@@ -144,9 +146,10 @@ INFO: [HLS 214-248] Applying array_partition to 'rslt_stream': Complete partitio
 INFO: [HLS 214-248] Applying array_partition to 'pxSerial': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:585:13)
 INFO: [HLS 214-248] Applying array_partition to 'ReLuOut': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:588:12)
 INFO: [HLS 214-248] Applying array_partition to 'px_toBuf.i': Complete partitioning on dimension 1. Complete partitioning on dimension 2. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:739:13)
+INFO: [HLS 214-248] Applying array_partition to 'maxTmp': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:2502:12)
 INFO: [HLS 214-248] Applying array_partition to 'InBuf': Complete partitioning on dimension 1. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:2993:13)
 INFO: [HLS 214-248] Applying array_partition to 'BiasBuf': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:3001:11)
-INFO: [HLS 214-376] automatically set the pipeline for Loop< Loop_Tox> at ../src_files/Main_Code.cpp:2458:16 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< Loop_Tox_step> at ../src_files/Main_Code.cpp:2609:17 
 INFO: [HLS 214-376] automatically set the pipeline for Loop< BiasLoop_Tof> at ../src_files/Main_Code.cpp:2285:17 
 INFO: [HLS 214-376] automatically set the pipeline for Loop< WtLoop_Nkx> at ../src_files/Main_Code.cpp:2157:14 
 INFO: [HLS 214-376] automatically set the pipeline for Loop< If_Nix> at ../src_files/Main_Code.cpp:1954:14 
@@ -154,26 +157,54 @@ INFO: [HLS 214-376] automatically set the pipeline for Loop< NorthPad_wrd> at ..
 INFO: [HLS 214-376] automatically set the pipeline for Loop< SouthPad_wrd> at ../src_files/Main_Code.cpp:2017:16 
 INFO: [HLS 214-376] automatically set the pipeline for Loop< WestPad_Line> at ../src_files/Main_Code.cpp:2027:17 
 INFO: [HLS 214-376] automatically set the pipeline for Loop< EastPad_Line> at ../src_files/Main_Code.cpp:2035:17 
+INFO: [HLS 214-291] Loop 'Loop_POX0' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:2656:20)
+INFO: [HLS 214-291] Loop 'Loop_POX2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:2686:22)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_2681_1' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:2681:30)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_2509_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:2509:21)
 INFO: [HLS 214-291] Loop 'VITIS_LOOP_2161_1' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:2161:21)
+INFO: [HLS 214-186] Unrolling loop 'Loop_POX0' (../src_files/Main_Code.cpp:2656:20) in function 'storeMap' completely with a factor of 7 (../src_files/Main_Code.cpp:2520:0)
+INFO: [HLS 214-186] Unrolling loop 'Loop_POX2' (../src_files/Main_Code.cpp:2686:22) in function 'storeMap' completely with a factor of 7 (../src_files/Main_Code.cpp:2520:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_2681_1' (../src_files/Main_Code.cpp:2681:30) in function 'storeMap' completely with a factor of 7 (../src_files/Main_Code.cpp:2520:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_2509_2' (../src_files/Main_Code.cpp:2509:21) in function 'maxPoolTree' completely with a factor of 7 (../src_files/Main_Code.cpp:2501:0)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_2161_1' (../src_files/Main_Code.cpp:2161:21) in function 'loadWtMap' completely with a factor of 8 (../src_files/Main_Code.cpp:2124:0)
+INFO: [HLS 214-449] Automatically partitioning array 'tmp1' dimension 1 completely based on constant index. (../src_files/Main_Code.cpp:2546:12)
+INFO: [HLS 214-449] Automatically partitioning array 'tmp2' dimension 1 completely based on constant index. (../src_files/Main_Code.cpp:2546:21)
+INFO: [HLS 214-449] Automatically partitioning array 'tmp3' dimension 1 completely based on constant index. (../src_files/Main_Code.cpp:2546:30)
+INFO: [HLS 214-449] Automatically partitioning array 'tmp4' dimension 1 completely based on constant index. (../src_files/Main_Code.cpp:2546:39)
+INFO: [HLS 214-449] Automatically partitioning array 'max' dimension 1 completely based on constant index. (../src_files/Main_Code.cpp:2546:48)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'max' due to pipeline pragma (../src_files/Main_Code.cpp:2546:48)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'tmp1' due to pipeline pragma (../src_files/Main_Code.cpp:2546:12)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'tmp2' due to pipeline pragma (../src_files/Main_Code.cpp:2546:21)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'tmp3' due to pipeline pragma (../src_files/Main_Code.cpp:2546:30)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'tmp4' due to pipeline pragma (../src_files/Main_Code.cpp:2546:39)
+INFO: [HLS 214-248] Applying array_partition to 'tmp1': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:2546:12)
+INFO: [HLS 214-248] Applying array_partition to 'tmp2': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:2546:21)
+INFO: [HLS 214-248] Applying array_partition to 'tmp3': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:2546:30)
+INFO: [HLS 214-248] Applying array_partition to 'tmp4': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:2546:39)
+INFO: [HLS 214-248] Applying array_partition to 'max': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:2546:48)
 INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 256 in loop 'If_Nix'(../src_files/Main_Code.cpp:1954:14) has been inferred on bundle 'IFMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:1954:14)
 INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 256 has been inferred on bundle 'WTMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:2151:15)
-INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 256 in loop 'Loop_Tox'(../src_files/Main_Code.cpp:2458:16) has been inferred on bundle 'OFMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:2458:16)
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 47 seconds; current allocated memory: 188.859 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.009 seconds; current allocated memory: 188.859 MB.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 56.448 seconds; current allocated memory: 143.309 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.008 seconds; current allocated memory: 143.312 MB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.596 seconds; current allocated memory: 188.859 MB.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 1.918 seconds; current allocated memory: 163.348 MB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 1.976 seconds; current allocated memory: 188.859 MB.
+INFO: [XFORM 203-602] Inlining function 'maxPoolTree' into 'storeMap' (../src_files/Main_Code.cpp:2671) automatically.
+WARNING: [SYNCHK 200-23] ../src_files/Main_Code.cpp:2705: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 2.449 seconds; current allocated memory: 172.793 MB.
+WARNING: [XFORM 203-561] Updating loop upper bound from 784 to 32 for loop 'Loop_Tox_step' (../src_files/Main_Code.cpp:2610:9) in function 'storeMap'.
+WARNING: [XFORM 203-561] Ignored invalid trip count directive (MAX (= 32) < AVE (= 784)) for loop 'Loop_Tox_step' (../src_files/Main_Code.cpp:2610:9) in function 'storeMap'.
+INFO: [XFORM 203-602] Inlining function 'maxPoolTree' into 'storeMap' (../src_files/Main_Code.cpp:2671) automatically.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:468:9) to (../src_files/Main_Code.cpp:177:6) in function 'wndClc_Dfl'... converting 8 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:221:18) to (../src_files/Main_Code.cpp:265:5) in function 'wndClc_Dfl'... converting 3 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:1927:6) to (../src_files/Main_Code.cpp:1947:11) in function 'loadIfMap'... converting 3 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:2264:6) to (../src_files/Main_Code.cpp:2283:2) in function 'loadBiasTile'... converting 3 basic blocks.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 5 seconds. CPU system time: 0 seconds. Elapsed time: 4.709 seconds; current allocated memory: 209.055 MB.
+INFO: [XFORM 203-11] Balancing expressions in function 'storeMap' (../src_files/Main_Code.cpp:2506:17)...10 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 6 seconds. CPU system time: 0 seconds. Elapsed time: 5.568 seconds; current allocated memory: 203.125 MB.
 WARNING: [XFORM 203-561] Updating loop upper bound from 224 to 36 for loop 'If_Nix' (../src_files/Main_Code.cpp:1955:9) in function 'loadIfMap'.
 WARNING: [XFORM 203-561] Ignored invalid trip count directive (MAX (= 36) < AVE (= 224)) for loop 'If_Nix' (../src_files/Main_Code.cpp:1955:9) in function 'loadIfMap'.
-INFO: [HLS 200-2061] Successfully converted nested loops 'Loop_Toy'(../src_files/Main_Code.cpp:2434:14) and 'Loop_Tox'(../src_files/Main_Code.cpp:2458:16) in function 'storeMap' into perfectly nested loops.
-INFO: [HLS 200-2061] Successfully converted nested loops 'Loop_Tof'(../src_files/Main_Code.cpp:2431:13) and 'Loop_Toy'(../src_files/Main_Code.cpp:2434:14) in function 'storeMap' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'Loop_Toy_step'(../src_files/Main_Code.cpp:2606:20) and 'Loop_Tox_step'(../src_files/Main_Code.cpp:2609:17) in function 'storeMap' into perfectly nested loops.
 INFO: [HLS 200-2061] Successfully converted nested loops 'WtLoop_Nky'(../src_files/Main_Code.cpp:2155:14) and 'WtLoop_Nkx'(../src_files/Main_Code.cpp:2157:14) in function 'loadWtMap' into perfectly nested loops.
 INFO: [HLS 200-2061] Successfully converted nested loops 'WtLoop_Nif'(../src_files/Main_Code.cpp:2153:14) and 'WtLoop_Nky'(../src_files/Main_Code.cpp:2155:14) in function 'loadWtMap' into perfectly nested loops.
 INFO: [HLS 200-2061] Successfully converted nested loops 'WtLoop_Tof'(../src_files/Main_Code.cpp:2151:15) and 'WtLoop_Nif'(../src_files/Main_Code.cpp:2153:14) in function 'loadWtMap' into perfectly nested loops.
@@ -182,8 +213,9 @@ INFO: [HLS 200-2061] Successfully converted nested loops 'If_Nif'(../src_files/M
 INFO: [HLS 200-2061] Successfully converted nested loops 'NorthPad_Nif'(../src_files/Main_Code.cpp:2002:18) and 'NorthPad_wrd'(../src_files/Main_Code.cpp:2004:16) in function 'loadIfMap' into perfectly nested loops.
 INFO: [HLS 200-2061] Successfully converted nested loops 'SouthPad_Nif'(../src_files/Main_Code.cpp:2015:18) and 'SouthPad_wrd'(../src_files/Main_Code.cpp:2017:16) in function 'loadIfMap' into perfectly nested loops.
 INFO: [HLS 200-2061] Successfully converted nested loops 'loop_Pe2Buf_PofBankStep'(../src_files/Main_Code.cpp:654:27) and 'loop_Pe2Buf_Poy'(../src_files/Main_Code.cpp:655:20) in function 'Pe2Buf' into perfectly nested loops.
-INFO: [XFORM 203-541] Flattening a loop nest 'Loop_Toy' (../src_files/Main_Code.cpp:2434:14) in function 'storeMap'.
-INFO: [XFORM 203-541] Flattening a loop nest 'Loop_Tof' (../src_files/Main_Code.cpp:2431:13) in function 'storeMap'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop_Toy_step' (../src_files/Main_Code.cpp:2606:20) in function 'storeMap'.
+WARNING: [HLS 200-960] Cannot flatten loop 'Loop_OutBufNum' (../src_files/Main_Code.cpp:2600:18) in function 'storeMap' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-960.html
 INFO: [XFORM 203-541] Flattening a loop nest 'WtLoop_Nky' (../src_files/Main_Code.cpp:2155:14) in function 'loadWtMap'.
 INFO: [XFORM 203-541] Flattening a loop nest 'WtLoop_Nif' (../src_files/Main_Code.cpp:2153:14) in function 'loadWtMap'.
 INFO: [XFORM 203-541] Flattening a loop nest 'WtLoop_Tof' (../src_files/Main_Code.cpp:2151:15) in function 'loadWtMap'.
@@ -192,7 +224,7 @@ INFO: [XFORM 203-541] Flattening a loop nest 'If_Nif' (../src_files/Main_Code.cp
 INFO: [XFORM 203-541] Flattening a loop nest 'NorthPad_Nif' (../src_files/Main_Code.cpp:2002:18) in function 'loadIfMap'.
 INFO: [XFORM 203-541] Flattening a loop nest 'SouthPad_Nif' (../src_files/Main_Code.cpp:2015:18) in function 'loadIfMap'.
 INFO: [XFORM 203-541] Flattening a loop nest 'loop_Pe2Buf_PofBankStep' (../src_files/Main_Code.cpp:654:27) in function 'Pe2Buf'.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 6 seconds. CPU system time: 0 seconds. Elapsed time: 6.19 seconds; current allocated memory: 500.148 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 7 seconds. CPU system time: 0 seconds. Elapsed time: 7.379 seconds; current allocated memory: 495.570 MB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'ConvLayer' ...
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
@@ -205,13 +237,13 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'If_Nif_If_Tiy_If_Nix'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 13, loop 'If_Nif_If_Tiy_If_Nix'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 4 seconds. CPU system time: 0 seconds. Elapsed time: 4.318 seconds; current allocated memory: 511.387 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 4 seconds. CPU system time: 0 seconds. Elapsed time: 5.118 seconds; current allocated memory: 506.695 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.094 seconds; current allocated memory: 512.449 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.102 seconds; current allocated memory: 507.750 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -220,13 +252,13 @@ INFO: [HLS 200-486] Changing DSP latency (root=empty) to 3 in order to utilize a
 INFO: [SCHED 204-61] Pipelining loop 'NorthPad_Nif_NorthPad_wrd'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'NorthPad_Nif_NorthPad_wrd'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.141 seconds; current allocated memory: 512.641 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.146 seconds; current allocated memory: 507.922 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.034 seconds; current allocated memory: 512.652 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.037 seconds; current allocated memory: 508.012 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -235,13 +267,13 @@ INFO: [HLS 200-486] Changing DSP latency (root=empty) to 3 in order to utilize a
 INFO: [SCHED 204-61] Pipelining loop 'SouthPad_Nif_SouthPad_wrd'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'SouthPad_Nif_SouthPad_wrd'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.165 seconds; current allocated memory: 513.172 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.191 seconds; current allocated memory: 508.625 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 513.176 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 508.629 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadIfMap_Pipeline_WestPad_Line' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -249,13 +281,13 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'WestPad_Line'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'WestPad_Line'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.769 seconds; current allocated memory: 513.262 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.118 seconds; current allocated memory: 508.746 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.048 seconds; current allocated memory: 513.285 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.954 seconds; current allocated memory: 508.766 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadIfMap_Pipeline_EastPad_Line' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -263,25 +295,25 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'EastPad_Line'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'EastPad_Line'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.166 seconds; current allocated memory: 513.992 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.216 seconds; current allocated memory: 509.570 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.069 seconds; current allocated memory: 514.082 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.071 seconds; current allocated memory: 509.570 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadIfMap' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.155 seconds; current allocated memory: 514.773 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.168 seconds; current allocated memory: 510.117 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.065 seconds; current allocated memory: 515.445 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 510.477 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadWtMap_Pipeline_WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -290,37 +322,37 @@ INFO: [HLS 200-486] Changing DSP latency (root=thr_mul11) to 3 in order to utili
 INFO: [SCHED 204-61] Pipelining loop 'WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 5, loop 'WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.172 seconds; current allocated memory: 515.980 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.151 seconds; current allocated memory: 511.000 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.054 seconds; current allocated memory: 515.984 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.059 seconds; current allocated memory: 511.355 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadWtMap' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.304 seconds; current allocated memory: 516.680 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.121 seconds; current allocated memory: 511.938 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.052 seconds; current allocated memory: 516.688 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.066 seconds; current allocated memory: 511.949 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'mem2Buf' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.077 seconds; current allocated memory: 517.043 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.118 seconds; current allocated memory: 512.195 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.055 seconds; current allocated memory: 517.227 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.136 seconds; current allocated memory: 512.543 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadBiasTile_Pipeline_BiasLoop_Tof' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -328,38 +360,38 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'BiasLoop_Tof'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'BiasLoop_Tof'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 4 seconds. CPU system time: 0 seconds. Elapsed time: 4.209 seconds; current allocated memory: 528.230 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 4 seconds. CPU system time: 1 seconds. Elapsed time: 4.279 seconds; current allocated memory: 523.672 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.221 seconds; current allocated memory: 528.695 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.238 seconds; current allocated memory: 524.297 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'loadBiasTile' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [HLS 200-486] Changing DSP latency (root=add16) to 3 in order to utilize available DSP registers.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.26 seconds; current allocated memory: 528.926 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.278 seconds; current allocated memory: 524.547 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 529.359 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 524.691 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'wndClc_ctrl' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.112 seconds; current allocated memory: 529.574 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 524.840 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.037 seconds; current allocated memory: 529.617 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.033 seconds; current allocated memory: 524.844 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'wndClc_Dfl_Pipeline_Region1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -367,25 +399,25 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'Region1'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'Region1'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 6 seconds. CPU system time: 0 seconds. Elapsed time: 6.405 seconds; current allocated memory: 572.945 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 7 seconds. CPU system time: 0 seconds. Elapsed time: 7.012 seconds; current allocated memory: 566.535 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.244 seconds; current allocated memory: 572.945 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.309 seconds; current allocated memory: 566.535 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'wndClc_Dfl' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 1.928 seconds; current allocated memory: 572.945 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 2.136 seconds; current allocated memory: 566.535 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.43 seconds; current allocated memory: 572.945 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.476 seconds; current allocated memory: 566.535 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'bias_ReLu' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -393,90 +425,92 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'bias_ReLu'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, function 'bias_ReLu'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.696 seconds; current allocated memory: 572.945 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.713 seconds; current allocated memory: 566.535 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.156 seconds; current allocated memory: 572.945 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.205 seconds; current allocated memory: 566.535 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [HLS 200-486] Changing DSP latency (root=empty_335) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=empty_397) to 3 in order to utilize available DSP registers.
 INFO: [SCHED 204-61] Pipelining loop 'loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy'.
 INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.737 seconds; current allocated memory: 575.754 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.974 seconds; current allocated memory: 570.680 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.307 seconds; current allocated memory: 576.070 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.393 seconds; current allocated memory: 570.832 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'Pe2Buf' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.715 seconds; current allocated memory: 579.445 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.824 seconds; current allocated memory: 574.715 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.297 seconds; current allocated memory: 581.488 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.386 seconds; current allocated memory: 576.414 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'tileClc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.747 seconds; current allocated memory: 588.902 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.819 seconds; current allocated memory: 583.484 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.518 seconds; current allocated memory: 590.637 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.578 seconds; current allocated memory: 585.129 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox' 
+INFO: [HLS 200-42] -- Implementing module 'storeMap_Pipeline_Loop_Toy_step_Loop_Tox_step' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'Loop_Tof_Loop_Toy_Loop_Tox'.
-INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'Loop_Tof_Loop_Toy_Loop_Tox'
+INFO: [SCHED 204-61] Pipelining loop 'Loop_Toy_step_Loop_Tox_step'.
+WARNING: [HLS 200-885] The II Violation in module 'storeMap_Pipeline_Loop_Toy_step_Loop_Tox_step' (loop 'Loop_Toy_step_Loop_Tox_step'): Unable to schedule 'load' operation 32 bit ('p_ZZ9ConvLayerPK6ap_intILi224EEPKS_ILi256EEPS0_E6OutBuf_0_0_load_1', ../src_files/Main_Code.cpp:2667) on array 'p_ZZ9ConvLayerPK6ap_intILi224EEPKS_ILi256EEPS0_E6OutBuf_0_0' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'p_ZZ9ConvLayerPK6ap_intILi224EEPKS_ILi256EEPS0_E6OutBuf_0_0'.
+Resolution: For help on HLS 200-885 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 10, loop 'Loop_Toy_step_Loop_Tox_step'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.717 seconds; current allocated memory: 592.262 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.953 seconds; current allocated memory: 588.715 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.084 seconds; current allocated memory: 592.664 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.196 seconds; current allocated memory: 588.848 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'storeMap' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 592.844 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.315 seconds; current allocated memory: 589.363 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.045 seconds; current allocated memory: 593.379 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.114 seconds; current allocated memory: 589.891 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'ConvLayer' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.203 seconds; current allocated memory: 596.738 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.266 seconds; current allocated memory: 593.320 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.259 seconds; current allocated memory: 598.230 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.304 seconds; current allocated memory: 595.332 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_If_Nif_If_Tiy_If_Nix' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -487,31 +521,31 @@ INFO: [RTGEN 206-100] Generating core module 'mul_32s_34ns_65_1_1': 1 instance(s
 INFO: [RTGEN 206-100] Generating core module 'mul_32s_9s_32_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'mul_9s_10ns_19_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_If_Nif_If_Tiy_If_Nix'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.6 seconds; current allocated memory: 602.891 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 0.747 seconds; current allocated memory: 600.262 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd' pipeline 'NorthPad_Nif_NorthPad_wrd' pipeline type 'loop pipeline'
 INFO: [RTGEN 206-100] Generating core module 'mac_muladd_10ns_8ns_6ns_14_4_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.935 seconds; current allocated memory: 610.195 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.064 seconds; current allocated memory: 607.711 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd' pipeline 'SouthPad_Nif_SouthPad_wrd' pipeline type 'loop pipeline'
 INFO: [RTGEN 206-100] Generating core module 'mac_muladd_10ns_8ns_9s_14_4_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.311 seconds; current allocated memory: 610.375 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.384 seconds; current allocated memory: 607.984 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_WestPad_Line' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_WestPad_Line'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 0.591 seconds; current allocated memory: 614.297 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.64 seconds; current allocated memory: 611.848 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_EastPad_Line' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_EastPad_Line'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.263 seconds; current allocated memory: 615.172 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.31 seconds; current allocated memory: 612.336 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -544,7 +578,7 @@ INFO: [RTMG 210-279] Implementing memory 'ConvLayer_loadIfMap_tiy_rom_ROM_AUTO_1
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_loadIfMap_tix_rom_ROM_AUTO_1R' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_loadIfMap_row_1map_rom_ROM_AUTO_1R' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_loadIfMap_wrd_1row_rom_ROM_AUTO_1R' using auto ROMs.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.978 seconds; current allocated memory: 622.559 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.973 seconds; current allocated memory: 620.266 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadWtMap_Pipeline_WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -563,7 +597,7 @@ WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_To
 WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARUSER' to 0.
 INFO: [RTGEN 206-100] Generating core module 'mac_muladd_10ns_6ns_10ns_15_4_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadWtMap_Pipeline_WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1.654 seconds; current allocated memory: 627.758 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.789 seconds; current allocated memory: 625.262 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadWtMap' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -579,7 +613,7 @@ INFO: [RTGEN 206-100] Generating core module 'mul_6ns_32s_32_1_1': 1 instance(s)
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadWtMap'.
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_loadWtMap_Nof_step_rom_ROM_AUTO_1R' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_loadWtMap_tof_step_rom_ROM_AUTO_1R' using auto ROMs.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.505 seconds; current allocated memory: 630.707 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.585 seconds; current allocated memory: 626.914 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'mem2Buf' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -590,14 +624,14 @@ WARNING: [RTGEN 206-101] Register 'NofFirst_1' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'nofy_step' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'mem2Buf'.
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_mem2Buf_nofy_step_rom_ROM_AUTO_1R' using auto ROMs.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.458 seconds; current allocated memory: 634.473 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.545 seconds; current allocated memory: 631.086 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadBiasTile_Pipeline_BiasLoop_Tof' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadBiasTile_Pipeline_BiasLoop_Tof' pipeline 'BiasLoop_Tof' pipeline type 'loop pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadBiasTile_Pipeline_BiasLoop_Tof'.
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_loadBiasTile_Pipeline_BiasLoop_Tof_bias_ROM_AUTO_1R' using auto ROMs.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.526 seconds; current allocated memory: 642.684 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.621 seconds; current allocated memory: 639.461 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'loadBiasTile' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -613,7 +647,7 @@ WARNING: [RTGEN 206-101] Register 'tileCount_3' is power-on initialization.
 INFO: [RTGEN 206-100] Generating core module 'mac_muladd_13s_9ns_13ns_13_4_1': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'mul_3ns_6ns_8_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'loadBiasTile'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 2 seconds. Elapsed time: 2.147 seconds; current allocated memory: 657.746 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 2 seconds. Elapsed time: 2.34 seconds; current allocated memory: 654.402 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'wndClc_ctrl' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -622,7 +656,7 @@ WARNING: [RTGEN 206-101] Register 'Tox_step_i' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'Tof_step_i' is power-on initialization.
 INFO: [RTGEN 206-100] Generating core module 'mul_32s_6ns_32_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'wndClc_ctrl'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.656 seconds; current allocated memory: 665.281 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.698 seconds; current allocated memory: 661.477 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'wndClc_Dfl_Pipeline_Region1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -683,7 +717,7 @@ INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_64_1_1': 392 instance(
 INFO: [RTGEN 206-100] Generating core module 'sparsemux_15_3_32_1_1': 28 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_32_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'wndClc_Dfl_Pipeline_Region1'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 4.036 seconds; current allocated memory: 696.922 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 3 seconds. CPU system time: 1 seconds. Elapsed time: 3.591 seconds; current allocated memory: 693.605 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'wndClc_Dfl' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -735,7 +769,7 @@ INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA12800_A7_K
 INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA12800_A7_K6ap_intILi32EEPA7_S0_E8FIFO_arr_5_4_U(ConvLayer_fifo_w32_d4_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA12800_A7_K6ap_intILi32EEPA7_S0_E8FIFO_arr_5_5_U(ConvLayer_fifo_w32_d4_S)' using Shift Registers.
 INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapperiiiiiiPA12800_A7_K6ap_intILi32EEPA7_S0_E8FIFO_arr_5_6_U(ConvLayer_fifo_w32_d4_S)' using Shift Registers.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 38 seconds. CPU system time: 6 seconds. Elapsed time: 45.995 seconds; current allocated memory: 1.264 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 42 seconds. CPU system time: 6 seconds. Elapsed time: 51.937 seconds; current allocated memory: 1.259 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'bias_ReLu' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -743,7 +777,7 @@ WARNING: [RTGEN 206-101] Register 'POFBANK_STEP_i' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'Poy_i' is power-on initialization.
 INFO: [RTGEN 206-100] Generating core module 'sparsemux_257_8_2_1_1': 2 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'bias_ReLu'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 2.281 seconds; current allocated memory: 1.264 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 2.336 seconds; current allocated memory: 1.267 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -752,7 +786,7 @@ INFO: [RTGEN 206-100] Generating core module 'mac_muladd_6ns_3ns_15ns_15_4_1': 1
 INFO: [RTGEN 206-100] Generating core module 'sparsemux_15_3_42_1_1': 56 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_42_1_1': 14 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 2 seconds. Elapsed time: 2.139 seconds; current allocated memory: 1.264 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 2 seconds. Elapsed time: 2.47 seconds; current allocated memory: 1.269 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'Pe2Buf' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -762,7 +796,7 @@ WARNING: [RTGEN 206-101] Register 'Tof_step_i_1' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'rowStep' is power-on initialization.
 INFO: [RTGEN 206-100] Generating core module 'mul_6ns_5ns_10_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Pe2Buf'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.571 seconds; current allocated memory: 1.264 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.798 seconds; current allocated memory: 1.288 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'tileClc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -794,37 +828,44 @@ INFO: [RTMG 210-279] Implementing memory 'ConvLayer_tileClc_pe2buf_addr_offset1_
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_tileClc_pe2buf_addr_offset2_rom_ROM_AUTO_1R' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_tileClc_pe2buf_addr_offset3_rom_ROM_AUTO_1R' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_tileClc_bit_shift_rom_ROM_AUTO_1R' using auto ROMs.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 19 seconds. CPU system time: 1 seconds. Elapsed time: 19.744 seconds; current allocated memory: 1.503 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 21 seconds. CPU system time: 1 seconds. Elapsed time: 21.965 seconds; current allocated memory: 1.497 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox' 
+INFO: [HLS 200-10] -- Generating RTL for module 'storeMap_Pipeline_Loop_Toy_step_Loop_Tox_step' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox' pipeline 'Loop_Tof_Loop_Toy_Loop_Tox' pipeline type 'loop pipeline'
-INFO: [RTGEN 206-100] Generating core module 'mul_32s_34ns_65_1_1': 3 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mul_32s_8ns_32_1_1': 2 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mul_8ns_32s_32_1_1': 5 instance(s).
-INFO: [RTGEN 206-100] Finished creating RTL model for 'storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2 seconds. CPU system time: 2 seconds. Elapsed time: 4.303 seconds; current allocated memory: 1.521 GB.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'storeMap_Pipeline_Loop_Toy_step_Loop_Tox_step' pipeline 'Loop_Toy_step_Loop_Tox_step' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_12ns_6ns_15_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'storeMap_Pipeline_Loop_Toy_step_Loop_Tox_step'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2 seconds. CPU system time: 3 seconds. Elapsed time: 5.148 seconds; current allocated memory: 1.515 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'storeMap' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'layerCnfg_1' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'layerNo_1' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'Nofy_step_1' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'Noy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Noy_map' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Toy_map' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tox_map' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'Tof' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'Toy_1' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'Tox' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'wrd_1rowOut' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'tileCount_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'state' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'NofFirst_r' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'mul_16ns_18ns_33_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_17ns_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_34ns_65_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_8ns_32_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'mul_5ns_32s_32_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'mul_5ns_6ns_11_1_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mul_6ns_5ns_10_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64s_26ns_64_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'mul_8ns_10ns_17_1_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'mul_9ns_11ns_19_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_5ns_12_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_8ns_16_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'mul_9ns_32s_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_9ns_8ns_17_1_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'storeMap'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.86 seconds; current allocated memory: 1.521 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1.723 seconds; current allocated memory: 1.519 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'ConvLayer' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -846,13 +887,13 @@ INFO: [RTMG 210-279] Implementing memory 'ConvLayer_Toy_rom_ROM_AUTO_1R' using a
 INFO: [RTMG 210-279] Implementing memory 'ConvLayer_tox_step_rom_ROM_AUTO_1R' using auto ROMs.
 INFO: [RTMG 210-278] Implementing memory 'ConvLayer_p_ZZ9ConvLayerPK6ap_intILi224EEPKS_ILi256EEPS0_E6OutBuf_0_0_RAM_AUTO_1R1W' using auto RAMs.
 INFO: [RTMG 210-278] Implementing memory 'ConvLayer_InBuf_RAM_AUTO_1R1W' using auto RAMs.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.835 seconds; current allocated memory: 1.525 GB.
-INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 2 seconds. Elapsed time: 5.15 seconds; current allocated memory: 1.542 GB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.671 seconds; current allocated memory: 1.525 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 2 seconds. CPU system time: 3 seconds. Elapsed time: 7.332 seconds; current allocated memory: 1.543 GB.
 INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
-INFO: [HLS 200-111] Finished Updating report files: CPU user time: 3 seconds. CPU system time: 1 seconds. Elapsed time: 4.801 seconds; current allocated memory: 1.575 GB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 3 seconds. CPU system time: 1 seconds. Elapsed time: 5.925 seconds; current allocated memory: 1.576 GB.
 INFO: [VHDL 208-304] Generating VHDL RTL for ConvLayer.
 INFO: [VLOG 209-307] Generating Verilog RTL for ConvLayer.
-INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
 INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
-INFO: [HLS 200-112] Total CPU user time: 115 seconds. Total CPU system time: 28 seconds. Total elapsed time: 215.088 seconds; peak allocated memory: 1.575 GB.
-INFO: [v++ 60-791] Total elapsed time: 0h 3m 42s
+INFO: [HLS 200-112] Total CPU user time: 130 seconds. Total CPU system time: 31 seconds. Total elapsed time: 247.719 seconds; peak allocated memory: 1.576 GB.
+INFO: [v++ 60-791] Total elapsed time: 0h 4m 15s

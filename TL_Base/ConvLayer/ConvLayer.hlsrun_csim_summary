@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\ConvLayer.hlsrun_csim_summary",
+ "thisFile": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\ConvLayer.hlsrun_csim_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,34 +9,34 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "08/27/25 20:22:14",
- "timestampMillis": "1756315334688",
+ "dateTimestamp": "08/28/25 13:46:33",
+ "timestampMillis": "1756377993242",
  "buildStep": {
-  "cmdId": "616bc816-9688-4d3c-bd60-45611225330f",
+  "cmdId": "aae274dc-6aa3-4c52-ad07-9d392ec4058a",
   "name": "vitis-run",
-  "logFile": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\logs\\ConvLayer.steps.log",
-  "commandLine": "C:/Xilinx/2025.1/Vitis/bin/unwrapped/win64.o/vitis-run.exe  --mode hls --csim --config C:\\Programming_Files\\VGGHLS-TX\\TL_Base\\hls_config.cfg --work_dir ConvLayer ",
+  "logFile": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\logs\\ConvLayer.steps.log",
+  "commandLine": "C:/Xilinx/2025.1/Vitis/bin/unwrapped/win64.o/vitis-run.exe  --mode hls --csim --config C:\\Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\hls_config.cfg --work_dir ConvLayer ",
   "args": [
    "--mode",
    "hls",
    "--csim",
    "--config",
-   "C:\\Programming_Files\\VGGHLS-TX\\TL_Base\\hls_config.cfg",
+   "C:\\Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\hls_config.cfg",
    "--work_dir",
    "ConvLayer"
   ],
   "iniFiles": [],
-  "cwd": "C:\\Programming_Files\\VGGHLS-TX\\TL_Base"
+  "cwd": "C:\\Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "08/27/25 20:22:14",
- "timestampMillis": "1756315334689",
+ "dateTimestamp": "08/28/25 13:46:33",
+ "timestampMillis": "1756377993243",
  "status": {
-  "cmdId": "616bc816-9688-4d3c-bd60-45611225330f",
+  "cmdId": "aae274dc-6aa3-4c52-ad07-9d392ec4058a",
   "state": "CS_RUNNING"
  }
 }
@@ -44,8 +44,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "08/27/25 20:22:20",
- "timestampMillis": "1756315340792",
+ "dateTimestamp": "08/28/25 13:46:43",
+ "timestampMillis": "1756378003928",
  "buildSummary": {
   "hardwarePlatform": "",
   "hardwareDsa": "",
@@ -64,7 +64,7 @@
      "uuid": ""
     },
     "sources": [
-     "C:/Programming_Files\\VGGHLS-TX\\src_files\\Main_Code.cpp"
+     "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\src_files\\Main_Code.cpp"
     ],
     "psSources": [],
     "cuNames": [],
@@ -80,77 +80,27 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "08/27/25 20:22:20",
- "timestampMillis": "1756315340793",
+ "dateTimestamp": "08/28/25 13:46:43",
+ "timestampMillis": "1756378003934",
  "buildStep": {
-  "cmdId": "f1832476-1dcc-4db9-a04c-16227b413501",
+  "cmdId": "e11bc9f3-4356-4898-ada6-cefd1ad8315e",
   "name": "",
-  "logFile": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\hls.log",
+  "logFile": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\hls.log",
   "commandLine": "",
   "args": [],
   "iniFiles": [],
-  "cwd": "C:\\Programming_Files\\VGGHLS-TX\\TL_Base"
+  "cwd": "C:\\Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "08/27/25 20:22:20",
- "timestampMillis": "1756315340793",
+ "dateTimestamp": "08/28/25 13:46:43",
+ "timestampMillis": "1756378003935",
  "status": {
-  "cmdId": "f1832476-1dcc-4db9-a04c-16227b413501",
+  "cmdId": "e11bc9f3-4356-4898-ada6-cefd1ad8315e",
   "state": "CS_RUNNING"
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Status",
- "dateTimestamp": "08/27/25 20:22:52",
- "timestampMillis": "1756315372159",
- "status": {
-  "cmdId": "f1832476-1dcc-4db9-a04c-16227b413501",
-  "state": "CS_PASSED"
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Status",
- "dateTimestamp": "08/27/25 20:22:52",
- "timestampMillis": "1756315372249",
- "status": {
-  "cmdId": "616bc816-9688-4d3c-bd60-45611225330f",
-  "state": "CS_PASSED"
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "08/27/25 20:22:52",
- "timestampMillis": "1756315372250",
- "report": {
-  "path": "",
-  "name": "",
-  "fileType": "HTML",
-  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
-  "cmdId": ""
- }
-}
-</ENTRY>
-<ENTRY>
-{
- "type": "ET_Report",
- "dateTimestamp": "08/27/25 20:22:52",
- "timestampMillis": "1756315372250",
- "report": {
-  "path": "",
-  "name": "",
-  "fileType": "BINARY_PROTOBUF",
-  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
-  "cmdId": ""
  }
 }
 </ENTRY>
