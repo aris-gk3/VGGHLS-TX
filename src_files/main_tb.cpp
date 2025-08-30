@@ -11,10 +11,10 @@ int main(){
 			"***************************************************************" << std::endl;
 	// ***** Design/TB Helper Functions  *****
 	printDesignChoice();
-	// Auxiliary_Calcultions(/*PerformanceEstimation=*/1, /*MemoryBufferSizing=*/0, /*ParameterCalculation=*/0,
-	// 		/*PrintLoopLimits=*/0, /*PrintAddrOffsets=*/0, /*PrintBinaryLengths=*/0,
-	// 		/*PrintBias=*/0, /*PrintBiasFC=*/0);
-	// check += Print_Check_Parameters(/*Verbose=*/1);
+	Auxiliary_Calcultions(/*MemoryBufferSizing=*/1, /*ParameterCalculation=*/1,
+			/*PrintLoopLimits=*/0, /*PrintAddrOffsets=*/0, /*PrintBinaryLengths=*/0,
+			/*PrintBias=*/0, /*PrintBiasFC=*/0);
+	check += Print_Check_Parameters(/*Verbose=*/1);
 	// check += loadFromBin_wrapper_test();
 	// std::cout << path() << std::endl; // To check base path
 	// To be added:
@@ -37,13 +37,13 @@ int main(){
 	// int convLayer_test_experimental(int verbose, int debug, int minPrint,
 	// 				int printErrorOnly, int printLayer, int biasReLuTrue,
 	// 				int binInput);
-	check += convLayer_test_experimental(/*Verbose=*/1, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
+	// convLayer_test_experimental(/*Verbose=*/1, /*debug=*/1, /*minPrint=*/1, /*printErrorOnly=*/0, /*printLayer=*/0, /*biasReLuTrue=*/1, /*binInput=*/0);
 	// check += fcLayer_test(/*Verbose=*/1);
 	// check += maxPool_test(/*Verbose=*/1); /* prints max pool for a toy example */
 	
 	// Has random input, therefore we don't check for range
 	// check += vgg16_test(/*Verbose=*/1, /*minPrint=*/1, /*biasReLuTrue=*/1);
-	// check += oxfordFlowers_test(/*Verbose=*/0, /*debug=*/1, /*minPrint=*/1, /*biasReLuTrue=*/1);
+	check += oxfordFlowers_test(/*Verbose=*/0, /*debug=*/1, /*minPrint=*/1, /*biasReLuTrue=*/1);
 	// minimalRunSynth(/*layerNo=*/0);
 
 	std::cout << "************************************************************************"

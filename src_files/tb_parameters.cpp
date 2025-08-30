@@ -99,6 +99,9 @@ int Print_Check_Parameters(int verbose){
 		std::cout << " *** Buffer Sizing:" << std::endl;
 		std::cout << "Row size of Input Pixel Buffer -> " << WRD_INBUF << "  Row size of Weight Buffer -> " << WRD_WTBUF << std::endl;
 		std::cout << "Row size of Output Pixel Buffer -> " << WRD_OUTBUF << "  Bank Number of Output Pixel Buffer -> " << OUTBUF_NUM << std::endl;
+		std::cout << "These are enough for these memory sizes:" << std::endl;
+		std::cout << "FMap -> " << std::max(WRD_INBUF*POF*POX, WRD_OUTBUF*OUTBUF_NUM*POX) << std::endl;
+		std::cout << "WtMap -> " << WRD_WTBUF*POF << std::endl;
 		std::cout << " *** Memory Sizing:" << std::endl;
 		std::cout << "Memory Size for Input Feature Maps -> " << FMAP_MEMSIZE << std::endl;
 		std::cout << "Memory Size for Weight Maps -> " << WTMAP_MEMSIZE << std::endl;

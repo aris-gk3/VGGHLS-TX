@@ -72,13 +72,24 @@
 											88 , -47,  -8};
 	// *****  Zero values for bias  ******
 	// const b_data_t bias[BIASMEM_LENGTH] = {0};
-#elif (MODEL == 4) || (MODEL == 40) // Toy Example 5
+#elif (MODEL == 4) // Toy Example 5
 	// *****  Random values for bias  ******
 	const b_data_t bias[BIASMEM_LENGTH] = { -58, -46,  97,  67,  62, -17,  93, -45, -65,  11,  62, -70,  16,  96, -38,
 											-4 , -74, -37, -24,  -9,  18,  51,  41,  54};
 	// *****  Zero values for bias  ******
 	// const b_data_t bias[BIASMEM_LENGTH] = { 0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
 	// 										0,   0,   0,   0,   0,   0,   0,   0,   0};
+#elif (MODEL == 40) // Toy Example 5A
+	// *****  Random values for bias  ******
+	const b_data_t bias[BIASMEM_LENGTH] = { 
+		-58,  46,  97, -67,  62, -17,  93, -45, 
+		-65,  11,  62, -70,  16,  96, -38,  -4, 
+		-74, -37, -24,  -9,  18,  51,  41,  54, 
+		77, -82,  25, -13,  90, -56,  39, 100, 
+		-99,  72, -31,   5 
+	};
+	// *****  Zero values for bias  ******
+	// const b_data_t bias[BIASMEM_LENGTH] = {0};
 #elif (MODEL == 5) // First 2 Layers
 	// *****  Random values for bias  ******
 	const b_data_t bias[BIASMEM_LENGTH] = { -58, -46,  97,  67,  62, -17,  93, -45, -65,  11,  62, -70,  16,  96, -38,

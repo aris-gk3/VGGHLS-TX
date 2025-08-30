@@ -2310,6 +2310,7 @@ void tileClc(
 		b_data_t BiasBuf[BIASBUF_LENGTH],
 		px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]
 	){
+	#pragma HLS INLINE off
 	static layerNo_dt layerNo = 0; 					// Layer "state"
 	static data_bool layerCnfg = 1;					// State for loading layer confiduration data
 	static int tileCount;							// Count iterations of tiles for current layer
@@ -2765,8 +2766,31 @@ void ConvLayerScdl(
 			storeMap(OutBuf, OfMap);
 		}
 		else if(nofy_step==2){
-			// Simple Loop
+			// loadIfMap(IfMap, InBuf);
+			// loadBiasTile(BiasBuf);
+			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// for(int nofy_step_i=0;nofy_step_i<1;nofy_step_i++){
+			// // #pragma HLS UNROLL
+			// 	loadIfMap(IfMap, InBuf);
+			// 	loadBiasTile(BiasBuf);
+			// 	storeMap(OutBuf, OfMap);
+			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// }
+			// storeMap(OutBuf, OfMap);
+
+			// loadIfMap(IfMap, InBuf);
+			// loadBiasTile(BiasBuf);
+			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// for(int nofy_step_i=0;nofy_step_i<1;nofy_step_i++){
+			// 	storeMap(OutBuf, OfMap);
+			// 	loadIfMap(IfMap, InBuf);
+			// 	loadBiasTile(BiasBuf);
+			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// }
+			// storeMap(OutBuf, OfMap);
+
 			for(int nofy_step_i=0;nofy_step_i<2;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadIfMap(IfMap, InBuf);
 				loadBiasTile(BiasBuf);
 				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
@@ -2774,28 +2798,45 @@ void ConvLayerScdl(
 			}
 		}
 		else if(nofy_step==4){
-			loadIfMap(IfMap, InBuf);
-			loadBiasTile(BiasBuf);
-			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
+			// loadIfMap(IfMap, InBuf);
+			// loadBiasTile(BiasBuf);
+			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
+			// // #pragma HLS UNROLL
+			// 	loadIfMap(IfMap, InBuf);
+			// 	loadBiasTile(BiasBuf);
+			// 	storeMap(OutBuf, OfMap);
+			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// }
+			// storeMap(OutBuf, OfMap);
+
+			// loadIfMap(IfMap, InBuf);
+			// loadBiasTile(BiasBuf);
+			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
+			// // #pragma HLS UNROLL
+			// 	storeMap(OutBuf, OfMap);
+			// 	loadIfMap(IfMap, InBuf);
+			// 	loadBiasTile(BiasBuf);
+			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// }
+			// storeMap(OutBuf, OfMap);
+
+			for(int nofy_step_i=0;nofy_step_i<4;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadIfMap(IfMap, InBuf);
 				loadBiasTile(BiasBuf);
-				storeMap(OutBuf, OfMap);
 				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+				storeMap(OutBuf, OfMap);
 			}
-			storeMap(OutBuf, OfMap);		
 		}
 		else if(nofy_step==8){
-			loadIfMap(IfMap, InBuf);
-			loadBiasTile(BiasBuf);
-			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			for(int nofy_step_i=0;nofy_step_i<7;nofy_step_i++){
+			for(int nofy_step_i=0;nofy_step_i<8;nofy_step_i++){
 				loadIfMap(IfMap, InBuf);
 				loadBiasTile(BiasBuf);
-				storeMap(OutBuf, OfMap);
 				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			}
-			storeMap(OutBuf, OfMap);			
+				storeMap(OutBuf, OfMap);
+			}	
 		}		
 	}
 	else{
@@ -2807,7 +2848,30 @@ void ConvLayerScdl(
 			storeMap(OutBuf, OfMap);
 		}
 		else if(nofy_step==2){
+			// loadWtMap(WtMap, WtBuf);
+			// loadBiasTile(BiasBuf);
+			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// for(int nofy_step_i=0;nofy_step_i<1;nofy_step_i++){
+			// 	loadWtMap(WtMap, WtBuf);
+			// 	loadBiasTile(BiasBuf);
+			// 	storeMap(OutBuf, OfMap);
+			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// }
+			// storeMap(OutBuf, OfMap);
+
+			// loadWtMap(WtMap, WtBuf);
+			// loadBiasTile(BiasBuf);
+			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// for(int nofy_step_i=0;nofy_step_i<1;nofy_step_i++){
+			// 	storeMap(OutBuf, OfMap);
+			// 	loadWtMap(WtMap, WtBuf);
+			// 	loadBiasTile(BiasBuf);
+			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// }
+			// storeMap(OutBuf, OfMap);
+
 			for(int nofy_step_i=0;nofy_step_i<2;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadWtMap(WtMap, WtBuf);
 				loadBiasTile(BiasBuf);
 				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
@@ -2815,28 +2879,43 @@ void ConvLayerScdl(
 			}
 		}
 		else if(nofy_step==4){
-			loadWtMap(WtMap, WtBuf);
-			loadBiasTile(BiasBuf);
-			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
+			// loadWtMap(WtMap, WtBuf);
+			// loadBiasTile(BiasBuf);
+			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
+			// 	loadWtMap(WtMap, WtBuf);
+			// 	loadBiasTile(BiasBuf);
+			// 	storeMap(OutBuf, OfMap);
+			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// }
+			// storeMap(OutBuf, OfMap);
+
+			// loadWtMap(WtMap, WtBuf);
+			// loadBiasTile(BiasBuf);
+			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
+			// 	storeMap(OutBuf, OfMap);
+			// 	loadWtMap(WtMap, WtBuf);
+			// 	loadBiasTile(BiasBuf);
+			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			// }
+			// storeMap(OutBuf, OfMap);
+
+			for(int nofy_step_i=0;nofy_step_i<4;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadWtMap(WtMap, WtBuf);
 				loadBiasTile(BiasBuf);
-				storeMap(OutBuf, OfMap);
 				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+				storeMap(OutBuf, OfMap);
 			}
-			storeMap(OutBuf, OfMap);		
 		}
 		else if(nofy_step==8){
-			loadWtMap(WtMap, WtBuf);
-			loadBiasTile(BiasBuf);
-			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			for(int nofy_step_i=0;nofy_step_i<7;nofy_step_i++){
+			for(int nofy_step_i=0;nofy_step_i<8;nofy_step_i++){
 				loadWtMap(WtMap, WtBuf);
 				loadBiasTile(BiasBuf);
-				storeMap(OutBuf, OfMap);
 				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+				storeMap(OutBuf, OfMap);
 			}
-			storeMap(OutBuf, OfMap);	
 		}
 	}
 }
@@ -2887,6 +2966,7 @@ void ConvLayerScdlDB(
 		}
 		else if(nofy_step==4){
 			for(int nofy_step_i=0;nofy_step_i<2;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadIfMap(IfMap, InBuf1);
 				loadBiasTile(BiasBuf1);
 				tileClc(InBuf1, WtBuf1, BiasBuf1, OutBuf1);
@@ -2899,6 +2979,7 @@ void ConvLayerScdlDB(
 		}
 		else if(nofy_step==8){
 			for(int nofy_step_i=0;nofy_step_i<4;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadIfMap(IfMap, InBuf1);
 				loadBiasTile(BiasBuf1);
 				tileClc(InBuf1, WtBuf1, BiasBuf1, OutBuf1);
@@ -2914,6 +2995,7 @@ void ConvLayerScdlDB(
 		loadIfMap(IfMap, InBuf1);
 		if(nofy_step==2){
 			for(int nofy_step_i=0;nofy_step_i<1;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadWtMap(WtMap, WtBuf1);
 				loadBiasTile(BiasBuf1);
 				tileClc(InBuf1, WtBuf1, BiasBuf1, OutBuf1);
@@ -2926,6 +3008,7 @@ void ConvLayerScdlDB(
 		}
 		else if(nofy_step==4){
 			for(int nofy_step_i=0;nofy_step_i<2;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadWtMap(WtMap, WtBuf1);
 				loadBiasTile(BiasBuf1);
 				tileClc(InBuf1, WtBuf1, BiasBuf1, OutBuf1);
@@ -2938,6 +3021,7 @@ void ConvLayerScdlDB(
 		}
 		else if(nofy_step==8){
 			for(int nofy_step_i=0;nofy_step_i<4;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadWtMap(WtMap, WtBuf1);
 				loadBiasTile(BiasBuf1);
 				tileClc(InBuf1, WtBuf1, BiasBuf1, OutBuf1);
@@ -2949,6 +3033,35 @@ void ConvLayerScdlDB(
 			}
 		}
 	}
+}
+
+
+void ConvLayerScdlDFL(
+		int loop_limit,
+		const px_data_t_port *IfMap,
+		const wt_data_t_port *WtMap,
+		// Output
+		px_data_t_port *OfMap
+	){
+	#pragma HLS INLINE off
+		for(int nofy_step_i=0;nofy_step_i<loop_limit;nofy_step_i++){
+		#pragma HLS DATAFLOW
+		// Intermediate (Buffered) Data
+		px_data_t InBuf[POY][WRD_INBUF][POX];
+		#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
+		#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
+		static wt_data_t WtBuf[WRD_WTBUF][POF];
+		#pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
+		static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
+		#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
+		#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
+		b_data_t BiasBuf[BIASBUF_LENGTH];
+		#pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
+			mem2Buf(IfMap, WtMap, InBuf, WtBuf);
+			loadBiasTile(BiasBuf);
+			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+			storeMap(OutBuf, OfMap);
+		}
 }
 #endif
 // ********  Overlap Case Region 3 END  *******
@@ -3067,24 +3180,9 @@ void ConvLayer(
 	#endif
 // Dataflow
 	#if defined(REG3_DFL)
-		for(int nofy_step_i=0;nofy_step_i<nofy_step_rom[layerNo]+1;nofy_step_i++){
-		// #pragma HLS DATAFLOW
-		// Intermediate (Buffered) Data
-		px_data_t InBuf[POY][WRD_INBUF][POX];
-		#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=1
-		#pragma HLS ARRAY_PARTITION variable=InBuf complete dim=3
-		static wt_data_t WtBuf[WRD_WTBUF][POF];
-		#pragma HLS ARRAY_PARTITION variable=WtBuf complete dim=2
-		static px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX];
-		#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=1
-		#pragma HLS ARRAY_PARTITION variable=OutBuf complete dim=3
-		b_data_t BiasBuf[BIASBUF_LENGTH];
-		#pragma HLS ARRAY_PARTITION dim=1 factor=2 type=cyclic variable=BiasBuf
-			mem2Buf(IfMap, WtMap, InBuf, WtBuf);
-			loadBiasTile(BiasBuf);
-			tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			storeMap(OutBuf, OfMap);
-		}
+	ConvLayerScdlDFL(
+			(nofy_step_rom[layerNo]+1), IfMap, WtMap, OfMap
+	);
 	#endif
 // Layer count
 	if(layerNo == LAYERS - 1){

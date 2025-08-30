@@ -304,7 +304,7 @@ void BiasReLu_software(int layerNo, int Nof_step_i, int Tof_step_i, int Pof_i,
 // ** Other Testbench Functions
 
 // Calculation Functions
-void Auxiliary_Calcultions(int PerformanceEstimation, int MemoryBufferSizing, int ParameterCalculation,
+void Auxiliary_Calcultions(int MemoryBufferSizing, int ParameterCalculation,
 		int PrintLoopLimits, int PrintAddrOffsets, int PrintBinaryLengths,
 		int PrintBias, int PrintBiasFC);
 void performanceEstimation(int Layer, int CNN, int CNNAll, int Prefetch, int Overlap, int SemiOverlap, int Seq);

@@ -348,6 +348,8 @@ int convLayer_test(int verbose, int debug, int minPrint,
 			pack<px_data_t_port>(IfMap, IfMap_port, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
 			std::cout << "Reached HERE5!" << std::endl;
 			ConvLayer(IfMap_port, WtMap_port, OfMap_port);
+			std::cout << "Got HERE!" << std::endl;
+			std::cout << "Did Got HERE!" << std::endl;
 			unpack<px_data_t_port>(OfMap_port, OfMap, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
 		#else
 			ConvLayer(IfMap, WtMap_port, OfMap);

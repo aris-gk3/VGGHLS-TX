@@ -731,7 +731,7 @@
 	#endif // For length of variables
 #elif ( MODEL == 40 ) // Toy Example 5A (variable nofy_step)
 	// *****  Toy Example   *****
-	// 3x12x12 -> 24x12x12 -> 24x12x12
+	// 3x12x12 -> 12x12x12 -> 24x12x12
 	#define LAYERS 2
 	#define NKX 3
 	#define NKY 3
@@ -759,17 +759,17 @@
 		// WRD_OUTBUF =   max(my_ceil(Tox[layerNo],POX)*Toy*my_ceil(TOF,OUTBUF_NUM))
 	#define OUTBUF_NUM 2 // Number of Output Buffer Banks
 	// Secondary Parameters
-	#define BIASMEM_LENGTH 24 // Sum of Nof
+	#define BIASMEM_LENGTH 36 // Sum of Nof
 	#define BIASBUF_LENGTH 12 // Max Tof
 	constexpr int POFBANK_STEP = my_ceil(POF, OUTBUF_NUM);
 	constexpr int nofFirst[LAYERS] = {1, 0}; // I execute first the loop with one iteration, if there is one
 	constexpr int fulBufWt[LAYERS] = {1, 0};
 	constexpr int fulBufPx[LAYERS] = {0, 1};
-	constexpr int bit_shift_rom[LAYERS] = {0, 0};
+	constexpr int bit_shift_rom[LAYERS] = {1, 1};
 	// Software Parameters
-	#define FMAP_MEMSIZE 1728
+	#define FMAP_MEMSIZE 3456
 	#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
-	#define WTMAP_MEMSIZE 1296
+	#define WTMAP_MEMSIZE 2592
 	#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
 	// Parameters that are calculated from necessary parameters
 	constexpr int noy_step_rom[LAYERS] = {2, 1};
@@ -806,12 +806,12 @@
 		#define NIF_I_B           4
 		#define NIY_B             4
 		#define NOY_B             4
-		#define NOF_STEP_B        2
-		#define NOF_STEP_I_B      1
+		#define NOF_STEP_B        3
+		#define NOF_STEP_I_B      2
 		#define NOY_STEP_B        2
 		#define NOY_STEP_I_B      1
-		#define NOFY_STEP_B       2
-		#define NOFY_STEP_I_B     1 // Max of Nof_step_i & Noy_step_i
+		#define NOFY_STEP_B       3
+		#define NOFY_STEP_I_B     2 // Max of Nof_step_i & Noy_step_i
 
 		#define TIY_B             4
 		#define TIX_B             4
@@ -836,7 +836,7 @@
 		#define WRD_1ROW_B        3
 		#define ROW_1MAP_B        3
 
-		#define CONV_LOOP_B       2 // bigger of Noy_step, Nof_step
+		#define CONV_LOOP_B       3 // bigger of Noy_step, Nof_step
 		#define TILE_LOOP_B       5 // Tof_step*Toy_step*Tox_step
 		#define WND_LOOP_B        7 // Nif*NKY*NKX
 		#define WTBUF2PE_LOOP_B   7 // Tof_step*Nif*NKY*NKX-1

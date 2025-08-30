@@ -1,0 +1,166 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Programming_Files/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 1 seconds. CPU system time: 2 seconds. Elapsed time: 4.214 seconds; current allocated memory: 137.945 MB.
+INFO: [HLS 200-10] Analyzing design file '../src_files/Main_Code.cpp' ... 
+WARNING: [HLS 214-110] As the loop bound is not a constant or function argument, the compiler may not successfully process the dataflow loop (../src_files/Main_Code.cpp:3153:56)
+Resolution: For help on HLS 214-110 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=214-110.html
+WARNING: [HLS 214-111] Static scalars and arrays declared inside a dataflow region will be treated like local variables (../src_files/Main_Code.cpp:3159:19)
+Resolution: For help on HLS 214-111 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=214-111.html
+WARNING: [HLS 214-111] Static scalars and arrays declared inside a dataflow region will be treated like local variables (../src_files/Main_Code.cpp:3161:19)
+Resolution: For help on HLS 214-111 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=214-111.html
+WARNING: [HLS 200-471] Dataflow form checks found 3 issue(s) in file ../src_files/Main_Code.cpp
+Resolution: For help on HLS 200-471 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-471.html
+WARNING: [HLS 207-5292] unused parameter 'Noy_step' (../src_files/Main_Code.cpp:2738:15)
+WARNING: [HLS 207-5292] unused parameter 'Tiy' (../src_files/Main_Code.cpp:2740:10)
+WARNING: [HLS 207-5292] unused parameter 'Noy_step' (../src_files/Main_Code.cpp:2926:15)
+WARNING: [HLS 207-5292] unused parameter 'Tiy' (../src_files/Main_Code.cpp:2928:10)
+WARNING: [HLS 207-5292] unused parameter 'layerNo' (../src_files/Main_Code.cpp:3404:25)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 7.491 seconds; current allocated memory: 142.945 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 1,730 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,180 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,448 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,452 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,419 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,804 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,528 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,528 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,528 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,606 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,600 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,530 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,526 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,520 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,509 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,280 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'InBuf2Pe(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> (*) [3], hls::stream<ap_int<32>, 4> (*) [3])' into 'InBuf2Pe_wrapper(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> (*) [3])' (../src_files/Main_Code.cpp:215:2)
+INFO: [HLS 214-131] Inlining function 'Pe(ap_int<32> (*) [3], ap_int<32>*, ap_int<64> (*) [3][3])' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:498:3)
+INFO: [HLS 214-131] Inlining function 'WtBuf2Pe(ap_int<32> const (*) [6], int, ap_int<32>*)' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:497:3)
+INFO: [HLS 214-131] Inlining function 'InBuf2Pe_wrapper(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> (*) [3])' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:489:3)
+INFO: [HLS 214-131] Inlining function 'WtBuf2Pe_ctrl(int, int*)' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:488:3)
+INFO: [HLS 214-131] Inlining function 'InBuf2Pe_ctrl(int, int, int, int*, int*, int*, int*, int*, int*)' into 'wndClc_Dfl(int, int, int, int, int, int, ap_int<32> const (*) [300][3], ap_int<32> const (*) [6], ap_int<64> (*) [3][3])' (../src_files/Main_Code.cpp:481:2)
+INFO: [HLS 214-131] Inlining function 'ReLu(ap_int<32>, ap_int<32>*)' into 'bias_ReLu(int, int, ap_int<32>*, ap_int<64> (*) [3], ap_int<32> (*) [3])' (../src_files/Main_Code.cpp:48:4)
+INFO: [HLS 214-131] Inlining function 'tileClc_Dfl(int, int, int, int, int, int, int, int, int, int, int, int, int, int, ap_int<32> (*) [300][3], ap_int<32> (*) [6], ap_int<32>*, ap_int<32> (*) [144][3])' into 'tileClc(ap_int<32> (*) [300][3], ap_int<32> (*) [6], ap_int<32>*, ap_int<32> (*) [144][3])' (../src_files/Main_Code.cpp:2360:3)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_OutBufNum_Load' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:658:30)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_Pox_Load' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:660:24)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_OutBufNum_Store' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:671:33)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_Pox_Store' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:673:25)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_37_1' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:37:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_39_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:39:19)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_rdPx_Poy_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:257:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_rdPx_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:248:27)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_rdPx_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:250:26)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Poy_3' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:287:30)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_3' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:289:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Poy_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:276:31)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:278:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:267:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:269:27)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_5' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:304:30)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_4' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:298:30)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_out_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:312:25)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_out_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:314:25)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrFIFO_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:332:28)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrFIFO_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:334:28)
+INFO: [HLS 214-291] Loop 'loop_WtBuf2Pe' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:371:17)
+INFO: [HLS 214-291] Loop 'loop_Pe_Pof_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:96:19)
+INFO: [HLS 214-291] Loop 'loop_Pe_Poy_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:98:19)
+INFO: [HLS 214-291] Loop 'loop_Pe_Pox_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:100:19)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_OutBufNum_Load' (../src_files/Main_Code.cpp:658:30) in function 'Pe2Buf' completely with a factor of 2 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_Pox_Load' (../src_files/Main_Code.cpp:660:24) in function 'Pe2Buf' completely with a factor of 3 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_OutBufNum_Store' (../src_files/Main_Code.cpp:671:33) in function 'Pe2Buf' completely with a factor of 2 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_Pox_Store' (../src_files/Main_Code.cpp:673:25) in function 'Pe2Buf' completely with a factor of 3 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_37_1' (../src_files/Main_Code.cpp:37:19) in function 'bias_ReLu' completely with a factor of 2 (../src_files/Main_Code.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_39_2' (../src_files/Main_Code.cpp:39:19) in function 'bias_ReLu' completely with a factor of 3 (../src_files/Main_Code.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_read_Pof_MAC' (../src_files/Main_Code.cpp:500:21) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_read_Poy_MAC' (../src_files/Main_Code.cpp:502:21) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_read_Pox_MAC' (../src_files/Main_Code.cpp:504:21) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_rdPx_Poy_2' (../src_files/Main_Code.cpp:257:29) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_rdPx_Poy' (../src_files/Main_Code.cpp:248:27) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_rdPx_Pox' (../src_files/Main_Code.cpp:250:26) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Poy_3' (../src_files/Main_Code.cpp:287:30) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_3' (../src_files/Main_Code.cpp:289:29) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Poy_2' (../src_files/Main_Code.cpp:276:31) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_2' (../src_files/Main_Code.cpp:278:29) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Poy' (../src_files/Main_Code.cpp:267:29) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox' (../src_files/Main_Code.cpp:269:27) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_5' (../src_files/Main_Code.cpp:304:30) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_4' (../src_files/Main_Code.cpp:298:30) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_out_Poy' (../src_files/Main_Code.cpp:312:25) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_out_Pox' (../src_files/Main_Code.cpp:314:25) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrFIFO_Poy' (../src_files/Main_Code.cpp:332:28) in function 'wndClc_Dfl' completely with a factor of 2 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrFIFO_Pox' (../src_files/Main_Code.cpp:334:28) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_WtBuf2Pe' (../src_files/Main_Code.cpp:371:17) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe_Pof_MAC' (../src_files/Main_Code.cpp:96:19) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe_Poy_MAC' (../src_files/Main_Code.cpp:98:19) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe_Pox_MAC' (../src_files/Main_Code.cpp:100:19) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_init_Pof_MAC' (../src_files/Main_Code.cpp:442:21) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_init_Poy_MAC' (../src_files/Main_Code.cpp:444:21) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_init_Pox_MAC' (../src_files/Main_Code.cpp:446:21) in function 'wndClc_Dfl' completely with a factor of 3 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ8InBuf2PeiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_PA3_N3hls6streamIS0_Li4EEEE12Internal_Reg': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:238:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ16InBuf2Pe_wrapperiiiiiiPA300_A3_K6ap_intILi32EEPA3_S0_E8FIFO_arr': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:211:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E6OutBuf': Complete partitioning on dimension 1. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:3161:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ9ConvLayerPK6ap_intILi32EES2_PS0_E5WtBuf': Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:3159:0)
+INFO: [HLS 214-248] Applying array_partition to 'Buff_read.i.i': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:243:12)
+INFO: [HLS 214-248] Applying array_partition to 'pxSerial': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:585:13)
+INFO: [HLS 214-248] Applying array_partition to 'ReLuOut': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:588:12)
+INFO: [HLS 214-248] Applying array_partition to 'px_toBuf.i': Complete partitioning on dimension 1. Complete partitioning on dimension 2. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:739:13)
+INFO: [HLS 214-248] Applying array_partition to 'InBuf': Complete partitioning on dimension 1. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:3156:12)
+INFO: [HLS 214-248] Applying array_partition to 'BiasBuf': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:3164:11)
+INFO: [HLS 214-376] automatically set the pipeline for Loop< Loop_Tox> at ../src_files/Main_Code.cpp:2438:16 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< BiasLoop_Tof> at ../src_files/Main_Code.cpp:2285:17 
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 32 has been inferred on bundle 'OFMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:2434:14)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 13.64 seconds; current allocated memory: 147.035 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.003 seconds; current allocated memory: 147.035 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.175 seconds; current allocated memory: 154.613 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'bias_ReLu' into 'Pe2Buf' (../src_files/Main_Code.cpp:668) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.147 seconds; current allocated memory: 159.148 MB.
+INFO: [XFORM 203-602] Inlining function 'bias_ReLu' into 'Pe2Buf' (../src_files/Main_Code.cpp:668) automatically.
+ERROR: [HLS 200-996] In dataflow VITIS_LOOP_3153_1  (../src_files/Main_Code.cpp:3153)  of function ConvLayer, conditional execution on ../src_files/Main_Code.cpp:3153:70 is not supported.
+ERROR: [HLS 200-996] In dataflow VITIS_LOOP_3153_1  (../src_files/Main_Code.cpp:3153)  of function ConvLayer, conditional execution on ../src_files/Main_Code.cpp:3153:56 is not supported.
+ERROR: [HLS 200-1715] Encountered problem during source synthesis
+ERROR: [HLS 200-70] Pre-synthesis failed.
+ERROR: 
+INFO: [HLS 200-112] Total CPU user time: 3 seconds. Total CPU system time: 2 seconds. Total elapsed time: 25.915 seconds; peak allocated memory: 164.117 MB.

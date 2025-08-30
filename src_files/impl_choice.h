@@ -11,10 +11,10 @@
 // IfMap, OfMap: are widened if FMAP_WIDEN is declared (7)
 // WtMap: is widened if WTMAP_WIDEN is declared (8, 16, 32)
 // If not widened, width factor is declared 1
-#define FMAP_WIDEN
-#define FMAP_WIDTHFACTOR 7
-#define WTMAP_WIDEN
-#define WTMAP_WIDTHFACTOR 8
+// #define FMAP_WIDEN
+#define FMAP_WIDTHFACTOR 1
+// #define WTMAP_WIDEN
+#define WTMAP_WIDTHFACTOR 1
 
 // **Scheduling**
 // Region1: 
@@ -22,7 +22,7 @@
 // Region2: REGION2_SEQ, REGION2_DFL, REGION2_MNLSCHEDULE_2BUF, REGION2_PPL
 #define REGION2_SEQ
 // Region3: REG3_SEQ, REG3_OVLP, REG3_FOVLP, REG3_DFL
-#define REG3_SEQ
+#define REG3_OVLP
 // **Buffer Sizing**
 
 
