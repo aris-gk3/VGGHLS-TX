@@ -13,7 +13,7 @@ void unpack(px_data_t *Map, px_data_t *Map_widened,
     std::cerr << "Function pack() called incorrectly!" << std::endl;
 }
 
-void wt_reorder(wt_data_t *Map, wt_data_t *Map_reordered, int layerNo){
+void wt_reorder(const wt_data_t *Map, wt_data_t *Map_reordered, int layerNo){
 // Reorder all the elements of the current layer
     for(int ofBase=0;ofBase<Nof_step_rom[layerNo];ofBase++){
         for(int Tof_step_i=0;Tof_step_i<(Tof_rom[layerNo]/POF);Tof_step_i++){

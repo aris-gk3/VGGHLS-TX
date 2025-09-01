@@ -4,7 +4,7 @@
 #include <ap_fixed.h>
 //#include <ap_float.h>
 #include "parameters.h"
-#define DATA_TYPE 3
+#define DATA_TYPE 1
 // 0 -> all int
 // 1 -> 8,16-bit integer for data
 // 2 -> 16,32-bit integer for data

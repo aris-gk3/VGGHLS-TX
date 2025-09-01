@@ -1,0 +1,690 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Programming_Files/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvLayer' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../src_files/tb_port_widening.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Top.cpp in debug mode
+   Compiling ../../../../../src_files/tb_parameters.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Mem2Buf.cpp in debug mode
+   Compiling ../../../../../src_files/tb_maxPool.cpp in debug mode
+   Compiling ../../../../../src_files/tb_loadbin.cpp in debug mode
+   Compiling ../../../../../src_files/tb_gap.cpp in debug mode
+   Compiling ../../../../../src_files/tb_fcLayer.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Dfl_ControlLogic.cpp in debug mode
+   Compiling ../../../../../src_files/tb_Buf2Pe.cpp in debug mode
+   Compiling ../../../../../src_files/main_tb.cpp in debug mode
+   Compiling ../../../../../src_files/Auxiliary_Calculations.cpp in debug mode
+   Compiling ../../../../../src_files/Main_Code.cpp in debug mode
+   Generating csim.exe
+In file included from ../../../../../src_files/tb_port_widening.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Top.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_parameters.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Mem2Buf.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_maxPool.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_loadbin.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_gap.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_fcLayer.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Dfl_ControlLogic.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/tb_Buf2Pe.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/main_tb.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Auxiliary_Calculations.cpp:2:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../src_files/Main_Code.cpp:1:
+In file included from ../../../../../src_files/header.h:7:
+In file included from C:/Xilinx/2025.1/Vitis/include/ap_int.h:10:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_common.h:677:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_half.h:26:
+In file included from C:/Xilinx/2025.1/Vitis/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/2025.1/Vitis/include/hls_fpo.h:140:
+In file included from C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/2025.1/Vitis/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+*********************************************************************************  Starting Verification. ************************************************************************************
+No integration of max pooling or network head in the convolutional layer.
+No port widening applied.
+Sequential scheduling for middle region (2) was applied.
+layerCnfg signal is passed as input.
+ * Auxiliary Calculations for Sizing
+Input Buffer row size needed for each layer:
+Layer 1 -> 495
+Layer 2 -> 10560
+Layer 3 -> 5440
+Layer 4 -> 10880
+Layer 5 -> 5760
+Layer 6 -> 11520
+Layer 7 -> 11520
+Layer 8 -> 6400
+Layer 9 -> 12800
+Layer 10 -> 12800
+Layer 11 -> 4608
+Layer 12 -> 4608
+Layer 13 -> 4608
+Max size is -> 12800
+Weight Buffer row size needed for each layer:
+Layer 1 -> 216
+Layer 2 -> 4608
+Layer 3 -> 9216
+Layer 4 -> 18432
+Layer 5 -> 36864
+Layer 6 -> 73728
+Layer 7 -> 73728
+Layer 8 -> 36864
+Layer 9 -> 73728
+Layer 10 -> 73728
+Layer 11 -> 73728
+Layer 12 -> 73728
+Layer 13 -> 73728
+Max size is -> 73728
+Output Buffer row size needed for each layer:
+Layer 1 -> 28672
+Layer 2 -> 28672
+Layer 3 -> 28672
+Layer 4 -> 28672
+Layer 5 -> 28672
+Layer 6 -> 28672
+Layer 7 -> 28672
+Layer 8 -> 7168
+Layer 9 -> 7168
+Layer 10 -> 7168
+Layer 11 -> 1792
+Layer 12 -> 1792
+Layer 13 -> 1792
+Max size is -> 28672
+Bias Buffer length needed for each tile:
+Layer 1 -> 64
+Layer 2 -> 64
+Layer 3 -> 128
+Layer 4 -> 128
+Layer 5 -> 256
+Layer 6 -> 256
+Layer 7 -> 256
+Layer 8 -> 128
+Layer 9 -> 128
+Layer 10 -> 128
+Layer 11 -> 128
+Layer 12 -> 128
+Layer 13 -> 128
+Size needed for Bias Buffer is -> 256
+Bias length needed for each layer:
+Layer 1 -> 64
+Layer 2 -> 64
+Layer 3 -> 128
+Layer 4 -> 128
+Layer 5 -> 256
+Layer 6 -> 256
+Layer 7 -> 256
+Layer 8 -> 512
+Layer 9 -> 512
+Layer 10 -> 512
+Layer 11 -> 512
+Layer 12 -> 512
+Layer 13 -> 512
+Total size is -> 4224
+Memory needed for IfMap for each layer:
+Layer 1 -> 150528
+Layer 2 -> 3211264
+Layer 3 -> 802816
+Layer 4 -> 1605632
+Layer 5 -> 401408
+Layer 6 -> 802816
+Layer 7 -> 802816
+Layer 8 -> 200704
+Layer 9 -> 401408
+Layer 10 -> 401408
+Layer 11 -> 100352
+Layer 12 -> 100352
+Layer 13 -> 100352
+Max size is -> 3211264
+Memory needed for WtMap for each layer:
+Layer 1 -> 1728
+Layer 2 -> 36864
+Layer 3 -> 73728
+Layer 4 -> 147456
+Layer 5 -> 294912
+Layer 6 -> 589824
+Layer 7 -> 589824
+Layer 8 -> 1179648
+Layer 9 -> 2359296
+Layer 10 -> 2359296
+Layer 11 -> 2359296
+Layer 12 -> 2359296
+Layer 13 -> 2359296
+Max size is -> 2359296
+Memory needed for OfMap for each layer:
+Layer 1 -> 3211264
+Layer 2 -> 3211264
+Layer 3 -> 1605632
+Layer 4 -> 1605632
+Layer 5 -> 802816
+Layer 6 -> 802816
+Layer 7 -> 802816
+Layer 8 -> 401408
+Layer 9 -> 401408
+Layer 10 -> 401408
+Layer 11 -> 100352
+Layer 12 -> 100352
+Layer 13 -> 100352
+Max size is -> 3211264
+
+Weight Memory offsets for address:
+ {    1728,    36864,    73728,   147456,   294912,   589824,   589824,  1179648,  2359296,  2359296,  2359296,  2359296,  2359296, }
+Calculating WTMAP_FULL_SIZE is 138344128
+
+*Calculate Parameters from Necessary Parameters
+
+Noy_step: {  8,  8,  4,  4,  2,  2,  2,  1,  1,  1,  1,  1,  1,}
+
+Nofy_step: {  8,  8,  4,  4,  2,  2,  2,  4,  4,  4,  4,  4,  4,}
+
+Niy: {224,224,112,112, 56, 56, 56, 28, 28, 28, 14, 14, 14,}
+
+Tof_step: {  8,  8, 16, 16, 32, 32, 32, 16, 16, 16, 16, 16, 16,}
+
+Toy_step: {  4,  4,  4,  4,  4,  4,  4,  4,  4,  4,  2,  2,  2,}
+
+Tox_step: { 32, 32, 16, 16,  8,  8,  8,  4,  4,  4,  2,  2,  2,}
+
+Tiy: { 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 16, 16, 16,}
+
+Tix: {226,226,114,114, 58, 58, 58, 30, 30, 30, 16, 16, 16,}
+
+row_1map: {  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  3,  3,  3,}
+
+wrd_1row: { 33, 33, 17, 17,  9,  9,  9,  5,  5,  5,  3,  3,  3,}
+
+ * Parameters for Convolutional Layers
+ ** Constant Parameters
+Number of Layers -> 13
+Stride -> 1  Zero Padding -> 1
+Nkx -> 3  Nky -> 3
+ *** P* Parameters:
+Pif -> 1  Pof -> 8  Piy -> 7  Pix -> 7  Poy -> 7  Pox -> 7
+ *** Buffer Sizing:
+Row size of Input Pixel Buffer -> 12800  Row size of Weight Buffer -> 73728
+Row size of Output Pixel Buffer -> 28672  Bank Number of Output Pixel Buffer -> 2
+These are enough for these memory sizes:
+FMap -> 716800
+WtMap -> 589824
+ *** Memory Sizing:
+Memory Size for Input Feature Maps -> 3211264
+Memory Size for Weight Maps -> 2359296
+Memory Size for Output Feature Maps -> 3211264
+ *** Secondary Parameters:
+  Pof step in OutBuf banks -> 4
+ ** Variable Parameters
+ *** Comment:
+Tiy, Tix include padding, Niy,Nix doesn't include padding
+ *** Always true equations:
+Nif = Tif, Pif=1
+Nof%Tof = 0, Niy = Noy, Noy%Toy = 0
+Nix = Nox, Nix = Tix-2
+Tiy = Toy+2, Tix = Tox+2
+Piy = Poy, Pix = Pox
+
+ *** For Layer 0
+Nif -> 3  Nof -> 64
+Niy -> 224  Nix -> 224
+Noy -> 224  Nox -> 222
+Tif -> 3  Tof -> 64
+Tiy -> 224  Tix -> 224
+Toy -> 224  Tox -> 222
+ceil(Nof/Tof) = Nof_step -> 1  ceil(Noy/Toy) = Noy_step -> 8
+We have fully buffered weights.
+ceil(Tof/POF) = Tof_step -> 8  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 32
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 33
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 26
+Loop limit for WtBuf2Pe module = 215
+Loop limit for wndClc module = 27
+Loop limit for tileClc module = 1024
+
+ *** For Layer 1
+Nif -> 64  Nof -> 64
+Niy -> 224  Nix -> 224
+Noy -> 224  Nox -> 222
+Tif -> 64  Tof -> 64
+Tiy -> 224  Tix -> 224
+Toy -> 224  Tox -> 222
+ceil(Nof/Tof) = Nof_step -> 1  ceil(Noy/Toy) = Noy_step -> 8
+We have fully buffered weights.
+ceil(Tof/POF) = Tof_step -> 8  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 32
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 33
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 575
+Loop limit for WtBuf2Pe module = 4607
+Loop limit for wndClc module = 576
+Loop limit for tileClc module = 1024
+
+ *** For Layer 2
+Nif -> 64  Nof -> 128
+Niy -> 112  Nix -> 112
+Noy -> 112  Nox -> 110
+Tif -> 64  Tof -> 128
+Tiy -> 112  Tix -> 112
+Toy -> 112  Tox -> 110
+ceil(Nof/Tof) = Nof_step -> 1  ceil(Noy/Toy) = Noy_step -> 4
+We have fully buffered weights.
+ceil(Tof/POF) = Tof_step -> 16  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 16
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 17
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 575
+Loop limit for WtBuf2Pe module = 9215
+Loop limit for wndClc module = 576
+Loop limit for tileClc module = 1024
+
+ *** For Layer 3
+Nif -> 128  Nof -> 128
+Niy -> 112  Nix -> 112
+Noy -> 112  Nox -> 110
+Tif -> 128  Tof -> 128
+Tiy -> 112  Tix -> 112
+Toy -> 112  Tox -> 110
+ceil(Nof/Tof) = Nof_step -> 1  ceil(Noy/Toy) = Noy_step -> 4
+We have fully buffered weights.
+ceil(Tof/POF) = Tof_step -> 16  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 16
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 17
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 1151
+Loop limit for WtBuf2Pe module = 18431
+Loop limit for wndClc module = 1152
+Loop limit for tileClc module = 1024
+
+ *** For Layer 4
+Nif -> 128  Nof -> 256
+Niy -> 56  Nix -> 56
+Noy -> 56  Nox -> 54
+Tif -> 128  Tof -> 256
+Tiy -> 56  Tix -> 56
+Toy -> 56  Tox -> 54
+ceil(Nof/Tof) = Nof_step -> 1  ceil(Noy/Toy) = Noy_step -> 2
+We have fully buffered weights.
+ceil(Tof/POF) = Tof_step -> 32  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 8
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 9
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 1151
+Loop limit for WtBuf2Pe module = 36863
+Loop limit for wndClc module = 1152
+Loop limit for tileClc module = 1024
+
+ *** For Layer 5
+Nif -> 256  Nof -> 256
+Niy -> 56  Nix -> 56
+Noy -> 56  Nox -> 54
+Tif -> 256  Tof -> 256
+Tiy -> 56  Tix -> 56
+Toy -> 56  Tox -> 54
+ceil(Nof/Tof) = Nof_step -> 1  ceil(Noy/Toy) = Noy_step -> 2
+We have fully buffered weights.
+ceil(Tof/POF) = Tof_step -> 32  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 8
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 9
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 2303
+Loop limit for WtBuf2Pe module = 73727
+Loop limit for wndClc module = 2304
+Loop limit for tileClc module = 1024
+
+ *** For Layer 6
+Nif -> 256  Nof -> 256
+Niy -> 56  Nix -> 56
+Noy -> 56  Nox -> 54
+Tif -> 256  Tof -> 256
+Tiy -> 56  Tix -> 56
+Toy -> 56  Tox -> 54
+ceil(Nof/Tof) = Nof_step -> 1  ceil(Noy/Toy) = Noy_step -> 2
+We have fully buffered weights.
+ceil(Tof/POF) = Tof_step -> 32  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 8
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 9
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 2303
+Loop limit for WtBuf2Pe module = 73727
+Loop limit for wndClc module = 2304
+Loop limit for tileClc module = 1024
+
+ *** For Layer 7
+Nif -> 256  Nof -> 512
+Niy -> 28  Nix -> 28
+Noy -> 28  Nox -> 26
+Tif -> 256  Tof -> 512
+Tiy -> 28  Tix -> 28
+Toy -> 28  Tox -> 26
+ceil(Nof/Tof) = Nof_step -> 4  ceil(Noy/Toy) = Noy_step -> 1
+We have fully buffered pixels.
+ceil(Tof/POF) = Tof_step -> 16  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 4
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 5
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 2303
+Loop limit for WtBuf2Pe module = 36863
+Loop limit for wndClc module = 2304
+Loop limit for tileClc module = 256
+
+ *** For Layer 8
+Nif -> 512  Nof -> 512
+Niy -> 28  Nix -> 28
+Noy -> 28  Nox -> 26
+Tif -> 512  Tof -> 512
+Tiy -> 28  Tix -> 28
+Toy -> 28  Tox -> 26
+ceil(Nof/Tof) = Nof_step -> 4  ceil(Noy/Toy) = Noy_step -> 1
+We have fully buffered pixels.
+ceil(Tof/POF) = Tof_step -> 16  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 4
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 5
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 4607
+Loop limit for WtBuf2Pe module = 73727
+Loop limit for wndClc module = 4608
+Loop limit for tileClc module = 256
+
+ *** For Layer 9
+Nif -> 512  Nof -> 512
+Niy -> 28  Nix -> 28
+Noy -> 28  Nox -> 26
+Tif -> 512  Tof -> 512
+Tiy -> 28  Tix -> 28
+Toy -> 28  Tox -> 26
+ceil(Nof/Tof) = Nof_step -> 4  ceil(Noy/Toy) = Noy_step -> 1
+We have fully buffered pixels.
+ceil(Tof/POF) = Tof_step -> 16  ceil(Toy/POY) = Toy_step -> 4  ceil(Tox/POX) = Tox_step -> 4
+ceil(Tiy/POY) = row_1map -> 5 ceil(Tix/POX) = wrd_1row -> 5
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 4607
+Loop limit for WtBuf2Pe module = 73727
+Loop limit for wndClc module = 4608
+Loop limit for tileClc module = 256
+
+ *** For Layer 10
+Nif -> 512  Nof -> 512
+Niy -> 14  Nix -> 14
+Noy -> 14  Nox -> 12
+Tif -> 512  Tof -> 512
+Tiy -> 14  Tix -> 14
+Toy -> 14  Tox -> 12
+ceil(Nof/Tof) = Nof_step -> 4  ceil(Noy/Toy) = Noy_step -> 1
+We have fully buffered pixels.
+ceil(Tof/POF) = Tof_step -> 16  ceil(Toy/POY) = Toy_step -> 2  ceil(Tox/POX) = Tox_step -> 2
+ceil(Tiy/POY) = row_1map -> 3 ceil(Tix/POX) = wrd_1row -> 3
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 4607
+Loop limit for WtBuf2Pe module = 73727
+Loop limit for wndClc module = 4608
+Loop limit for tileClc module = 64
+
+ *** For Layer 11
+Nif -> 512  Nof -> 512
+Niy -> 14  Nix -> 14
+Noy -> 14  Nox -> 12
+Tif -> 512  Tof -> 512
+Tiy -> 14  Tix -> 14
+Toy -> 14  Tox -> 12
+ceil(Nof/Tof) = Nof_step -> 4  ceil(Noy/Toy) = Noy_step -> 1
+We have fully buffered pixels.
+ceil(Tof/POF) = Tof_step -> 16  ceil(Toy/POY) = Toy_step -> 2  ceil(Tox/POX) = Tox_step -> 2
+ceil(Tiy/POY) = row_1map -> 3 ceil(Tix/POX) = wrd_1row -> 3
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 4607
+Loop limit for WtBuf2Pe module = 73727
+Loop limit for wndClc module = 4608
+Loop limit for tileClc module = 64
+
+ *** For Layer 12
+Nif -> 512  Nof -> 512
+Niy -> 14  Nix -> 14
+Noy -> 14  Nox -> 12
+Tif -> 512  Tof -> 512
+Tiy -> 14  Tix -> 14
+Toy -> 14  Tox -> 12
+ceil(Nof/Tof) = Nof_step -> 4  ceil(Noy/Toy) = Noy_step -> 1
+We have fully buffered pixels.
+ceil(Tof/POF) = Tof_step -> 16  ceil(Toy/POY) = Toy_step -> 2  ceil(Tox/POX) = Tox_step -> 2
+ceil(Tiy/POY) = row_1map -> 3 ceil(Tix/POX) = wrd_1row -> 3
+We have -> Tof%Pof = 0 ,  Toy%Poy = 0 ,  Tox%Pox = 0
+
+We have -> Loop limit for Pe module = 4607
+Loop limit for WtBuf2Pe module = 73727
+Loop limit for wndClc module = 4608
+Loop limit for tileClc module = 64
+
+*****  Rules of Convolutional Parameters Verified!  *****
+
+*********************************************************************************  Verification Complete. ************************************************************************************
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 2 seconds. Total elapsed time: 70.329 seconds; peak allocated memory: 138.352 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 1m 16s

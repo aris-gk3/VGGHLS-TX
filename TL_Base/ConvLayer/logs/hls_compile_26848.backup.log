@@ -1,0 +1,1511 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Programming_Files/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=ConvX' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 4.034 seconds; current allocated memory: 137.367 MB.
+INFO: [HLS 200-10] Analyzing design file '../src_files/Main_Code.cpp' ... 
+WARNING: [HLS 214-111] Static scalars and arrays declared inside a dataflow region will be treated like local variables (../src_files/Main_Code.cpp:3053:19)
+Resolution: For help on HLS 214-111 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=214-111.html
+WARNING: [HLS 214-111] Static scalars and arrays declared inside a dataflow region will be treated like local variables (../src_files/Main_Code.cpp:3055:19)
+Resolution: For help on HLS 214-111 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=214-111.html
+WARNING: [HLS 200-471] Dataflow form checks found 2 issue(s) in file ../src_files/Main_Code.cpp
+Resolution: For help on HLS 200-471 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-471.html
+WARNING: [HLS 207-5292] unused parameter 'Noy_step' (../src_files/Main_Code.cpp:2739:15)
+WARNING: [HLS 207-5292] unused parameter 'Tiy' (../src_files/Main_Code.cpp:2741:10)
+WARNING: [HLS 207-5292] unused parameter 'Noy_step' (../src_files/Main_Code.cpp:2927:15)
+WARNING: [HLS 207-5292] unused parameter 'Tiy' (../src_files/Main_Code.cpp:2929:10)
+WARNING: [HLS 207-5292] unused parameter 'layerNo' (../src_files/Main_Code.cpp:3585:25)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 14.467 seconds; current allocated memory: 142.543 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+WARNING: [HLS 200-1995] There were 246,402 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 173,354 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 122,491 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 117,421 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 116,807 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 245,796 instructions in the design after the 'Array/Struct' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 150,390 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 150,390 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 150,186 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 163,883 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 162,919 instructions in the design after the 'Performance' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 149,062 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 149,092 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 148,111 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 147,551 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+WARNING: [HLS 200-1995] There were 135,878 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-131] Inlining function 'InBuf2Pe(ap_uint<14>, ap_uint<3>, ap_uint<3>, ap_uint<1>, ap_uint<1>, ap_uint<1>, ap_int<8> const (*) [12800][7], ap_int<8> (*) [7], hls::stream<ap_int<8>, 4> (*) [7])' into 'InBuf2Pe_wrapper(ap_uint<14>, ap_uint<3>, ap_uint<3>, ap_uint<1>, ap_uint<1>, ap_uint<1>, ap_int<8> const (*) [12800][7], ap_int<8> (*) [7])' (../src_files/Main_Code.cpp:215:2)
+INFO: [HLS 214-131] Inlining function 'Pe(ap_int<8> (*) [7], ap_int<8>*, ap_int<18> (*) [7][7])' into 'wndClc_Dfl(ap_uint<13>, ap_uint<17>, ap_uint<14>, ap_uint<10>, ap_uint<6>, ap_uint<3>, ap_int<8> const (*) [12800][7], ap_int<8> const (*) [8], ap_int<18> (*) [7][7])' (../src_files/Main_Code.cpp:498:3)
+INFO: [HLS 214-131] Inlining function 'WtBuf2Pe(ap_int<8> const (*) [8], ap_uint<17>, ap_int<8>*)' into 'wndClc_Dfl(ap_uint<13>, ap_uint<17>, ap_uint<14>, ap_uint<10>, ap_uint<6>, ap_uint<3>, ap_int<8> const (*) [12800][7], ap_int<8> const (*) [8], ap_int<18> (*) [7][7])' (../src_files/Main_Code.cpp:497:3)
+INFO: [HLS 214-131] Inlining function 'InBuf2Pe_wrapper(ap_uint<14>, ap_uint<3>, ap_uint<3>, ap_uint<1>, ap_uint<1>, ap_uint<1>, ap_int<8> const (*) [12800][7], ap_int<8> (*) [7])' into 'wndClc_Dfl(ap_uint<13>, ap_uint<17>, ap_uint<14>, ap_uint<10>, ap_uint<6>, ap_uint<3>, ap_int<8> const (*) [12800][7], ap_int<8> const (*) [8], ap_int<18> (*) [7][7])' (../src_files/Main_Code.cpp:489:3)
+INFO: [HLS 214-131] Inlining function 'WtBuf2Pe_ctrl(ap_uint<17>, ap_uint<17>*)' into 'wndClc_Dfl(ap_uint<13>, ap_uint<17>, ap_uint<14>, ap_uint<10>, ap_uint<6>, ap_uint<3>, ap_int<8> const (*) [12800][7], ap_int<8> const (*) [8], ap_int<18> (*) [7][7])' (../src_files/Main_Code.cpp:488:3)
+INFO: [HLS 214-131] Inlining function 'InBuf2Pe_ctrl(ap_uint<10>, ap_uint<6>, ap_uint<3>, ap_uint<14>*, ap_uint<3>*, ap_uint<3>*, ap_uint<1>*, ap_uint<1>*, ap_uint<1>*)' into 'wndClc_Dfl(ap_uint<13>, ap_uint<17>, ap_uint<14>, ap_uint<10>, ap_uint<6>, ap_uint<3>, ap_int<8> const (*) [12800][7], ap_int<8> const (*) [8], ap_int<18> (*) [7][7])' (../src_files/Main_Code.cpp:481:2)
+INFO: [HLS 214-131] Inlining function 'ReLu(ap_int<8>, ap_int<8>*)' into 'bias_ReLu(ap_uint<5>, ap_uint<4>, ap_int<8>*, ap_int<18> (*) [7], ap_int<8> (*) [7])' (../src_files/Main_Code.cpp:48:4)
+INFO: [HLS 214-131] Inlining function 'tileClc_Dfl(ap_uint<11>, ap_uint<13>, ap_uint<17>, ap_uint<10>, ap_uint<5>, ap_uint<3>, ap_uint<6>, ap_uint<6>, ap_uint<6>, ap_uint<3>, ap_uint<15>, ap_uint<15>, ap_uint<15>, ap_uint<4>, ap_int<8> (*) [12800][7], ap_int<8> (*) [8], ap_int<8>*, ap_int<8> (*) [28672][7])' into 'tileClc(ap_int<8> (*) [12800][7], ap_int<8> (*) [8], ap_int<8>*, ap_int<8> (*) [28672][7])' (../src_files/Main_Code.cpp:2361:3)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_OutBufNum_Load' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:658:30)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_Pox_Load' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:660:24)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_OutBufNum_Store' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:671:33)
+INFO: [HLS 214-291] Loop 'loop_Pe2Buf_Pox_Store' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:673:25)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_37_1' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:37:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_39_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:39:19)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_rdPx_Poy_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:257:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_rdPx_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:248:27)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_rdPx_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:250:26)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Poy_3' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:287:30)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_3' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:289:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Poy_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:276:31)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_2' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:278:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:267:29)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:269:27)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_5' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:304:30)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrReg_Pox_4' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:298:30)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_out_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:312:25)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_out_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:314:25)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrFIFO_Poy' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:332:28)
+INFO: [HLS 214-291] Loop 'loop_InBuf2Pe_wrFIFO_Pox' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:334:28)
+INFO: [HLS 214-291] Loop 'loop_WtBuf2Pe' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:371:17)
+INFO: [HLS 214-291] Loop 'loop_Pe_Pof_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:96:19)
+INFO: [HLS 214-291] Loop 'loop_Pe_Poy_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:98:19)
+INFO: [HLS 214-291] Loop 'loop_Pe_Pox_MAC' is marked as complete unroll implied by the pipeline pragma (../src_files/Main_Code.cpp:100:19)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_2792_1' (../src_files/Main_Code.cpp:2792:23) in function 'ConvLayerScdl' completely with a factor of 2 (../src_files/Main_Code.cpp:2752:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_2825_2' (../src_files/Main_Code.cpp:2825:23) in function 'ConvLayerScdl' completely with a factor of 4 (../src_files/Main_Code.cpp:2752:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_2873_4' (../src_files/Main_Code.cpp:2873:23) in function 'ConvLayerScdl' completely with a factor of 2 (../src_files/Main_Code.cpp:2752:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_2904_5' (../src_files/Main_Code.cpp:2904:23) in function 'ConvLayerScdl' completely with a factor of 4 (../src_files/Main_Code.cpp:2752:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_OutBufNum_Load' (../src_files/Main_Code.cpp:658:30) in function 'Pe2Buf' completely with a factor of 2 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_Pox_Load' (../src_files/Main_Code.cpp:660:24) in function 'Pe2Buf' completely with a factor of 7 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_OutBufNum_Store' (../src_files/Main_Code.cpp:671:33) in function 'Pe2Buf' completely with a factor of 2 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe2Buf_Pox_Store' (../src_files/Main_Code.cpp:673:25) in function 'Pe2Buf' completely with a factor of 7 (../src_files/Main_Code.cpp:571:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_37_1' (../src_files/Main_Code.cpp:37:19) in function 'bias_ReLu' completely with a factor of 2 (../src_files/Main_Code.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_39_2' (../src_files/Main_Code.cpp:39:19) in function 'bias_ReLu' completely with a factor of 7 (../src_files/Main_Code.cpp:27:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_read_Pof_MAC' (../src_files/Main_Code.cpp:500:21) in function 'wndClc_Dfl' completely with a factor of 8 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_read_Poy_MAC' (../src_files/Main_Code.cpp:502:21) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_read_Pox_MAC' (../src_files/Main_Code.cpp:504:21) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_rdPx_Poy_2' (../src_files/Main_Code.cpp:257:29) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_rdPx_Poy' (../src_files/Main_Code.cpp:248:27) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_rdPx_Pox' (../src_files/Main_Code.cpp:250:26) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Poy_3' (../src_files/Main_Code.cpp:287:30) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_3' (../src_files/Main_Code.cpp:289:29) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Poy_2' (../src_files/Main_Code.cpp:276:31) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_2' (../src_files/Main_Code.cpp:278:29) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Poy' (../src_files/Main_Code.cpp:267:29) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox' (../src_files/Main_Code.cpp:269:27) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_5' (../src_files/Main_Code.cpp:304:30) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrReg_Pox_4' (../src_files/Main_Code.cpp:298:30) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_out_Poy' (../src_files/Main_Code.cpp:312:25) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_out_Pox' (../src_files/Main_Code.cpp:314:25) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrFIFO_Poy' (../src_files/Main_Code.cpp:332:28) in function 'wndClc_Dfl' completely with a factor of 6 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_InBuf2Pe_wrFIFO_Pox' (../src_files/Main_Code.cpp:334:28) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_WtBuf2Pe' (../src_files/Main_Code.cpp:371:17) in function 'wndClc_Dfl' completely with a factor of 8 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe_Pof_MAC' (../src_files/Main_Code.cpp:96:19) in function 'wndClc_Dfl' completely with a factor of 8 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe_Poy_MAC' (../src_files/Main_Code.cpp:98:19) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_Pe_Pox_MAC' (../src_files/Main_Code.cpp:100:19) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_init_Pof_MAC' (../src_files/Main_Code.cpp:442:21) in function 'wndClc_Dfl' completely with a factor of 8 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_init_Poy_MAC' (../src_files/Main_Code.cpp:444:21) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'loop_init_Pox_MAC' (../src_files/Main_Code.cpp:446:21) in function 'wndClc_Dfl' completely with a factor of 7 (../src_files/Main_Code.cpp:428:0)
+INFO: [HLS 214-186] Unrolling loop 'EastPad_Poy' (../src_files/Main_Code.cpp:2037:15) in function 'loadIfMap' completely with a factor of 7 (../src_files/Main_Code.cpp:1879:0)
+INFO: [HLS 214-186] Unrolling loop 'WestPad_Poy' (../src_files/Main_Code.cpp:2029:15) in function 'loadIfMap' completely with a factor of 7 (../src_files/Main_Code.cpp:1879:0)
+INFO: [HLS 214-186] Unrolling loop 'SouthPad_Pox' (../src_files/Main_Code.cpp:2019:16) in function 'loadIfMap' completely with a factor of 7 (../src_files/Main_Code.cpp:1879:0)
+INFO: [HLS 214-186] Unrolling loop 'NorthPad_Pox' (../src_files/Main_Code.cpp:2006:16) in function 'loadIfMap' completely with a factor of 7 (../src_files/Main_Code.cpp:1879:0)
+INFO: [HLS 214-178] Inlining function 'fcLayersOFBlock(ap_int<56> const*, ap_int<8> const*, ap_int<56>*)' into 'ConvX(ap_int<56> const*, ap_int<8> const*, ap_int<56>*)' (../src_files/Main_Code.cpp:3204:0)
+WARNING: [HLS 214-167] The program may have out of bound array access on variable 'finalOut.i' (../src_files/Main_Code.cpp:3306:48)
+WARNING: [HLS 214-167] The program may have out of bound array access on variable 'finalOut.i' (../src_files/Main_Code.cpp:3307:48)
+WARNING: [HLS 214-167] The program may have out of bound array access on variable 'finalOut.i' (../src_files/Main_Code.cpp:3308:48)
+WARNING: [HLS 214-167] The program may have out of bound array access on variable 'finalOut.i' (../src_files/Main_Code.cpp:3309:48)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'IfMap'. (../src_files/Main_Code.cpp:3075:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'WtMap'. (../src_files/Main_Code.cpp:3075:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'OfMap'. (../src_files/Main_Code.cpp:3075:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'IfMap'. (../src_files/Main_Code.cpp:2752:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'WtMap'. (../src_files/Main_Code.cpp:2752:0)
+WARNING: [HLS 214-464] Skipping array undecay on variable length array 'OfMap'. (../src_files/Main_Code.cpp:2752:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_S4_PA7_N3hls6streamIS4_Li4EEEE12Internal_Reg': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:238:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_S4_E8FIFO_arr': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:211:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf': Complete partitioning on dimension 1. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:3135:0)
+INFO: [HLS 214-248] Applying array_partition to '_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E5WtBuf': Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:3133:0)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (../src_files/Main_Code.cpp:2088:14)
+INFO: [HLS 214-248] Applying array_partition to 'Buff_read.i.i': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:243:12)
+INFO: [HLS 214-248] Applying array_partition to 'rslt_stream': Complete partitioning on dimension 1. Complete partitioning on dimension 2. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:437:13)
+INFO: [HLS 214-248] Applying array_partition to 'wt_stream': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:478:12)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (../src_files/Main_Code.cpp:297:5)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (../src_files/Main_Code.cpp:280:29)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (../src_files/Main_Code.cpp:308:30)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (../src_files/Main_Code.cpp:259:26)
+INFO: [HLS 214-248] Applying array_partition to 'pxSerial': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:585:13)
+INFO: [HLS 214-248] Applying array_partition to 'ReLuOut': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (../src_files/Main_Code.cpp:588:12)
+INFO: [HLS 214-248] Applying array_partition to 'px_toBuf.i': Complete partitioning on dimension 1. Complete partitioning on dimension 2. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:739:13)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
+INFO: [HLS 214-248] Applying array_partition to 'InBuf': Complete partitioning on dimension 1. Complete partitioning on dimension 3. (../src_files/Main_Code.cpp:3130:13)
+INFO: [HLS 214-248] Applying array_partition to 'BiasBuf': Complete partitioning on dimension 1. (../src_files/Main_Code.cpp:3138:11)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (../src_files/Main_Code.cpp:2035:17)
+WARNING: [HLS 214-358] Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations. (../src_files/Main_Code.cpp:1954:14)
+INFO: [HLS 214-376] automatically set the pipeline for Loop< Loop_Tox> at ../src_files/Main_Code.cpp:2459:16 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< BiasLoop_Tof> at ../src_files/Main_Code.cpp:2285:17 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< WtLoop_Nkx> at ../src_files/Main_Code.cpp:2093:14 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< If_Nix> at ../src_files/Main_Code.cpp:1954:14 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< NorthPad_wrd> at ../src_files/Main_Code.cpp:2004:16 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< SouthPad_wrd> at ../src_files/Main_Code.cpp:2017:16 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< WestPad_Line> at ../src_files/Main_Code.cpp:2027:17 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< EastPad_Line> at ../src_files/Main_Code.cpp:2035:17 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_3275_1> at ../src_files/Main_Code.cpp:3275:22 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_3302_2> at ../src_files/Main_Code.cpp:3302:22 
+INFO: [HLS 214-449] Automatically partitioning array '_ZL6biasFC' dimension 1 completely based on constant index. (../src_files/value_init.h:1544:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'biasFC' due to pipeline pragma (../src_files/value_init.h:1544:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=7 dim=1' for array 'inPx.i' due to pipeline pragma (../src_files/Main_Code.cpp:3267:12)
+INFO: [HLS 214-248] Applying array_partition to '_ZL6biasFC': Complete partitioning on dimension 1. (../src_files/value_init.h:1544:0)
+INFO: [HLS 214-248] Applying array_partition to 'inPx.i': Cyclic partitioning with factor 7 on dimension 1. (../src_files/Main_Code.cpp:3267:12)
+INFO: [HLS 214-115] Multiple burst reads of length 131072 and bit width 8 in loop 'fclayer_loop_1'(../src_files/Main_Code.cpp:3356:18) has been inferred on bundle 'WTMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:3356:18)
+INFO: [HLS 214-115] Multiple burst reads of length 4352 and bit width 8 in loop 'fclayer_loop_1'(../src_files/Main_Code.cpp:3356:18) has been inferred on bundle 'WTMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:3356:18)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 64 in loop 'If_Nix'(../src_files/Main_Code.cpp:1954:14) has been inferred on bundle 'IFMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:1954:14)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 8 in loop 'WtLoop_Tof'(../src_files/Main_Code.cpp:2086:15) has been inferred on bundle 'WTMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:2086:15)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 64 in loop 'Loop_Tox'(../src_files/Main_Code.cpp:2459:16) has been inferred on bundle 'OFMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:2459:16)
+INFO: [HLS 214-115] Multiple burst reads of length 73 and bit width 64 in loop 'VITIS_LOOP_3275_1'(../src_files/Main_Code.cpp:3275:22) has been inferred on bundle 'IFMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:3275:22)
+INFO: [HLS 214-115] Multiple burst writes of length 3 and bit width 64 in loop 'VITIS_LOOP_3302_2'(../src_files/Main_Code.cpp:3302:22) has been inferred on bundle 'OFMAP'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (../src_files/Main_Code.cpp:3302:22)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3 seconds. CPU system time: 0 seconds. Elapsed time: 48.944 seconds; current allocated memory: 151.824 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.011 seconds; current allocated memory: 151.824 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.657 seconds; current allocated memory: 179.125 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 1.653 seconds; current allocated memory: 198.051 MB.
+WARNING: [XFORM 203-561] Updating loop upper bound from 224 to 36 for loop 'If_Nix' (../src_files/Main_Code.cpp:1955:9) in function 'loadIfMap'.
+WARNING: [XFORM 203-561] Ignored invalid trip count directive (MAX (= 36) < AVE (= 224)) for loop 'If_Nix' (../src_files/Main_Code.cpp:1955:9) in function 'loadIfMap'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:468:9) to (../src_files/Main_Code.cpp:177:6) in function 'wndClc_Dfl'... converting 8 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:222:46) to (../src_files/Main_Code.cpp:265:5) in function 'wndClc_Dfl'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:1927:6) to (../src_files/Main_Code.cpp:1947:11) in function 'loadIfMap'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../src_files/Main_Code.cpp:2264:14) to (../src_files/Main_Code.cpp:2283:2) in function 'loadBiasTile'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 4 seconds. CPU system time: 1 seconds. Elapsed time: 5.019 seconds; current allocated memory: 239.934 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'Loop_Toy'(../src_files/Main_Code.cpp:2435:14) and 'Loop_Tox'(../src_files/Main_Code.cpp:2459:16) in function 'storeMap' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'WtLoop_Nky'(../src_files/Main_Code.cpp:2091:14) and 'WtLoop_Nkx'(../src_files/Main_Code.cpp:2093:14) in function 'loadWtMap' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'WtLoop_Nif'(../src_files/Main_Code.cpp:2088:14) and 'WtLoop_Nky'(../src_files/Main_Code.cpp:2091:14) in function 'loadWtMap' into perfectly nested loops.
+INFO: [HLS 200-2060] Failed to convert nested loops 'WtLoop_Tof'(../src_files/Main_Code.cpp:2086:15) and 'WtLoop_Nif'(../src_files/Main_Code.cpp:2088:14) in function 'loadWtMap' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'If_Tiy'(../src_files/Main_Code.cpp:1950:12) and 'If_Nix'(../src_files/Main_Code.cpp:1954:14) in function 'loadIfMap' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'If_Nif'(../src_files/Main_Code.cpp:1947:11) and 'If_Tiy'(../src_files/Main_Code.cpp:1950:12) in function 'loadIfMap' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'NorthPad_Nif'(../src_files/Main_Code.cpp:2002:18) and 'NorthPad_wrd'(../src_files/Main_Code.cpp:2004:16) in function 'loadIfMap' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'SouthPad_Nif'(../src_files/Main_Code.cpp:2015:18) and 'SouthPad_wrd'(../src_files/Main_Code.cpp:2017:16) in function 'loadIfMap' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'fclayer_loop_1'(../src_files/Main_Code.cpp:3356:18) and 'fclayer_loop_2'(../src_files/Main_Code.cpp:3358:19) in function 'fcLayer.1' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'fclayer_loop_1'(../src_files/Main_Code.cpp:3356:18) and 'fclayer_loop_2'(../src_files/Main_Code.cpp:3358:19) in function 'fcLayer' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'loop_Pe2Buf_PofBankStep'(../src_files/Main_Code.cpp:654:27) and 'loop_Pe2Buf_Poy'(../src_files/Main_Code.cpp:655:20) in function 'Pe2Buf' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop_Toy' (../src_files/Main_Code.cpp:2435:14) in function 'storeMap'.
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop_Tof' (../src_files/Main_Code.cpp:2432:13) in function 'storeMap'.
+INFO: [XFORM 203-541] Flattening a loop nest 'WtLoop_Nky' (../src_files/Main_Code.cpp:2091:14) in function 'loadWtMap'.
+INFO: [XFORM 203-541] Flattening a loop nest 'WtLoop_Nif' (../src_files/Main_Code.cpp:2088:14) in function 'loadWtMap'.
+WARNING: [HLS 200-960] Cannot flatten loop 'WtLoop_Tof' (../src_files/Main_Code.cpp:2086:15) in function 'loadWtMap' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'If_Tiy' (../src_files/Main_Code.cpp:1950:12) in function 'loadIfMap'.
+INFO: [XFORM 203-541] Flattening a loop nest 'If_Nif' (../src_files/Main_Code.cpp:1947:11) in function 'loadIfMap'.
+INFO: [XFORM 203-541] Flattening a loop nest 'NorthPad_Nif' (../src_files/Main_Code.cpp:2002:18) in function 'loadIfMap'.
+INFO: [XFORM 203-541] Flattening a loop nest 'SouthPad_Nif' (../src_files/Main_Code.cpp:2015:18) in function 'loadIfMap'.
+INFO: [XFORM 203-541] Flattening a loop nest 'fclayer_loop_1' (../src_files/Main_Code.cpp:3356:18) in function 'fcLayer.1'.
+INFO: [XFORM 203-541] Flattening a loop nest 'fclayer_loop_1' (../src_files/Main_Code.cpp:3356:18) in function 'fcLayer'.
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_Pe2Buf_PofBankStep' (../src_files/Main_Code.cpp:654:27) in function 'Pe2Buf'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 8 seconds. CPU system time: 0 seconds. Elapsed time: 9.074 seconds; current allocated memory: 637.840 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'ConvX' ...
+WARNING: [SYN 201-103] Legalizing function name 'fcLayer.1_Pipeline_fclayer_loop_1_fclayer_loop_2' to 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2'.
+WARNING: [SYN 201-103] Legalizing function name 'fcLayer.1' to 'fcLayer_1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+WARNING: [SYN 201-107] Renaming port name 'ConvX/NofFirst' to 'ConvX/NofFirst_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadIfMap_Pipeline_If_Nif_If_Tiy_If_Nix' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_i1853) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'If_Nif_If_Tiy_If_Nix'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 15, loop 'If_Nif_If_Tiy_If_Nix'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 7 seconds. CPU system time: 0 seconds. Elapsed time: 7.531 seconds; current allocated memory: 657.348 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 658.438 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_i_i312) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'NorthPad_Nif_NorthPad_wrd'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'NorthPad_Nif_NorthPad_wrd'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.2 seconds; current allocated memory: 658.625 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.035 seconds; current allocated memory: 658.625 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_i187) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'SouthPad_Nif_SouthPad_wrd'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'SouthPad_Nif_SouthPad_wrd'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 0.426 seconds; current allocated memory: 659.281 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.057 seconds; current allocated memory: 659.281 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadIfMap_Pipeline_WestPad_Line' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'WestPad_Line'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'WestPad_Line'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.26 seconds; current allocated memory: 659.414 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.045 seconds; current allocated memory: 659.414 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadIfMap_Pipeline_EastPad_Line' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'EastPad_Line'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'EastPad_Line'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.562 seconds; current allocated memory: 660.168 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.062 seconds; current allocated memory: 660.168 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadIfMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=yBase) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.203 seconds; current allocated memory: 660.617 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 661.137 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.166 seconds; current allocated memory: 661.691 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.054 seconds; current allocated memory: 662.172 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadWtMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln2086) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.857 seconds; current allocated memory: 662.688 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 662.688 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadBiasTile_Pipeline_BiasLoop_Tof' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'BiasLoop_Tof'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 2, loop 'BiasLoop_Tof'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 4 seconds. CPU system time: 0 seconds. Elapsed time: 4.548 seconds; current allocated memory: 674.023 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.284 seconds; current allocated memory: 674.102 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadBiasTile' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_i) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.322 seconds; current allocated memory: 674.418 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.071 seconds; current allocated memory: 674.680 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'wndClc_ctrl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln394) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 674.723 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.052 seconds; current allocated memory: 674.727 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'wndClc_Dfl_Pipeline_Region1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_391) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_390) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_389) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_388) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_387) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_386) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_385) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_384) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_383) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_382) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_381) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_380) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_379) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_378) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_377) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_376) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_375) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_374) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_373) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_372) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_371) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_370) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_369) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_368) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_367) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_366) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_365) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_364) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_363) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_362) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_361) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_360) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_359) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_358) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_357) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_356) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_355) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_354) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_353) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_352) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_351) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_350) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_349) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_348) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_347) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_346) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_345) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_344) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_343) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_342) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_341) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_340) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_339) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_338) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_337) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_336) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_335) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_334) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_333) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_332) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_331) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_330) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_329) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_328) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_327) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_326) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_325) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_324) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_323) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_322) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_321) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_320) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_319) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_318) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_317) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_316) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_315) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_314) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_313) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_312) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_311) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_310) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_309) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_308) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_307) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_306) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_305) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_304) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_303) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_302) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_301) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_300) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_299) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_298) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_297) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_296) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_295) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_294) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_293) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_292) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_291) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_290) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_289) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_288) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_287) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_286) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_285) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_284) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_283) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_282) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_281) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_280) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_279) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_278) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_277) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_276) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_275) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_274) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_273) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_272) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_271) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_270) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_269) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_268) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_267) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_266) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_265) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_264) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_263) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_262) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_261) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_260) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_259) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_258) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_257) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_256) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_255) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_254) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_253) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_252) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_251) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_250) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_249) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_248) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_247) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_246) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_245) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_244) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_243) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_242) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_241) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_240) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_239) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_238) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_237) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_236) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_235) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_234) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_233) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_232) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_231) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_230) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_229) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_228) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_227) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_226) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_225) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_224) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_223) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_222) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_221) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_220) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_219) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_218) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_217) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_216) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_215) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_214) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_213) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_212) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_211) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_210) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_209) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_208) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_207) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_206) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_205) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_204) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_203) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_202) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_201) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_200) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_199) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_198) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_197) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_196) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_195) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_194) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_193) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_192) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_191) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_190) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_189) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_188) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_187) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_186) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_185) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_184) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_183) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_182) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_181) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_180) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_179) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_178) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_177) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_176) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_175) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_174) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_173) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_172) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_171) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_170) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_169) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_168) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_167) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_166) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_165) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_164) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_163) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_162) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_161) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_160) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_159) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_158) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_157) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_156) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_155) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_154) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_153) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_152) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_151) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_150) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_149) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_148) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_147) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_146) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_145) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_144) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_143) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_142) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_141) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_140) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_139) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_138) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_137) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_136) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_135) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_134) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_133) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_132) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_131) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_130) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_129) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_128) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_127) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_126) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_125) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_124) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_123) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_122) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_121) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_120) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_119) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_118) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_117) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_116) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_115) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_114) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_113) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_112) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_111) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_110) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_109) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_108) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_107) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_106) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_105) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_104) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_103) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_102) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_101) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_100) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_99) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_98) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_97) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_96) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_95) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_94) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_93) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_92) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_91) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_90) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_89) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_88) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_87) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_86) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_85) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_84) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_83) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_82) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_81) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_80) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_79) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_78) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_77) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_76) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_75) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_74) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_73) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_72) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_71) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_70) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_69) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_68) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_67) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_66) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_65) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_64) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_63) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_62) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_61) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_60) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_59) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_58) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_57) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_56) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_55) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_54) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_53) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_52) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_51) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_50) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_49) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_48) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_47) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_46) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_45) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_44) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_43) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_42) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_41) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_40) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_39) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_38) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_37) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_36) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_35) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_34) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_33) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_32) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_31) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_30) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_29) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_28) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_27) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_26) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_25) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_24) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_23) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_22) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_21) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_20) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_19) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_18) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_17) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_16) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_15) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_14) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_13) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_12) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_10) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_9) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_8) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_6) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_5) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=add_ln102) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'Region1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 6, loop 'Region1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 6 seconds. CPU system time: 1 seconds. Elapsed time: 27.204 seconds; current allocated memory: 710.449 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 2.19 seconds; current allocated memory: 710.551 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'wndClc_Dfl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=sub_i_i) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 3 seconds. CPU system time: 0 seconds. Elapsed time: 3.396 seconds; current allocated memory: 711.199 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.736 seconds; current allocated memory: 711.520 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'bias_ReLu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'bias_ReLu'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, function 'bias_ReLu'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.963 seconds; current allocated memory: 714.902 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.24 seconds; current allocated memory: 715.035 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=add_i108) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 4, loop 'loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 1.568 seconds; current allocated memory: 722.980 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.348 seconds; current allocated memory: 723.359 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Pe2Buf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 0.996 seconds; current allocated memory: 726.852 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.393 seconds; current allocated memory: 728.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'tileClc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.195 seconds; current allocated memory: 733.414 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.492 seconds; current allocated memory: 735.930 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop_Tof_Loop_Toy_Loop_Tox'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 11, loop 'Loop_Tof_Loop_Toy_Loop_Tox'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.638 seconds; current allocated memory: 737.648 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.075 seconds; current allocated memory: 737.879 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'storeMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.188 seconds; current allocated memory: 738.066 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.068 seconds; current allocated memory: 738.066 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ConvLayerScdl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 2.069 seconds; current allocated memory: 791.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 3 seconds. CPU system time: 0 seconds. Elapsed time: 3.249 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ConvLayer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 1.976 seconds; current allocated memory: 791.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ConvX_Pipeline_VITIS_LOOP_3275_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_3275_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_3275_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.372 seconds; current allocated memory: 791.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.049 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=tmpOutPx_1) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'fclayer_loop_1_fclayer_loop_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 17, loop 'fclayer_loop_1_fclayer_loop_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.105 seconds; current allocated memory: 791.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.047 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fcLayer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.098 seconds; current allocated memory: 791.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.047 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=tmpOutPx_3) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'outPx'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'fclayer_loop_1_fclayer_loop_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 6, loop 'fclayer_loop_1_fclayer_loop_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.102 seconds; current allocated memory: 791.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.047 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fcLayer_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.063 seconds; current allocated memory: 791.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.039 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ConvX_Pipeline_VITIS_LOOP_3302_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-1457] Automatically inferring inferring RAM_1WNR storage type for array 'finalOut'. Use bind_storage pragma to override this type.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_3302_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'VITIS_LOOP_3302_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.56 seconds; current allocated memory: 791.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ConvX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.108 seconds; current allocated memory: 791.855 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.22 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_If_Nif_If_Tiy_If_Nix' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadIfMap_Pipeline_If_Nif_If_Tiy_If_Nix' pipeline 'If_Nif_If_Tiy_If_Nix' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'am_addmul_5ns_8ns_9s_18_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_17s_10ns_26_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_18s_20ns_38_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_26s_28ns_53_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_If_Nif_If_Tiy_If_Nix'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.647 seconds; current allocated memory: 791.855 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd' pipeline 'NorthPad_Nif_NorthPad_wrd' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_12ns_6ns_6ns_14_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_3ns_12_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.605 seconds; current allocated memory: 793.543 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd' pipeline 'SouthPad_Nif_SouthPad_wrd' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_12ns_6ns_9s_14_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_3ns_12_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.382 seconds; current allocated memory: 793.543 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_WestPad_Line' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_WestPad_Line'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.522 seconds; current allocated memory: 793.543 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap_Pipeline_EastPad_Line' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap_Pipeline_EastPad_Line'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.347 seconds; current allocated memory: 793.543 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadIfMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'layerCnfg_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nif_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Niy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Noy_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tiy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tix' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'row_1map_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wrd_1row_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'TiyRem' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'TixRem' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'yTileCount' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8s_6s_1s_8_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_11ns_20_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_3ns_12_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_6ns_15_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_4s_6ns_9_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_5ns_6ns_11_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_6ns_3ns_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_10ns_17_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_9s_8ns_17_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_5ns_4ns_3_9_seq_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_8ns_4ns_3_12_seq_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadIfMap'.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadIfMap_Nif_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadIfMap_niy_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadIfMap_noy_step_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadIfMap_tiy_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadIfMap_tix_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadIfMap_row_1map_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadIfMap_wrd_1row_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.909 seconds; current allocated memory: 798.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx' pipeline 'WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx/m_axi_WTMAP_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadWtMap_Pipeline_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.691 seconds; current allocated memory: 804.199 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadWtMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'layerCnfg_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nif_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nof_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'fTileCount' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'am_addmul_12ns_9ns_10ns_21_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_13ns_10ns_22_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_9ns_4ns_13_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadWtMap'.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadWtMap_Nof_step_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadWtMap_Tof_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.503 seconds; current allocated memory: 806.191 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadBiasTile_Pipeline_BiasLoop_Tof' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadBiasTile_Pipeline_BiasLoop_Tof' pipeline 'BiasLoop_Tof' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadBiasTile_Pipeline_BiasLoop_Tof'.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadBiasTile_Pipeline_BiasLoop_Tof_bias_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 0.851 seconds; current allocated memory: 814.633 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadBiasTile' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'layerCnfg_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nof_step_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'addressBase' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_step_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nofy_step_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nof_step_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'tileCount_2' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_9ns_2ns_8ns_10_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_5s_3ns_5_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadBiasTile'.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadBiasTile_nofy_step_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_loadBiasTile_tof_step_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 2.067 seconds; current allocated memory: 829.516 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'wndClc_ctrl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'Toy_step_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tox_step_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_step_i' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_6ns_2ns_5ns_8_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'wndClc_ctrl'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.85 seconds; current allocated memory: 836.359 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'wndClc_Dfl_Pipeline_Region1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_48' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_47' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_46' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_45' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_44' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_43' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_42' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_41' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_40' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_39' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_38' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_37' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_36' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_35' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_34' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_33' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_32' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_31' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_30' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_29' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_28' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_27' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_26' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_25' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_24' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_23' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_22' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_21' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_20' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_19' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_18' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_17' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_16' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_15' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_14' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_13' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_12' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_11' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_10' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_9' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_8' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_6' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_5' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_4' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'guard_variable_for_InBuf2Pe_wrapper_ap_uint_ap_uint_ap_uint_ap_uint_ap_uint_ap_u' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nky_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nif_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nkx_i' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'wndClc_Dfl_Pipeline_Region1' pipeline 'Region1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'wndClc_Dfl_Pipeline_Region1' is 7468 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8s_8s_18s_18_4_1': 392 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_7_2_8_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_3_14_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'wndClc_Dfl_Pipeline_Region1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 3 seconds. CPU system time: 0 seconds. Elapsed time: 3.643 seconds; current allocated memory: 867.414 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'wndClc_Dfl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7_7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'p_ZZ8InBuf2Pe7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_intILi8EEPA7' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'row_wtlocal' is power-on initialization.
+INFO: [RTGEN 206-104] Estimated max fanout for 'wndClc_Dfl' is 7057 from HDL expression: (1'b1 == ap_CS_fsm_state6)
+INFO: [RTGEN 206-100] Generating core module 'mac_mul_sub_6ns_3ns_6ns_9_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'wndClc_Dfl'.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_83_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_81_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_79_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_77_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_75_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_73_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_71_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_69_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_67_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_65_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_63_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_61_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_59_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_57_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_55_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_53_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_51_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_49_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_47_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_45_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_43_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_41_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_39_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_37_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_35_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_33_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_31_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_29_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_27_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_25_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_23_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_21_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_19_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_17_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_15_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_13_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_11_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_9_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_7_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_5_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_3_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'p_ZZ16InBuf2Pe_wrapper7ap_uintILi14EES_ILi3EES1_S_ILi1EES2_S2_PA12800_A7_K6ap_int_1_U(ConvX_fifo_w8_d4_S)' using Shift Registers.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 29 seconds. CPU system time: 4 seconds. Elapsed time: 35.662 seconds; current allocated memory: 1.439 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'bias_ReLu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'POFBANK_STEP_i' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Poy_i' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_257_8_2_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'bias_ReLu'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.125 seconds; current allocated memory: 1.447 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy' pipeline 'loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_6ns_3ns_15ns_15_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_15_3_18_1_1': 56 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_18_1_1': 14 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.311 seconds; current allocated memory: 1.447 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Pe2Buf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'Toy_step_i_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tox_step_i_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_step_i_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'rowStep' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'mul_6ns_5ns_10_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Pe2Buf'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.066 seconds; current allocated memory: 1.465 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'tileClc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'layerCnfg' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'tileclc_loop_limit' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wndclc_loop_limit' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wtbuf2pe_loop_limit' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nofy_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nif' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Toy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Toy_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tox_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof_step' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wrd_1row' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'row_1map' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pe2buf_addr_offset1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pe2buf_addr_offset2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'pe2buf_addr_offset3' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'bit_shift' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'tileCount' is power-on initialization.
+INFO: [RTGEN 206-104] Estimated max fanout for 'tileClc' is 7935 from HDL expression: (1'b1 == ap_CS_fsm_state4)
+INFO: [RTGEN 206-100] Finished creating RTL model for 'tileClc'.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_tileclc_loop_limit_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_wndclc_loop_limit_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_wtbuf2pe_loop_limit_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_Toy_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_toy_step_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_tox_step_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_pe2buf_addr_offset1_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_pe2buf_addr_offset2_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_pe2buf_addr_offset3_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_tileClc_bit_shift_rom_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 13 seconds. CPU system time: 0 seconds. Elapsed time: 14.404 seconds; current allocated memory: 1.669 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox' pipeline 'Loop_Tof_Loop_Toy_Loop_Tox' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_37s_8ns_45_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_40s_8ns_48_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_45s_47ns_91_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_48s_8ns_56_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_56s_58ns_113_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.309 seconds; current allocated memory: 1.685 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'storeMap' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'layerCnfg_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'layerNo_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Nofy_step_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Noy' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tof' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Toy_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'Tox' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wrd_1rowOut' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'tileCount_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'NofFirst_r' is power-on initialization.
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_5ns_37_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_9ns_40_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_5ns_6ns_11_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_6ns_5ns_10_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_10ns_17_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_9ns_11ns_19_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'storeMap'.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_storeMap_nofFirst_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.402 seconds; current allocated memory: 1.686 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ConvLayerScdl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_RAM_AUTO_1R1W' to 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_RAM_AUbkb' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_2_RAM_AUTO_1R1W' to 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_2_RAM_cud' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_3_RAM_AUTO_1R1W' to 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_3_RAM_dEe' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_4_RAM_AUTO_1R1W' to 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_4_RAM_eOg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_5_RAM_AUTO_1R1W' to 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_5_RAM_fYi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_6_RAM_AUTO_1R1W' to 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_6_RAM_g8j' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_7_RAM_AUTO_1R1W' to 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_7_RAM_hbi' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_8_RAM_AUTO_1R1W' to 'ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_8_RAM_ibs' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_0_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_0_RAM_AUjbC' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_1_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_1_RAM_AUkbM' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_2_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_2_RAM_AUlbW' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_3_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_3_RAM_AUmb6' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_4_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_4_RAM_AUncg' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_5_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_5_RAM_AUocq' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_6_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_6_RAM_AUpcA' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_0_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_0_RAM_AUqcK' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_1_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_1_RAM_AUrcU' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_2_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_2_RAM_AUsc4' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_3_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_3_RAM_AUtde' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_4_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_4_RAM_AUudo' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_5_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_5_RAM_AUvdy' due to the length limit 80
+INFO: [SYN 201-210] Renamed object name 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_6_RAM_AUTO_1R1W' to 'ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_1_6_RAM_AUwdI' due to the length limit 80
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ConvLayerScdl'.
+INFO: [RTMG 210-278] Implementing memory 'ConvX_ConvLayerScdl_ConvLayer_ap_int_56_const_ap_int_8_const_ap_int_56_WtBuf_RAM_AUbkb' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'ConvX_ConvLayerScdl_p_ZZ9ConvLayerPK6ap_intILi56EEPKS_ILi8EEPS0_E6OutBuf_0_0_RAM_AUjbC' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'ConvX_ConvLayerScdl_InBuf_48_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 2.652 seconds; current allocated memory: 1.695 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ConvLayer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'layerNo_6' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ConvLayer'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 2.663 seconds; current allocated memory: 1.785 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ConvX_Pipeline_VITIS_LOOP_3275_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ConvX_Pipeline_VITIS_LOOP_3275_1' pipeline 'VITIS_LOOP_3275_1' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3275_1/m_axi_IFMAP_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ConvX_Pipeline_VITIS_LOOP_3275_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.378 seconds; current allocated memory: 1.785 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2' pipeline 'fclayer_loop_1_fclayer_loop_2' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8s_8s_18s_18_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_12ns_21_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_15_3_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_10ns_4ns_3_14_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fcLayer_Pipeline_fclayer_loop_1_fclayer_loop_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.78 seconds; current allocated memory: 1.785 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fcLayer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fcLayer'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.252 seconds; current allocated memory: 1.785 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2' pipeline 'fclayer_loop_1_fclayer_loop_2' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2/m_axi_WTMAP_0_ARUSER' to 0.
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8s_8s_18s_18_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2'.
+INFO: [RTMG 210-279] Implementing memory 'ConvX_fcLayer_1_Pipeline_fclayer_loop_1_fclayer_loop_2_p_ZL6biasFC_1_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.191 seconds; current allocated memory: 1.785 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fcLayer_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fcLayer_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.226 seconds; current allocated memory: 1.785 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ConvX_Pipeline_VITIS_LOOP_3302_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ConvX_Pipeline_VITIS_LOOP_3302_2' pipeline 'VITIS_LOOP_3302_2' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'ConvX_Pipeline_VITIS_LOOP_3302_2/m_axi_OFMAP_0_BREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ConvX_Pipeline_VITIS_LOOP_3302_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.338 seconds; current allocated memory: 1.785 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ConvX' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvX/IFMAP' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvX/WTMAP' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvX/OFMAP' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvX/IfMap_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvX/WtMap_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ConvX/OfMap_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'ConvX' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'layerNo_5' is power-on initialization.
+INFO: [RTGEN 206-100] Bundling port 'IfMap_r', 'WtMap_r' and 'OfMap_r' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ConvX'.
+INFO: [RTMG 210-278] Implementing memory 'ConvX_inPx_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'ConvX_outPx1_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-2167] Implementing memory 'ConvX_finalOut_RAM_1WNR_AUTO_1R1W' using auto RAMs with 6 copies to ensure enough ports to satisfy II or latency constraints.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.538 seconds; current allocated memory: 1.785 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 3.111 seconds; current allocated memory: 1.785 GB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 5.494 seconds; current allocated memory: 1.824 GB.
+INFO: [VHDL 208-304] Generating VHDL RTL for ConvX.
+INFO: [VLOG 209-307] Generating Verilog RTL for ConvX.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 136.99 MHz
+INFO: [HLS 200-112] Total CPU user time: 121 seconds. Total CPU system time: 17 seconds. Total elapsed time: 238.104 seconds; peak allocated memory: 1.824 GB.
+INFO: [v++ 60-791] Total elapsed time: 0h 4m 3s

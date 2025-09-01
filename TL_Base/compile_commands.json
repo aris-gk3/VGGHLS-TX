@@ -6,7 +6,7 @@
       "--sysroot=C:\\Xilinx\\2025.1\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",
       "-fhls",
       "-hls-syn-headers-dir=C:\\Xilinx\\2025.1\\Vitis\\common\\technology\\autopilot",
-      "-fhlstoplevel=ConvLayer",
+      "-fhlstoplevel=ConvX",
       "-c",
       "C:\\Programming_Files\\VGGHLS-TX\\TL_Base\\..\\src_files\\Main_Code.cpp"
     ],

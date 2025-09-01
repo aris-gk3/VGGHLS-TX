@@ -1,0 +1,139 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer'.
+INFO: [HLS 200-1611] Setting target device to 'xcvu9p-flga2104-3-e'
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=../src_files/Main_Code.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file 'C:/Programming_Files/VGGHLS-TX/src_files/Main_Code.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/Auxiliary_Calculations.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/Auxiliary_Calculations.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/main_tb.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/main_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Buf2Pe.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Buf2Pe.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Dfl_ControlLogic.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Dfl_ControlLogic.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_fcLayer.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_fcLayer.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_gap.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(14)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_gap.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_loadbin.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(15)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_loadbin.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_maxPool.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(16)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_maxPool.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Mem2Buf.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(17)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Mem2Buf.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_parameters.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(18)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_parameters.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_Top.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(19)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_Top.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=../src_files/tb_port_widening.cpp' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(20)
+INFO: [HLS 200-10] Adding test bench file 'C:/Programming_Files/VGGHLS-TX/src_files/tb_port_widening.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=fcLayer' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xcvu9p-flga2104-3-e' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(1)
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(21)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Programming_Files/VGGHLS-TX/TL_Base/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "C:/Xilinx/2025.1/Vitis/win64/tools/vcxx/libexec/clang++"
+   Compiling apatb_fcLayer.cpp
+   Compiling tb_loadbin.cpp_pre.cpp.tb.cpp
+   Compiling tb_Mem2Buf.cpp_pre.cpp.tb.cpp
+   Compiling tb_gap.cpp_pre.cpp.tb.cpp
+   Compiling Main_Code.cpp_pre.cpp.tb.cpp
+   Compiling tb_parameters.cpp_pre.cpp.tb.cpp
+   Compiling Auxiliary_Calculations.cpp_pre.cpp.tb.cpp
+   Compiling tb_fcLayer.cpp_pre.cpp.tb.cpp
+   Compiling tb_Buf2Pe.cpp_pre.cpp.tb.cpp
+   Compiling main_tb.cpp_pre.cpp.tb.cpp
+   Compiling tb_port_widening.cpp_pre.cpp.tb.cpp
+   Compiling tb_maxPool.cpp_pre.cpp.tb.cpp
+   Compiling tb_Top.cpp_pre.cpp.tb.cpp
+   Compiling tb_Dfl_ControlLogic.cpp_pre.cpp.tb.cpp
+   Compiling apatb_fcLayer_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+*********************************************************************************  Starting Verification. ************************************************************************************
+Printing toy example for FC Layer
+Input Pixels of FC Layer
+    2    2    1    1    2    1    0    0
+Weights of FC Layer
+    1    2    2    2    1    0    1    2
+    1    2    0    0    0    0    2    0
+    1    1    0    2    2    2    2    0
+    2    0    0    1    2    1    1    0
+    2    0    2    0    0    2    0    1
+    2    1    2    2    1    0    0    1
+Bias of FC Layer
+    0    0    0    0    0    0
+Output Pixels of FC Layer
+   79  -95    0    0 -121  -95
+
+*********************************************************************************  Verification Complete. ************************************************************************************
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+
+C:\Programming_Files\VGGHLS-TX\TL_Base\ConvLayer\hls\sim\verilog>set PATH= 
+
+C:\Programming_Files\VGGHLS-TX\TL_Base\ConvLayer\hls\sim\verilog>call C:/Xilinx/2025.1/Vivado/bin/xelab xil_defaultlib.apatb_fcLayer_top xil_defaultlib.glbl -Oenable_linking_all_libraries -prj fcLayer.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_1_20 -L floating_point_v7_0_25 --lib "ieee_proposed=./ieee_proposed" -L uvm -relax -i ./svr -i ./axivip -i ./svtb -i ./file_agent -i ./fcLayer_subsystem  -s fcLayer  
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_fcLayer_top xil_defaultlib.glbl -Oenable_linking_all_libraries -prj fcLayer.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_20 -L floating_point_v7_0_25 --lib ieee_proposed=./ieee_proposed -L uvm -relax -i ./svr -i ./axivip -i ./svtb -i ./file_agent -i ./fcLayer_subsystem -s fcLayer 
+Multi-threading is on. Using 10 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/fcLayer.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_fcLayer_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/fcLayer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fcLayer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/fcLayer_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fcLayer_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/fcLayer_gmem_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_store
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_write
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_burst_converter
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_burst_interleave
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_burst_sequential
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_srl
+INFO: [VRFC 10-311] analyzing module fcLayer_gmem_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/fcLayer_mul_16s_18s_18_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fcLayer_mul_16s_18s_18_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/fcLayer_mul_8s_8s_16_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fcLayer_mul_8s_8s_16_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/file_agent/file_agent_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/svr/svr_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/svr/svr_if.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/axivip/axi_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/axivip/axi_if.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/fcLayer_subsystem/fcLayer_subsystem_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/svtb/misc_interface.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Programming_Files/VGGHLS-TX/TL_Base/ConvLayer/hls/sim/verilog/svtb/sv_module_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sv_module_top
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/proj/primebuilds/9999.0_PRIME_0428_0031/installs/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 4356. Module uvm_pkg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/proj/primebuilds/9999.0_PRIME_0428_0031/installs/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 4356. Module uvm_pkg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4468] File : /proj/primebuilds/9999.0_PRIME_0428_0031/installs/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv, Line : 25994, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_sv_module_top_sv
+Compiling package uvm.uvm_pkg

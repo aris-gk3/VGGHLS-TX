@@ -203,10 +203,29 @@ void ConvLayerScdl(
 		// Output
 		px_data_t_port *OfMap
 	);
+void ConvX(
+		//Inputs
+		const px_data_t_port *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
+		const wt_data_t_port *WtMap, 	// [NOF][NIF][NKY][NKX]
+		const wt_data_t      *WtMapFc,
+		//Output
+		px_data_t_port *OfMap 			// [NOF][NOY][NOX]
+	);
 void gap(px_data_t *in, px_data_t *out);
 void fcLayers(px_data_t *IfMap, wt_data_t *WtMap, px_data_t finalOut[1000]);
-void fcLayer(/*Inputs*/ px_data_t *inPx, wt_data_t *WtMap, int inLength, int outLength, int layerNo,
-		/*Output*/ px_data_t *outPx);
+void fcLayersOF(
+		/*Inputs*/ px_data_t *IfMap, wt_data_t *WtMap,
+		/*Output*/ px_data_t finalOut[17]);
+void fcLayersOFBlock(
+		/*Inputs*/ const px_data_t_port *IfMap, const wt_data_t *WtMap,
+		/*Output*/ px_data_t_port *OfMap);
+void fcLayer(
+		// Inputs
+		px_data_t inPx[], const wt_data_t WtMap[],
+		int inLength, int outLength, int layerNo,
+		// Output
+		px_data_t outPx[]
+	);
 void maxPool(px_data_t *IfMap, int channels, int yDim_out, int xDim_out, px_data_t *OfMap);
 void vgg16Top(px_data_t *Map1, wt_data_t *WtMap, px_data_t *Map2, px_data_t finalOut[1000]);
 void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, // [NOF][NIF][NKY][NKX]
@@ -226,10 +245,11 @@ void printWtStream(wt_data_t WtStream[POF]);
 void printPeResults(px_data_t px_stream[POF][POY][POX]);
 
 // ** Testbench for Modules Function
+void minimalRunSynthConv(int layerNo);
 void minimalRunSynth(int layerNo);
 int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue);
 int vgg16_test(int verbose, int minPrint, int biasReLuTrue);
-int fcLayer_test(int verbose);
+int fcLayer_test(int verbose, std::string caseChoice);
 int maxPool_test(int verbose);
 int convLayer_test(int verbose, int debug, int minPrint,
 					int printErrorOnly, int printLayer, int biasReLuTrue,
@@ -376,8 +396,10 @@ void unpack(data_t_widened *Map_widened, px_data_t *Map,
 	}
 }
 #endif
-void wt_reorder(wt_data_t *Map, wt_data_t *Map_reordered, int layerNo);
-void convChoice(px_data_t *IfMap, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
+void wt_reorder(const wt_data_t *Map, wt_data_t *Map_reordered, int layerNo);
+void convChoice(px_data_t *IfMap, const wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		px_data_t *OfMap, int layerNo);
+void fcChoice(px_data_t *IfMap, const wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
+		px_data_t *OfMap);
 
 #endif // FUNCTION_DECLARATIONS_H

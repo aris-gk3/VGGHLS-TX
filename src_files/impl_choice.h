@@ -22,12 +22,17 @@
 // Region2: REGION2_SEQ, REGION2_DFL, REGION2_MNLSCHEDULE_2BUF, REGION2_PPL
 #define REGION2_SEQ
 // Region3: REG3_SEQ, REG3_OVLP, REG3_FOVLP, REG3_DFL
-#define REG3_OVLP
-// **Buffer Sizing**
-
+#define REG3_SEQ
+// **Tiling Factors**
+// Tof: PREVIOUS_TOF_CHOICE, MAX_TOF_CHOICE, MIDDLE_TOF_CHOICE, MIN_TOF_CHOICE (conv. layers:8-13)
+// Toy: PREVIOUS_TOY_CHOICE, MAX_TOY_CHOICE, MIN_TOY_CHOICE (conv. layers:1-7)
+#define PREVIOUS_TOF_CHOICE
+#define MAX_TOY_CHOICE
 
 // **Misc**
 #define RECIPROCAL_BITS 30
 #define INTERNAL_CONFIG_LAYER
+    // used for debbuging/running without fc layers in the end
+#define CONVX
 
 #endif // IMPL_CHOICE_H

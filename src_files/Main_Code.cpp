@@ -3073,9 +3073,9 @@ void ConvLayer(
 		//Output
 		px_data_t_port *OfMap 			// [NOF][NOY][NOX]
 	){
-	#pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED bundle=IFMAP
-	#pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED bundle=WTMAP
-	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED bundle=OFMAP
+	// #pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED bundle=IFMAP
+	// #pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED bundle=WTMAP
+	// #pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED bundle=OFMAP
 	static layerNo_dt layerNo = 0; 				// State of number of convolutional layer
 // Sequential
 	#if defined(REG3_SEQ)
@@ -3195,6 +3195,29 @@ void ConvLayer(
 }
 
 
+void ConvX(
+		//Inputs
+		const px_data_t_port *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
+		const wt_data_t_port *WtMap, 	// [NOF][NIF][NKY][NKX]
+		const wt_data_t      *WtMapFc,
+		//Output
+		px_data_t_port *OfMap 			// [NOF][NOY][NOX]
+	){
+	#pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED 	bundle=IFMAP
+	#pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED 	bundle=WTMAP
+	#pragma HLS INTERFACE m_axi port=WtMap depth=(512*256) 				bundle=WTMAP
+	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED 	bundle=OFMAP
+	static layerNo_dt layerNo = 0; 				// State of number of convolutional layer
+	if(layerNo==LAYERS){
+		fcLayersOFBlock(IfMap, WtMapFc, OfMap);
+		layerNo = 0;
+	}
+	else{
+		ConvLayer(IfMap, WtMap, OfMap);
+		layerNo++;
+	}
+}
+
 void gap(px_data_t *in, px_data_t *out){
 	// int input[512 * 7 * 7]; // CHW format
 	// int output[512];        // GAP output
@@ -3237,6 +3260,68 @@ void fcLayersOF(
 }
 
 
+void fcLayersOFBlock(
+		/*Inputs*/ const px_data_t_port *IfMap, const wt_data_t *WtMap,
+		/*Output*/ px_data_t_port *OfMap){
+	#pragma HLS INLINE
+	#ifndef __SYNTHESIS__
+		int min, max, minWt, maxWt;
+	#endif
+	px_data_t inPx[512];
+	px_data_t outPx1[256];
+	px_data_t finalOut[17];
+	#if not defined(FMAP_WIDEN)
+		for(int i=0;i<512;i++){
+			inPx[i] = IfMap[i];
+		}
+	#else
+		for(int i=0;i<(512/FMAP_WIDTHFACTOR);i++){
+			inPx[i*FMAP_WIDTHFACTOR+0] = IfMap[i].range(SYNTH_BITS-1,0);
+			inPx[i*FMAP_WIDTHFACTOR+1] = IfMap[i].range(SYNTH_BITS*2-1,SYNTH_BITS);
+			inPx[i*FMAP_WIDTHFACTOR+2] = IfMap[i].range(SYNTH_BITS*3-1,SYNTH_BITS*2);
+			inPx[i*FMAP_WIDTHFACTOR+3] = IfMap[i].range(SYNTH_BITS*4-1,SYNTH_BITS*3);
+			inPx[i*FMAP_WIDTHFACTOR+4] = IfMap[i].range(SYNTH_BITS*5-1,SYNTH_BITS*4);
+			inPx[i*FMAP_WIDTHFACTOR+5] = IfMap[i].range(SYNTH_BITS*6-1,SYNTH_BITS*5);
+			inPx[i*FMAP_WIDTHFACTOR+6] = IfMap[i].range(SYNTH_BITS*7-1,SYNTH_BITS*6);
+		}
+		inPx[511] = IfMap[73].range(SYNTH_BITS-1, 0);
+	#endif
+
+
+	fcLayer(inPx, WtMap, 512, 256, 0, outPx1);
+	#ifndef __SYNTHESIS__
+		findMinMax(WtMap, 512*256, minWt, maxWt);
+		findMinMax(outPx1, 256, min, max);
+		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+		std::cout << "20) After fc1: min=" << min << ", max=" << max << "\n";
+	#endif
+
+	WtMap += WtMapOffsetFC[0];
+	fcLayer(outPx1, WtMap, 256, 17, 1, finalOut);
+	#if not defined(FMAP_WIDEN)
+		for(int i=0;i<17;i++){
+			OfMap[i] = finalOut[i];
+		}
+	#else
+		for(int i=0;i<my_ceil(17, FMAP_WIDTHFACTOR);i++){
+			OfMap[i].range(SYNTH_BITS-1,0) 				= finalOut[i*7+0];
+			OfMap[i].range(SYNTH_BITS*2-1,SYNTH_BITS) 	= finalOut[i*7+1];
+			OfMap[i].range(SYNTH_BITS*3-1,SYNTH_BITS*2) = finalOut[i*7+2];
+			OfMap[i].range(SYNTH_BITS*4-1,SYNTH_BITS*3) = finalOut[i*7+3];
+			OfMap[i].range(SYNTH_BITS*5-1,SYNTH_BITS*4) = finalOut[i*7+4];
+			OfMap[i].range(SYNTH_BITS*6-1,SYNTH_BITS*5) = finalOut[i*7+5];
+			OfMap[i].range(SYNTH_BITS*7-1,SYNTH_BITS*6) = finalOut[i*7+6];
+		}
+	#endif
+	#ifndef __SYNTHESIS__
+		findMinMax(WtMap, 256*CLASSES, minWt, maxWt);
+		findMinMax(finalOut, CLASSES, min, max);
+		std::cout << "Weights: min=" << minWt << ", max=" << maxWt << "\n";
+		std::cout << "21) After fc2: min=" << min << ", max=" << max << "\n";
+		std::cout << "Finished second fc layer!" << std::endl;
+	#endif
+}
+
 
 void fcLayers(
 		// Inputs
@@ -3259,23 +3344,108 @@ void fcLayers(
 
 void fcLayer(
 		// Inputs
-		px_data_t *inPx, wt_data_t *WtMap,
+		px_data_t inPx[], const wt_data_t WtMap[],
 		int inLength, int outLength, int layerNo,
 		// Output
-		px_data_t *outPx
+		px_data_t outPx[]
 	){
+		#pragma HLS INLINE
+	// // Add below only, when it is synthesized
+	// #pragma HLS INTERFACE m_axi depth=   512    port=inPx  		// offset=slave bundle=IFMAP
+	// #pragma HLS INTERFACE m_axi depth=(512*256) port=WtMap 		// offset=slave bundle=WTMAP
+	// #pragma HLS INTERFACE m_axi depth=   256    port=outPx 		// offset=slave bundle=OFMAP
+	acc_data_t tmpOutPx;
+	int mapAddress;
+	mapAddress = 0;
 	fclayer_loop_1: for(int i=0;i<outLength;i++){
-		outPx[i] = 0;
+		tmpOutPx = 0;
 		fclayer_loop_2: for(int j=0;j<inLength;j++){
-			outPx[i] += *(WtMap + i*inLength + j) * inPx[j];
+		#pragma HLS PIPELINE
+			tmpOutPx += WtMap[mapAddress] * inPx[j];
+			mapAddress++;
 		}
-		outPx[i] = outPx[i] / (1 << bit_shift_fc_rom[layerNo]);
-		outPx[i] = outPx[i] + biasFC[layerNo][i];
-		if (outPx[i]<0){
-			outPx[i] = 0;
+		// tmpOutPx = tmpOutPx / (1 << bit_shift_fc_rom[layerNo]);
+		tmpOutPx = tmpOutPx >> bit_shift_fc_rom[layerNo];
+		tmpOutPx = tmpOutPx + biasFC[layerNo][i];
+		if (tmpOutPx<0){
+			tmpOutPx = 0;
 		}
+		outPx[i] = tmpOutPx;
 	}
 }
+
+// void fcLayer(
+	// 		// Inputs
+	// 		px_data_t inPx[], wt_data_t WtMap[],
+	// 		int inLength, int outLength, int layerNo,
+	// 		// Output
+	// 		px_data_t outPx[]
+	// 	){
+	// 	#pragma HLS INTERFACE m_axi port=inPx   bundle=IFMAP
+	// 	#pragma HLS INTERFACE m_axi port=WtMap  bundle=WTMAP
+	// 	#pragma HLS INTERFACE m_axi port=outPx  bundle=OFMAP
+	//     #pragma HLS INTERFACE s_axilite port=inLength   bundle=control
+	//     #pragma HLS INTERFACE s_axilite port=outLength  bundle=control
+	//     #pragma HLS INTERFACE s_axilite port=layerNo    bundle=control
+	//     #pragma HLS INTERFACE s_axilite port=return     bundle=control
+	// 	// #pragma HLS INTERFACE m_axi port=inPx bundle=IFMAP
+	// 	// #pragma HLS INTERFACE m_axi port=WtMap bundle=WTMAP
+	// 	// #pragma HLS INTERFACE m_axi port=outPx bundle=OFMAP
+	// 	acc_data_t tmpOutPx;
+	// 	fclayer_loop_1: for(int i=0;i<outLength;i++){
+	// 		tmpOutPx = 0;
+	// 		fclayer_loop_2: for(int j=0;j<inLength;j++){
+	// 			tmpOutPx += WtMap[i*inLength + j] * inPx[j];
+	// 			// std::cout << "Address value:" << i*inLength + j << std::endl;
+	// 			// std::cout << "j value:" << j << std::endl;
+	// 			// std::cout << "WtMap value:" << WtMap[i*inLength + j] << std::endl;
+	// 			// std::cout << "inPx value:" << inPx[j] << std::endl;
+	// 			// std::cout << "tmpOutPx value:" << tmpOutPx << std::endl;
+	// 			// std::cout << "\n\n";
+	// 		}
+	// 		// tmpOutPx = tmpOutPx / (1 << bit_shift_fc_rom[layerNo]);
+	// 		// tmpOutPx = tmpOutPx >> bit_shift_fc_rom[layerNo];
+	// 		tmpOutPx = tmpOutPx + biasFC[layerNo][i];
+	// 		if (tmpOutPx<0){
+	// 			tmpOutPx = 0;
+	// 		}
+	// 		// outPx[i] = tmpOutPx.range(31, 16);
+	// 		outPx[i] = (px_data_t)tmpOutPx;
+	// 	}
+	// }
+
+// void fcLayer(
+    // px_data_t *inPx,
+    // wt_data_t *WtMap,
+    // int inLength,
+    // int outLength,
+    // int layerNo,
+    // px_data_t *outPx
+	// 	) {
+	// 		#pragma HLS INTERFACE m_axi depth=512 port=inPx  // offset=slave bundle=IFMAP
+	// 		#pragma HLS INTERFACE m_axi depth=512 port=WtMap // offset=slave bundle=WTMAP
+	// 		#pragma HLS INTERFACE m_axi depth=512 port=outPx
+	// 		// #pragma HLS INTERFACE s_axilite port=inLength   bundle=CTRL
+	// 		// #pragma HLS INTERFACE s_axilite port=outLength  bundle=CTRL
+	// 		// #pragma HLS INTERFACE s_axilite port=layerNo    bundle=CTRL
+	// 		// #pragma HLS INTERFACE s_axilite port=return     bundle=CTRL
+
+	// 		acc_data_t tmpOutPx;
+
+	// 		fclayer_loop_1: for (int i = 0; i < outLength; i++) {
+	// 			tmpOutPx = 0;
+	// 			fclayer_loop_2: for (int j = 0; j < inLength; j++) {
+	// 				tmpOutPx += (acc_data_t)WtMap[i*inLength + j] * (acc_data_t)inPx[j];
+	// 			}
+
+	// 			// tmpOutPx = tmpOutPx + biasFC[layerNo][i];
+
+	// 			if (tmpOutPx < 0){
+	// 				tmpOutPx = 0;
+	// 			}
+	// 			outPx[i] = (px_data_t)tmpOutPx;
+	// 		}
+	// 	}
 
 
 void maxPool(
@@ -3395,7 +3565,6 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		std::cout << " After maxpool5: min=" << min << ", max=" << max << "\n";
 	#endif
 
-	gap(Map1, Map2);
 	#if defined(HEAD_INTEGRATION)
 		swapPointers(Map1, Map2);
 	#else
@@ -3407,7 +3576,11 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 
 	WtMap += WtMapOffsetConv[12];
-	fcLayersOF(Map2, WtMap, finalOut);
+	#if not defined(CONVX)
+		fcLayersOF(Map2, WtMap, finalOut);
+	#else
+		fcChoice(Map2, WtMap, finalOut);
+	#endif
 	#ifndef __SYNTHESIS__
 		std::cout << "Finished all fc layers!" << std::endl;
 	#endif
@@ -3415,7 +3588,7 @@ void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 }
 
 
-void convChoice(px_data_t *IfMap, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
+void convChoice(px_data_t *IfMap, const wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		px_data_t *OfMap, int layerNo){
 	#if defined(WTMAP_WIDEN)
 		wt_data_t* WtMap_reordered = nullptr;
@@ -3423,7 +3596,7 @@ void convChoice(px_data_t *IfMap, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		wt_data_t_port* WtMap_port = nullptr;
 		WtMap_port = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
 	#else
-		wt_data_t_port* WtMap_port;
+		const wt_data_t_port* WtMap_port;
 	#endif
 	#if defined(FMAP_WIDEN)
 		static px_data_t_port IfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
@@ -3442,10 +3615,20 @@ void convChoice(px_data_t *IfMap, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 	#endif
 	#if defined(FMAP_WIDEN)
 		pack<px_data_t_port>(IfMap, IfMap_port, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
-		ConvLayer(IfMap_port, WtMap_port, OfMap_port);
+		#if not defined(CONVX)
+			ConvLayer(IfMap_port, WtMap_port, OfMap_port);
+		#else
+			wt_data_t *WtMapFC = nullptr;
+			ConvX(IfMap_port, WtMap_port, WtMapFC, OfMap_port);
+		#endif
 		unpack<px_data_t_port>(OfMap_port, OfMap, FMAP_WIDTHFACTOR, FMAP_MEMSIZE_WIDENED);
 	#else
-		ConvLayer(IfMap, WtMap_port, OfMap);
+		#if not defined(CONVX)
+			ConvLayer(IfMap, WtMap_port, OfMap);
+		#else
+			wt_data_t *WtMapFC = nullptr;
+			ConvX(IfMap, WtMap_port, WtMapFC, OfMap);
+		#endif
 	#endif
 	#ifndef __SYNTHESIS__
 		findMinMax(WtMap, Nif_rom[layerNo]*Nof_step_rom[layerNo]*Tof_rom[layerNo]*NKY*NKX, minWt, maxWt);
@@ -3461,6 +3644,44 @@ void convChoice(px_data_t *IfMap, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]
 		WtMap_port = nullptr;
 	#endif
 }
+
+
+void fcChoice(px_data_t *IfMap, const wt_data_t *WtMapFC, 	// [NOF][NIF][NKY][NKX]
+		px_data_t *OfMap){
+	// Only for ConvX case
+	#if defined(FMAP_WIDEN)
+		static px_data_t_port IfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
+		static px_data_t_port OfMap_port[FMAP_MEMSIZE_WIDENED] = {0};
+	#endif
+	#if defined(FMAP_WIDEN)
+		// pack<px_data_t_port>(IfMap, IfMap_port, FMAP_WIDTHFACTOR, 74);
+		for(int i=0;i<73;i++){
+			for(int factor_i=0;factor_i<7;factor_i++){
+				IfMap_port[i].range(SYNTH_BITS*(factor_i+1)-1,SYNTH_BITS*factor_i) = 
+					IfMap[i*7+factor_i];
+			}
+		}
+		IfMap_port[74].range(SYNTH_BITS*6-1,SYNTH_BITS) = 0;
+		IfMap_port[74].range(SYNTH_BITS-1,0) = IfMap[511];
+		wt_data_t_port *WtMap = nullptr;
+		ConvX(IfMap_port, WtMap, WtMapFC, OfMap_port);
+		std::cout << "REached Here77!" << std::endl;
+		// unpack<px_data_t_port>(OfMap_port, OfMap, FMAP_WIDTHFACTOR, 3);
+		for(int i=0;i<2;i++){
+			for(int factor_i=0;factor_i<7;factor_i++){
+				OfMap[i*7+factor_i] = 
+					OfMap_port[i].range(SYNTH_BITS*(factor_i+1)-1,SYNTH_BITS*factor_i);
+			}
+		}
+		OfMap[14] = OfMap_port[2].range(SYNTH_BITS-1,0);
+		OfMap[15] = OfMap_port[2].range(SYNTH_BITS*2-1,SYNTH_BITS);
+		OfMap[16] = OfMap_port[2].range(SYNTH_BITS*3-1,SYNTH_BITS*2);
+	#else
+		wt_data_t_port *WtMap = nullptr;
+		ConvX(IfMap, WtMap, WtMapFC, OfMap);
+	#endif
+}
+
 
 void swapPointers(px_data_t *&a, px_data_t *&b){
     px_data_t *temp = a;
