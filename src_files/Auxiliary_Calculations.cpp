@@ -800,3 +800,136 @@ void findBinaryLength(int *length, int bound){
 	}
 	*length = i;
 }
+
+void printParameters(){
+	std::cout << " Layers: " << LAYERS << std::endl;
+	std::cout << " NKX: " << NKX << std::endl;
+	std::cout << " NKY: " << NKY << std::endl;
+	std::cout << " S: " << S << std::endl;
+	std::cout << " Nif_rom: ";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << Nif_rom[i];
+	}
+	std::cout << "\n Noy_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << Noy_rom[i];
+	}
+	std::cout << "\n Tox_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << Tox_rom[i];
+	}
+	std::cout << " WRD_INBUF: " << WRD_INBUF << std::endl;
+	std::cout << " WRD_WTBUF: " << WRD_WTBUF << std::endl;
+	std::cout << " WRD_OUTBUF: " << WRD_OUTBUF << std::endl;
+	std::cout << " BIASBUF_LENGTH: " << BIASBUF_LENGTH << std::endl;
+	std::cout << " OUTBUF_NUM: " << OUTBUF_NUM << std::endl;
+	std::cout << " BIASMEM_LENGTH: " << BIASMEM_LENGTH << std::endl;
+	std::cout << " FMAP_MEMSIZE: " << FMAP_MEMSIZE << std::endl;
+	std::cout << " FMAP_MEMSIZE_WIDENED: " << FMAP_MEMSIZE_WIDENED << std::endl;
+	std::cout << " WTMAP_MEMSIZE: " << WTMAP_MEMSIZE << std::endl;
+	std::cout << " WTMAP_MEMSIZE_WIDENED: " << WTMAP_MEMSIZE_WIDENED << std::endl;
+	std::cout << " niy_rom: ";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << niy_rom[i];
+	}
+	std::cout << "\n tox_step_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << tox_step_rom[i];
+	}
+	std::cout << "\n tix_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << tix_rom[i];
+	}
+	std::cout << "\n wrd_1row_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << wrd_1row_rom[i];
+	}
+	std::cout << "\n pe_loop_limit_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << pe_loop_limit_rom[i];
+	}
+	std::cout << "\n wndclc_loop_limit_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << wndclc_loop_limit_rom[i];
+	}
+	std::cout << "\n nofFirst:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << nofFirst[i];
+	}
+	std::cout << "\n fulBufWt:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << fulBufWt[i];
+	}
+	std::cout << "\n fulBufPx:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << fulBufPx[i];
+	}
+	std::cout << "\n bit_shift_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << bit_shift_rom[i];
+	}
+	std::cout << " PIF: " << PIF << std::endl;
+	std::cout << " POF: " << POF << std::endl;
+	std::cout << " POY: " << POY << std::endl;
+	std::cout << " POX: " << POX << std::endl;
+	std::cout << " PIY: " << PIY << std::endl;
+	std::cout << " PIX: " << PIX << std::endl;
+	std::cout << "\n nofy_step_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << nofy_step_rom[i];
+	}
+	std::cout << "\n Nof_step_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << Nof_step_rom[i];
+	}
+	std::cout << "\n Tof_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << Tof_rom[i];
+	}
+	std::cout << "\n noy_step_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << noy_step_rom[i];
+	}
+	std::cout << "\n Toy_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << Toy_rom[i];
+	}
+	std::cout << "\n tiy_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << tiy_rom[i];
+	}
+	std::cout << " POFBANK_STEP: " << POFBANK_STEP << std::endl;
+	std::cout << "\n tof_step_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << tof_step_rom[i];
+	}
+	std::cout << "\n toy_step_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << toy_step_rom[i];
+	}
+	std::cout << "\n row_1map_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << row_1map_rom[i];
+	}
+	std::cout << "\n wtbuf2pe_loop_limit_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << wtbuf2pe_loop_limit_rom[i];
+	}
+	std::cout << "\n tileclc_loop_limit_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << tileclc_loop_limit_rom[i];
+	}
+	std::cout << "\n pe2buf_addr_offset1_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << pe2buf_addr_offset1_rom[i];
+	}
+
+	std::cout << "\n pe2buf_addr_offset2_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << pe2buf_addr_offset2_rom[i];
+	}
+	std::cout << "\n pe2buf_addr_offset3_rom:";
+	for(int i=0;i<LAYERS;i++){
+		std::cout << std::setw(7) << pe2buf_addr_offset3_rom[i];
+	}
+}

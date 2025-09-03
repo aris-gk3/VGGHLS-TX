@@ -345,24 +345,8 @@ For this tile, bit shift is 10
 For this tile, bit shift is 10
 For this tile, bit shift is 10
 For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
 Weights: min=-101, max=91
 Conv0: min=0, max=102
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
 For this tile, bit shift is 10
 For this tile, bit shift is 10
 For this tile, bit shift is 10
@@ -378,16 +362,8 @@ For this tile, bit shift is 9
 For this tile, bit shift is 9
 For this tile, bit shift is 9
 For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
 Weights: min=-85, max=105
 Conv2: min=0, max=84
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
 For this tile, bit shift is 9
 For this tile, bit shift is 9
 For this tile, bit shift is 9
@@ -397,18 +373,12 @@ Conv3: min=0, max=95
 After maxpool2: min=0, max=95
 For this tile, bit shift is 8
 For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
 Weights: min=-40, max=118
 Conv4: min=0, max=98
 For this tile, bit shift is 8
 For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
 Weights: min=-40, max=104
 Conv5: min=0, max=73
-For this tile, bit shift is 8
-For this tile, bit shift is 8
 For this tile, bit shift is 8
 For this tile, bit shift is 8
 Weights: min=-43, max=95
@@ -478,5 +448,5 @@ Class found in DUT is number 0
 INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 4 seconds. Total elapsed time: 1531.65 seconds; peak allocated memory: 138.723 MB.
-INFO: [vitis-run 60-791] Total elapsed time: 0h 25m 37s
+INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 2 seconds. Total elapsed time: 2478.95 seconds; peak allocated memory: 139.145 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 41m 23s

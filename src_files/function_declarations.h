@@ -243,6 +243,7 @@ void printOutBuf(int layerNo, px_data_t OutBuf[OUTBUF_NUM][WRD_OUTBUF][POX]);
 void printPxStream(px_data_t PxStream[POY][POX]);
 void printWtStream(wt_data_t WtStream[POF]);
 void printPeResults(px_data_t px_stream[POF][POY][POX]);
+void printParameters();
 
 // ** Testbench for Modules Function
 void minimalRunSynthConv(int layerNo);

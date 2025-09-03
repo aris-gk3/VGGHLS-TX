@@ -1386,7 +1386,9 @@
 			// WRD_OUTBUF =   max(my_ceil(Tox[layerNo],POX)*Toy*my_ceil(TOF,OUTBUF_NUM))
 			#define OUTBUF_NUM 2 // Number of Output Buffer Banks
 			// Secondary Parameters
+				// BIASMEM_LENGTH constant based on network
 			#define BIASMEM_LENGTH 4224
+				// BIASBUF_LENGTH is max of Tof
 			#define BIASBUF_LENGTH 256
 			constexpr int POFBANK_STEP = my_ceil(POF, OUTBUF_NUM);
 			// I execute first the loop with one iteration, if there is one
@@ -1488,52 +1490,134 @@
 		
 		#endif // For solution
 	#else
-	// Tiling & Unrolling Factor Derive Parameters
-	// -> Tof, Toy
-		#if defined(PREVIOUS_TOF_CHOICE)
-			#if defined(MAX_TOY_CHOICE)
-				constexpr int nofy_step_rom[LAYERS] = { 8,  8, 4, 4, 2, 2, 2, 4, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
-			#elif defined(MIN_TOY_CHOICE)
-				constexpr int nofy_step_rom[LAYERS] = {16, 16, 8, 8, 4, 4, 4, 4, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
+	// Variable Parameters
+		// *****  Global Parameters  *****
+			#define LAYERS 13
+			#define NKX 3
+			#define NKY 3
+			#define S 1
+			#define ZERO_PAD 1
+			constexpr int Nif_rom[LAYERS]      = {  3,  64,  64, 128, 128, 256, 256, 256, 512, 512, 512, 512, 512};
+			constexpr int Noy_rom[LAYERS]      = {224, 224, 112, 112,  56,  56,  56,  28,  28,  28,  14,  14,  14};
+			constexpr int Tox_rom[LAYERS]      = {224, 224, 112, 112,  56,  56,  56,  28,  28,  28,  14,  14,  14};
+		// *****  Buffer Sizing  *****
+			#if (SOLUTION == 0)
+				constexpr int WRD_INBUF = 12800; // Should be able to fit input pixels for all layers
+					// WRD_INBUF = max(WRD_INBUF = WRD_1ROW[layer_no] * ROWS_1MAP[layer_no] * TIF[layer_no]), for every layer_no
+				constexpr int WRD_WTBUF = 18432; // Should be able to fit weights for all layers
+					// WRD_WTBUF = max(NKX * NKY * TIF[layer_no] * my_ceil(TOF[layer_no],POF)), for every layer_no
+				constexpr int WRD_OUTBUF = 28672; // Should be able to fit output pixels for all layers
+					// WRD_OUTBUF =   max(my_ceil(Tox[layerNo],POX)*Toy*my_ceil(TOF,OUTBUF_NUM))
+			#elif (SOLUTION == 1)
+				constexpr int WRD_INBUF = 12800; // Should be able to fit input pixels for all layers
+					// WRD_INBUF = max(WRD_INBUF = WRD_1ROW[layer_no] * ROWS_1MAP[layer_no] * TIF[layer_no]), for every layer_no
+				constexpr int WRD_WTBUF = 36864; // Should be able to fit weights for all layers
+					// WRD_WTBUF = max(NKX * NKY * TIF[layer_no] * my_ceil(TOF[layer_no],POF)), for every layer_no
+				constexpr int WRD_OUTBUF = 28672; // Should be able to fit output pixels for all layers
+					// WRD_OUTBUF =   max(my_ceil(Tox[layerNo],POX)*Toy*my_ceil(TOF,OUTBUF_NUM))
+			#elif (SOLUTION == 2)
+				constexpr int WRD_INBUF = 12800; // Should be able to fit input pixels for all layers
+				// WRD_INBUF = max(WRD_INBUF = WRD_1ROW[layer_no] * ROWS_1MAP[layer_no] * TIF[layer_no]), for every layer_no
+				constexpr int WRD_WTBUF = 73728; // Should be able to fit weights for all layers
+				// WRD_WTBUF = max(NKX * NKY * TIF[layer_no] * my_ceil(TOF[layer_no],POF)), for every layer_no
+				constexpr int WRD_OUTBUF = 28672; // Should be able to fit output pixels for all layers
+				// WRD_OUTBUF =   max(my_ceil(Tox[layerNo],POX)*Toy*my_ceil(TOF,OUTBUF_NUM))
 			#endif
-		#elif defined(MAX_TOF_CHOICE)
-			#if defined(MAX_TOY_CHOICE)
-				constexpr int nofy_step_rom[LAYERS] = { 8,  8, 4, 4, 2, 2, 2, 2, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
-			#elif defined(MIN_TOY_CHOICE)
-				constexpr int nofy_step_rom[LAYERS] = {16, 16, 8, 8, 4, 4, 4, 2, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
+				// BIASBUF_LENGTH is max of Tof
+			#define BIASBUF_LENGTH 256
+			#define OUTBUF_NUM 2 // Number of Output Buffer Banks
+		// *****  Memory Sizing  *****
+				// BIASMEM_LENGTH constant based on network
+			#define BIASMEM_LENGTH 4224
+			#define FMAP_MEMSIZE 3211264
+			#define FMAP_MEMSIZE_WIDENED (FMAP_MEMSIZE/FMAP_WIDTHFACTOR)
+			#define WTMAP_MEMSIZE 2359296
+			#define WTMAP_MEMSIZE_WIDENED (WTMAP_MEMSIZE/WTMAP_WIDTHFACTOR)
+		// *****  Parameters Derived by Global  ******
+			constexpr int niy_rom[LAYERS] = {224, 224, 112, 112, 56, 56, 56, 28, 28, 28, 14, 14, 14};
+			constexpr int tox_step_rom[LAYERS] = {32, 32, 16, 16, 8, 8, 8, 4, 4, 4, 2, 2, 2};
+			constexpr int tix_rom[LAYERS] = {226, 226, 114, 114, 58, 58, 58, 30, 30, 30, 16, 16, 16};
+			constexpr int wrd_1row_rom[LAYERS] = {33, 33, 17, 17, 9, 9, 9, 5, 5, 5, 3, 3, 3}; 	// ceil(Tix/POX)
+				// pe_loop_limit = Nif*NKX*NKY-1
+			constexpr int pe_loop_limit_rom[LAYERS] = {26, 575, 575, 1151, 1151, 2303, 2303,
+													2303, 4607, 4607, 4607, 4607, 4607};
+				// wndclc_loop_limit_rom = Nif*Nky*Nkx
+			constexpr int wndclc_loop_limit_rom[LAYERS] = {27, 576, 576, 1152, 1152, 2304, 2304,
+														2304, 4608, 4608, 4608, 4608, 4608};
+				// I execute first the loop with one iteration, if there is one
+			constexpr int nofFirst[LAYERS] 		= 	{ 1,  1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0};
+			constexpr int fulBufWt[LAYERS]		= 	{ 1,  1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0};
+			constexpr int fulBufPx[LAYERS] 		= 	{ 0,  0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1};
+			constexpr int bit_shift_rom[LAYERS] = 	{10, 10, 9, 9, 8, 8, 8, 8, 7, 8, 8, 8, 7};
+	// Tiling & Unrolling Factor Derived Parameters
+		// *****  Unrolling Factors  *****
+			#if (SOLUTION == 0)		
+				#define PIF   1
+				#define POF  32
+				#define POY   7
+				#define POX   7
+				#define PIY POY
+				#define PIX POX
+			#elif (SOLUTION == 1)
+				#define PIF   1
+				#define POF  16
+				#define POY   7
+				#define POX   7
+				#define PIY POY
+				#define PIX POX
+			#elif (SOLUTION == 2)
+				#define PIF   1
+				#define POF   8
+				#define POY   7
+				#define POX   7
+				#define PIY POY
+				#define PIX POX
 			#endif
-		#elif defined(MIDDLE_TOF_CHOICE)
-			#if defined(MAX_TOY_CHOICE)
-				constexpr int nofy_step_rom[LAYERS] = { 8,  8, 4, 4, 2, 2, 2, 8, 8, 8, 8, 8, 8}; // max of Nof_step, Noy_step
-			#elif defined(MIN_TOY_CHOICE)
-				constexpr int nofy_step_rom[LAYERS] = {16, 16, 8, 8, 4, 4, 4, 8, 8, 8, 8, 8, 8}; // max of Nof_step, Noy_step
+		// ***** -> Tof, Toy
+			#if defined(PREVIOUS_TOF_CHOICE)
+				#if defined(MAX_TOY_CHOICE)
+					constexpr int nofy_step_rom[LAYERS] = { 8,  8, 4, 4, 2, 2, 2, 4, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
+				#elif defined(MIN_TOY_CHOICE)
+					constexpr int nofy_step_rom[LAYERS] = {16, 16, 8, 8, 4, 4, 4, 4, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
+				#endif
+			#elif defined(MAX_TOF_CHOICE)
+				#if defined(MAX_TOY_CHOICE)
+					constexpr int nofy_step_rom[LAYERS] = { 8,  8, 4, 4, 2, 2, 2, 2, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
+				#elif defined(MIN_TOY_CHOICE)
+					constexpr int nofy_step_rom[LAYERS] = {16, 16, 8, 8, 4, 4, 4, 2, 4, 4, 4, 4, 4}; // max of Nof_step, Noy_step
+				#endif
+			#elif defined(MIDDLE_TOF_CHOICE)
+				#if defined(MAX_TOY_CHOICE)
+					constexpr int nofy_step_rom[LAYERS] = { 8,  8, 4, 4, 2, 2, 2, 8, 8, 8, 8, 8, 8}; // max of Nof_step, Noy_step
+				#elif defined(MIN_TOY_CHOICE)
+					constexpr int nofy_step_rom[LAYERS] = {16, 16, 8, 8, 4, 4, 4, 8, 8, 8, 8, 8, 8}; // max of Nof_step, Noy_step
+				#endif
+			#elif defined(MIN_TOF_CHOICE)
+				#if defined(MAX_TOY_CHOICE)
+					constexpr int nofy_step_rom[LAYERS] = { 8,  8, 4, 4, 2, 2, 2, (512/POF),   (512/POF),  (512/POF),
+													(512/POF),   (512/POF),   (512/POF)}; // max of Nof_step, Noy_step
+				#elif defined(MIN_TOY_CHOICE)
+					constexpr int nofy_step_rom[LAYERS] = {16, 16, 8, 8, 4, 4, 4, (512/POF),   (512/POF),  (512/POF),
+													(512/POF),   (512/POF),   (512/POF)}; // max of Nof_step, Noy_step
+				#endif
 			#endif
-		#elif defined(MIN_TOF_CHOICE)
-			#if defined(MAX_TOY_CHOICE)
-				constexpr int nofy_step_rom[LAYERS] = { 8,  8, 4, 4, 2, 2, 2, (512/POF),   (512/POF),  (512/POF),
-												   (512/POF),   (512/POF),   (512/POF)}; // max of Nof_step, Noy_step
-			#elif defined(MIN_TOY_CHOICE)
-				constexpr int nofy_step_rom[LAYERS] = {16, 16, 8, 8, 4, 4, 4, (512/POF),   (512/POF),  (512/POF),
-												   (512/POF),   (512/POF),   (512/POF)}; // max of Nof_step, Noy_step
+			
+		// ***** -> Tof
+			#if defined(PREVIOUS_TOF_CHOICE)
+				constexpr int Nof_step_rom[LAYERS] = {  1,   1,   1,   1,   1,   1,   1,   4,   4,   4,   4,   4,   4};/*Nof/Tof*/
+				constexpr int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256, 128, 128, 128, 128, 128, 128};
+			#elif defined(MAX_TOF_CHOICE)
+				constexpr int Nof_step_rom[LAYERS] = {  1,   1,   1,   1,   1,   1,   1,   2,   4,   4,   4,   4,   4};/*Nof/Tof*/
+				constexpr int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256, 256, 128, 128, 128, 128, 128};
+			#elif defined(MIDDLE_TOF_CHOICE)
+				constexpr int Nof_step_rom[LAYERS] = {  1,   1,   1,   1,   1,   1,   1,   8,   8,   8,   8,   8,   8};/*Nof/Tof*/
+				constexpr int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256,  64,  64,  64,  64,  64,  64};
+			#elif defined(MIN_TOF_CHOICE)
+				constexpr int Nof_step_rom[LAYERS] = {  1,   1,   1,   1,   1,   1,   1,   (512/POF),   (512/POF),  (512/POF),
+													(512/POF),   (512/POF),   (512/POF)};/*Nof/Tof*/
+				constexpr int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256, POF, POF, POF, POF, POF, POF};
 			#endif
-		#endif
-		
-	// -> Tof
-		#if defined(PREVIOUS_TOF_CHOICE)
-			constexpr int Nof_step_rom[LAYERS] = {  1,   1,   1,   1,   1,   1,   1,   4,   4,   4,   4,   4,   4};/*Nof/Tof*/
-			constexpr int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256, 128, 128, 128, 128, 128, 128};
-		#elif defined(MAX_TOF_CHOICE)
-			constexpr int Nof_step_rom[LAYERS] = {  1,   1,   1,   1,   1,   1,   1,   2,   4,   4,   4,   4,   4};/*Nof/Tof*/
-			constexpr int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256, 256, 128, 128, 128, 128, 128};
-		#elif defined(MIDDLE_TOF_CHOICE)
-			constexpr int Nof_step_rom[LAYERS] = {  1,   1,   1,   1,   1,   1,   1,   8,   8,   8,   8,   8,   8};/*Nof/Tof*/
-			constexpr int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256,  64,  64,  64,  64,  64,  64};
-		#elif defined(MIN_TOF_CHOICE)
-			constexpr int Nof_step_rom[LAYERS] = {  1,   1,   1,   1,   1,   1,   1,   (512/POF),   (512/POF),  (512/POF),
-												   (512/POF),   (512/POF),   (512/POF)};/*Nof/Tof*/
-			constexpr int Tof_rom[LAYERS]      = { 64,  64, 128, 128, 256, 256, 256, POF, POF, POF, POF, POF, POF};
-		#endif
-	// -> Toy
+		// ***** -> Toy
 			#if defined(MAX_TOY_CHOICE)
 				constexpr int noy_step_rom[LAYERS] 	= {  8,  8,  4,  4,  2,  2,  2,  1,  1,  1,  1,  1,  1};
 				constexpr int Toy_rom[LAYERS]      	= { 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 14, 14, 14};
@@ -1543,78 +1627,243 @@
 				constexpr int Toy_rom[LAYERS] 		= { 14, 14, 14, 14, 14, 14, 14, 28, 28, 28, 14, 14, 14};
 				constexpr int tiy_rom[LAYERS] 		= { 16, 16, 16, 16, 16, 16, 16, 30, 30, 30, 16, 16, 16};
 			#endif
-	// -> Tof_step,Toy_step (Tof, Toy, Pof)
-		constexpr int tof_step_rom[LAYERS] = {	Tof_rom[ 0]/POF, Tof_rom[ 1]/POF, Tof_rom[ 2]/POF, Tof_rom[3]/POF,
-												Tof_rom[ 4]/POF, Tof_rom[ 5]/POF, Tof_rom[ 6]/POF,
-												Tof_rom[ 7]/POF, Tof_rom[ 8]/POF, Tof_rom[ 9]/POF,
-												Tof_rom[10]/POF, Tof_rom[11]/POF, Tof_rom[12]/POF};
-		constexpr int toy_step_rom[LAYERS] = {	Toy_rom[ 0]/POY, Toy_rom[ 1]/POY, Toy_rom[ 2]/POY, Toy_rom[3]/POY,
-												Toy_rom[ 4]/POY, Toy_rom[ 5]/POY, Toy_rom[ 6]/POY, 
-												Toy_rom[ 7]/POY, Toy_rom[ 8]/POY, Toy_rom[ 9]/POY,
-												Toy_rom[10]/POY, Toy_rom[11]/POY, Toy_rom[12]/POY};
-		constexpr int row_1map_rom[LAYERS] = {my_ceil(tiy_rom[ 0],POY), my_ceil(tiy_rom[ 1],POY), my_ceil(tiy_rom[ 2],POY), my_ceil(tiy_rom[3],POY),
-											  my_ceil(tiy_rom[ 4],POY), my_ceil(tiy_rom[ 5],POY), my_ceil(tiy_rom[ 6],POY),
-											  my_ceil(tiy_rom[ 7],POY), my_ceil(tiy_rom[ 8],POY), my_ceil(tiy_rom[ 9],POY),
-											  my_ceil(tiy_rom[10],POY), my_ceil(tiy_rom[11],POY), my_ceil(tiy_rom[12],POY)}; // ceil(Tiy/POY)
-		constexpr int wtbuf2pe_loop_limit_rom[LAYERS] = {tof_step_rom[ 0]*Nif_rom[ 0]*NKY*NKX-1, tof_step_rom[ 1]*Nif_rom[ 1]*NKY*NKX-1,
-														 tof_step_rom[ 2]*Nif_rom[ 2]*NKY*NKX-1, tof_step_rom[ 3]*Nif_rom[ 3]*NKY*NKX-1,
-														 tof_step_rom[ 4]*Nif_rom[ 4]*NKY*NKX-1, tof_step_rom[ 5]*Nif_rom[ 5]*NKY*NKX-1,
-														 tof_step_rom[ 6]*Nif_rom[ 6]*NKY*NKX-1, tof_step_rom[ 7]*Nif_rom[ 7]*NKY*NKX-1,
-														 tof_step_rom[ 8]*Nif_rom[ 8]*NKY*NKX-1, tof_step_rom[ 9]*Nif_rom[ 9]*NKY*NKX-1,
-														 tof_step_rom[10]*Nif_rom[10]*NKY*NKX-1, tof_step_rom[11]*Nif_rom[11]*NKY*NKX-1,
-														 tof_step_rom[12]*Nif_rom[12]*NKY*NKX-1};
-		constexpr int tileclc_loop_limit_rom[LAYERS] = 	{tof_step_rom[ 0]*toy_step_rom[ 0]*tox_step_rom[ 0], tof_step_rom[ 1]*toy_step_rom[ 1]*tox_step_rom[ 1],
-														 tof_step_rom[ 2]*toy_step_rom[ 2]*tox_step_rom[ 2], tof_step_rom[ 3]*toy_step_rom[ 3]*tox_step_rom[ 3],
-														 tof_step_rom[ 4]*toy_step_rom[ 4]*tox_step_rom[ 4], tof_step_rom[ 5]*toy_step_rom[ 5]*tox_step_rom[ 5],
-														 tof_step_rom[ 6]*toy_step_rom[ 6]*tox_step_rom[ 6], tof_step_rom[ 7]*toy_step_rom[ 7]*tox_step_rom[ 7],
-														 tof_step_rom[ 8]*toy_step_rom[ 8]*tox_step_rom[ 8], tof_step_rom[ 9]*toy_step_rom[ 9]*tox_step_rom[ 9],
-														 tof_step_rom[10]*toy_step_rom[10]*tox_step_rom[10], tof_step_rom[1]*toy_step_rom[11]*tox_step_rom[11],
-														 tof_step_rom[12]*toy_step_rom[12]*tox_step_rom[12]};
-		// POY*Tox_step - (Tox_step-1) - (Tof_step-1)*(POF/OUTBUF_NUM)*Toy*Tox_step
-		constexpr int pe2buf_addr_offset1_rom[LAYERS] = {POY*tox_step_rom[ 0] - (tox_step_rom[ 0]-1) - (tof_step_rom[ 0]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 0]*tox_step_rom[ 0],
-														 POY*tox_step_rom[ 1] - (tox_step_rom[ 1]-1) - (tof_step_rom[ 1]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 1]*tox_step_rom[ 1],
-														 POY*tox_step_rom[ 2] - (tox_step_rom[ 2]-1) - (tof_step_rom[ 2]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 2]*tox_step_rom[ 2],
-														 POY*tox_step_rom[ 3] - (tox_step_rom[ 3]-1) - (tof_step_rom[ 3]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 3]*tox_step_rom[ 3],
-														 POY*tox_step_rom[ 4] - (tox_step_rom[ 4]-1) - (tof_step_rom[ 4]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 4]*tox_step_rom[ 4],
-														 POY*tox_step_rom[ 5] - (tox_step_rom[ 5]-1) - (tof_step_rom[ 5]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 5]*tox_step_rom[ 5],
-														 POY*tox_step_rom[ 6] - (tox_step_rom[ 6]-1) - (tof_step_rom[ 6]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 6]*tox_step_rom[ 6],
-														 POY*tox_step_rom[ 7] - (tox_step_rom[ 7]-1) - (tof_step_rom[ 7]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 7]*tox_step_rom[ 7],
-														 POY*tox_step_rom[ 8] - (tox_step_rom[ 8]-1) - (tof_step_rom[ 8]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 8]*tox_step_rom[ 8],
-														 POY*tox_step_rom[ 9] - (tox_step_rom[ 9]-1) - (tof_step_rom[ 9]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 9]*tox_step_rom[ 9],
-														 POY*tox_step_rom[10] - (tox_step_rom[10]-1) - (tof_step_rom[10]-1)*(POF/OUTBUF_NUM)*Toy_rom[10]*tox_step_rom[10],
-														 POY*tox_step_rom[11] - (tox_step_rom[11]-1) - (tof_step_rom[11]-1)*(POF/OUTBUF_NUM)*Toy_rom[11]*tox_step_rom[11],
-														 POY*tox_step_rom[12] - (tox_step_rom[12]-1) - (tof_step_rom[12]-1)*(POF/OUTBUF_NUM)*Toy_rom[12]*tox_step_rom[12]
-														 };
-		// (Tof_step-1)*(POF/OUTBUF_NUM)*Toy*Tox_step
-		constexpr int pe2buf_addr_offset2_rom[LAYERS] = {(tof_step_rom[ 0]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 0]*tox_step_rom[ 0],
-														 (tof_step_rom[ 1]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 1]*tox_step_rom[ 1],
-														 (tof_step_rom[ 2]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 2]*tox_step_rom[ 2],
-														 (tof_step_rom[ 3]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 3]*tox_step_rom[ 3],
-														 (tof_step_rom[ 4]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 4]*tox_step_rom[ 4],
-														 (tof_step_rom[ 5]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 5]*tox_step_rom[ 5],
-														 (tof_step_rom[ 6]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 6]*tox_step_rom[ 6],
-														 (tof_step_rom[ 7]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 7]*tox_step_rom[ 7],
-														 (tof_step_rom[ 8]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 8]*tox_step_rom[ 8],
-														 (tof_step_rom[ 9]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 9]*tox_step_rom[ 9],
-														 (tof_step_rom[10]-1)*(POF/OUTBUF_NUM)*Toy_rom[10]*tox_step_rom[10],
-														 (tof_step_rom[11]-1)*(POF/OUTBUF_NUM)*Toy_rom[11]*tox_step_rom[11],
-														 (tof_step_rom[12]-1)*(POF/OUTBUF_NUM)*Toy_rom[12]*tox_step_rom[12]
-														};
-		// (POF/OUTBUF_NUM)*Toy*Tox_step
-		constexpr int pe2buf_addr_offset3_rom[LAYERS] = {(POF/OUTBUF_NUM)*Toy_rom[ 0]*tox_step_rom[ 0],
-														 (POF/OUTBUF_NUM)*Toy_rom[ 1]*tox_step_rom[ 1],
-														 (POF/OUTBUF_NUM)*Toy_rom[ 2]*tox_step_rom[ 2],
-														 (POF/OUTBUF_NUM)*Toy_rom[ 3]*tox_step_rom[ 3],
-														 (POF/OUTBUF_NUM)*Toy_rom[ 4]*tox_step_rom[ 4],
-														 (POF/OUTBUF_NUM)*Toy_rom[ 5]*tox_step_rom[ 5],
-														 (POF/OUTBUF_NUM)*Toy_rom[ 6]*tox_step_rom[ 6],
-														 (POF/OUTBUF_NUM)*Toy_rom[ 7]*tox_step_rom[ 7],
-														 (POF/OUTBUF_NUM)*Toy_rom[ 8]*tox_step_rom[ 8],
-														 (POF/OUTBUF_NUM)*Toy_rom[ 9]*tox_step_rom[ 9],
-														 (POF/OUTBUF_NUM)*Toy_rom[10]*tox_step_rom[10],
-														 (POF/OUTBUF_NUM)*Toy_rom[11]*tox_step_rom[11],
-														 (POF/OUTBUF_NUM)*Toy_rom[12]*tox_step_rom[12]
-														};
+		// ***** -> Tof_step,Toy_step (Tof, Toy, Pof)
+			constexpr int POFBANK_STEP = my_ceil(POF, OUTBUF_NUM);
+			constexpr int tof_step_rom[LAYERS] = {	Tof_rom[ 0]/POF, Tof_rom[ 1]/POF, Tof_rom[ 2]/POF, Tof_rom[3]/POF,
+													Tof_rom[ 4]/POF, Tof_rom[ 5]/POF, Tof_rom[ 6]/POF,
+													Tof_rom[ 7]/POF, Tof_rom[ 8]/POF, Tof_rom[ 9]/POF,
+													Tof_rom[10]/POF, Tof_rom[11]/POF, Tof_rom[12]/POF};
+			constexpr int toy_step_rom[LAYERS] = {	Toy_rom[ 0]/POY, Toy_rom[ 1]/POY, Toy_rom[ 2]/POY, Toy_rom[3]/POY,
+													Toy_rom[ 4]/POY, Toy_rom[ 5]/POY, Toy_rom[ 6]/POY, 
+													Toy_rom[ 7]/POY, Toy_rom[ 8]/POY, Toy_rom[ 9]/POY,
+													Toy_rom[10]/POY, Toy_rom[11]/POY, Toy_rom[12]/POY};
+			constexpr int row_1map_rom[LAYERS] = {my_ceil(tiy_rom[ 0],POY), my_ceil(tiy_rom[ 1],POY), my_ceil(tiy_rom[ 2],POY), my_ceil(tiy_rom[3],POY),
+												my_ceil(tiy_rom[ 4],POY), my_ceil(tiy_rom[ 5],POY), my_ceil(tiy_rom[ 6],POY),
+												my_ceil(tiy_rom[ 7],POY), my_ceil(tiy_rom[ 8],POY), my_ceil(tiy_rom[ 9],POY),
+												my_ceil(tiy_rom[10],POY), my_ceil(tiy_rom[11],POY), my_ceil(tiy_rom[12],POY)}; // ceil(Tiy/POY)
+			constexpr int wtbuf2pe_loop_limit_rom[LAYERS] = {tof_step_rom[ 0]*Nif_rom[ 0]*NKY*NKX-1, tof_step_rom[ 1]*Nif_rom[ 1]*NKY*NKX-1,
+															tof_step_rom[ 2]*Nif_rom[ 2]*NKY*NKX-1, tof_step_rom[ 3]*Nif_rom[ 3]*NKY*NKX-1,
+															tof_step_rom[ 4]*Nif_rom[ 4]*NKY*NKX-1, tof_step_rom[ 5]*Nif_rom[ 5]*NKY*NKX-1,
+															tof_step_rom[ 6]*Nif_rom[ 6]*NKY*NKX-1, tof_step_rom[ 7]*Nif_rom[ 7]*NKY*NKX-1,
+															tof_step_rom[ 8]*Nif_rom[ 8]*NKY*NKX-1, tof_step_rom[ 9]*Nif_rom[ 9]*NKY*NKX-1,
+															tof_step_rom[10]*Nif_rom[10]*NKY*NKX-1, tof_step_rom[11]*Nif_rom[11]*NKY*NKX-1,
+															tof_step_rom[12]*Nif_rom[12]*NKY*NKX-1};
+			constexpr int tileclc_loop_limit_rom[LAYERS] = 	{tof_step_rom[ 0]*toy_step_rom[ 0]*tox_step_rom[ 0], tof_step_rom[ 1]*toy_step_rom[ 1]*tox_step_rom[ 1],
+															tof_step_rom[ 2]*toy_step_rom[ 2]*tox_step_rom[ 2], tof_step_rom[ 3]*toy_step_rom[ 3]*tox_step_rom[ 3],
+															tof_step_rom[ 4]*toy_step_rom[ 4]*tox_step_rom[ 4], tof_step_rom[ 5]*toy_step_rom[ 5]*tox_step_rom[ 5],
+															tof_step_rom[ 6]*toy_step_rom[ 6]*tox_step_rom[ 6], tof_step_rom[ 7]*toy_step_rom[ 7]*tox_step_rom[ 7],
+															tof_step_rom[ 8]*toy_step_rom[ 8]*tox_step_rom[ 8], tof_step_rom[ 9]*toy_step_rom[ 9]*tox_step_rom[ 9],
+															tof_step_rom[10]*toy_step_rom[10]*tox_step_rom[10], tof_step_rom[11]*toy_step_rom[11]*tox_step_rom[11],
+															tof_step_rom[12]*toy_step_rom[12]*tox_step_rom[12]};
+			// POY*Tox_step - (Tox_step-1) - (Tof_step-1)*(POF/OUTBUF_NUM)*Toy*Tox_step
+			constexpr int pe2buf_addr_offset1_rom[LAYERS] = {POY*tox_step_rom[ 0] - (tox_step_rom[ 0]-1) - (tof_step_rom[ 0]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 0]*tox_step_rom[ 0],
+															POY*tox_step_rom[ 1] - (tox_step_rom[ 1]-1) - (tof_step_rom[ 1]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 1]*tox_step_rom[ 1],
+															POY*tox_step_rom[ 2] - (tox_step_rom[ 2]-1) - (tof_step_rom[ 2]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 2]*tox_step_rom[ 2],
+															POY*tox_step_rom[ 3] - (tox_step_rom[ 3]-1) - (tof_step_rom[ 3]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 3]*tox_step_rom[ 3],
+															POY*tox_step_rom[ 4] - (tox_step_rom[ 4]-1) - (tof_step_rom[ 4]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 4]*tox_step_rom[ 4],
+															POY*tox_step_rom[ 5] - (tox_step_rom[ 5]-1) - (tof_step_rom[ 5]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 5]*tox_step_rom[ 5],
+															POY*tox_step_rom[ 6] - (tox_step_rom[ 6]-1) - (tof_step_rom[ 6]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 6]*tox_step_rom[ 6],
+															POY*tox_step_rom[ 7] - (tox_step_rom[ 7]-1) - (tof_step_rom[ 7]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 7]*tox_step_rom[ 7],
+															POY*tox_step_rom[ 8] - (tox_step_rom[ 8]-1) - (tof_step_rom[ 8]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 8]*tox_step_rom[ 8],
+															POY*tox_step_rom[ 9] - (tox_step_rom[ 9]-1) - (tof_step_rom[ 9]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 9]*tox_step_rom[ 9],
+															POY*tox_step_rom[10] - (tox_step_rom[10]-1) - (tof_step_rom[10]-1)*(POF/OUTBUF_NUM)*Toy_rom[10]*tox_step_rom[10],
+															POY*tox_step_rom[11] - (tox_step_rom[11]-1) - (tof_step_rom[11]-1)*(POF/OUTBUF_NUM)*Toy_rom[11]*tox_step_rom[11],
+															POY*tox_step_rom[12] - (tox_step_rom[12]-1) - (tof_step_rom[12]-1)*(POF/OUTBUF_NUM)*Toy_rom[12]*tox_step_rom[12]
+															};
+			// (Tof_step-1)*(POF/OUTBUF_NUM)*Toy*Tox_step
+			constexpr int pe2buf_addr_offset2_rom[LAYERS] = {(tof_step_rom[ 0]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 0]*tox_step_rom[ 0],
+															(tof_step_rom[ 1]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 1]*tox_step_rom[ 1],
+															(tof_step_rom[ 2]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 2]*tox_step_rom[ 2],
+															(tof_step_rom[ 3]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 3]*tox_step_rom[ 3],
+															(tof_step_rom[ 4]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 4]*tox_step_rom[ 4],
+															(tof_step_rom[ 5]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 5]*tox_step_rom[ 5],
+															(tof_step_rom[ 6]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 6]*tox_step_rom[ 6],
+															(tof_step_rom[ 7]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 7]*tox_step_rom[ 7],
+															(tof_step_rom[ 8]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 8]*tox_step_rom[ 8],
+															(tof_step_rom[ 9]-1)*(POF/OUTBUF_NUM)*Toy_rom[ 9]*tox_step_rom[ 9],
+															(tof_step_rom[10]-1)*(POF/OUTBUF_NUM)*Toy_rom[10]*tox_step_rom[10],
+															(tof_step_rom[11]-1)*(POF/OUTBUF_NUM)*Toy_rom[11]*tox_step_rom[11],
+															(tof_step_rom[12]-1)*(POF/OUTBUF_NUM)*Toy_rom[12]*tox_step_rom[12]
+															};
+			// (POF/OUTBUF_NUM)*Toy*Tox_step
+			constexpr int pe2buf_addr_offset3_rom[LAYERS] = {(POF/OUTBUF_NUM)*Toy_rom[ 0]*tox_step_rom[ 0],
+															(POF/OUTBUF_NUM)*Toy_rom[ 1]*tox_step_rom[ 1],
+															(POF/OUTBUF_NUM)*Toy_rom[ 2]*tox_step_rom[ 2],
+															(POF/OUTBUF_NUM)*Toy_rom[ 3]*tox_step_rom[ 3],
+															(POF/OUTBUF_NUM)*Toy_rom[ 4]*tox_step_rom[ 4],
+															(POF/OUTBUF_NUM)*Toy_rom[ 5]*tox_step_rom[ 5],
+															(POF/OUTBUF_NUM)*Toy_rom[ 6]*tox_step_rom[ 6],
+															(POF/OUTBUF_NUM)*Toy_rom[ 7]*tox_step_rom[ 7],
+															(POF/OUTBUF_NUM)*Toy_rom[ 8]*tox_step_rom[ 8],
+															(POF/OUTBUF_NUM)*Toy_rom[ 9]*tox_step_rom[ 9],
+															(POF/OUTBUF_NUM)*Toy_rom[10]*tox_step_rom[10],
+															(POF/OUTBUF_NUM)*Toy_rom[11]*tox_step_rom[11],
+															(POF/OUTBUF_NUM)*Toy_rom[12]*tox_step_rom[12]
+															};
+	// Binary Length of variables
+		#if (SOLUTION == 0)		
+			#if (DATA_WIDTH == 1)
+				#define LAYER_B           4
+				#define NKY_B             2
+				#define NKX_B             2
+
+				#define NIF_B            10
+				#define NIF_I_B           9
+				#define NIY_B             8
+				#define NOY_B             8
+				#define NOF_STEP_B        3
+				#define NOF_STEP_I_B      2
+				#define NOY_STEP_B        4
+				#define NOY_STEP_I_B      3
+				#define NOFY_STEP_B       4
+				#define NOFY_STEP_I_B     3 // Max of Nof_step_i & Noy_step_i
+
+				#define TIY_B             5
+				#define TIX_B             8
+				#define TOF_B             9
+				#define TOY_B             5
+				#define TOX_B             8
+				#define TOF_STEP_B        4
+				#define TOF_STEP_I_B      3
+				#define TOY_STEP_B        3
+				#define TOY_STEP_I_B      2
+				#define TOX_STEP_B        6
+				#define TOX_STEP_I_B      5
+
+				#define POF_B             6
+				#define POF_I_B           5
+				#define POY_B             3
+				#define POY_I_B           3
+				#define POX_B             3
+				#define POX_I_B           3
+				#define POFBANK_STEP_I_B  4
+
+				#define WRD_1ROW_B        6
+				#define ROW_1MAP_B        3
+
+				#define CONV_LOOP_B       4 // bigger of Noy_step, Nof_step
+				#define TILE_LOOP_B       9 // Tof_step*Toy_step*Tox_step
+				#define WND_LOOP_B       13 // Nif*NKY*NKX
+				#define WTBUF2PE_LOOP_B  15 // Tof_step*Nif*NKY*NKX-1
+
+				#define ROW_INBUF_I_B    14 // based on WRD_INBUF
+				#define WRD_WTBUF_I_B    15 // based on WRD_WTBUF
+				#define WRD_OUTBUF_I_B   15 // based on WRD_OUTBUF
+				#define WRD_BIASBUF_I_B   8 // based on BIASBUF_LENGTH
+				#define OUTBUFNUM_I_B     1 // based on OUTBUF_NUM
+
+				#define BIT_SHIFT_B 	  4
+				// If I add new binary length, I should add it to Check_Binary_Lengths function
+			#endif // For length of variables
+		#elif (SOLUTION == 1)
+			#if (DATA_WIDTH == 1)
+				#define LAYER_B           4
+				#define NKY_B             2
+				#define NKX_B             2
+
+				#define NIF_B            10
+				#define NIF_I_B           9
+				#define NIY_B             8
+				#define NOY_B             8
+				#define NOF_STEP_B        3
+				#define NOF_STEP_I_B      2
+				#define NOY_STEP_B        4
+				#define NOY_STEP_I_B      3
+				#define NOFY_STEP_B       4
+				#define NOFY_STEP_I_B     3 // Max of Nof_step_i & Noy_step_i
+
+				#define TIY_B             5
+				#define TIX_B             8
+				#define TOF_B             9
+				#define TOY_B             5
+				#define TOX_B             8
+				#define TOF_STEP_B        5
+				#define TOF_STEP_I_B      4
+				#define TOY_STEP_B        3
+				#define TOY_STEP_I_B      2
+				#define TOX_STEP_B        6
+				#define TOX_STEP_I_B      5
+
+				#define POF_B             5
+				#define POF_I_B           4
+				#define POY_B             3
+				#define POY_I_B           3
+				#define POX_B             3
+				#define POX_I_B           3
+				#define POFBANK_STEP_I_B  3
+
+				#define WRD_1ROW_B        6
+				#define ROW_1MAP_B        3
+
+				#define CONV_LOOP_B       4 // bigger of Noy_step, Nof_step
+				#define TILE_LOOP_B      10 // Tof_step*Toy_step*Tox_step
+				#define WND_LOOP_B       13 // Nif*NKY*NKX
+				#define WTBUF2PE_LOOP_B  16 // Tof_step*Nif*NKY*NKX-1
+
+				#define ROW_INBUF_I_B    14 // based on WRD_INBUF
+				#define WRD_WTBUF_I_B    16 // based on WRD_WTBUF
+				#define WRD_OUTBUF_I_B   15 // based on WRD_OUTBUF
+				#define WRD_BIASBUF_I_B   8 // based on BIASBUF_LENGTH
+				#define OUTBUFNUM_I_B     1 // based on OUTBUF_NUM
+
+				#define BIT_SHIFT_B 	  4
+				// If I add new binary length, I should add it to Check_Binary_Lengths function
+			#endif // For length of variables
+		#elif (SOLUTION == 2)
+			#if (DATA_WIDTH == 1)
+				#define LAYER_B           4
+				#define NKY_B             2
+				#define NKX_B             2
+
+				#define NIF_B            10
+				#define NIF_I_B           9
+				#define NIY_B             8
+				#define NOY_B             8
+				#define NOF_STEP_B        3
+				#define NOF_STEP_I_B      2
+				#define NOY_STEP_B        4
+				#define NOY_STEP_I_B      3
+				#define NOFY_STEP_B       4
+				#define NOFY_STEP_I_B     3 // Max of Nof_step_i & Noy_step_i
+
+				#define TIY_B             5
+				#define TIX_B             8
+				#define TOF_B             9
+				#define TOY_B             5
+				#define TOX_B             8
+				#define TOF_STEP_B        6
+				#define TOF_STEP_I_B      5
+				#define TOY_STEP_B        3
+				#define TOY_STEP_I_B      2
+				#define TOX_STEP_B        6
+				#define TOX_STEP_I_B      5
+
+				#define POF_B             4
+				#define POF_I_B           3
+				#define POY_B             3
+				#define POY_I_B           3
+				#define POX_B             3
+				#define POX_I_B           3
+				#define POFBANK_STEP_I_B  2
+
+				#define WRD_1ROW_B        6
+				#define ROW_1MAP_B        3
+
+				#define CONV_LOOP_B       4 // bigger of Noy_step, Nof_step
+				#define TILE_LOOP_B      11 // Tof_step*Toy_step*Tox_step
+				#define WND_LOOP_B       13 // Nif*NKY*NKX
+				#define WTBUF2PE_LOOP_B  17 // Tof_step*Nif*NKY*NKX-1
+
+				#define ROW_INBUF_I_B    14 // based on WRD_INBUF
+				#define WRD_WTBUF_I_B    17 // based on WRD_WTBUF
+				#define WRD_OUTBUF_I_B   15 // based on WRD_OUTBUF
+				#define WRD_BIASBUF_I_B   8 // based on BIASBUF_LENGTH
+				#define OUTBUFNUM_I_B     1 // based on OUTBUF_NUM
+
+				#define BIT_SHIFT_B 	  4
+				// If I add new binary length, I should add it to Check_Binary_Lengths function
+			#endif // For length of variables
+		#endif	
 	#endif
 #endif
 

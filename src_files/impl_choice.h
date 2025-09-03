@@ -25,14 +25,15 @@
 #define REG3_SEQ
 // **Tiling Factors**
 // Tof: PREVIOUS_TOF_CHOICE, MAX_TOF_CHOICE, MIDDLE_TOF_CHOICE, MIN_TOF_CHOICE (conv. layers:8-13)
-// Toy: PREVIOUS_TOY_CHOICE, MAX_TOY_CHOICE, MIN_TOY_CHOICE (conv. layers:1-7)
+// Toy: MAX_TOY_CHOICE, MIN_TOY_CHOICE (conv. layers:1-7)
 #define PREVIOUS_TOF_CHOICE
-#define MAX_TOY_CHOICE
+#define MIN_TOY_CHOICE
 
 // **Misc**
 #define RECIPROCAL_BITS 30
 #define INTERNAL_CONFIG_LAYER
     // used for debbuging/running without fc layers in the end
 #define CONVX
+#define NEWFACTORCHOICE
 
 #endif // IMPL_CHOICE_H

@@ -345,24 +345,8 @@ For this tile, bit shift is 10
 For this tile, bit shift is 10
 For this tile, bit shift is 10
 For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
 Weights: min=-101, max=91
 Conv0: min=0, max=102
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
 For this tile, bit shift is 10
 For this tile, bit shift is 10
 For this tile, bit shift is 10
@@ -378,16 +362,8 @@ For this tile, bit shift is 9
 For this tile, bit shift is 9
 For this tile, bit shift is 9
 For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
 Weights: min=-85, max=105
 Conv2: min=0, max=84
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
 For this tile, bit shift is 9
 For this tile, bit shift is 9
 For this tile, bit shift is 9
@@ -397,18 +373,12 @@ Conv3: min=0, max=95
 After maxpool2: min=0, max=95
 For this tile, bit shift is 8
 For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
 Weights: min=-40, max=118
 Conv4: min=0, max=98
 For this tile, bit shift is 8
 For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
 Weights: min=-40, max=104
 Conv5: min=0, max=73
-For this tile, bit shift is 8
-For this tile, bit shift is 8
 For this tile, bit shift is 8
 For this tile, bit shift is 8
 Weights: min=-43, max=95
@@ -444,7 +414,7 @@ For this tile, bit shift is 8
 For this tile, bit shift is 8
 For this tile, bit shift is 8
 Weights: min=-60, max=89
-Conv11: min=0, max=20
+Conv11: min=0, max=30
 For this tile, bit shift is 7
 For this tile, bit shift is 7
 For this tile, bit shift is 7
@@ -452,18 +422,18 @@ For this tile, bit shift is 7
 Weights: min=-28, max=87
 Conv12: min=0, max=16
  After maxpool5: min=0, max=16
-19) After gap: min=0, max=3
+19) After gap: min=0, max=2
 Weights: min=-62, max=68
-20) After fc1: min=0, max=9
+20) After fc1: min=0, max=4
 Weights: min=-97, max=84
-21) After fc2: min=0, max=12
+21) After fc2: min=0, max=6
 Finished second fc layer!
 Finished all fc layers!
 Computed HW C sim of Oxford Flowers Model
 Printing Output Results Under Test
 
-     12      0      1      6      4      0      0      0      0      0
-      1      2      0      0      0      0      0
+      2      1      4      6      0      0      0      0      0      0
+      0      3      0      0      0      0      0
 
 Printing Golden Output Results
 
@@ -471,12 +441,12 @@ Printing Golden Output Results
       1      2      0      0      0      0      0
 
 Class found in testbench is number 0
-Class found in DUT is number 0
+Class found in DUT is number 3
 *****  CnnTop with bias + ReLu Passed!  ******
 
 *********************************************************************************  Verification Complete. ************************************************************************************
 INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 4 seconds. Total elapsed time: 1531.65 seconds; peak allocated memory: 138.723 MB.
-INFO: [vitis-run 60-791] Total elapsed time: 0h 25m 37s
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 2 seconds. Total elapsed time: 2322.25 seconds; peak allocated memory: 137.777 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 38m 47s

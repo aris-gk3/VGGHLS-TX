@@ -266,217 +266,54 @@ C:/Xilinx/2025.1/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: 
         ^
 1 warning generated.
 *********************************************************************************  Starting Verification. ************************************************************************************
-Found hardcoded local path.
-C:/Programming_Files/Test/Vgg_HLS/src_files/
-Loaded block1_conv1 as wt_data_t array of size 1728
-Length of binary files per layer verified!0
-Loaded block1_conv2 as wt_data_t array of size 36864
-Length of binary files per layer verified!1
-Loaded block2_conv1 as wt_data_t array of size 73728
-Length of binary files per layer verified!2
-Loaded block2_conv2 as wt_data_t array of size 147456
-Length of binary files per layer verified!3
-Loaded block3_conv1 as wt_data_t array of size 294912
-Length of binary files per layer verified!4
-Loaded block3_conv2 as wt_data_t array of size 589824
-Length of binary files per layer verified!5
-Loaded block3_conv3 as wt_data_t array of size 589824
-Length of binary files per layer verified!6
-Loaded block4_conv1 as wt_data_t array of size 1179648
-Length of binary files per layer verified!7
-Loaded block4_conv2 as wt_data_t array of size 2359296
-Length of binary files per layer verified!8
-Loaded block4_conv3 as wt_data_t array of size 2359296
-Length of binary files per layer verified!9
-Loaded block5_conv1 as wt_data_t array of size 2359296
-Length of binary files per layer verified!10
-Loaded block5_conv2 as wt_data_t array of size 2359296
-Length of binary files per layer verified!11
-Loaded block5_conv3 as wt_data_t array of size 2359296
-Length of binary files per layer verified!12
-Loaded dense as wt_data_t array of size 131072
-Length of binary files per layer verified!13
-Loaded dense_1 as wt_data_t array of size 4352
-Length of binary files per layer verified!14
-Input Range : min=-118 ,max=127
-Weights: min=-101, max=91
-01) After block1_conv1: min=0, max=102
-Weights: min=-52, max=70
-02) After block1_conv2: min=0, max=90
-03) After maxpool1: min=0, max=90
-Weights: min=-85, max=105
-04) After block2_conv1: min=0, max=84
-Weights: min=-64, max=97
-05) After block2_conv2: min=0, max=95
-06) After maxpool2: min=0, max=95
-Weights: min=-40, max=118
-07) After block3_conv1: min=0, max=98
-Weights: min=-40, max=104
-08) After block3_conv2: min=0, max=73
-Weights: min=-43, max=95
-09) After block3_conv3: min=0, max=66
-10) After maxpool3: min=0, max=66
-Weights: min=-43, max=109
-11) After block4_conv1: min=0, max=58
-Weights: min=-23, max=73
-12) After block4_conv2: min=0, max=58
-Weights: min=-55, max=112
-13) After block4_conv3: min=0, max=42
-14) After maxpool4: min=0, max=42
-Weights: min=-45, max=75
-15) After block5_conv1: min=0, max=49
-Weights: min=-60, max=89
-16) After block5_conv2: min=0, max=20
-Weights: min=-28, max=87
-17) After block5_conv3: min=0, max=16
-18) After maxpool5: min=0, max=16
-19) After gap: min=0, max=3
-Weights: min=-62, max=68
-20) After fc1: min=0, max=9
-Weights: min=-97, max=84
-21) After fc2: min=0, max=12
-Computed SW C sim of Oxford Flowers Model
-Input Range : min=-118 ,max=127
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-Weights: min=-101, max=91
-Conv0: min=0, max=102
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-For this tile, bit shift is 10
-Weights: min=-52, max=70
-Conv1: min=0, max=90
-After maxpool1: min=0, max=90
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-Weights: min=-85, max=105
-Conv2: min=0, max=84
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-For this tile, bit shift is 9
-Weights: min=-64, max=97
-Conv3: min=0, max=95
-After maxpool2: min=0, max=95
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-Weights: min=-40, max=118
-Conv4: min=0, max=98
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-Weights: min=-40, max=104
-Conv5: min=0, max=73
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-Weights: min=-43, max=95
-Conv6: min=0, max=66
-After maxpool3: min=0, max=66
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-Weights: min=-43, max=109
-Conv7: min=0, max=58
-For this tile, bit shift is 7
-For this tile, bit shift is 7
-For this tile, bit shift is 7
-For this tile, bit shift is 7
-Weights: min=-23, max=73
-Conv8: min=0, max=58
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-Weights: min=-55, max=112
-Conv9: min=0, max=42
-After maxpool4: min=0, max=42
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-Weights: min=-45, max=75
-Conv10: min=0, max=49
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-For this tile, bit shift is 8
-Weights: min=-60, max=89
-Conv11: min=0, max=20
-For this tile, bit shift is 7
-For this tile, bit shift is 7
-For this tile, bit shift is 7
-For this tile, bit shift is 7
-Weights: min=-28, max=87
-Conv12: min=0, max=16
- After maxpool5: min=0, max=16
-19) After gap: min=0, max=3
-Weights: min=-62, max=68
-20) After fc1: min=0, max=9
-Weights: min=-97, max=84
-21) After fc2: min=0, max=12
-Finished second fc layer!
-Finished all fc layers!
-Computed HW C sim of Oxford Flowers Model
-Printing Output Results Under Test
+ Layers: 13
+ NKX: 3
+ NKY: 3
+ S: 1
+ Nif_rom:       3     64     64    128    128    256    256    256    512    512    512    512    512
+ Noy_rom:    224    224    112    112     56     56     56     28     28     28     14     14     14
+ Tox_rom:    224    224    112    112     56     56     56     28     28     28     14     14     14 WRD_INBUF: 12800
+ WRD_WTBUF: 73728
+ WRD_OUTBUF: 28672
+ BIASBUF_LENGTH: 256
+ OUTBUF_NUM: 2
+ BIASMEM_LENGTH: 4224
+ FMAP_MEMSIZE: 3211264
+ FMAP_MEMSIZE_WIDENED: 3211264
+ WTMAP_MEMSIZE: 2359296
+ WTMAP_MEMSIZE_WIDENED: 2359296
+ niy_rom:     224    224    112    112     56     56     56     28     28     28     14     14     14
+ tox_step_rom:     32     32     16     16      8      8      8      4      4      4      2      2      2
+ tix_rom:    226    226    114    114     58     58     58     30     30     30     16     16     16
+ wrd_1row_rom:     33     33     17     17      9      9      9      5      5      5      3      3      3
+ pe_loop_limit_rom:     26    575    575   1151   1151   2303   2303   2303   4607   4607   4607   4607   4607
+ wndclc_loop_limit_rom:     27    576    576   1152   1152   2304   2304   2304   4608   4608   4608   4608   4608
+ nofFirst:      1      1      1      1      1      1      1      0      0      0      0      0      0
+ fulBufWt:      1      1      1      1      1      1      1      0      0      0      0      0      0
+ fulBufPx:      0      0      0      0      0      0      0      1      1      1      1      1      1
+ bit_shift_rom:     10     10      9      9      8      8      8      8      7      8      8      8      7 PIF: 1
+ POF: 8
+ POY: 7
+ POX: 7
+ PIY: 7
+ PIX: 7
 
-     12      0      1      6      4      0      0      0      0      0
-      1      2      0      0      0      0      0
+ nofy_step_rom:      8      8      4      4      2      2      2      4      4      4      4      4      4
+ Nof_step_rom:      1      1      1      1      1      1      1      4      4      4      4      4      4
+ Tof_rom:     64     64    128    128    256    256    256    128    128    128    128    128    128
+ noy_step_rom:      8      8      4      4      2      2      2      1      1      1      1      1      1
+ Toy_rom:     28     28     28     28     28     28     28     28     28     28     14     14     14
+ tiy_rom:     30     30     30     30     30     30     30     30     30     30     16     16     16 POFBANK_STEP: 4
 
-Printing Golden Output Results
-
-     12      0      1      6      4      0      0      0      0      0
-      1      2      0      0      0      0      0
-
-Class found in testbench is number 0
-Class found in DUT is number 0
-*****  CnnTop with bias + ReLu Passed!  ******
-
-*********************************************************************************  Verification Complete. ************************************************************************************
-INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 3
+ tof_step_rom:      8      8     16     16     32     32     32     16     16     16     16     16     16
+ toy_step_rom:      4      4      4      4      4      4      4      4      4      4      2      2      2
+ row_1map_rom:      5      5      5      5      5      5      5      5      5      5      3      3      3
+ wtbuf2pe_loop_limit_rom:    215   4607   9215  18431  36863  73727  73727  36863  73727  73727  73727  73727  73727
+ tileclc_loop_limit_rom:   1024   1024   1024   1024   1024   1024   1024    256    256    256     64     64     64
+ pe2buf_addr_offset1_rom: -24895 -24895 -26783 -26783 -27727 -27727 -27727  -6695  -6695  -6695  -1667  -1667  -1667
+ pe2buf_addr_offset2_rom:  25088  25088  26880  26880  27776  27776  27776   6720   6720   6720   1680   1680   1680
+ pe2buf_addr_offset3_rom:   3584   3584   1792   1792    896    896    896    448    448    448    112    112    112*********************************************************************************  Verification Complete. ************************************************************************************
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-112] Total CPU user time: 2 seconds. Total CPU system time: 4 seconds. Total elapsed time: 1531.65 seconds; peak allocated memory: 138.723 MB.
-INFO: [vitis-run 60-791] Total elapsed time: 0h 25m 37s
+INFO: [HLS 200-112] Total CPU user time: 1 seconds. Total CPU system time: 2 seconds. Total elapsed time: 43.189 seconds; peak allocated memory: 138.266 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 48s
