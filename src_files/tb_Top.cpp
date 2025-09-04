@@ -163,20 +163,20 @@ int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue){
 }
 
 
-void minimalRunSynthConv(int layerNo){
-	static px_data_t_port IfMap[FMAP_MEMSIZE_WIDENED] = {0};
-	static wt_data_t_port WtMap[WTMAP_MEMSIZE_WIDENED] = {0};
-	static px_data_t_port OfMap[FMAP_MEMSIZE_WIDENED] = {0};
+void minimalRunSynthConv(int layerNo, px_data_t_port* IfMap, wt_data_t_port* WtMap, px_data_t_port* OfMap){
+	// static px_data_t_port IfMap[FMAP_MEMSIZE_WIDENED] = {0};
+	// static wt_data_t_port WtMap[WTMAP_MEMSIZE_WIDENED] = {0};
+	// static px_data_t_port OfMap[FMAP_MEMSIZE_WIDENED] = {0};
 
 	ConvLayer(IfMap, WtMap, OfMap);
 }
 
 
-void minimalRunSynth(int layerNo){
-	static px_data_t_port IfMap[FMAP_MEMSIZE_WIDENED] = {0};
-	static wt_data_t_port WtMap[WTMAP_MEMSIZE_WIDENED] = {0};
-	const static wt_data_t WtMapFc[512*256] = {0};
-	static px_data_t_port OfMap[FMAP_MEMSIZE_WIDENED] = {0};
+void minimalRunSynth(int layerNo, px_data_t_port* IfMap, wt_data_t_port* WtMap, const wt_data_t* WtMapFc, px_data_t_port* OfMap){
+	// static px_data_t_port IfMap[FMAP_MEMSIZE_WIDENED] = {0};
+	// static wt_data_t_port WtMap[WTMAP_MEMSIZE_WIDENED] = {0};
+	// const static wt_data_t WtMapFc[512*256] = {0};
+	// static px_data_t_port OfMap[FMAP_MEMSIZE_WIDENED] = {0};
 
 	ConvX(IfMap, WtMap, WtMapFc, OfMap);
 }

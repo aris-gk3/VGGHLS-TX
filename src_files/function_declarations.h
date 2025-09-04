@@ -246,7 +246,8 @@ void printPeResults(px_data_t px_stream[POF][POY][POX]);
 
 // ** Testbench for Modules Function
 void minimalRunSynthConv(int layerNo);
-void minimalRunSynth(int layerNo);
+void minimalRunSynth(int layerNo, px_data_t_port* IfMap, 
+					wt_data_t_port* WtMap, const wt_data_t* WtMapFc, px_data_t_port* OfMap);
 int oxfordFlowers_test(int verbose, int debug, int minPrint, int biasReLuTrue);
 int vgg16_test(int verbose, int minPrint, int biasReLuTrue);
 int fcLayer_test(int verbose, std::string caseChoice);

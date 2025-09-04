@@ -44,7 +44,32 @@ int main(){
 	// Has random input, therefore we don't check for range
 	// check += vgg16_test(/*Verbose=*/1, /*minPrint=*/1, /*biasReLuTrue=*/1);
 	// check += oxfordFlowers_test(/*Verbose=*/0, /*debug=*/1, /*minPrint=*/1, /*biasReLuTrue=*/1);
-	minimalRunSynth(/*layerNo=*/0);
+
+	px_data_t_port* minimal_IfMap = new px_data_t_port[FMAP_MEMSIZE_WIDENED];
+	wt_data_t_port* minimal_WtMap = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
+	const wt_data_t* minimal_WtMapFc = new wt_data_t[512*256];
+	px_data_t_port* minimal_OfMap = new px_data_t_port[FMAP_MEMSIZE_WIDENED];
+
+	// Initialize dynamically allocated memory to 0 to mimic static initialization
+	for (int i = 0; i < FMAP_MEMSIZE_WIDENED; ++i) {
+		minimal_IfMap[i] = 0;
+		minimal_OfMap[i] = 0;
+	}
+	for (int i = 0; i < WTMAP_MEMSIZE_WIDENED; ++i) {
+		minimal_WtMap[i] = 0;
+	}
+	for (int i = 0; i < 512*256; ++i) {
+		((wt_data_t*)minimal_WtMapFc)[i] = 0;
+	}
+
+	// minimalRunSynth(/*layerNo=*/0);
+	minimalRunSynth(/*layerNo=*/0, minimal_IfMap, minimal_WtMap, minimal_WtMapFc, minimal_OfMap);
+	// minimalRunSynthConv(/*layerNo=*/0, minimal_IfMap, minimal_WtMap, minimal_OfMap);
+
+	delete[] minimal_IfMap;
+	delete[] minimal_WtMap;
+	delete[] minimal_WtMapFc;
+	delete[] minimal_OfMap;
 
 	std::cout << "************************************************************************"
 				"*********  Verification Complete. *********************"

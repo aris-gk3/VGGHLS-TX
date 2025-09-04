@@ -3073,9 +3073,9 @@ void ConvLayer(
 		//Output
 		px_data_t_port *OfMap 			// [NOF][NOY][NOX]
 	){
-	// #pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED bundle=IFMAP
-	// #pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED bundle=WTMAP
-	// #pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED bundle=OFMAP
+	#pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED bundle=IFMAP
+	#pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED bundle=WTMAP
+	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED bundle=OFMAP
 	static layerNo_dt layerNo = 0; 				// State of number of convolutional layer
 // Sequential
 	#if defined(REG3_SEQ)
@@ -3205,7 +3205,7 @@ void ConvX(
 	){
 	#pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED 	bundle=IFMAP
 	#pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED 	bundle=WTMAP
-	#pragma HLS INTERFACE m_axi port=WtMap depth=(512*256) 				bundle=WTMAP
+	#pragma HLS INTERFACE m_axi port=WtMapFc depth=(512*256) 				bundle=WTMAP
 	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED 	bundle=OFMAP
 	static layerNo_dt layerNo = 0; 				// State of number of convolutional layer
 	if(layerNo==LAYERS){

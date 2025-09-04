@@ -1,0 +1,42 @@
+MODULES & LOOPS,LATENCY(NS),ITERATION LATENCY,INTERVAL,TRIP COUNT,PIPELINED,STRUCTURE,BRAM,DSP,FF,LUT,URAM
+ConvX (5),"4,470e7",,4.469.467,,no,function,912,426,35.415,52.945,0
+ConvX_Pipeline_VITIS_LOOP_3274_1 (1),"5,150e3",,513,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,0,44,84,0
+VITIS_LOOP_3274_1,"5,130e3",3,1,512,yes,loop,,,,,
+ConvX_Pipeline_fclayer_loop_1_fclayer_loop_2 (1),"1,311e6",,131.073,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,1,205,316,0
+fclayer_loop_1_fclayer_loop_2,"1,311e6",6,1,131.072,yes,loop,,,,,
+ConvX_Pipeline_fclayer_loop_1_fclayer_loop_21 (1),"4,358e4",,4.353,,loop auto-rewind stp (delay=0 clock cycles(s)),function,1,1,200,310,0
+fclayer_loop_1_fclayer_loop_2,"4,356e4",6,1,4.352,yes,loop,,,,,
+ConvX_Pipeline_VITIS_LOOP_3302_2 (1),200.000,,18,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,0,18,73,0
+VITIS_LOOP_3302_2,180.000,3,1,17,yes,loop,,,,,
+VITIS_LOOP_3116_1 (4),"4,470e7",496.607,-,9,no,loop,,,,,
+mem2Buf (2),"2,040e5",,20.426,,no,function,0,19,2.308,9.969,0
+loadIfMap (5),"2,040e5",,20.425,,no,function,0,14,1.744,7.312,0
+loadIfMap_Pipeline_If_Nif_If_Tiy_If_Nix (1),"2,020e5",,20.161,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,5,964,1.382,0
+If_Nif_If_Tiy_If_Nix,"2,020e5",14,1,20.160,yes,loop,,,,,
+loadIfMap_Pipeline_NorthPad_Nif_NorthPad_wrd (1),"1,030e3",,100,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,1,50,177,0
+NorthPad_Nif_NorthPad_wrd,"1,010e3",4,1,99,yes,loop,,,,,
+loadIfMap_Pipeline_SouthPad_Nif_SouthPad_wrd (1),"1,030e3",,100,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,1,50,193,0
+SouthPad_Nif_SouthPad_wrd,"1,010e3",4,1,99,yes,loop,,,,,
+loadIfMap_Pipeline_WestPad_Line (1),170.000,,16,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,0,31,107,0
+WestPad_Line,150.000,1,1,15,yes,loop,,,,,
+loadIfMap_Pipeline_EastPad_Line (1),170.000,,16,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,0,28,139,0
+EastPad_Line,150.000,1,1,15,yes,loop,,,,,
+loadWtMap (1),"1,741e4",,1.741,,no,function,0,5,483,1.310,0
+loadWtMap_Pipeline_WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx (1),"1,731e4",,1.729,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,0,209,665,0
+WtLoop_Tof_WtLoop_Nif_WtLoop_Nky_WtLoop_Nkx,"1,729e4",3,1,1.728,yes,loop,,,,,
+loadBiasTile (1),710.000,,71,,no,function,1,1,747,2.928,0
+loadBiasTile_Pipeline_BiasLoop_Tof (1),660.000,,65,,loop auto-rewind stp (delay=0 clock cycles(s)),function,1,0,20,90,0
+BiasLoop_Tof,640.000,2,1,64,yes,loop,,,,,
+tileClc (1),"7,480e5",,74.754,,no,function,0,395,27.566,30.760,0
+Region2 (3),"7,480e5",73,-,1.024,no,loop,,,,,
+wndClc_ctrl,0.0,,0,,no,function,0,2,129,390,0
+wndClc_Dfl (1),350.000,,35,,no,function,0,392,19.062,23.889,0
+wndClc_Dfl_Pipeline_Region1 (1),320.000,,28,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,392,7.776,11.973,0
+Region1,300.000,5,1,27,yes,loop,,,,,
+Pe2Buf (1),340.000,,34,,no,function,0,1,819,6.143,0
+Pe2Buf_Pipeline_loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy (1),320.000,,29,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,1,639,5.246,0
+loop_Pe2Buf_PofBankStep_loop_Pe2Buf_Poy (1),300.000,4,1,28,yes,loop,,,,,
+bias_ReLu,0.0,,1,,yes,function,0,0,65,2.678,0
+storeMap (1),"4,014e6",,401.419,,no,function,0,9,900,1.884,0
+storeMap_Pipeline_Loop_Tof_Loop_Toy_Loop_Tox (1),"4,014e6",,401.409,,loop auto-rewind stp (delay=0 clock cycles(s)),function,0,4,587,1.402,0
+Loop_Tof_Loop_Toy_Loop_Tox,"4,014e6",9,1,401.408,yes,loop,,,,,
