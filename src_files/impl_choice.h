@@ -32,7 +32,7 @@
 // **Misc**
 #define RECIPROCAL_BITS 30
 #define INTERNAL_CONFIG_LAYER
-    // used for debbuging/running without fc layers in the end
+    // used for debbuging/running with(out) fc layers in the end
 #define CONVX
 #define NEWFACTORCHOICE
 

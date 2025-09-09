@@ -1749,10 +1749,10 @@ void storeMap(
 					acc = 0;
 				#endif
 				Loop_Toy_step: for(int Toy_i=0; Toy_i<Toy_map;Toy_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=(TOY_TRIPCOUNT/2) max=(TOY_TRIPCOUNT/2)
+				#pragma HLS LOOP_TRIPCOUNT min=TOYMAP_TRIPCOUNT max=TOYMAP_TRIPCOUNT
 
 					Loop_Tox_step: for(int Tox_step_i=0; Tox_step_i<Tox_map/POX;Tox_step_i++){
-					#pragma HLS LOOP_TRIPCOUNT min=(TOX_TRIPCOUNT/2*POX) max=(TOX_TRIPCOUNT/2*POX)
+					#pragma HLS LOOP_TRIPCOUNT min=(TOXMAP_TRIPCOUNT/POX) max=(TOXMAP_TRIPCOUNT/POX)
 						#if not defined(FMAP_WIDEN)
 							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
 								layerNo==8 || layerNo==9 || layerNo==11 || layerNo==12){
@@ -2157,8 +2157,8 @@ void loadWtMap(
 					WtLoop_Nkx: for(int Nkx_i=0;Nkx_i<NKX;Nkx_i++){
 					#pragma HLS LOOP_TRIPCOUNT min=NKX max=NKX
 						WtLoop_Pof: for (int i = 0; i < (POF/WTMAP_WIDTHFACTOR); i++) {
-						#pragma HLS UNROLL
 							for (int chunk = 0; chunk < WTMAP_WIDTHFACTOR; chunk++) {
+							#pragma HLS UNROLL
 								int idx = i*WTMAP_WIDTHFACTOR + chunk;
 								int bit_start = chunk * SYNTH_BITS;
 								int bit_end   = bit_start + SYNTH_BITS - 1;
@@ -2397,6 +2397,8 @@ void storeMap(
 	static layerNo_dt layerNo = 0; 		// "State" for layer
 
 	int ofBase, yBase;
+	px_data_t_port tmpOut;
+	#pragma HLS ARRAY_PARTITION variable=tmpOut complete dim=1
 
 	row_outbuf_i_dt wrdMap, wrdY, wrdX;
 	outbufnum_i_dt OutBufNum_i;
@@ -2459,7 +2461,7 @@ void storeMap(
 					Loop_Tox: for(int Tox_i=0; Tox_i<Tox/7;Tox_i++){
 					#pragma HLS LOOP_TRIPCOUNT min=(TOX_TRIPCOUNT/7) max=(TOX_TRIPCOUNT/7)
 						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS-1,0) =
-								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][0];
+														OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][0];
 						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS*2-1,SYNTH_BITS) =
 								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][1];
 						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS*3-1,SYNTH_BITS*2) =
@@ -2472,7 +2474,7 @@ void storeMap(
 								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][5];
 						OfMap[(Tof_i+ofBase*Tof)*Noy*Tox/7 + (Toy_i+yBase*Toy)*Tox/7 +Tox_i].range(SYNTH_BITS*7-1,SYNTH_BITS*6) =
 								OutBuf[OutBufNum_i][wrdMap + wrdY + Tox_i][6];
-					}	
+											}	
 				#endif
 				wrdY += wrd_1rowOut;
 			}
@@ -2508,6 +2510,7 @@ void maxPoolTree(px_data_t tmp1[POX], px_data_t tmp2[POX], px_data_t tmp3[POX],
 		maxTmp[i+POX] = (tmp2[i]>tmp4[i]) ? tmp2[i] : tmp4[i];
 	}
 	for(int i=0;i<POX;i++){
+	#pragma HLS UNROLL
 		max[i] = (maxTmp[2*i]>maxTmp[2*i+1]) ? maxTmp[2*i] : maxTmp[2*i+1];
 	}
 }
@@ -2544,7 +2547,13 @@ void storeMap(
 	#if defined(FMAP_WIDEN)
 		static ap_uint<3> state;
 	#endif
-	px_data_t tmp1[POX], tmp2[POX], tmp3[POX], tmp4[POX], max[POX];
+	px_data_t tmp1[POX], tmp2[POX], tmp3[POX], tmp4[POX];
+	#pragma HLS ARRAY_PARTITION variable=tmp1 complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=tmp2 complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=tmp3 complete dim=1
+	#pragma HLS ARRAY_PARTITION variable=tmp4 complete dim=1
+	px_data_t max[POX];
+	#pragma HLS ARRAY_PARTITION variable=max complete dim=1
 	row_outbuf_i_dt wrdMap, wrdY, wrdX;
 	outbufnum_i_dt OutBufNum_i;
 	Pox_i_dt Pox_i;
@@ -2605,10 +2614,10 @@ void storeMap(
 					acc = 0;
 				#endif
 				Loop_Toy_step: for(int Toy_i=0; Toy_i<Toy_map;Toy_i++){
-				#pragma HLS LOOP_TRIPCOUNT min=(TOY_TRIPCOUNT/2) max=(TOY_TRIPCOUNT/2)
+				#pragma HLS LOOP_TRIPCOUNT min=TOYMAP_TRIPCOUNT max=TOYMAP_TRIPCOUNT
 
 					Loop_Tox_step: for(int Tox_step_i=0; Tox_step_i<Tox_map/POX;Tox_step_i++){
-					#pragma HLS LOOP_TRIPCOUNT min=(TOX_TRIPCOUNT/2*POX) max=(TOX_TRIPCOUNT/2*POX)
+					#pragma HLS LOOP_TRIPCOUNT min=(TOXMAP_TRIPCOUNT/7) max=(TOXMAP_TRIPCOUNT/7)
 						#if not defined(FMAP_WIDEN)
 							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
 								layerNo==8 || layerNo==9 || layerNo==11 || layerNo==12){
@@ -2655,7 +2664,7 @@ void storeMap(
 							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
 								layerNo==8 || layerNo==9 || layerNo==11 || layerNo==12){
 								Loop_POX0: for(int Pox_i=0; Pox_i<POX;Pox_i++){
-								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+								#pragma HLS UNROLL
 									OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
 										OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + Toy_i*wrd_1rowOut + Tox_step_i][Pox_i];
 								}
@@ -2672,7 +2681,7 @@ void storeMap(
 								maxPoolTree(tmp1, tmp2, tmp3, tmp4, max);
 								#if not defined(HEAD_INTEGRATION)
 									Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
-									#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+									#pragma HLS UNROLL
 										OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
 											max[Pox_i];
 									}
@@ -2685,7 +2694,7 @@ void storeMap(
 									}
 									else{
 										Loop_POX2: for(int Pox_i=0; Pox_i<POX;Pox_i++){
-										#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+										#pragma HLS UNROLL
 											OfMap[addr].range(SYNTH_BITS*(Pox_i+1)-1, SYNTH_BITS*Pox_i) =
 												max[Pox_i];
 										}

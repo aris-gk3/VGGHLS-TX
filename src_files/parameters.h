@@ -1898,6 +1898,13 @@ constexpr int NIF_TRIPCOUNT = Nif_rom[LR_NUM_SYNTH];
 constexpr int TOF_TRIPCOUNT = Tof_rom[LR_NUM_SYNTH];
 constexpr int TOF_STEP_TRIPCOUNT = tof_step_rom[LR_NUM_SYNTH];
 constexpr int TOY_TRIPCOUNT = Toy_rom[LR_NUM_SYNTH];
+#if (LR_NUM_SYNTH==0 || LR_NUM_SYNTH==2 || LR_NUM_SYNTH==4 || LR_NUM_SYNTH==5 || LR_NUM_SYNTH==7 || LR_NUM_SYNTH==8 || LR_NUM_SYNTH==10 || LR_NUM_SYNTH==11)
+	constexpr int TOYMAP_TRIPCOUNT = Toy_rom[LR_NUM_SYNTH];
+	constexpr int TOXMAP_TRIPCOUNT = Tox_rom[LR_NUM_SYNTH];
+#else
+	constexpr int TOYMAP_TRIPCOUNT = Toy_rom[LR_NUM_SYNTH]/2;
+	constexpr int TOXMAP_TRIPCOUNT = Tox_rom[LR_NUM_SYNTH]/2;
+#endif
 constexpr int TIY_TRIPCOUNT = tiy_rom[LR_NUM_SYNTH];
 constexpr int TOX_TRIPCOUNT = Tox_rom[LR_NUM_SYNTH];
 
