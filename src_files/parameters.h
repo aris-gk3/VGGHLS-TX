@@ -22,7 +22,7 @@
 // 7 -> VGG-16 Parameters (*)
 // 8 -> VGG-Base
 // 9 -> Model from Trasfer Learning
-#define SOLUTION 2
+#define SOLUTION 0
 // 0 -> VGG-16 Parameters Solution 1 -> Pof=32, Poy=Pox=7
 // 1 -> VGG-16 Parameters Solution 2 -> Pof=16, Poy=Pox=7 (*)
 // 2 -> VGG-16 Parameters Solution 3 -> Pof=8 , Poy=Pox=7 (*)
@@ -1821,10 +1821,10 @@
 				#define NOY_B             8
 				#define NOF_STEP_B        3
 				#define NOF_STEP_I_B      2
-				#define NOY_STEP_B        4
-				#define NOY_STEP_I_B      3
-				#define NOFY_STEP_B       4
-				#define NOFY_STEP_I_B     3 // Max of Nof_step_i & Noy_step_i
+				#define NOY_STEP_B        5
+				#define NOY_STEP_I_B      4
+				#define NOFY_STEP_B       5
+				#define NOFY_STEP_I_B     4 // Max of Nof_step_i & Noy_step_i
 
 				#define TIY_B             5
 				#define TIX_B             8
@@ -1888,7 +1888,7 @@
 
 // *****  constexprants for loop tripcounts pragmas  *****
 // Given for calculating module latency for each layer
-#define LR_NUM_SYNTH 0
+#define LR_NUM_SYNTH 5
 constexpr int WNDCLC_TRIPCOUNT = wndclc_loop_limit_rom[LR_NUM_SYNTH];
 constexpr int TILECLC_TRIPCOUNT = tileclc_loop_limit_rom[LR_NUM_SYNTH];
 constexpr int WRD1ROW_TRIPCOUNT = wrd_1row_rom[LR_NUM_SYNTH];

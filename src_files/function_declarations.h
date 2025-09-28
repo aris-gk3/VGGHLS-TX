@@ -211,7 +211,7 @@ void ConvX(
 		//Output
 		px_data_t_port *OfMap 			// [NOF][NOY][NOX]
 	);
-void gap(px_data_t *in, px_data_t *out);
+void gap(const px_data_t *in, px_data_t *out);
 void fcLayers(px_data_t *IfMap, wt_data_t *WtMap, px_data_t finalOut[1000]);
 void fcLayersOF(
 		/*Inputs*/ px_data_t *IfMap, wt_data_t *WtMap,
@@ -227,6 +227,8 @@ void fcLayer(
 		px_data_t outPx[]
 	);
 void maxPool(px_data_t *IfMap, int channels, int yDim_out, int xDim_out, px_data_t *OfMap);
+void maxpool2x2(const px_data_t *IfMap, ap_uint<10> C,
+				ap_uint<8> H, ap_uint<8> W, px_data_t *OfMap);
 void vgg16Top(px_data_t *Map1, wt_data_t *WtMap, px_data_t *Map2, px_data_t finalOut[1000]);
 void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, // [NOF][NIF][NKY][NKX]
 		px_data_t *Map2, px_data_t finalOut[17]);

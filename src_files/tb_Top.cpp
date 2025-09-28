@@ -1,6 +1,7 @@
 #include "header.h"
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>   // rand()
 #include <ctime>
 
 // *****  Testing Functions  *****
@@ -172,15 +173,54 @@ void minimalRunSynthConv(int layerNo){
 }
 
 
-void minimalRunSynth(int layerNo){
-	static px_data_t_port IfMap[FMAP_MEMSIZE_WIDENED] = {0};
-	static wt_data_t_port WtMap[WTMAP_MEMSIZE_WIDENED] = {0};
-	const static wt_data_t WtMapFc[512*256] = {0};
-	static px_data_t_port OfMap[FMAP_MEMSIZE_WIDENED] = {0};
+// void minimalRunSynth(int layerNo){
+// 	static px_data_t_port IfMap[FMAP_MEMSIZE_WIDENED] = {0};
+// 	static wt_data_t_port WtMap[WTMAP_MEMSIZE_WIDENED] = {0};
+// 	const static wt_data_t WtMapFc[512*256] = {0};
+// 	static px_data_t_port OfMap[FMAP_MEMSIZE_WIDENED] = {0};
 
-	ConvX(IfMap, WtMap, WtMapFc, OfMap);
+// 	ConvX(IfMap, WtMap, WtMapFc, OfMap);
+// }
+
+// void minimalRunSynth(int layerNo) {
+//     // dynamically allocate with zero-initialization
+//     px_data_t_port* IfMap   = new px_data_t_port[FMAP_MEMSIZE_WIDENED]();
+//     wt_data_t_port* WtMap   = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED]();
+//     wt_data_t*      WtMapFc = new wt_data_t[512 * 256]();
+//     px_data_t_port* OfMap   = new px_data_t_port[FMAP_MEMSIZE_WIDENED]();
+
+//     ConvX(IfMap, WtMap, WtMapFc, OfMap);
+
+//     // free after use
+//     delete[] IfMap;
+//     delete[] WtMap;
+//     delete[] WtMapFc;
+//     delete[] OfMap;
+// }
+
+
+void minimalRunSynth(int layerNo) {
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
+
+    px_data_t_port* IfMap   = new px_data_t_port[FMAP_MEMSIZE_WIDENED];
+    wt_data_t_port* WtMap   = new wt_data_t_port[WTMAP_MEMSIZE_WIDENED];
+    wt_data_t*      WtMapFc = new wt_data_t[512 * 256];
+    px_data_t_port* OfMap   = new px_data_t_port[FMAP_MEMSIZE_WIDENED];
+
+    // fill with random values (example: 0–255)
+    for (int i = 0; i < FMAP_MEMSIZE_WIDENED; i++) IfMap[i] = std::rand() % 256;
+    for (int i = 0; i < WTMAP_MEMSIZE_WIDENED; i++) WtMap[i] = std::rand() % 256;
+    for (int i = 0; i < 512 * 256; i++) WtMapFc[i] = std::rand() % 256;
+    for (int i = 0; i < FMAP_MEMSIZE_WIDENED; i++) OfMap[i] = std::rand() % 256;
+
+    ConvX(IfMap, WtMap, WtMapFc, OfMap);
+
+    // free after use
+    delete[] IfMap;
+    delete[] WtMap;
+    delete[] WtMapFc;
+    delete[] OfMap;
 }
-
 
 // *****  Software Functions  *****
 

@@ -1744,7 +1744,7 @@ void storeMap(
 		#pragma HLS LOOP_TRIPCOUNT min=(TOF_TRIPCOUNT/OUTBUF_NUM) max=(TOF_TRIPCOUNT/OUTBUF_NUM)
 			Loop_OutBufNum: for(int OutBufNum_i=0; OutBufNum_i<OUTBUF_NUM;OutBufNum_i++){
 			#pragma HLS LOOP_TRIPCOUNT min=OUTBUF_NUM max=OUTBUF_NUM
-				addr = base_addr;
+				addr = base_addr;		
 				#if defined(HEAD_INTEGRATION)
 					acc = 0;
 				#endif
@@ -1759,7 +1759,7 @@ void storeMap(
 								Loop_POX0: for(int Pox_i=0; Pox_i<POX;Pox_i++){
 								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
 									OfMap[addr] =
-										OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + Toy_i*wrd_1rowOut + Tox_step_i][Pox_i];
+										OutBuf[OutBufNum_i][addr2][Pox_i];
 									addr++;
 								}
 							}
@@ -2600,7 +2600,7 @@ void storeMap(
 		}
 
 		base_addr = ofBase*Tof*Noy_map*Tox_map/FMAP_WIDTHFACTOR + yBase*Toy_map*Tox_map/FMAP_WIDTHFACTOR;
-		
+
 		#if defined(HEAD_INTEGRATION)
 			addr_gap = tileCount*Tof/FMAP_WIDTHFACTOR;
 		#endif
@@ -2618,11 +2618,13 @@ void storeMap(
 
 					Loop_Tox_step: for(int Tox_step_i=0; Tox_step_i<Tox_map/POX;Tox_step_i++){
 					#pragma HLS LOOP_TRIPCOUNT min=(TOXMAP_TRIPCOUNT/7) max=(TOXMAP_TRIPCOUNT/7)
+					#pragma HLS PIPELINE II=7
 						#if not defined(FMAP_WIDEN)
 							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
 								layerNo==8 || layerNo==9 || layerNo==11 || layerNo==12){
 								Loop_POX0: for(int Pox_i=0; Pox_i<POX;Pox_i++){
 								#pragma HLS LOOP_TRIPCOUNT min=POX max=POX
+								#pragma HLS PIPELINE II=1
 									OfMap[addr] =
 										OutBuf[OutBufNum_i][Tof_ii*Toy*wrd_1rowOut + Toy_i*wrd_1rowOut + Tox_step_i][Pox_i];
 									addr++;
@@ -2775,29 +2777,6 @@ void ConvLayerScdl(
 			storeMap(OutBuf, OfMap);
 		}
 		else if(nofy_step==2){
-			// loadIfMap(IfMap, InBuf);
-			// loadBiasTile(BiasBuf);
-			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// for(int nofy_step_i=0;nofy_step_i<1;nofy_step_i++){
-			// // #pragma HLS UNROLL
-			// 	loadIfMap(IfMap, InBuf);
-			// 	loadBiasTile(BiasBuf);
-			// 	storeMap(OutBuf, OfMap);
-			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// }
-			// storeMap(OutBuf, OfMap);
-
-			// loadIfMap(IfMap, InBuf);
-			// loadBiasTile(BiasBuf);
-			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// for(int nofy_step_i=0;nofy_step_i<1;nofy_step_i++){
-			// 	storeMap(OutBuf, OfMap);
-			// 	loadIfMap(IfMap, InBuf);
-			// 	loadBiasTile(BiasBuf);
-			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// }
-			// storeMap(OutBuf, OfMap);
-
 			for(int nofy_step_i=0;nofy_step_i<2;nofy_step_i++){
 			#pragma HLS UNROLL
 				loadIfMap(IfMap, InBuf);
@@ -2807,30 +2786,6 @@ void ConvLayerScdl(
 			}
 		}
 		else if(nofy_step==4){
-			// loadIfMap(IfMap, InBuf);
-			// loadBiasTile(BiasBuf);
-			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
-			// // #pragma HLS UNROLL
-			// 	loadIfMap(IfMap, InBuf);
-			// 	loadBiasTile(BiasBuf);
-			// 	storeMap(OutBuf, OfMap);
-			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// }
-			// storeMap(OutBuf, OfMap);
-
-			// loadIfMap(IfMap, InBuf);
-			// loadBiasTile(BiasBuf);
-			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
-			// // #pragma HLS UNROLL
-			// 	storeMap(OutBuf, OfMap);
-			// 	loadIfMap(IfMap, InBuf);
-			// 	loadBiasTile(BiasBuf);
-			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// }
-			// storeMap(OutBuf, OfMap);
-
 			for(int nofy_step_i=0;nofy_step_i<4;nofy_step_i++){
 			#pragma HLS UNROLL
 				loadIfMap(IfMap, InBuf);
@@ -2841,12 +2796,22 @@ void ConvLayerScdl(
 		}
 		else if(nofy_step==8){
 			for(int nofy_step_i=0;nofy_step_i<8;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadIfMap(IfMap, InBuf);
 				loadBiasTile(BiasBuf);
 				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
 				storeMap(OutBuf, OfMap);
 			}	
-		}		
+		}
+		else if(nofy_step==16){
+			for(int nofy_step_i=0;nofy_step_i<4;nofy_step_i++){
+			#pragma HLS UNROLL
+				loadIfMap(IfMap, InBuf);
+				loadBiasTile(BiasBuf);
+				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+				storeMap(OutBuf, OfMap);
+			}	
+		}			
 	}
 	else{
 		loadIfMap(IfMap, InBuf);
@@ -2857,28 +2822,6 @@ void ConvLayerScdl(
 			storeMap(OutBuf, OfMap);
 		}
 		else if(nofy_step==2){
-			// loadWtMap(WtMap, WtBuf);
-			// loadBiasTile(BiasBuf);
-			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// for(int nofy_step_i=0;nofy_step_i<1;nofy_step_i++){
-			// 	loadWtMap(WtMap, WtBuf);
-			// 	loadBiasTile(BiasBuf);
-			// 	storeMap(OutBuf, OfMap);
-			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// }
-			// storeMap(OutBuf, OfMap);
-
-			// loadWtMap(WtMap, WtBuf);
-			// loadBiasTile(BiasBuf);
-			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// for(int nofy_step_i=0;nofy_step_i<1;nofy_step_i++){
-			// 	storeMap(OutBuf, OfMap);
-			// 	loadWtMap(WtMap, WtBuf);
-			// 	loadBiasTile(BiasBuf);
-			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// }
-			// storeMap(OutBuf, OfMap);
-
 			for(int nofy_step_i=0;nofy_step_i<2;nofy_step_i++){
 			#pragma HLS UNROLL
 				loadWtMap(WtMap, WtBuf);
@@ -2888,28 +2831,6 @@ void ConvLayerScdl(
 			}
 		}
 		else if(nofy_step==4){
-			// loadWtMap(WtMap, WtBuf);
-			// loadBiasTile(BiasBuf);
-			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
-			// 	loadWtMap(WtMap, WtBuf);
-			// 	loadBiasTile(BiasBuf);
-			// 	storeMap(OutBuf, OfMap);
-			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// }
-			// storeMap(OutBuf, OfMap);
-
-			// loadWtMap(WtMap, WtBuf);
-			// loadBiasTile(BiasBuf);
-			// tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// for(int nofy_step_i=0;nofy_step_i<3;nofy_step_i++){
-			// 	storeMap(OutBuf, OfMap);
-			// 	loadWtMap(WtMap, WtBuf);
-			// 	loadBiasTile(BiasBuf);
-			// 	tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
-			// }
-			// storeMap(OutBuf, OfMap);
-
 			for(int nofy_step_i=0;nofy_step_i<4;nofy_step_i++){
 			#pragma HLS UNROLL
 				loadWtMap(WtMap, WtBuf);
@@ -2920,6 +2841,16 @@ void ConvLayerScdl(
 		}
 		else if(nofy_step==8){
 			for(int nofy_step_i=0;nofy_step_i<8;nofy_step_i++){
+			#pragma HLS UNROLL
+				loadWtMap(WtMap, WtBuf);
+				loadBiasTile(BiasBuf);
+				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
+				storeMap(OutBuf, OfMap);
+			}
+		}
+		else if(nofy_step==16){
+			for(int nofy_step_i=0;nofy_step_i<4;nofy_step_i++){
+			#pragma HLS UNROLL
 				loadWtMap(WtMap, WtBuf);
 				loadBiasTile(BiasBuf);
 				tileClc(InBuf, WtBuf, BiasBuf, OutBuf);
@@ -3082,9 +3013,10 @@ void ConvLayer(
 		//Output
 		px_data_t_port *OfMap 			// [NOF][NOY][NOX]
 	){
-	// #pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED bundle=IFMAP
-	// #pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED bundle=WTMAP
-	// #pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED bundle=OFMAP
+	#pragma HLS INLINE off
+	#pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED bundle=IFMAP
+	#pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED bundle=WTMAP
+	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED bundle=OFMAP
 	static layerNo_dt layerNo = 0; 				// State of number of convolutional layer
 // Sequential
 	#if defined(REG3_SEQ)
@@ -3217,25 +3149,104 @@ void ConvX(
 	#pragma HLS INTERFACE m_axi port=WtMap depth=(512*256) 				bundle=WTMAP
 	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED 	bundle=OFMAP
 	static layerNo_dt layerNo = 0; 				// State of number of convolutional layer
-	if(layerNo==LAYERS){
-		fcLayersOFBlock(IfMap, WtMapFc, OfMap);
-		layerNo = 0;
-	}
-	else{
-		ConvLayer(IfMap, WtMap, OfMap);
-		layerNo++;
-	}
+	#if defined(HEAD_INTEGRATION)
+		if(layerNo==LAYERS){
+			fcLayersOFBlock(IfMap, WtMapFc, OfMap);
+			layerNo = 0;
+		}
+		else{
+			ConvLayer(IfMap, WtMap, OfMap);
+			layerNo++;
+		}
+	#elif not defined(HEAD_INTEGRATION)
+		if(layerNo==LAYERS+1){
+			fcLayersOFBlock(IfMap, WtMapFc, OfMap);
+			layerNo = 0;
+		}
+		else if(layerNo==LAYERS){
+			gap(IfMap, OfMap);
+			layerNo++;
+		}
+		else{
+			ConvLayer(IfMap, WtMap, OfMap);
+			layerNo++;
+		}
+	#endif
 }
 
-void gap(px_data_t *in, px_data_t *out){
+
+// void CNN_Base(
+// 		//Inputs
+// 		const px_data_t_port *IfMap, 	// [NIF][NIY-2*ZERO_PAD][NIX-2*ZERO_PAD]
+// 		const wt_data_t_port *WtMap, 	// [NOF][NIF][NKY][NKX]
+// 		const wt_data_t      *WtMapFc,
+// 		//Output
+// 		px_data_t_port *OfMap 			// [NOF][NOY][NOX]
+// 	){
+// 	#pragma HLS INTERFACE m_axi port=IfMap depth=FMAP_MEMSIZE_WIDENED 	bundle=IFMAP
+// 	#pragma HLS INTERFACE m_axi port=WtMap depth=WTMAP_MEMSIZE_WIDENED 	bundle=WTMAP
+// 	#pragma HLS INTERFACE m_axi port=WtMap depth=(512*256) 				bundle=WTMAP
+// 	#pragma HLS INTERFACE m_axi port=OfMap depth=FMAP_MEMSIZE_WIDENED 	bundle=OFMAP
+// 	static int layerNo = 0; 	
+// // Case 1	
+// 	// ConvLayer(IfMap, WtMap, OfMap);
+// 	// if(layerNo==LAYERS){
+// 	// 	layerNo = 0;
+// 	// }
+// 	// else{
+// 	// 	layerNo++;			// State of number of convolutional layer
+// 	// }
+
+// // Case 2
+// 	// if(layerNo==LAYERS){
+// 	// 	fcLayersOFBlock(IfMap, WtMapFc, OfMap);
+// 	// 	layerNo = 0;
+// 	// }
+// 	// else{
+// 	// 	ConvLayer(IfMap, WtMap, OfMap);
+// 	// 	layerNo++;
+// 	// }
+
+// // Case 3
+// 	if(layerNo==LAYERS+5){
+// 		fcLayersOFBlock(IfMap, WtMapFc, OfMap);
+// 		layerNo = 0;
+// 	}
+// 	else if(layerNo==2 || layerNo==5 || layerNo==9 || layerNo==13 || layerNo==17){
+// 		if(layerNo==2){
+// 			maxpool2x2(IfMap, 64, 224, 224, OfMap);
+// 		}
+// 		else if(layerNo==5){
+// 			maxpool2x2(IfMap, 128, 112, 112, OfMap);
+// 		}
+// 		else if(layerNo==9){
+// 			maxpool2x2(IfMap, 256, 56, 56, OfMap);
+// 		}
+// 		else if(layerNo==13){
+// 			maxpool2x2(IfMap, 512, 28, 28, OfMap);
+// 		}
+// 		else if(layerNo==17){
+// 			maxpool2x2(IfMap, 512, 14, 14, OfMap);
+// 		}
+// 		layerNo++;
+// 	}
+// 	else{
+// 		ConvLayer(IfMap, WtMap, OfMap);
+// 		layerNo++;
+// 	}
+// }
+
+void gap(const px_data_t *in, px_data_t *out){
 	// int input[512 * 7 * 7]; // CHW format
 	// int output[512];        // GAP output
 	const ap_int<32> reciprocal = (1 << RECIPROCAL_BITS) / (7 * 7); // fixed-point reciprocal
 
 	gap_c: for (int c = 0; c < 512; c++) {
+	#pragma HLS UNROLL off
 		acc_data_t sum = 0;
 		int offset = c * 7 * 7;
 		gap_xy: for (int i = 0; i < 7 * 7; i++) {
+		#pragma HLS PIPELINE II=1
 			sum += in[offset + i];
 		}
 		out[c] = (sum * reciprocal) >> RECIPROCAL_BITS; // Tranformed division to mul and right bit shift
@@ -3272,7 +3283,7 @@ void fcLayersOF(
 void fcLayersOFBlock(
 		/*Inputs*/ const px_data_t_port *IfMap, const wt_data_t *WtMap,
 		/*Output*/ px_data_t_port *OfMap){
-	#pragma HLS INLINE
+	#pragma HLS INLINE off
 	#ifndef __SYNTHESIS__
 		int min, max, minWt, maxWt;
 	#endif
@@ -3483,6 +3494,135 @@ void maxPool(
 		}
 	}
 }
+
+
+// void maxpool2x2(
+// 	const px_data_t *IfMap, int C, int H, int W,
+// 	px_data_t *OfMap){
+// 	#pragma HLS INTERFACE m_axi port=IfMap offset=slave bundle=gmem0 depth=FMAP_MEMSIZE
+// 	#pragma HLS INTERFACE m_axi port=OfMap offset=slave bundle=gmem1 depth=(FMAP_MEMSIZE/4)
+// 	#pragma HLS INTERFACE s_axilite port=IfMap bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=OfMap bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=H bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=W bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=C bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=return bundle=control
+
+// 	int outH = H / 2;
+// 	int outW = W / 2;
+
+// 	for (int c = 0; c < C; ++c) {
+// 		for (int y = 0; y < outH; ++y) {
+// 			int in_y = y * 2;
+// 			for (int x = 0; x < outW; ++x) {
+// 			#pragma HLS PIPELINE II=4
+// 				int in_x = x * 2;
+
+// 				int base = (c * H + in_y) * W + in_x;
+// 				px_data_t a = IfMap[base];
+// 				px_data_t b = IfMap[base + 1];
+// 				px_data_t c0 = IfMap[base + W];
+// 				px_data_t d = IfMap[base + W + 1];
+
+// 				px_data_t m1 = (a > b) ? a : b;
+// 				px_data_t m2 = (c0 > d) ? c0 : d;
+// 				px_data_t mout = (m1 > m2) ? m1 : m2;
+
+// 				int out_index = (c * outH + y) * outW + x;
+// 				OfMap[out_index] = mout;
+// 			}
+// 		}
+// 	}
+// }
+
+
+// void maxpool2x2(const px_data_t *IfMap, ap_uint<10> C,
+//               ap_uint<8> H, ap_uint<8> W, px_data_t *OfMap){
+// 	#pragma HLS INTERFACE m_axi port=IfMap offset=slave bundle=gmem0 depth=FMAP_MEMSIZE
+// 	#pragma HLS INTERFACE m_axi port=OfMap offset=slave bundle=gmem1 depth=(FMAP_MEMSIZE/4)
+// 	#pragma HLS INTERFACE s_axilite port=IfMap bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=OfMap bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=H bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=W bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=C bundle=control
+// 	#pragma HLS INTERFACE s_axilite port=return bundle=control
+
+// 	ap_uint<7> outH = H / 2;
+// 	ap_uint<7> outW = W / 2;
+// 	int row0_addr = 0;
+// 	int row1_addr = 0;
+// 	ap_uint<21> offset0;
+// 	#pragma HLS BIND_OP variable=offset0 op=mul impl=fabric
+// 	offset0 = H * W;
+// 	ap_uint<19> offset1 = H * W / 4;
+// 	#pragma HLS BIND_OP variable=offset1 op=mul impl=fabric
+// 	offset1 = outH * outW;
+// 	ap_uint<11> addr0, addr0W;
+// 	ap_uint<11> addr1;
+// 	Channel: for (int c = 0; c < C; ++c) {
+// 		addr0  = 0;
+// 		addr0W = W;
+// 		addr1  = 0;
+// 		Ydim: for (int y = 0; y < outH; ++y) {
+// 			Xdim: for (int x = 0; x < outW; ++x) {
+// 			#pragma HLS PIPELINE II=4
+// 				px_data_t a  = IfMap[row0_addr + addr0];
+// 				px_data_t b  = IfMap[row0_addr + addr0 + 1];
+// 				px_data_t c0 = IfMap[row0_addr + addr0W];
+// 				px_data_t d  = IfMap[row0_addr + addr0W + 1];
+// 				px_data_t m1 = ( a>b) ?  a: b;
+// 				px_data_t m2 = (c0>d) ? c0: d;
+// 				OfMap[row1_addr + addr1] = (m1>m2) ? m1 : m2;
+
+// 				addr0 += 2; // move to next 2x2 window
+// 				addr1++;
+// 			}
+// 			addr0 += W; addr0W += W;
+// 		}
+// 		row0_addr += offset0;
+// 		row1_addr += offset1;
+// 	}
+// }
+
+#if (not defined(FMAP_WIDEN) && not defined(WTMAP_WIDEN))
+void maxpool2x2(const px_data_t *IfMap, ap_uint<10> C,
+				ap_uint<8> H, ap_uint<8> W, px_data_t *OfMap){
+	#pragma HLS INTERFACE m_axi port=IfMap offset=slave bundle=gmem0 depth=FMAP_MEMSIZE
+	#pragma HLS INTERFACE m_axi port=OfMap offset=slave bundle=gmem1 depth=(FMAP_MEMSIZE/4)
+	#pragma HLS INTERFACE s_axilite port=IfMap bundle=control
+	#pragma HLS INTERFACE s_axilite port=OfMap bundle=control
+	#pragma HLS INTERFACE s_axilite port=H bundle=control
+	#pragma HLS INTERFACE s_axilite port=W bundle=control
+	#pragma HLS INTERFACE s_axilite port=C bundle=control
+	#pragma HLS INTERFACE s_axilite port=return bundle=control
+
+	ap_uint<7> outH = H / 2;
+	ap_uint<7> outW = W / 2;
+	ap_uint<21> addr0, addr0W;
+	ap_uint<21> addr1;
+	addr0  = 0;
+	addr0W = W;
+	addr1  = 0;
+	Channel: for (int c = 0; c < C; ++c) {
+		Ydim: for (int y = 0; y < outH; ++y) {
+			Xdim: for (int x = 0; x < outW; ++x) {
+			#pragma HLS PIPELINE II=4
+				px_data_t a  = IfMap[addr0];
+				px_data_t b  = IfMap[addr0 + 1];
+				px_data_t c = IfMap[addr0W];
+				px_data_t d  = IfMap[addr0W + 1];
+				px_data_t m1 = ( a>b) ?  a: b;
+				px_data_t m2 = ( c>d) ?  c: d;
+				OfMap[addr1] = (m1>m2) ? m1 : m2;
+
+				addr0 += 2; // move to next 2x2 window
+				addr1++;
+			}
+			addr0 += W; addr0W += W;
+		}
+	}
+}
+#endif
 
 
 void tlModelTop(px_data_t *Map1, wt_data_t *WtMap, 	// [NOF][NIF][NKY][NKX]

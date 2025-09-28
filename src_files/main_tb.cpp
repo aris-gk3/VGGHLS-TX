@@ -44,7 +44,9 @@ int main(){
 	// Has random input, therefore we don't check for range
 	// check += vgg16_test(/*Verbose=*/1, /*minPrint=*/1, /*biasReLuTrue=*/1);
 	// check += oxfordFlowers_test(/*Verbose=*/0, /*debug=*/1, /*minPrint=*/1, /*biasReLuTrue=*/1);
-	minimalRunSynth(/*layerNo=*/0);
+	// minimalRunSynth(/*layerNo=*/0);
+	minimalRunSynthConv(/*layerNo=*/0);
+
 
 	std::cout << "************************************************************************"
 				"*********  Verification Complete. *********************"

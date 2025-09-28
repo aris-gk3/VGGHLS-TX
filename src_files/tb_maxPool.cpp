@@ -27,7 +27,8 @@ void maxPool_toyEx(){
 			}
 		}
 	}
-	maxPool(input, channels, ydimOut, xdimOut, output);
+	// maxPool(input, channels, ydimOut, xdimOut, output);
+	maxpool2x2(input, channels, ydimIn, xdimIn, output);
 
 	std::cout << "Toy Example for max pooling." << std::endl;
 	std::cout << "Printing Input before max pooling:" << std::endl;

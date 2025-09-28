@@ -6,11 +6,11 @@
 #include "parameters.h"
 #define DATA_TYPE 1
 // 0 -> all int
-// 1 -> 8,16-bit integer for data
+// 1 -> 8,N-bit integer for data
 // 2 -> 16,32-bit integer for data
-// 3 -> ap_int<32> for data
+// 3 -> ap_int<32>, ap_int<64> for data
 // 4 -> 16-bit fixed integr for data
-#define DATA_TYPE_PAR 0
+#define DATA_TYPE_PAR 1
 // Data types for parameters and internal variables, counters
 // 0 -> all int
 // 1 -> Just enough arbitrary precision, manually calculated
