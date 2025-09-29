@@ -1952,7 +1952,7 @@ void loadIfMap(
 				#if defined(FMAP_WIDEN)
 					wrdX = 0;
 					If_Nix: for(int xTile_i=0;xTile_i<xTile/7;xTile_i++){
-					#pragma HLS LOOP_TRIPCOUNT min=TOX_TRIPCOUNT max=TOX_TRIPCOUNT
+					#pragma HLS LOOP_TRIPCOUNT min=(TOX_TRIPCOUNT/FMAP_WIDTHFACTOR) max=(TOX_TRIPCOUNT/FMAP_WIDTHFACTOR)
 						wrd_i = wrdMap + wrdY + wrdX;
 						InBuf[Poy_i][wrd_i  ][1] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS-1,0);
 						InBuf[Poy_i][wrd_i  ][2] = IfMap[Nif_i*(Niy)*(Tix-2)/7 + (yBase+yTile_i)*(Tix-2)/7 + xTile_i].range(SYNTH_BITS*2-1,SYNTH_BITS);
@@ -2618,7 +2618,7 @@ void storeMap(
 
 					Loop_Tox_step: for(int Tox_step_i=0; Tox_step_i<Tox_map/POX;Tox_step_i++){
 					#pragma HLS LOOP_TRIPCOUNT min=(TOXMAP_TRIPCOUNT/7) max=(TOXMAP_TRIPCOUNT/7)
-					#pragma HLS PIPELINE II=7
+					#pragma HLS PIPELINE II=1
 						#if not defined(FMAP_WIDEN)
 							if(layerNo==1 || layerNo==3 || layerNo==5 || layerNo==6 ||
 								layerNo==8 || layerNo==9 || layerNo==11 || layerNo==12){
@@ -3236,7 +3236,7 @@ void ConvX(
 // 	}
 // }
 
-void gap(const px_data_t *in, px_data_t *out){
+void gap(px_data_t *in, px_data_t *out){
 	// int input[512 * 7 * 7]; // CHW format
 	// int output[512];        // GAP output
 	const ap_int<32> reciprocal = (1 << RECIPROCAL_BITS) / (7 * 7); // fixed-point reciprocal

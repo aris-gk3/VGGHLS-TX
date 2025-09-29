@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\ConvLayer.hlscompile_summary",
+ "thisFile": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\ConvLayer.hlscompile_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,39 +9,39 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "09/01/25 19:10:39",
- "timestampMillis": "1756743039630",
+ "dateTimestamp": "09/29/25 19:41:29",
+ "timestampMillis": "1759164089242",
  "buildStep": {
-  "cmdId": "25400a6d-68d1-449f-95c7-716ad0065396",
+  "cmdId": "3f3210a4-6279-4530-b055-227701a8f301",
   "name": "v++",
-  "logFile": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\logs\\ConvLayer.steps.log",
-  "commandLine": "C:/Xilinx/2025.1/Vitis/bin/unwrapped/win64.o/v++.exe  -c --mode hls --config C:\\Programming_Files\\VGGHLS-TX\\TL_Base\\hls_config.cfg --work_dir ConvLayer ",
+  "logFile": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\logs\\ConvLayer.steps.log",
+  "commandLine": "C:/Xilinx/2025.1/Vitis/bin/unwrapped/win64.o/v++.exe  -c --mode hls --config C:\\Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\hls_config.cfg --work_dir ConvLayer ",
   "args": [
    "-c",
    "--mode",
    "hls",
    "--config",
-   "C:\\Programming_Files\\VGGHLS-TX\\TL_Base\\hls_config.cfg",
+   "C:\\Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\hls_config.cfg",
    "--work_dir",
    "ConvLayer"
   ],
   "iniFiles": [
    {
-    "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\hls_config.cfg",
+    "path": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\hls_config.cfg",
     "content": "part=xcvu9p-flga2104-3-e\n\n[hls]\nflow_target=vivado\npackage.output.format=ip_catalog\npackage.output.syn=false\nsyn.top=ConvX\nsyn.file=../src_files/Main_Code.cpp\ntb.file=../src_files/Auxiliary_Calculations.cpp\ntb.file=../src_files/main_tb.cpp\ntb.file=../src_files/tb_Buf2Pe.cpp\ntb.file=../src_files/tb_Dfl_ControlLogic.cpp\ntb.file=../src_files/tb_fcLayer.cpp\ntb.file=../src_files/tb_gap.cpp\ntb.file=../src_files/tb_loadbin.cpp\ntb.file=../src_files/tb_maxPool.cpp\ntb.file=../src_files/tb_Mem2Buf.cpp\ntb.file=../src_files/tb_parameters.cpp\ntb.file=../src_files/tb_Top.cpp\ntb.file=../src_files/tb_port_widening.cpp\ncsim.clean=1"
    }
   ],
-  "cwd": "C:\\Programming_Files\\VGGHLS-TX\\TL_Base"
+  "cwd": "C:\\Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/01/25 19:10:39",
- "timestampMillis": "1756743039631",
+ "dateTimestamp": "09/29/25 19:41:29",
+ "timestampMillis": "1759164089244",
  "status": {
-  "cmdId": "25400a6d-68d1-449f-95c7-716ad0065396",
+  "cmdId": "3f3210a4-6279-4530-b055-227701a8f301",
   "state": "CS_RUNNING"
  }
 }
@@ -49,8 +49,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "09/01/25 19:10:53",
- "timestampMillis": "1756743053767",
+ "dateTimestamp": "09/29/25 19:41:41",
+ "timestampMillis": "1759164101858",
  "buildSummary": {
   "hardwarePlatform": "",
   "hardwareDsa": "",
@@ -69,7 +69,7 @@
      "uuid": ""
     },
     "sources": [
-     "C:/Programming_Files\\VGGHLS-TX\\src_files\\Main_Code.cpp"
+     "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\src_files\\Main_Code.cpp"
     ],
     "psSources": [],
     "cuNames": [],
@@ -85,26 +85,26 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "09/01/25 19:10:53",
- "timestampMillis": "1756743053769",
+ "dateTimestamp": "09/29/25 19:41:41",
+ "timestampMillis": "1759164101860",
  "buildStep": {
-  "cmdId": "58140a75-288d-431f-8514-755398fedca0",
+  "cmdId": "eabbb185-be10-4973-8c06-a7869775a57a",
   "name": "",
-  "logFile": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\hls.log",
+  "logFile": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\hls.log",
   "commandLine": "",
   "args": [],
   "iniFiles": [],
-  "cwd": "C:\\Programming_Files\\VGGHLS-TX\\TL_Base"
+  "cwd": "C:\\Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/01/25 19:10:53",
- "timestampMillis": "1756743053770",
+ "dateTimestamp": "09/29/25 19:41:41",
+ "timestampMillis": "1759164101862",
  "status": {
-  "cmdId": "58140a75-288d-431f-8514-755398fedca0",
+  "cmdId": "eabbb185-be10-4973-8c06-a7869775a57a",
   "state": "CS_RUNNING"
  }
 }
@@ -112,10 +112,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/01/25 19:10:53",
- "timestampMillis": "1756743053770",
+ "dateTimestamp": "09/29/25 19:41:41",
+ "timestampMillis": "1759164101863",
  "report": {
-  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\hls_data.json",
+  "path": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\hls_data.json",
   "name": "",
   "fileType": "JSON",
   "reportType": "HLS_SYNTHESIS",
@@ -126,10 +126,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/01/25 19:10:53",
- "timestampMillis": "1756743053771",
+ "dateTimestamp": "09/29/25 19:41:41",
+ "timestampMillis": "1759164101864",
  "report": {
-  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\syn\\report\\csynth.rpt",
+  "path": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\syn\\report\\csynth.rpt",
   "name": "",
   "fileType": "TEXT",
   "reportType": "HLS_SYNTHESIS",
@@ -140,10 +140,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/01/25 19:10:53",
- "timestampMillis": "1756743053772",
+ "dateTimestamp": "09/29/25 19:41:41",
+ "timestampMillis": "1759164101866",
  "report": {
-  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\syn\\report\\csynth.xml",
+  "path": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls\\syn\\report\\csynth.xml",
   "name": "",
   "fileType": "XML",
   "reportType": "HLS_SYNTHESIS",
@@ -154,10 +154,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/01/25 19:15:29",
- "timestampMillis": "1756743329179",
+ "dateTimestamp": "09/29/25 19:47:47",
+ "timestampMillis": "1759164467179",
  "report": {
-  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls",
+  "path": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls",
   "name": "",
   "fileType": "DIR",
   "reportType": "HLS_DATAFLOW",
@@ -168,10 +168,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/01/25 19:15:29",
- "timestampMillis": "1756743329180",
+ "dateTimestamp": "09/29/25 19:47:47",
+ "timestampMillis": "1759164467180",
  "report": {
-  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls",
+  "path": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls",
   "name": "",
   "fileType": "DIR",
   "reportType": "HLS_FUNCTION_CALL_GRAPH",
@@ -182,10 +182,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/01/25 19:15:29",
- "timestampMillis": "1756743329181",
+ "dateTimestamp": "09/29/25 19:47:47",
+ "timestampMillis": "1759164467181",
  "report": {
-  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls",
+  "path": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\hls",
   "name": "",
   "fileType": "DIR",
   "reportType": "HLS_SCHEDULE",
@@ -196,10 +196,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/01/25 19:15:29",
- "timestampMillis": "1756743329182",
+ "dateTimestamp": "09/29/25 19:47:47",
+ "timestampMillis": "1759164467182",
  "status": {
-  "cmdId": "58140a75-288d-431f-8514-755398fedca0",
+  "cmdId": "eabbb185-be10-4973-8c06-a7869775a57a",
   "state": "CS_PASSED"
  }
 }
@@ -207,10 +207,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/01/25 19:15:30",
- "timestampMillis": "1756743330683",
+ "dateTimestamp": "09/29/25 19:47:51",
+ "timestampMillis": "1759164471730",
  "status": {
-  "cmdId": "25400a6d-68d1-449f-95c7-716ad0065396",
+  "cmdId": "3f3210a4-6279-4530-b055-227701a8f301",
   "state": "CS_PASSED"
  }
 }
@@ -218,10 +218,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/01/25 19:15:30",
- "timestampMillis": "1756743330738",
+ "dateTimestamp": "09/29/25 19:47:51",
+ "timestampMillis": "1759164471825",
  "report": {
-  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\reports\\v++_compile_ConvLayer_guidance.html",
+  "path": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\reports\\v++_compile_ConvLayer_guidance.html",
   "name": "",
   "fileType": "HTML",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",
@@ -232,10 +232,10 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/01/25 19:15:30",
- "timestampMillis": "1756743330739",
+ "dateTimestamp": "09/29/25 19:47:51",
+ "timestampMillis": "1759164471827",
  "report": {
-  "path": "C:/Programming_Files\\VGGHLS-TX\\TL_Base\\ConvLayer\\reports\\.db\\v++_compile_ConvLayer_guidance.pb3",
+  "path": "C:/Users\\arisi\\Documents\\VitisWorkspace\\VGGHLS-TX\\TL_Base\\ConvLayer\\reports\\.db\\v++_compile_ConvLayer_guidance.pb3",
   "name": "",
   "fileType": "BINARY_PROTOBUF",
   "reportType": "GLOBAL_RULECHECK_GUIDANCE",

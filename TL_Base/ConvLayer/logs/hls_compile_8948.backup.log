@@ -1,0 +1,4 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Users/arisi/Documents/VitisWorkspace/VGGHLS-TX/TL_Base/ConvLayer'.

@@ -22,7 +22,7 @@
 // 7 -> VGG-16 Parameters (*)
 // 8 -> VGG-Base
 // 9 -> Model from Trasfer Learning
-#define SOLUTION 0
+#define SOLUTION 2
 // 0 -> VGG-16 Parameters Solution 1 -> Pof=32, Poy=Pox=7
 // 1 -> VGG-16 Parameters Solution 2 -> Pof=16, Poy=Pox=7 (*)
 // 2 -> VGG-16 Parameters Solution 3 -> Pof=8 , Poy=Pox=7 (*)
@@ -1888,7 +1888,7 @@
 
 // *****  constexprants for loop tripcounts pragmas  *****
 // Given for calculating module latency for each layer
-#define LR_NUM_SYNTH 5
+#define LR_NUM_SYNTH 2
 constexpr int WNDCLC_TRIPCOUNT = wndclc_loop_limit_rom[LR_NUM_SYNTH];
 constexpr int TILECLC_TRIPCOUNT = tileclc_loop_limit_rom[LR_NUM_SYNTH];
 constexpr int WRD1ROW_TRIPCOUNT = wrd_1row_rom[LR_NUM_SYNTH];

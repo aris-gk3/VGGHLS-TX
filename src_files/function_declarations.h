@@ -211,7 +211,8 @@ void ConvX(
 		//Output
 		px_data_t_port *OfMap 			// [NOF][NOY][NOX]
 	);
-void gap(const px_data_t *in, px_data_t *out);
+// void gap(const px_data_t *in, px_data_t *out);
+void gap(px_data_t *in, px_data_t *out);
 void fcLayers(px_data_t *IfMap, wt_data_t *WtMap, px_data_t finalOut[1000]);
 void fcLayersOF(
 		/*Inputs*/ px_data_t *IfMap, wt_data_t *WtMap,
